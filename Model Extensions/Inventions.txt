@@ -1,0 +1,142 @@
+	
+	+-----------+
+	| F A R M S |
+	+-----------+
+	
+
+Name						Desc						Ef		Ql		Pr		Price		Depends
+------------------			----------------------		--		--		--		-----		--------
+
+Extraterrestial Climate		How the planet conditions	+4		+3		+10		10
+							can affect or improve farm
+							production
+							
+Water Pumps					Ease nutritious flow in 	+3		+2		+2		5
+							organoponics
+							
+Water Control				Check water for harmfull	-1		+4		+10		10			Ext. Climate
+							micro-organisms in farms
+							
+Synthetic Ground			Enlarge cultivable area		+5		-3		-7		20
+
+Automatic Irrigation		Control system to irrigate	+2		+1		+3		7
+							land only when necessary
+							
+Induced Photosynthesis		Increase the ability to 	+6		-3		-10		10
+							generate energy in plants, 
+							thus accelerating their 
+							growth.
+							
+Synthetic Animal Food		Helps growing livestock		+4		-2		-7		8
+
+Biogenic Feeding 			Animals' digestive system 	+20		+3		-100	50
+							is connected to a 
+							centralized system which 
+							delivers the food.
+							
+Advanced Genetics			Incorporate the latest		+2		+1		0		50
+							discoveries in Genetics 
+							into your company's 
+							knowledge.
+							
+Extraterrestial Genetics	Study of the colony			0		0		+20		40			Adv. Genetics, Ext. Climate
+							genetic heritage
+							
+Colonial Mutant Plants		Develop mutant vegetal		+40		-20		-20		30			Ext. Genetics
+							species
+							
+Vegetal Music				Increase plant's growth		+3		+2		+10		40
+							by creating a nice musical
+							environment.
+							
+Skinless Pigs				Pigs without skin contain	+10		+2		-100	40			Ext. Genetics
+							less fat
+							
+Mice Recycling				Inevitable farm mice are	+4		-7		-40		1
+							used in livestock feeding							
+							
+Sunlight Correction			Develop special greenhouse	+3		+4		+7		40			Ext. Climate
+							glasses to make sunlight
+							closer to earth parameters
+
+Plague Control System		Plagues are detected and	+7		-3		0		20			Ext. Climate
+							exterminated automatically
+							
+Personal Hygiene Control	Employees are constantly	-10		+20		10		6			
+							cleaned at certain halls
+
+
+	
+	+-----------------+
+	| FOOD PROCESSING |
+	+-----------------+
+	
+Recurrent Food Production 	Uses subproducts  			+7		-10		-7		5
+							as raw materials
+							for food processing
+							
+Solar Refrigeration			Uses non-polluting solar	-2		+3		2		10
+							energy to cool meet
+							
+Water Applications			Water can be very useful	+10		-7		-2		0.3
+							to enlarge chicken breasts	
+							and dairy.
+							
+Silicon Applications		Increase meat production.	+20		-20		-5		10
+							(No further explanation
+							needed)
+							
+Food Quality Control		Helps to spot food in		-5		+10		+7		1
+							state of decomposition.
+							
+Brume Syndrome Correction	Detects food capable of		-5		+10		+7		5
+							developing Brume's 
+							Syndrome.
+							
+ROOG Correction				Detects food with tendency	-7		+10		+10		7
+							to become ROOG.		
+							
+Basic Food Refinement		Provides extra processing 	-5		+5		+2		3
+							in order to increase food
+							quality
+							
+Advanced Food Refinement	Provides extra processing 	-5		+10		+2		10		
+							in order to increase food
+							quality
+
+Organic Chemicals			Substitutes some 			+6		-3		0		1
+							non-organic chemicals by
+							processed subproducts.
+							
+Radiactive Enlargements		Enlarge vegetables and		+15		-20		-10		2
+							meat by exposing it to
+							healthy doses of 
+							radioactivity
+
+
+	+-----------------------------+
+	| FABRICS, THREADS & CLOTHING |
+	+-----------------------------+
+	
+NATO polyester				Assimilate NATO's designs	-4		+9		3		0
+							for highly durable fabrics
+							
+Inverse knitting			Introduce looms with		+7		-10		4		5
+							inverse	sliding. It leaves
+							irregular holes on the
+							fabric, usually 
+							imperceptible for the
+							average eye.
+							
+Mutant Caterpillars			Allow to obtain some very	-7		+10		0		25
+							fine raw materials for
+							the production of threads
+							and fabrics.
+							
+Synthetic Threads			Replace a lot of organic	+
+							materials by sytetic
+							components.
+							
+
+
+							

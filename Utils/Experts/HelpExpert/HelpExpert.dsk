@@ -1,0 +1,215 @@
+[MainWindow]
+Create=1
+Visible=1
+State=0
+Left=0
+Top=0
+Width=800
+Height=107
+MaxLeft=-4
+MaxTop=-4
+ClientWidth=792
+ClientHeight=60
+
+[ProjectManager]
+LargeButtons=1
+Column0Width=75
+Column1Width=125
+Column2Width=125
+
+[PropertyInspector]
+Create=1
+Visible=1
+State=0
+Left=0
+Top=108
+Width=190
+Height=385
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=182
+ClientHeight=359
+SplitPos=85
+
+[HistoryLists\hiWatchExpression]
+Count=1
+H0=s
+
+[HistoryLists\hiEvalExpression]
+Count=29
+H0=@Terminate
+H1=Terminate
+H2=i,x
+H3=i
+H4=s
+H5=Module
+H6=CurFile
+H7=guid,x
+H8=guid
+H9=MenuItem.GetCaption
+H10=MenuItem
+H11=MAX_PATH
+H12=1 shl 31,x
+H13=1 shl 31
+H14=SEVERITY_SUCCESS shl 31
+H15=SEVERITY_SUCCESS
+H16=22.5*40
+H17=23*40
+H18=ord('A')
+H19=ord('A') shl 256
+H20=chr(ord('P') or (ord('A') shl 256))
+H21=ord('P') or (ord('A') shl 256)
+H22=sizeof(Largeint)
+H23=Rect
+H24=257, x
+H25=WM_SIZE
+H26=fViewControl.handle
+H27=fViewControl
+H28=Wnd
+
+[HistoryLists\hiOpenFile]
+Count=32
+H0=c:\work\rag\work\mapi\samples of mapi\explore\explore.dpr
+H1=c:\work\rag\work\expert\helpexpert\helpexpert.dpr
+H2=c:\work\rag\work\expert\idestream\mwideexpert.pas
+H3=d:\program files\borland\delphi 3\source\toolsapi\dsgnintf.pas
+H4=c:\work\rag\work\expert\idestream\mwidestream.pas
+H5=e:\tmp\xxx.txt
+H6=d:\program files\borland\delphi\source\rtl\win\windows.pas
+H7=d:\program files\borland\delphi\source\toolsapi\toolintf.pas
+H8=d:\program files\borland\delphi\source\toolsapi\fileintf.pas
+H9=d:\program files\borland\delphi\source\toolsapi\editintf.pas
+H10=d:\program files\borland\delphi\source\rtl\win\activex.pas
+H11=d:\program files\borland\delphi\source\rtl\win\shellapi.pas
+H12=d:\program files\borland\delphi\source\rtl\win\shlobj.pas
+H13=e:\tmp\prjexpl.pas
+H14=d:\program files\borland\delphi\demos\experts\exptdemo.dpr
+H15=d:\program files\borland\delphi\source\toolsapi\exptintf.pas
+H16=d:\program files\borland\delphi\lib\common\shell.pas
+H17=d:\program files\borland\delphi\source\rtl\sys\system.pas
+H18=e:\wl\cabview\path.pas
+H19=e:\wl\cabview\path.cpp
+H20=e:\wl\cabview\unknown.h
+H21=e:\wl\cabview\unknown.cpp
+H22=e:\wl\cabview\xicon.h
+H23=e:\wl\cabview\xicon.cpp
+H24=e:\wl\cabview\xicon.pas
+H25=e:\wl\cabview\thisdll.pas
+H26=d:\program files\borland\delphi\source\rtl\win\commctrl.pas
+H27=e:\wl\cabview\sfvwnd.pas
+H28=e:\wl\cabview\os.pas
+H29=e:\wl\cabview\cabview.rc
+H30=e:\wl\cabview\resources.pas
+H31=e:\wl\cabview\sfview.pas
+
+[HistoryLists\hiRunParams]
+Count=0
+
+[HistoryLists\hiHostApplication]
+Count=1
+H0=d:\Program Files\Borland\Delphi\Bin\Delphi32.exe
+
+[HistoryLists\hiUnitAlias]
+Count=3
+H0=ShlObj=Shell
+H1=ShlObj=Shel
+H2=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+
+[HistoryLists\hiLibUnitAliases]
+Count=1
+H0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+
+[HistoryLists\hiSearchMasks]
+Count=7
+H0=D:\Program Files\Borland\Delphi\Demos\EXPERTS
+H1=e:\tmp
+H2=E:\wl\CABView\*.*
+H3=D:\Program Files\Borland\Delphi\Source
+H4=D:\Program Files\Borland\Delphi\Demos
+H5=E:\Skipper\Source\Clipboard
+H6=D:\Program Files\Borland\Ebony\INCLUDE\*.*
+
+[HistoryLists\hiPakDLLOutputDir]
+Count=1
+H0=E:\Axl\Bin
+
+[HistoryLists\hiPakDCPOutputDir]
+Count=1
+H0=E:\Axl\Units
+
+[Closed Files]
+File_0=SourceModule,'C:\work\rag\Work\Expert\IdeStream\mwIDEExpert.pas',0,1,29,1,45,1,0
+File_1=SourceModule,'D:\Program Files\Borland\Delphi 3\Source\TOOLSAPI\ExptIntf.pas',0,1,84,1,84,0,0
+File_2=SourceModule,'D:\Program Files\Borland\Delphi 3\Source\TOOLSAPI\VirtIntf.pas',0,1,1,64,11,0,0
+File_3=SourceModule,'D:\Program Files\Borland\Delphi 3\Source\TOOLSAPI\ToolIntf.pas',0,1,1,1,9,0,0
+File_4=SourceModule,'D:\Program Files\Borland\Delphi 3\Source\TOOLSAPI\dsgnintf.pas',0,1,1,1,1,0,0
+File_5=SourceModule,'\\Kryster\source\VCL\GraphEditors.pas',0,1,1,32,7,0,0
+File_6=SourceModule,'\\Kryster\source\VCL\ToolEditors.pas',0,1,1,13,19,0,0
+File_7=SourceModule,'\\Kryster\source\VCL\MiscEditors.pas',0,1,41,78,15,0,0
+File_8=SourceModule,'D:\Program Files\Borland\Delphi 3\Source\VCL\TypInfo.pas',0,1,1,1,1,0,0
+File_9=SourceModule,'D:\Program Files\Borland\Delphi 3\Source\TOOLSAPI\EditIntf.pas',0,1,551,1,565,0,0
+
+[Modules]
+Module0=C:\work\rag\Work\Expert\HelpExpert\HelpExpert.dpr
+Count=1
+EditWindowCount=1
+
+[C:\work\rag\Work\Expert\HelpExpert\HelpExpert.dpr]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[EditWindow0]
+Create=1
+Visible=1
+State=0
+Left=210
+Top=129
+Width=544
+Height=381
+MaxLeft=-4
+MaxTop=-4
+ClientWidth=536
+ClientHeight=353
+SplitPos=-1
+MessagePane=0
+ViewCount=1
+CurrentView=0
+View0=0
+
+[View0]
+Module=C:\work\rag\Work\Expert\HelpExpert\HelpExpert.dpr
+CursorX=1
+CursorY=48
+TopLine=48
+LeftCol=1
+
+[Watches]
+Count=1
+Watch0='s',256,0,18,1
+
+[Breakpoints]
+Count=0
+
+[PVCS Browser]
+Left=236
+Top=105
+Width=625
+Height=393
+State=0
+Visible=0
+
+[PVCS VDiff]
+Left=257
+Top=160
+Width=591
+Height=608
+Layout=1
+Orientation=1
+State=0
+Visible=0
+File1Color=16711680
+File2Color=255
+SpaceColor=16776960
+TextColor=0
+

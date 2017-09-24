@@ -1,0 +1,177 @@
+[MainWindow]
+Create=1
+Visible=1
+State=2
+Left=0
+Top=0
+Width=800
+Height=106
+MaxLeft=-4
+MaxTop=-4
+MaxWidth=808
+MaxHeight=106
+ClientWidth=800
+ClientHeight=60
+
+[ProjectManager]
+LargeButtons=1
+Column0Width=75
+Column1Width=125
+Column2Width=125
+
+[PropertyInspector]
+Create=1
+Visible=1
+State=0
+Left=0
+Top=108
+Width=190
+Height=383
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=182
+ClientHeight=359
+SplitPos=84
+
+[HistoryLists\hiSearchSymbol]
+Count=1
+H0=TheClientWorld
+
+[HistoryLists\hiEvalExpression]
+Count=32
+H0=fmOpenRead
+H1=syncFolderFile
+H2=NewDirs.count
+H3=NewDirs
+H4=NewDirs.text
+H5=Search.Attr and faArchive
+H6=faArchive
+H7=SyncDirs.text
+H8=SyncDirs
+H9=NewFiles.text
+H10=NewFiles
+H11=NewFiles[0]
+H12=OldDirs.count
+H13=OldDirs
+H14=SyncDirs[0]
+H15=SyncDirs.count
+H16=OldFiles.count
+H17=OldFiles[0]
+H18=OldFiles
+H19=NewFiles.Count
+H20=hRes, x
+H21=hRes
+H22=MK_E_UNAVAILABLE, x
+H23=MK_E_UNAVAILABLE
+H24=error
+H25=Result
+H26=integer(true)
+H27=INVALID_HANDLE_VALUE
+H28=self, p
+H29=self
+H30=ServerName
+H31=tmp
+
+[HistoryLists\hiOpenFile]
+Count=32
+H0=d:\work\five\source\cache server\cacheserverreportform.dfm
+H1=d:\work\five\source\utils\synchro\syncindex.pas
+H2=d:\work\five\source\utils\synchro\cabutils.pas
+H3=d:\work\five\source\voyager\urlhandlers\mapisohandler.pas
+H4=d:\work\five\source\utils\codelib\axldebug.pas
+H5=d:\work\five\source\utils\codelib\threads.pas
+H6=d:\work\five\source\kernel\collection.pas
+H7=d:\work\five\source\utils\network\urlutils.pas
+H8=d:\work\five\source\utils\synchro\synchro.pas
+H9=e:\merchise\utils\misc\datetimeutils.pas
+H10=c:\program files\borland\delphi 3\source\rtl\win\windows.pas
+H11=e:\esc\monikers\urlutils.pas
+H12=e:\esc\monikers\monmainform.pas
+H13=c:\program files\borland\delphi 3\source\rtl\win\urlmon.pas
+H14=e:\esc\cabs\delphi test\cabutils.pas
+H15=c:\program files\borland\delphi 3\source\rtl\win\wininet.pas
+H16=e:\esc\http\webloader.pas
+H17=e:\esc\http\httputils.pas
+H18=e:\troy\webloader.delphi\http.pas
+H19=e:\troy\webloader.delphi\webloader.pas
+H20=e:\troy\webloader.cpp\downloader.h
+H21=e:\troy\webloader.cpp\downloader.cpp
+H22=c:\program files\borland\delphi 3\source\internet\httpapp.pas
+H23=e:\esc\warpilot\server\serverworld.pas
+H24=e:\cliprect.pas
+H25=e:\esc\network\netutils.pas
+H26=e:\esc\war pilot\client\clientworld.pas
+H27=e:\merchise\utils\graphics\bufferdraw.pas
+H28=e:\esc\graph\unit1.pas
+H29=e:\merchise\utils\misc\streamutils.pas
+H30=e:\merchise\utils\graphics\palettes.pas
+H31=e:\merchise\utils\graphics\bitblt.pas
+
+[HistoryLists\hiRunParams]
+Count=5
+H0="E:\Work\Five\Five Web\Client\Cache\BuildingClasses\" /r
+H1="D:\Work\Five\Five Web\Client\" /r
+H2="D:\Work\Five\Five Web\Client" /r
+H3="D:\Work\Five\Five Web\Client" index.sync /r
+H4="D:\Work\Five\Five Web\Client" index.sync 
+
+[HistoryLists\hiUnitAlias]
+Count=1
+H0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+
+[HistoryLists\hiLibUnitAliases]
+Count=1
+H0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+
+[HistoryLists\hiSearchMasks]
+Count=1
+H0=E:\Esc\War Pilot
+
+[Closed Files]
+File_0=SourceModule,'D:\Work\Five\Source\Cache Server\CacheServerReportForm.pas',0,1,48,1,60,0,0
+File_1=SourceModule,'D:\Work\Five\Source\Utils\Synchro\synchro.pas',0,1,239,5,241,0,0
+File_2=SourceModule,'D:\Work\Five\Source\Tests\SyncTest.pas',0,1,1,5,49,1,1
+File_3=SourceModule,'D:\Work\Five\Source\Utils\Synchro\CabUtils.pas',0,36,49,117,56,0,0
+File_4=SourceModule,'D:\Work\Five\Source\Utils\CodeLib\Threads.pas',0,1,776,1,790,0,0
+File_5=SourceModule,'D:\Work\Five\Source\Utils\Network\URLUtils.pas',0,1,1,1,15,0,0
+File_6=SourceModule,'D:\Work\Five\Source\Cache Server\CacheServerReportForm.dfm',0,1,1,1,1,0,0
+File_7=SourceModule,'\\Geena\C\Work\Isometric Viewer\ESC Sources\Monikers\MonMainForm.pas',0,1,25,1,31,1,0
+File_8=SourceModule,'D:\Work\Five\Source\Kernel\Collection.pas',0,1,105,1,117,0,0
+
+[Modules]
+Module0=D:\Work\Five\Source\Utils\Synchro\mkindex.dpr
+Count=1
+EditWindowCount=0
+
+[D:\Work\Five\Source\Utils\Synchro\mkindex.dpr]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[Watches]
+Count=0
+
+[Breakpoints]
+Count=1
+Breakpoint0='E:\Work\Five\Source\Utils\Synchro\SyncIndex.pas',543,'',0,1
+
+[PVCS Browser]
+Left=236
+Top=105
+Width=625
+Height=393
+State=0
+Visible=0
+[PVCS VDiff]
+Left=257
+Top=160
+Width=591
+Height=608
+Layout=1
+Orientation=1
+State=0
+Visible=0
+File1Color=16711680
+File2Color=255
+SpaceColor=16776960
+TextColor=0

@@ -1,0 +1,13 @@
+program MSWatcher;
+
+uses
+  SvcMgr,
+  SPService in 'SPService.pas' {SMSWatcher: TService};
+
+{$R *.RES}
+
+begin
+  Application.Initialize;
+  Application.CreateForm(TSMSWatcher, SMSWatcher);
+  Application.Run;
+end.

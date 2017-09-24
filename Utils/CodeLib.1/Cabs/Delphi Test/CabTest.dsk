@@ -1,0 +1,192 @@
+[MainWindow]
+Create=1
+Visible=1
+State=0
+Left=0
+Top=0
+Width=800
+Height=106
+MaxLeft=-4
+MaxTop=-4
+ClientWidth=792
+ClientHeight=60
+
+[ProjectManager]
+LargeButtons=1
+Column0Width=75
+Column1Width=125
+Column2Width=125
+
+[PropertyInspector]
+Create=1
+Visible=1
+State=0
+Left=0
+Top=108
+Width=190
+Height=383
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=182
+ClientHeight=359
+SplitPos=94
+
+[HistoryLists\hiSearchSymbol]
+Count=1
+H0=TheClientWorld
+
+[HistoryLists\hiEvalExpression]
+Count=32
+H0=self, p
+H1=self
+H2=integer(true)
+H3=INVALID_HANDLE_VALUE
+H4=ServerName
+H5=tmp
+H6=FILE_END
+H7=11*250
+H8=Id
+H9=Count
+H10=midActionRequest
+H11=NetRes^, r
+H12=NetRes
+H13=34*23
+H14=Rect( NewPos.X, NewPos.Y, NewPos.X + Image.Width, NewPos.Y + Image.Height )
+H15=newHeader^,r
+H16=newHeader
+H17=fBackImage.DibHeader^, r
+H18=fBackImage.DibHeader^
+H19=fBackImage.DibHeader
+H20=fBackImage, r
+H21=fBackImage
+H22=PaintBox1.Width
+H23=Width
+H24=fBackImage.width
+H25=24*23
+H26=345/15
+H27=476/14
+H28=fSockAddrIn
+H29=Socket.ReceiveText
+H30=Socket
+H31=Found
+
+[HistoryLists\hiOpenFile]
+Count=32
+H0=e:\esc\cabs\delphi test\cabutils.pas
+H1=c:\program files\borland\delphi 3\source\rtl\win\wininet.pas
+H2=e:\esc\http\webloader.pas
+H3=e:\esc\http\httputils.pas
+H4=e:\troy\webloader.delphi\http.pas
+H5=e:\troy\webloader.delphi\webloader.pas
+H6=e:\troy\webloader.cpp\downloader.h
+H7=e:\troy\webloader.cpp\downloader.cpp
+H8=c:\program files\borland\delphi 3\source\internet\httpapp.pas
+H9=e:\esc\warpilot\server\serverworld.pas
+H10=e:\cliprect.pas
+H11=e:\esc\network\netutils.pas
+H12=e:\esc\war pilot\client\clientworld.pas
+H13=e:\merchise\utils\graphics\bufferdraw.pas
+H14=e:\esc\graph\unit1.pas
+H15=e:\merchise\utils\misc\streamutils.pas
+H16=e:\merchise\utils\graphics\palettes.pas
+H17=e:\merchise\utils\graphics\bitblt.pas
+H18=e:\merchise\utils\graphics\dibs.pas
+H19=e:\merchise\utils\misc\numutils.pas
+H20=e:\merchise\utils\misc\miscutils.pas
+H21=e:\merchise\utils\graphics\gdi.pas
+H22=e:\merchise\utils\graphics\rects.pas
+H23=e:\merchise\utils\misc\objutils.pas
+H24=e:\merchise\utils\graphics\buffer.pas
+H25=e:\esc\war pilot\client\clientactor.pas
+H26=e:\esc\tcp\tcpsockets.pas
+H27=e:\esc\war pilot\collection.pas
+H28=e:\esc\war pilot\server\world.pas
+H29=d:\windows\system\pepe1.tlb
+H30=d:\windows\system\pepe.tlb
+H31=d:\windows\system\stdole32.tlb
+
+[HistoryLists\hiUnitAlias]
+Count=1
+H0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+
+[HistoryLists\hiLibUnitAliases]
+Count=1
+H0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+
+[HistoryLists\hiSearchMasks]
+Count=1
+H0=E:\Esc\War Pilot
+
+[Closed Files]
+File_0=SourceModule,'E:\Esc\HTTP\WEBLoader.pas',0,1,149,1,157,0,0
+File_1=SourceModule,'C:\Program Files\Borland\Delphi 3\Source\RTL\WIN\wininet.pas',0,1,1170,19,1177,0,0
+File_2=SourceModule,'E:\Esc\HTTP\HTTPTestMainForm.pas',0,1,47,1,50,0,0
+File_3=SourceModule,'E:\Esc\HTTP\HttpUtils.pas',0,1,64,1,79,0,0
+File_4=SourceModule,'C:\Program Files\Borland\Delphi 3\Source\INTERNET\httpapp.pas',0,1,78,10,78,0,0
+File_5=SourceModule,'E:\troy\WEBLoader.Cpp\DownLoader.cpp',0,1,49,17,51,0,0
+File_6=SourceModule,'E:\troy\WEBLoader.Cpp\DownLoader.h',0,1,1,1,7,0,0
+File_7=SourceModule,'E:\troy\WEBLoader.Delphi\WEBLoader.pas',0,1,193,10,206,0,0
+File_8=SourceModule,'E:\troy\WEBLoader.Delphi\Http.pas',0,1,1,20,9,0,0
+File_9=SourceModule,'E:\Esc\WarPilot\Client\TestClient.pas',0,1,90,35,102,0,0
+
+[Modules]
+Module0=E:\Esc\Cabs\Delphi Test\CabMain.pas
+Module1=E:\Esc\Cabs\Delphi Test\CabUtils.pas
+Module2=E:\Esc\Cabs\Delphi Test\CabTest.dpr
+Count=3
+EditWindowCount=1
+
+[E:\Esc\Cabs\Delphi Test\CabMain.pas]
+ModuleType=SourceModule
+FormState=1
+FormOnTop=0
+
+[E:\Esc\Cabs\Delphi Test\CabUtils.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[E:\Esc\Cabs\Delphi Test\CabTest.dpr]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[EditWindow0]
+Create=1
+Visible=1
+State=0
+Left=210
+Top=127
+Width=544
+Height=380
+MaxLeft=-4
+MaxTop=-4
+ClientWidth=536
+ClientHeight=353
+SplitPos=50
+MessagePane=0
+ViewCount=2
+CurrentView=0
+View0=0
+View1=1
+
+[View0]
+Module=E:\Esc\Cabs\Delphi Test\CabMain.pas
+CursorX=32
+CursorY=42
+TopLine=30
+LeftCol=1
+
+[View1]
+Module=E:\Esc\Cabs\Delphi Test\CabUtils.pas
+CursorX=1
+CursorY=49
+TopLine=34
+LeftCol=1
+
+[Watches]
+Count=0
+
+[Breakpoints]
+Count=0
+

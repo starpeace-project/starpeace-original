@@ -1,0 +1,7 @@
+#include "SplitterResources.inc"
+
+STRINGTABLE
+  {
+    rsInvalidParent, "Invalid parent %s."
+  }
+

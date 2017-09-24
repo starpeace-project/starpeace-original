@@ -1,0 +1,109 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="_UpgradeReport_Files\UpgradeReport.css">
+		<title>AcctHelper.vbp Upgrade Report</title>
+		
+		<script language="javascript">
+			function outliner () {
+				oMe = window.event.srcElement
+				//get child element
+				var child=document.all[event.srcElement.getAttribute("child",false)];
+				//if child element exists, expand or collapse it.
+				if (null !=child)
+					child.className = child.className == "collapsed" ? "expanded" : "collapsed";
+			}
+		
+			function changepic() {
+				uMe=window.event.srcElement;
+				var check = uMe.src.toLowerCase();
+				if (check.lastIndexOf("upgradereport_plus.gif") != -1)
+				{
+					uMe.src="_UpgradeReport_Files/UpgradeReport_Minus.gif"
+				}
+				else
+				{
+					uMe.src="_UpgradeReport_Files/UpgradeReport_Plus.gif"
+				}
+			}
+		</script>
+		
+	</head>
+	<body topmargin="0" leftmargin="0"  onclick="outliner();">
+		<h1>Upgrade Report for AcctHelper.vbp</h1>
+		
+		<table width="100%" cellpadding=2 cellspacing=0>
+		<tr valign=top>
+			<td width =350>
+		
+			<p><b>Project:  </b>AcctHelper.vbp<br>
+			<b>Time of Upgrade:  </b>2/18/2002 3:34 PM<br></p>
+			</td><td width="50">&nbsp;</td>
+			<td align="right">
+			<table><tr><td><p><span class=note>
+				<b>Upgrade Settings:</b><br>
+				<b>ADOPlus:</b> FALSE<br>
+				<b>GenerateInterfacesForClasses:</b> FALSE<br>
+				<b>LogFile:</b> AcctHelper.log<br>
+				<b>MigrateProjectTo:</b> WinExe<br>
+				<b>NativeArrays:</b> FALSE<br>
+				<b>OutputDir:</b> S:\Source\VBTools\VB.NET<br>
+				<b>ProjectName:</b> AcctHelper<br>
+				<b>ProjectPath:</b> S:\Source\VBTools\AcctHelper.vbp<br>
+				<b>TimeMark:</b> FALSE
+			</p></span></td></tr>
+			</table>
+			</td></tr>
+			</table>
+		<p>&nbsp;</p>
+		
+		<h2>List of Project Files</h2>
+		<table cellpadding="2" cellspacing="0" width="100%" border="1" frame="void" class="infotable"></TR>
+			<tr>
+				<td nowrap class="header">New Filename</td>
+				<td nowrap class="header">Original Filename</td>
+				<td nowrap class="header">File Type</td>
+				<td nowrap class="header">Status</td>
+				<td nowrap class="header">Errors</td>
+				<td nowrap class="header">Warnings</td>
+				<td nowrap class="header">Total Issues</td>
+			</tr>
+		<tr class=row>
+			<td class="content"><IMG class=expandable height=11 src="_UpgradeReport_Files/UpgradeReport_Minus.gif"width=9 child="issue0"  onclick="changepic()">&nbsp;(Global Issues)</td>
+			<td class="content"></td>
+			<td class="content"></td>
+			<td class="content">
+		</td>	<td class="content">1</td>
+			<td class="content">0</td>
+			<td class="content">1</td>
+		</tr>
+			<tr id=issue0 bgcolor="white"><td colspan="7">
+				<table width="98%" border=1 frame=void class="issuetable">
+				<tr><td colspan="7" class=issuetitle>Global update issues:</td></tr><tr><td width="10" class="issuehdr">#</td><td class="issuehdr">Severity</td><td class="issuehdr">Location</td><td class="issuehdr">Object Type</td><td class="issuehdr">Object Name</td><td class="issuehdr">Description</td></tr>
+					<tr><td width="10" class="issuecontent">1</td><td class="issuecontent">Compile Error</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent">General error accessing file "D:\Program Files\Microsoft Visual Studio\VB98\Form1.frm"</td></tr>
+				</table>
+			</td></tr>
+		<tr class=row>
+			<td class="content"><IMG class=expandable height=11 src="_UpgradeReport_Files/UpgradeReport_Plus.gif"width=9 child="issue1"  onclick="changepic()">&nbsp;Form1.vb</td>
+			<td class="content">Form1.frm</td>
+			<td class="content">Form</td>
+			<td class="content">
+		Migrated</td>	<td class="content">0</td>
+			<td class="content">0</td>
+			<td class="content">0</td>
+		</tr>
+			<tr class=collapsed id=issue1 bgcolor="white"><td colspan="7">
+				<table width="98%" border=1 frame=void class="issuetable">
+				<tr><td colspan="7" class=issuetitle>Upgrade Issues for Form1.frm:</td></tr><tr><td class=issuenone>None</td></tr>
+				</table>
+			</td></tr>
+		<tr class=foot>
+			<td>1 File(s) </td>
+			<td>&nbsp;</td>
+			<td>Form: 1</td>
+			<td>&nbsp;</td>
+			<td>1</td>
+			<td>0</td>
+			<td>1</td>
+		</table>
+	</body>
+</html>

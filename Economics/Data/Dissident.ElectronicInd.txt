@@ -1,0 +1,60 @@
+[General]
+name = Dissident Electronic Industry
+budget = 19900
+cost = 30000000
+cluster = Dissident
+
+[Basic inputs]
+count = 6
+
+      [basic_input_0]
+      name = Metal
+      fluid = Metal
+      max  = 300
+
+      [basic_input_1]
+      name = Ore
+      fluid = Ore
+      max  = 400
+
+      [basic_input_2]
+      name = Chemicals
+      fluid = Chemicals
+      max  = 45
+
+      [basic_input_3]
+      name = Executives Work Force
+      fluid = hiWorkForce
+      max  = 7
+
+      [basic_input_4]
+      name = Professional Work Force
+      fluid = midWorkForce
+      max  = 50
+
+      [basic_input_5]
+      name = Workers
+      fluid = loWorkForce
+      max  = 250
+
+[Aditional inputs]
+count = 2
+
+      [adt_input_0]
+      name = Computer Services
+      fluid = CompServ
+      max = 0.6
+
+      [adt_input_1]
+      name = Legal Services
+      fluid = LegalServ
+      max = 0.02
+
+[Outputs]
+count = 1
+
+      [output_0]
+      name = Electronic Components
+      fluid = ElecComp
+      max = 500
+

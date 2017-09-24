@@ -1,0 +1,189 @@
+[MainWindow]
+Create=1
+Visible=1
+State=0
+Left=0
+Top=0
+Width=808
+Height=120
+MaxLeft=-4
+MaxTop=-4
+ClientWidth=800
+ClientHeight=63
+
+[ProjectManager]
+LargeButtons=1
+Column0Width=75
+Column1Width=125
+Column2Width=125
+
+[PropertyInspector]
+Create=1
+Visible=1
+State=0
+Left=-2
+Top=101
+Width=238
+Height=389
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=230
+ClientHeight=359
+SplitPos=99
+
+[HistoryLists\hiWatchExpression]
+Count=2
+H0=yi
+H1=xi
+
+[HistoryLists\hiEvalExpression]
+Count=32
+H0=ClearMask,h
+H1=ClearMask
+H2=130 and not((1 shl 6) - 1)
+H3=100 and not((1 shl 6) - 1)
+H4=66 and not((1 shl 6) - 1)
+H5=64 and not((1 shl 6) - 1)
+H6=not((1 shl 6) - 1),h
+H7=not((1 shl 6) - 1)
+H8=not $3F,h
+H9=$3F
+H10=$2F
+H11=$1F
+H12=$F
+H13=$FF
+H14=not 40,h
+H15=not 40
+H16=64,h
+H17=TTL
+H18=onBoth
+H19=faDirectory
+H20=faArchive
+H21=tidRDOHook_World
+H22=IniFile.FileName
+H23=IniFile
+H24=fBaseDir + tidFileName_WorldIniFile
+H25=tidFileName_WorldIniFile
+H26=fBaseDir
+H27=CurrBlock.classname
+H28=CurrBlock is TBlock
+H29=CurrBlock
+H30=fVirtYear
+H31=CurrBlock.Facility.MetaFacility
+
+[HistoryLists\hiEvalNewValue]
+Count=1
+H0='00/00/00 00:00:10 AM'
+
+[HistoryLists\hiOpenFile]
+Count=32
+H0=c:\work\five\source\cache\cacheobjects.pas
+H1=c:\work\five\source\kernel\smartthreads.pas
+H2=e:\five\source\cache\cachemanagerrdo.pas
+H3=e:\five\source\cache\msobjectcacher.pas
+H4=e:\five\source\cache\cacheregistrydata.pas
+H5=c:\webshare\aspsamp\samples\browser\copy of cacheobject.asp
+H6=c:\webshare\aspsamp\samples\browser\cacheobject.asp
+H7=e:\five\source\cache\registrydata.pas
+H8=e:\five\source\cache\compstringsparser.pas
+H9=e:\five\source\cache\cachecommon.pas
+H10=c:\webshare\aspsamp\samples\browser\browser.asp
+H11=e:\five\source\cache\cachedobjectauto.pas
+H12=e:\five\source\rdo\common\logfile.pas
+H13=e:\five\source\rdo\common\errorcodes.pas
+H14=e:\five\source\rdo\common\rdoprotocol.pas
+H15=e:\five\source\rdo\client\delphi\socketrdoconnection.pas
+H16=e:\five\source\rdo\client\delphi\rdoclientinterfaces.pas
+H17=e:\five\source\rdo\client\delphi\objectproxy.pas
+H18=e:\five\source\rdo\client\autoserver\objectproxy.pas
+H19=e:\five\source\kernel\collection.pas
+H20=e:\five\source\cache\cachemanagerauto.pas
+H21=e:\five\source\cache\cacheobjs_tlb.pas
+H22=e:\five\source\cache\cacheregistrykeys.pas
+H23=c:\work\five\source\cache\cachemanager_tlb.pas
+H24=c:\work\five\source\rdo\client\delphi\objectproxy.pas
+H25=c:\inetpub\wwwroot\five\visual\build.asp
+H26=e:\five\source\cache\cacheproxyauto.pas
+H27=e:\five\source\cache\fivecachedobjects.pas
+H28=e:\five\source\internet\hostnames.pas
+H29=c:\work\five\source\cache\msobjectcacherdll.pas
+H30=c:\work\five\source\interface server\interfaceserverevents.pas
+H31=c:\work\five\source\interface server\interfaceserver.pas
+
+[HistoryLists\hiHostApplication]
+Count=4
+H0=C:\Work\Five\Source\Cache\Test\Project1.exe
+H1=C:\Program Files\WEBSVR\SYSTEM\INETSW95.EXE
+H2=C:\Work\Five\Source\Tests\Itr.exe
+H3=E:\Five\Release\CacheMan.exe
+
+[HistoryLists\hiUnitAlias]
+Count=1
+H0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+
+[HistoryLists\hiLibUnitAliases]
+Count=1
+H0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+
+[HistoryLists\hiSearchMasks]
+Count=7
+H0=C:\Work\Five\Source\RDO
+H1=e:\five\
+H2=C:\Work\Five\Source\Cache Server
+H3=C:\Work\Five\Source\Cache
+H4=C:\Work\Five\Source
+H5=C:\Work\Five\Source\Kernel
+H6=C:\Work\Five\Source;C:\Work\Five\StdBlocks
+
+[Closed Files]
+File_0=SourceModule,'C:\Work\Five\Source\Kernel\Collection.pas',0,1,6,43,13,0,0
+File_1=SourceModule,'C:\Work\Five\Source\Cache\WSObjectCacher.pas',0,1,1,53,6,0,0
+File_2=SourceModule,'C:\Work\Five\Source\Cache\CacheObjects.pas',0,1,232,1,247,0,0
+File_3=SourceModule,'C:\Work\Five\Source\Cache\CachedObjectAuto.pas',0,1,129,57,141,0,0
+File_4=SourceModule,'C:\Work\Five\Source\Cache\CacheRegistryData.pas',0,1,1,5,1,0,0
+File_5=SourceModule,'C:\TEMP\CacheObjects.pas',0,1,479,40,491,0,0
+File_6=SourceModule,'C:\Work\Five\Source\RDO\Common\LogFile.pas',0,1,26,1,38,0,0
+File_7=SourceModule,'C:\Work\Five\Source\RDO\Client\Delphi\ObjectProxy.pas',0,1,1,1,1,0,0
+File_8=SourceModule,'C:\Work\Five\Source\RDO\Client\Delphi\SocketRDOConnection.pas',0,1,1,1,6,0,0
+File_9=SourceModule,'C:\Work\Five\Source\Kernel\SmartThreads.pas',0,1,1,29,10,0,0
+
+[Modules]
+Module0=\\JILL\Five\Source\Cache\CacheServer.dpr
+Count=1
+EditWindowCount=0
+
+[\\JILL\Five\Source\Cache\CacheServer.dpr]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[Watches]
+Count=2
+Watch0='xi',256,0,18,1
+Watch1='yi',256,0,18,1
+
+[Breakpoints]
+Count=0
+
+[PVCS Browser]
+Left=236
+Top=105
+Width=625
+Height=393
+State=0
+Visible=0
+
+[PVCS VDiff]
+Left=257
+Top=160
+Width=591
+Height=608
+Layout=1
+Orientation=1
+State=0
+Visible=0
+File1Color=16711680
+File2Color=255
+SpaceColor=16776960
+TextColor=0
+

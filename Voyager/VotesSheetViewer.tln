@@ -1,0 +1,14 @@
+VotesSheetViewer.Caption=
+VotesSheetViewer.Hint=
+Panel2.Caption=leftPanel
+Panel2.Hint=
+lvVotes.Columns=4
+lvVotes.Columns.0=Candidate
+lvVotes.Columns.1=Ratings
+lvVotes.Columns.2=Valid Votes
+lvVotes.Columns.3=Points
+lvVotes.Hint=
+rightPanel.Caption=Panel2
+rightPanel.Hint=
+btnElect.Hint=
+btnElect.Text=Vote

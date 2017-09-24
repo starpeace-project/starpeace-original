@@ -1,0 +1,375 @@
+[MainWindow]
+Create=1
+Visible=1
+State=0
+Left=0
+Top=0
+Width=1025
+Height=106
+MaxLeft=-4
+MaxTop=-4
+ClientWidth=1017
+ClientHeight=60
+
+[BreakpointWindow]
+Create=1
+Visible=1
+State=0
+Left=173
+Top=201
+Width=453
+Height=200
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=445
+ClientHeight=173
+Column0Width=100
+Column1Width=60
+Column2Width=240
+Column3Width=40
+
+[WatchWindow]
+Create=1
+Visible=1
+State=0
+Left=189
+Top=225
+Width=421
+Height=149
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=413
+ClientHeight=122
+
+[ProjectManager]
+Create=1
+Visible=1
+State=0
+Left=276
+Top=115
+Width=419
+Height=282
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=411
+ClientHeight=258
+LargeButtons=1
+Column0Width=131
+Column1Width=125
+Column2Width=151
+
+[CPUWindow]
+Create=1
+Visible=1
+State=0
+Left=200
+Top=106
+Width=456
+Height=310
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=448
+ClientHeight=283
+DumpPane=79
+DisassemblyPane=184
+StackPane=95
+RegisterPane=117
+
+[PropertyInspector]
+Create=1
+Visible=1
+State=0
+Left=1
+Top=102
+Width=210
+Height=401
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=202
+ClientHeight=377
+SplitPos=95
+
+[HistoryLists\hiWatchExpression]
+Count=3
+H0=integer(pointer($2227CE8)^)
+H1=integer(pointer($5E07E98)^)
+H2=TsetCompanyInfo(pointer($12FDCC)^)
+
+[HistoryLists\hiEvalExpression]
+Count=32
+H0=269*0.15
+H1=171/21
+H2=3/21
+H3=1000 div 16
+H4=20000 div cPlanesTimerInterval
+H5=20000
+H6=cAirTrafficRegInterval
+H7=16280/4
+H8=10000 div 83
+H9=(((2147483647 div 1000) div 60) div 60) div 24
+H10=((2147483647 div 1000) div 60) div 60
+H11=(2147483647 div 1000) div 60
+H12=2147483647 div 1000
+H13=fControl
+H14=32737 + 32737 
+H15=33737 + 32737 
+H16=32737*65535
+H17=65535 div 1000
+H18=$FFFFFFFF div $200
+H19=$FFFFFFFF div 1000
+H20=$FFFFFFFF div 100
+H21=64*32*1024/1024
+H22=64*32*1024
+H23=64*32
+H24=MapName
+H25=32*32*32/1024
+H26=32*32*32
+H27=32*32
+H28=64*64*64/1024
+H29=256*256/1024
+H30=256*256/(1024*1024)
+H31=256*256*256/(1024*1024)
+
+[HistoryLists\hiEvalNewValue]
+Count=0
+
+[HistoryLists\hiOpenFile]
+Count=32
+H0=c:\work\five\release\servers\cacheserver.log
+H1=c:\work\five\source\daemon scheduler\fivedaemonscheduler.dpr
+H2=c:\work\five\source\daemon scheduler\rankings.dpr
+H3=c:\work\five\release\servers\interfaceserver.log
+H4=c:\work\five\release\servers\wrongfivemodelserver.exe.log
+H5=c:\work\five\source\voyager\fivevoyager.dpr
+H6=c:\work\five\release\servers\alsp.exe.general.log
+H7=c:\work\five\source\daemon scheduler\daemons.pas
+H8=c:\work\five\source\daemon scheduler\dirserversession.pas
+H9=c:\work\five\release\servers\daemonschedulr.exe.daemon scheduler.log
+H10=c:\work\five\source\logs\logs.pas
+H11=c:\work\five\release\servers\modelserver.log
+H12=c:\work\five\source\tests\d3d isometric viewer\d3disoviewertest.dpr
+H13=c:\work\five\source\logs\logdll.pas
+H14=c:\work\five\source\logs\systemlogs.pas
+H15=c:\work\five\source\daemon scheduler\testdaemon.dpr
+H16=c:\work\five\source\daemon scheduler\daemonscheduler.dpr
+H17=c:\work\five\source\tests\isometric viewer\clientview.pas
+H18=c:\work\five\source\tests\smtptest\smtpclient.pas
+H19=c:\work\five\source\utils\misc\strutils.pas
+H20=c:\work\five\source\utils\misc\compstringsparser.pas
+H21=c:\work\five\source\protocol\protocol.pas
+H22=c:\work\five\source\utils\misc\mathutils.pas
+H23=c:\work\five\source\utils\network\spoolpackets.pas
+H24=c:\work\five\source\kernel\collection.pas
+H25=c:\work\five\source\utils\network\socketcomp.pas
+H26=c:\work\five\source\kernel\smartthreads.pas
+H27=c:\work\five\source\rdo\common\rdoutils.pas
+H28=c:\work\five\source\rdo\client\rdomarshalers.pas
+H29=c:\work\five\source\rdo\common\errorcodes.pas
+H30=c:\work\five\source\rdo\common\rdoprotocol.pas
+H31=c:\work\five\source\rdo\common\rdointerfaces.pas
+
+[HistoryLists\hiRunParams]
+Count=3
+H0=http:\\bean\five\
+H1=http:\\www.starpeace.net\five\
+H2=http:\\lisa\five\
+
+[HistoryLists\hiHostApplication]
+Count=4
+H0=C:\Work\Five\Release\Servers\FiveDaemonScheduler.exe
+H1=C:\Work\Five\Release\Servers\DaemonSchedulr.exe
+H2=C:\Work\Five\Release\Servers\DaemonSched.exe
+H3=C:\Work\Five\Release\Servers\DaemonScheduler.exe
+
+[HistoryLists\hiUnitAlias]
+Count=1
+H0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+
+[HistoryLists\hiLibUnitAliases]
+Count=1
+H0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+
+[HistoryLists\hiSearchMasks]
+Count=7
+H0=C:\Work\Five\Source\Land
+H1=C:\Work\Five\Source
+H2=E:\Work\Five\Source\News Server
+H3=E:\Work\Five\Source\Voyager
+H4=E:\Work\Five\Source\Voyager\Components
+H5=E:\Work\Five\Source\Rdo
+H6=E:\Work\Five\Source\Utils
+
+[HistoryLists\hiPakDLLOutputDir]
+Count=0
+
+[HistoryLists\hiPakDCPOutputDir]
+Count=0
+
+[Closed Files]
+File_0=SourceModule,'C:\Work\Five\Release\Servers\CacheServer.log',0,1,1,1,1,0,0
+File_1=SourceModule,'C:\Work\Five\Release\Servers\InterfaceServer.log',0,1,1,1,1,0,0
+File_2=SourceModule,'C:\Work\Five\Release\Servers\WrongFIVEModelServer.exe.log',0,1,1,1,1,0,0
+File_3=SourceModule,'C:\Work\Five\Release\Servers\alsp.exe.General.log',0,1,1,1,1,0,0
+File_4=SourceModule,'C:\Work\Five\Release\Servers\DAEMONSCHEDULR.EXE.Daemon Scheduler.log',0,1,1,1,1,0,0
+File_5=SourceModule,'C:\Work\Five\Release\Servers\ModelServer.log',0,1,1,1,1,0,0
+File_6=SourceModule,'C:\Work\Five\Source\Directory Server\DirectoryManager.pas',0,1,1,25,10,0,0
+File_7=SourceModule,'C:\Work\Five\Source\Utils\Network\SocketComp.pas',0,1,1,61,16,0,0
+File_8=SourceModule,'C:\Work\Five\Source\Tests\SMTPTest\SMTPClient.pas',0,1,44,1,68,1,0
+File_9=SourceModule,'C:\Work\Five\Source\Tests\Isometric Viewer\ClientView.pas',0,1,908,7,942,0,0
+
+[Modules]
+Module0=C:\Work\Five\Source\Daemon Scheduler\Daemons.pas
+Module1=C:\Work\Five\Source\Logs\LogDll.pas
+Module2=C:\Work\Five\Source\Daemon Scheduler\WorldStatus.dpr
+Module3=C:\Work\Five\Source\Daemon Scheduler\DirServerSession.pas
+Module4=C:\Work\Five\Source\Logs\SystemLogs.pas
+Module5=C:\Work\Five\Source\Logs\Logs.pas
+Module6=C:\Work\Five\Source\Daemon Scheduler\WorldStatusDaemon.pas
+Module7=C:\Work\Five\Source\Rdo\Common\ErrorCodes.pas
+Module8=C:\Work\Five\Source\Rdo\Client\RDOObjectProxy.pas
+Count=9
+EditWindowCount=1
+
+[C:\Work\Five\Source\Daemon Scheduler\Daemons.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\Logs\LogDll.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\Daemon Scheduler\WorldStatus.dpr]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\Daemon Scheduler\DirServerSession.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\Logs\SystemLogs.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\Logs\Logs.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\Daemon Scheduler\WorldStatusDaemon.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\Rdo\Common\ErrorCodes.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\Rdo\Client\RDOObjectProxy.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[EditWindow0]
+Create=1
+Visible=1
+State=2
+Left=210
+Top=127
+Width=696
+Height=486
+MaxLeft=-1
+MaxTop=-1
+MaxWidth=1032
+MaxHeight=748
+ClientWidth=1024
+ClientHeight=721
+SplitPos=50
+MessagePane=0
+ViewCount=9
+CurrentView=0
+View0=0
+View1=1
+View2=2
+View3=3
+View4=4
+View5=5
+View6=6
+View7=7
+View8=8
+
+[View0]
+Module=C:\Work\Five\Source\Daemon Scheduler\Daemons.pas
+CursorX=1
+CursorY=168
+TopLine=149
+LeftCol=1
+
+[View1]
+Module=C:\Work\Five\Source\Daemon Scheduler\DirServerSession.pas
+CursorX=44
+CursorY=173
+TopLine=156
+LeftCol=1
+
+[View2]
+Module=C:\Work\Five\Source\Rdo\Client\RDOObjectProxy.pas
+CursorX=75
+CursorY=373
+TopLine=341
+LeftCol=1
+
+[View3]
+Module=C:\Work\Five\Source\Rdo\Common\ErrorCodes.pas
+CursorX=1
+CursorY=14
+TopLine=1
+LeftCol=1
+
+[View4]
+Module=C:\Work\Five\Source\Daemon Scheduler\WorldStatusDaemon.pas
+CursorX=35
+CursorY=17
+TopLine=1
+LeftCol=1
+
+[View5]
+Module=C:\Work\Five\Source\Daemon Scheduler\WorldStatus.dpr
+CursorX=1
+CursorY=2
+TopLine=2
+LeftCol=1
+
+[View6]
+Module=C:\Work\Five\Source\Logs\Logs.pas
+CursorX=3
+CursorY=13
+TopLine=1
+LeftCol=1
+
+[View7]
+Module=C:\Work\Five\Source\Logs\SystemLogs.pas
+CursorX=1
+CursorY=1
+TopLine=1
+LeftCol=1
+
+[View8]
+Module=C:\Work\Five\Source\Logs\LogDll.pas
+CursorX=1
+CursorY=1
+TopLine=1
+LeftCol=1
+
+[Watches]
+Count=1
+Watch0='integer(pointer($2227CE8)^)',256,0,18,1
+
+[Breakpoints]
+Count=0
+

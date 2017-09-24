@@ -1,0 +1,849 @@
+Turbo Assembler	 Version 5.0	    03-11-98 05:00:55	    Page 1
+E:\JRG\Source\Utils\Graphics\bitblt16.asm
+
+
+
+      1								 PAGE	 255, 255
+      2
+      3								 PUBLIC	 BltCopySourceCTT16
+      4								 PUBLIC	 BltCopyGlassedCTT16
+      5
+      6								 INCLUDE bitblt.inc
+1     7					 IFNDEF	??version
+1     8								 ; We must be using MASM or something, let's do	nothing	here!!
+1     9					 ELSE
+1    10								 ; ??version is	defined	by TASM, so we should use the LOCALS directive:
+1    11								 LOCALS	 @@
+1    12								 NOSMART
+1    13					 ENDIF
+1    14
+1    15		  = 00ffffffh		 mskColorKey		 equ	 00ffffffh
+1    16
+1    17					 AlignTo		 macro	 AlignSize:REQ
+1    18
+1    19								 ; ( $ + AlignSize - 1 ) and not (AlignSize - 1)
+1    20
+1    21								 endm
+1    22
+1    23					 BltOpaque		 macro	 BltLoop:REQ, Param1, Param2, InitCode
+1    24
+1    25								 or	 ecx, ecx	  ; aWidth = 0?
+1    26								 jz	 @@Exit
+1    27								 cmp	 aHeight, 0	  ; aHeight = 0?
+1    28								 je	 @@Exit
+1    29
+1    30								 mov	 edi, edx
+1    31								 mov	 esi, eax
+1    32
+1    33								 sub	 WidthSource, ecx ; bias these
+1    34								 sub	 WidthDest, ecx
+1    35								 mov	 PixelCount, ecx
+1    36								 InitCode
+1    37						 @@LoopY:
+1    38								 BltLoop Param1, Param2
+1    39								 add	 esi, WidthSource
+1    40								 add	 edi, WidthDest
+1    41								 dec	 aHeight	   ; line counter
+1    42								 jnz	 @@LoopY
+1    43
+1    44								 endm
+1    45
+1    46					 BltInit8		 macro
+1    47
+1    48								 or	 ecx, ecx			 ; aWidth = 0?
+1    49								 jz	 @@Exit
+1    50								 cmp	 aHeight, 0			 ; aHeight = 0?
+1    51								 je	 @@Exit
+1    52
+1    53								 mov	 edi, edx
+1    54								 mov	 esi, eax
+1    55
+1    56								 mov	 PixelCount, ecx		 ; save	this for later
+1    57								 sub	 WidthSource, ecx		 ; bias	these
+1    58								 sub	 WidthDest, ecx
+1    59
+1    60								 xor	 eax, eax
+1    61								 mov	 dl, byte ptr Transparent
+1    62
+1    63								 endm
+1    64
+1    65					 ; The idea here is to not branch very often so	we unroll the loop by four
+1    66					 ; and try to not branch when a	whole run of pixels is either transparent
+1    67					 ; or not transparent.
+1    68					 ;
+1    69					 ; There are two loops.	One loop is for	a run of pixels	equal to the
+1    70					 ; transparent color, the other	is for runs of pixels we need to store.
+1    71					 ;
+1    72					 ; When	we detect a "bad" pixel	we jump	to the same position in	the
+1    73					 ; other loop.
+1    74					 ;
+1    75					 ; Here	is the loop we will stay in as long as we encounter a "transparent"
+1    76					 ; pixel in the	source.
+1    77
+1    78					 BltTrans8		 macro	 BltWrite:REQ, DestWidth:REQ
+1    79
+1    80						 @@MoreLines:
+1    81								 mov	 ecx, PixelCount  ; ECX	is pixel counter
+1    82								 shr	 ecx, 2
+1    83								 jz	 @@NextScan
+1    84
+1    85								 AlignTo 16
+1    86						 @@Same:
+1    87								 mov	 al, [esi]
+1    88								 cmp	 al, dl
+1    89								 jne	 @@Diff0
+1    90						 @@Same0:
+1    91								 mov	 al, [esi + 1]
+1    92								 cmp	 al, dl
+1    93								 jne	 @@Diff1
+1    94						 @@Same1:
+1    95								 mov	 al, [esi + 2]
+1    96								 cmp	 al, dl
+1    97								 jne	 @@Diff2
+1    98						 @@Same2:
+1    99								 mov	 al, [esi + 3]
+1   100								 cmp	 al, dl
+1   101								 jne	 @@Diff3
+1   102						 @@Same3:
+1   103								 add	 edi, DestWidth	* 4
+1   104								 add	 esi, 4
+1   105								 dec	 ecx
+1   106								 jnz	 @@Same
+1   107								 jmp	 @@NextScan
+1   108
+1   109								 AlignTo 16
+1   110						 @@Diff:
+1   111								 mov	 al, [esi]
+1   112								 cmp	 al, dl
+1   113								 je	 @@Same0
+1   114						 @@Diff0:
+1   115								 BltWrite 0
+1   116								 mov	 al, [esi + 1]
+1   117								 cmp	 al, dl
+1   118								 je	 @@Same1
+1   119						 @@Diff1:
+1   120								 BltWrite 1
+1   121								 mov	 al, [esi + 2]
+1   122								 cmp	 al, dl
+1   123								 je	 @@Same2
+1   124						 @@Diff2:
+1   125								 BltWrite 2
+1   126								 mov	 al, [esi + 3]
+1   127								 cmp	 al, dl
+1   128								 je	 @@Same3
+1   129						 @@Diff3:
+1   130								 BltWrite 3
+1   131
+1   132								 add	 edi, DestWidth	* 4
+1   133								 add	 esi, 4
+1   134								 dec	 ecx
+1   135								 jnz	 @@Diff
+1   136
+1   137						 @@NextScan:
+1   138								 mov	 ecx, PixelCount
+1   139								 and	 ecx, 11b
+1   140								 jz	 @@NextScan1			 ; move	on to the start	of the next line
+1   141
+1   142						 @@OddLoop:
+1   143								 mov	 al, [esi]
+1   144						 IF DestWidth EQ 1
+1   145								 inc	 edi
+1   146						 ELSE
+1   147								 add	 edi, DestWidth
+1   148						 ENDIF
+1   149								 inc	 esi
+1   150								 cmp	 al, dl
+1   151								 je	 @@OddCont
+1   152								 BltWrite -1
+1   153						 @@OddCont:
+1   154								 dec	 ecx
+1   155								 jnz	 @@OddLoop
+1   156						 @@NextScan1:
+1   157								 add	 esi, WidthSource
+1   158								 add	 edi, WidthDest
+1   159
+1   160								 dec	 aHeight			 ; line	counter
+1   161								 jnz	 @@MoreLines
+1   162
+1   163								 endm
+1   164
+1   165								 .586p
+1   166	00000000						 .MODEL	FLAT
+1   167
+1   168	00000000						 .CODE
+1   169
+    170
+    171					 ; 16-bit specific routines:
+    172					 ; =============================================================================================
+    173
+    174	00000000			 BltCopySourceCTT16	 PROC PASCAL USES ESI EDI EBX, \ ; Source, Dest	: ptr byte, aWidth,
+    175									 aHeight : dword, Transparent :	dword, \
+    176									 WidthSource, WidthDest	: dword, Info :	ptr word
+    177					 ;
+    178					 ;     On entry:
+    179					 ;
+    180					 ;     EAX: Source
+    181					 ;     EDX: Dest
+    182					 ;     ECX: aWidth
+    183					 ;
+    184
+    185								 LOCAL	 PixelCount : dword
+    186
+    187					 BltCopyCTT16Write	 macro	 Indx:REQ
+    188
+    189								 mov	 ax, [ebx + eax	* 2]
+    190								 mov	 [edi +	(Indx) * 2], ax
+    191								 xor	 ax, ax
+    192
+    193								 endm
+    194
+    195								 BltInit8
+1   196
+2   197	00000000  C8 0004 00			 ENTERD	 00004h,0
+2   198	00000004  56				 PUSH	 ESI
+2   199	00000005  57				 PUSH	 EDI
+2   200	00000006  53				 PUSH	 EBX
+2   201	00000007  0B C9						 or	 ecx, ecx			 ; aWidth = 0?
+1   202	00000009  0F 84	000000F8				 jz	 @@Exit
+1   203	0000000F  83 7D	18 00					 cmp	 aHeight, 0			 ; aHeight = 0?
+1   204	00000013  0F 84	000000EE				 je	 @@Exit
+1   205
+1   206	00000019  8B FA						 mov	 edi, edx
+1   207	0000001B  8B F0						 mov	 esi, eax
+1   208
+1   209	0000001D  89 4D	FC					 mov	 PixelCount, ecx		 ; save	this for later
+1   210	00000020  29 4D	10					 sub	 WidthSource, ecx		 ; bias	these
+1   211	00000023  29 4D	0C					 sub	 WidthDest, ecx
+1   212
+1   213	00000026  33 C0						 xor	 eax, eax
+1   214	00000028  8A 55	14					 mov	 dl, byte ptr Transparent
+1   215
+    216
+    217	0000002B  29 4D	0C					 sub	 WidthDest, ecx
+    218	0000002E  8B 5D	08					 mov	 ebx, Info
+    219	00000031  0B DB						 or	 ebx, ebx
+    220	00000033  0F 84	000000CE				 jz	 @@Exit
+    221
+    222								 BltTrans8 BltCopyCTT16Write, 2
+1   223
+1   224	00000039				 @@MoreLines:
+1   225	00000039  8B 4D	FC					 mov	 ecx, PixelCount  ; ECX	is pixel counter
+1   226	0000003C  C1 E9	02					 shr	 ecx, 2
+1   227	0000003F  0F 84	00000088				 jz	 @@NextScan
+1   228
+1   229								 AlignTo 16
+2   230
+2   231								 ; ( $ + 16 - 1	) and not (16 -	1)
+2   232
+1   233	00000045				 @@Same:
+1   234	00000045  8A 06						 mov	 al, [esi]
+1   235	00000047  3A C2						 cmp	 al, dl
+1   236	00000049  75 39	90 90 90 90				 jne	 @@Diff0
+1   237	0000004F				 @@Same0:
+1   238	0000004F  8A 46	01					 mov	 al, [esi + 1]
+1   239	00000052  3A C2						 cmp	 al, dl
+1   240	00000054  75 3F	90 90 90 90				 jne	 @@Diff1
+1   241	0000005A				 @@Same1:
+1   242	0000005A  8A 46	02					 mov	 al, [esi + 2]
+1   243	0000005D  3A C2						 cmp	 al, dl
+1   244	0000005F  75 46	90 90 90 90				 jne	 @@Diff2
+1   245	00000065				 @@Same2:
+1   246	00000065  8A 46	03					 mov	 al, [esi + 3]
+1   247	00000068  3A C2						 cmp	 al, dl
+1   248	0000006A  75 4D	90 90 90 90				 jne	 @@Diff3
+1   249	00000070				 @@Same3:
+1   250	00000070  83 C7	08					 add	 edi, 2	* 4
+Turbo Assembler	 Version 5.0	    03-11-98 05:00:55	    Page 2
+E:\JRG\Source\Utils\Graphics\bitblt16.asm
+
+
+
+1   251	00000073  83 C6	04					 add	 esi, 4
+1   252	00000076  49						 dec	 ecx
+1   253	00000077  75 CC						 jnz	 @@Same
+1   254	00000079  EB 52	90 90 90				 jmp	 @@NextScan
+1   255
+1   256								 AlignTo 16
+2   257
+2   258								 ; ( $ + 16 - 1	) and not (16 -	1)
+2   259
+1   260	0000007E				 @@Diff:
+1   261	0000007E  8A 06						 mov	 al, [esi]
+1   262	00000080  3A C2						 cmp	 al, dl
+1   263	00000082  74 CB						 je	 @@Same0
+1   264	00000084				 @@Diff0:
+1   265								 BltCopyCTT16Write 0
+2   266
+2   267	00000084  66| 8B 04 43					 mov	 ax, [ebx + eax	* 2]
+2   268	00000088  66| 89 07					 mov	 [edi +	(0) * 2], ax
+2   269	0000008B  66| 33 C0					 xor	 ax, ax
+2   270
+1   271	0000008E  8A 46	01					 mov	 al, [esi + 1]
+1   272	00000091  3A C2						 cmp	 al, dl
+1   273	00000093  74 C5						 je	 @@Same1
+1   274	00000095				 @@Diff1:
+1   275								 BltCopyCTT16Write 1
+2   276
+2   277	00000095  66| 8B 04 43					 mov	 ax, [ebx + eax	* 2]
+2   278	00000099  66| 89 47 02					 mov	 [edi +	(1) * 2], ax
+2   279	0000009D  66| 33 C0					 xor	 ax, ax
+2   280
+1   281	000000A0  8A 46	02					 mov	 al, [esi + 2]
+1   282	000000A3  3A C2						 cmp	 al, dl
+1   283	000000A5  74 BE						 je	 @@Same2
+1   284	000000A7				 @@Diff2:
+1   285								 BltCopyCTT16Write 2
+2   286
+2   287	000000A7  66| 8B 04 43					 mov	 ax, [ebx + eax	* 2]
+2   288	000000AB  66| 89 47 04					 mov	 [edi +	(2) * 2], ax
+2   289	000000AF  66| 33 C0					 xor	 ax, ax
+2   290
+1   291	000000B2  8A 46	03					 mov	 al, [esi + 3]
+1   292	000000B5  3A C2						 cmp	 al, dl
+1   293	000000B7  74 B7						 je	 @@Same3
+1   294	000000B9				 @@Diff3:
+1   295								 BltCopyCTT16Write 3
+2   296
+2   297	000000B9  66| 8B 04 43					 mov	 ax, [ebx + eax	* 2]
+2   298	000000BD  66| 89 47 06					 mov	 [edi +	(3) * 2], ax
+2   299	000000C1  66| 33 C0					 xor	 ax, ax
+2   300
+1   301
+1   302	000000C4  83 C7	08					 add	 edi, 2	* 4
+1   303	000000C7  83 C6	04					 add	 esi, 4
+1   304	000000CA  49						 dec	 ecx
+1   305	000000CB  75 B1						 jnz	 @@Diff
+1   306
+1   307	000000CD				 @@NextScan:
+1   308	000000CD  8B 4D	FC					 mov	 ecx, PixelCount
+1   309	000000D0  81 E1	00000003				 and	 ecx, 11b
+1   310	000000D6  74 20	90 90 90 90				 jz	 @@NextScan1			 ; move	on to the start	of the next line
+1   311
+1   312	000000DC				 @@OddLoop:
+1   313	000000DC  8A 06						 mov	 al, [esi]
+1   314						 IF 2 EQ 1
+1   315								 inc	 edi
+1   316						 ELSE
+1   317	000000DE  83 C7	02					 add	 edi, 2
+1   318						 ENDIF
+1   319	000000E1  46						 inc	 esi
+1   320	000000E2  3A C2						 cmp	 al, dl
+1   321	000000E4  74 0F	90 90 90 90				 je	 @@OddCont
+1   322								 BltCopyCTT16Write -1
+2   323
+2   324	000000EA  66| 8B 04 43					 mov	 ax, [ebx + eax	* 2]
+2   325	000000EE  66| 89 47 FE					 mov	 [edi +	(-1) * 2], ax
+2   326	000000F2  66| 33 C0					 xor	 ax, ax
+2   327
+1   328	000000F5				 @@OddCont:
+1   329	000000F5  49						 dec	 ecx
+1   330	000000F6  75 E4						 jnz	 @@OddLoop
+1   331	000000F8				 @@NextScan1:
+1   332	000000F8  03 75	10					 add	 esi, WidthSource
+1   333	000000FB  03 7D	0C					 add	 edi, WidthDest
+1   334
+1   335	000000FE  FF 4D	18					 dec	 aHeight			 ; line	counter
+1   336	00000101  0F 85	FFFFFF32				 jnz	 @@MoreLines
+1   337
+    338	00000107				 @@Exit:
+1   339	00000107  5B				 POP	 EBX
+1   340	00000108  5F				 POP	 EDI
+1   341	00000109  5E				 POP	 ESI
+1   342	0000010A  C9				 LEAVED
+1   343	0000010B  C2 0014			 RET	 00014h
+    344
+    345	0000010E			 BltCopySourceCTT16	 ENDP
+    346
+    347					 Unpack			 macro	 Dest:REQ
+    348
+    349								 ror	 eax, 10
+    350								 mov	 byte ptr Dest[2], al
+    351								 xor	 al, al
+    352								 rol	 eax, 5
+    353								 mov	 byte ptr Dest[1], al
+    354								 shr	 eax, 27
+    355								 mov	 byte ptr Dest[0], al
+    356
+    357								 endm
+    358
+    359					 Pack			 macro	 Src:REQ
+    360
+    361								 movzx	 ax, byte ptr Src[2]
+    362								 shl	 ax, 5
+    363								 or	 al, byte ptr Src[1]
+    364								 shl	 ax, 5
+    365								 or	 al, byte ptr Src[0]
+    366
+    367								 endm
+    368
+    369					 Blend			 macro	 Dest:REQ, Src:REQ
+    370
+    371								 mov	 al, byte ptr Src[0]
+    372								 add	 al, byte ptr Dest[0]
+    373								 shr	 al, 1
+    374								 mov	 byte ptr Dest[0], al
+    375								 mov	 al, byte ptr Src[1]
+    376								 add	 al, byte ptr Dest[1]
+    377								 shr	 al, 1
+    378								 mov	 byte ptr Dest[1], al
+    379								 mov	 al, byte ptr Src[2]
+    380								 add	 al, byte ptr Dest[2]
+    381								 shr	 al, 1
+    382								 mov	 byte ptr Dest[2], al
+    383
+    384								 endm
+    385
+    386					 BltGlassCTT16Write	 macro	 Indx:REQ
+    387
+    388								 mov	 eax, [ebx + eax * 4]
+    389								 mov	 SrcRgb, eax
+    390								 xor	 eax, eax
+    391								 mov	 ax, [edi + (Indx) * 2]
+    392								 Unpack	 TmpRgb
+    393								 Blend	 TmpRgb, SrcRgb
+    394								 Pack	 TmpRgb
+    395								 mov	 [edi +	(Indx) * 2], ax
+    396								 xor	 eax, eax
+    397
+    398								 endm
+    399
+    400	0000010E			 BltCopyGlassedCTT16	 PROC PASCAL USES ESI EDI EBX, \ ; Source, Dest	: ptr byte, aWidth,
+    401									 aHeight : dword, Transparent :	dword, \
+    402									 WidthSource, WidthDest	: dword, Info :	ptr word
+    403					 ;
+    404					 ;     On entry:
+    405					 ;
+    406					 ;     EAX: Source
+    407					 ;     EDX: Dest
+    408					 ;     ECX: aWidth
+    409					 ;
+    410
+    411								 LOCAL	 PixelCount : dword
+    412								 LOCAL	 TmpRgb	: dword
+    413								 LOCAL	 SrcRgb	: dword
+    414
+    415								 BltInit8
+1   416
+2   417	0000010E  C8 000C 00			 ENTERD	 0000Ch,0
+2   418	00000112  56				 PUSH	 ESI
+2   419	00000113  57				 PUSH	 EDI
+2   420	00000114  53				 PUSH	 EBX
+2   421	00000115  0B C9						 or	 ecx, ecx			 ; aWidth = 0?
+1   422	00000117  0F 84	00000292				 jz	 @@Exit
+1   423	0000011D  83 7D	18 00					 cmp	 aHeight, 0			 ; aHeight = 0?
+1   424	00000121  0F 84	00000288				 je	 @@Exit
+1   425
+1   426	00000127  8B FA						 mov	 edi, edx
+1   427	00000129  8B F0						 mov	 esi, eax
+1   428
+1   429	0000012B  89 4D	FC					 mov	 PixelCount, ecx		 ; save	this for later
+1   430	0000012E  29 4D	10					 sub	 WidthSource, ecx		 ; bias	these
+1   431	00000131  29 4D	0C					 sub	 WidthDest, ecx
+1   432
+1   433	00000134  33 C0						 xor	 eax, eax
+1   434	00000136  8A 55	14					 mov	 dl, byte ptr Transparent
+1   435
+    436
+    437	00000139  29 4D	0C					 sub	 WidthDest, ecx
+    438	0000013C  8B 5D	08					 mov	 ebx, Info
+    439	0000013F  0B DB						 or	 ebx, ebx
+    440	00000141  0F 84	00000268				 jz	 @@Exit
+    441
+    442								 BltTrans8 BltGlassCTT16Write, 2
+1   443
+1   444	00000147				 @@MoreLines:
+1   445	00000147  8B 4D	FC					 mov	 ecx, PixelCount  ; ECX	is pixel counter
+1   446	0000014A  C1 E9	02					 shr	 ecx, 2
+1   447	0000014D  0F 84	000001D3				 jz	 @@NextScan
+1   448
+1   449								 AlignTo 16
+2   450
+2   451								 ; ( $ + 16 - 1	) and not (16 -	1)
+2   452
+1   453	00000153				 @@Same:
+1   454	00000153  8A 06						 mov	 al, [esi]
+1   455	00000155  3A C2						 cmp	 al, dl
+1   456	00000157  75 39	90 90 90 90				 jne	 @@Diff0
+1   457	0000015D				 @@Same0:
+1   458	0000015D  8A 46	01					 mov	 al, [esi + 1]
+1   459	00000160  3A C2						 cmp	 al, dl
+1   460	00000162  0F 85	0000008D				 jne	 @@Diff1
+1   461	00000168				 @@Same1:
+1   462	00000168  8A 46	02					 mov	 al, [esi + 2]
+1   463	0000016B  3A C2						 cmp	 al, dl
+1   464	0000016D  0F 85	000000E7				 jne	 @@Diff2
+1   465	00000173				 @@Same2:
+1   466	00000173  8A 46	03					 mov	 al, [esi + 3]
+1   467	00000176  3A C2						 cmp	 al, dl
+1   468	00000178  0F 85	00000141				 jne	 @@Diff3
+1   469	0000017E				 @@Same3:
+1   470	0000017E  83 C7	08					 add	 edi, 2	* 4
+1   471	00000181  83 C6	04					 add	 esi, 4
+1   472	00000184  49						 dec	 ecx
+1   473	00000185  75 CC						 jnz	 @@Same
+1   474	00000187  E9 0000019A					 jmp	 @@NextScan
+1   475
+1   476								 AlignTo 16
+2   477
+2   478								 ; ( $ + 16 - 1	) and not (16 -	1)
+2   479
+1   480	0000018C				 @@Diff:
+1   481	0000018C  8A 06						 mov	 al, [esi]
+1   482	0000018E  3A C2						 cmp	 al, dl
+1   483	00000190  74 CB						 je	 @@Same0
+1   484	00000192				 @@Diff0:
+1   485								 BltGlassCTT16Write 0
+2   486
+2   487	00000192  8B 04	83					 mov	 eax, [ebx + eax * 4]
+2   488	00000195  89 45	F4					 mov	 SrcRgb, eax
+2   489	00000198  33 C0						 xor	 eax, eax
+2   490	0000019A  66| 8B 07					 mov	 ax, [edi + (0)	* 2]
+2   491								 Unpack	 TmpRgb
+3   492
+3   493	0000019D  C1 C8	0A					 ror	 eax, 10
+3   494	000001A0  88 45	FA					 mov	 byte ptr TmpRgb[2], al
+3   495	000001A3  32 C0						 xor	 al, al
+3   496	000001A5  C1 C0	05					 rol	 eax, 5
+3   497	000001A8  88 45	F9					 mov	 byte ptr TmpRgb[1], al
+3   498	000001AB  C1 E8	1B					 shr	 eax, 27
+3   499	000001AE  88 45	F8					 mov	 byte ptr TmpRgb[0], al
+3   500
+Turbo Assembler	 Version 5.0	    03-11-98 05:00:55	    Page 3
+E:\JRG\Source\Utils\Graphics\bitblt16.asm
+
+
+
+2   501								 Blend	 TmpRgb, SrcRgb
+3   502
+3   503	000001B1  8A 45	F4					 mov	 al, byte ptr SrcRgb[0]
+3   504	000001B4  02 45	F8					 add	 al, byte ptr TmpRgb[0]
+3   505	000001B7  D0 E8						 shr	 al, 1
+3   506	000001B9  88 45	F8					 mov	 byte ptr TmpRgb[0], al
+3   507	000001BC  8A 45	F5					 mov	 al, byte ptr SrcRgb[1]
+3   508	000001BF  02 45	F9					 add	 al, byte ptr TmpRgb[1]
+3   509	000001C2  D0 E8						 shr	 al, 1
+3   510	000001C4  88 45	F9					 mov	 byte ptr TmpRgb[1], al
+3   511	000001C7  8A 45	F6					 mov	 al, byte ptr SrcRgb[2]
+3   512	000001CA  02 45	FA					 add	 al, byte ptr TmpRgb[2]
+3   513	000001CD  D0 E8						 shr	 al, 1
+3   514	000001CF  88 45	FA					 mov	 byte ptr TmpRgb[2], al
+3   515
+2   516								 Pack	 TmpRgb
+3   517
+3   518	000001D2  66| 0F B6 45 FA				 movzx	 ax, byte ptr TmpRgb[2]
+3   519	000001D7  66| C1 E0 05					 shl	 ax, 5
+3   520	000001DB  0A 45	F9					 or	 al, byte ptr TmpRgb[1]
+3   521	000001DE  66| C1 E0 05					 shl	 ax, 5
+3   522	000001E2  0A 45	F8					 or	 al, byte ptr TmpRgb[0]
+3   523
+2   524	000001E5  66| 89 07					 mov	 [edi +	(0) * 2], ax
+2   525	000001E8  33 C0						 xor	 eax, eax
+2   526
+1   527	000001EA  8A 46	01					 mov	 al, [esi + 1]
+1   528	000001ED  3A C2						 cmp	 al, dl
+1   529	000001EF  0F 84	FFFFFF73				 je	 @@Same1
+1   530	000001F5				 @@Diff1:
+1   531								 BltGlassCTT16Write 1
+2   532
+2   533	000001F5  8B 04	83					 mov	 eax, [ebx + eax * 4]
+2   534	000001F8  89 45	F4					 mov	 SrcRgb, eax
+2   535	000001FB  33 C0						 xor	 eax, eax
+2   536	000001FD  66| 8B 47 02					 mov	 ax, [edi + (1)	* 2]
+2   537								 Unpack	 TmpRgb
+3   538
+3   539	00000201  C1 C8	0A					 ror	 eax, 10
+3   540	00000204  88 45	FA					 mov	 byte ptr TmpRgb[2], al
+3   541	00000207  32 C0						 xor	 al, al
+3   542	00000209  C1 C0	05					 rol	 eax, 5
+3   543	0000020C  88 45	F9					 mov	 byte ptr TmpRgb[1], al
+3   544	0000020F  C1 E8	1B					 shr	 eax, 27
+3   545	00000212  88 45	F8					 mov	 byte ptr TmpRgb[0], al
+3   546
+2   547								 Blend	 TmpRgb, SrcRgb
+3   548
+3   549	00000215  8A 45	F4					 mov	 al, byte ptr SrcRgb[0]
+3   550	00000218  02 45	F8					 add	 al, byte ptr TmpRgb[0]
+3   551	0000021B  D0 E8						 shr	 al, 1
+3   552	0000021D  88 45	F8					 mov	 byte ptr TmpRgb[0], al
+3   553	00000220  8A 45	F5					 mov	 al, byte ptr SrcRgb[1]
+3   554	00000223  02 45	F9					 add	 al, byte ptr TmpRgb[1]
+3   555	00000226  D0 E8						 shr	 al, 1
+3   556	00000228  88 45	F9					 mov	 byte ptr TmpRgb[1], al
+3   557	0000022B  8A 45	F6					 mov	 al, byte ptr SrcRgb[2]
+3   558	0000022E  02 45	FA					 add	 al, byte ptr TmpRgb[2]
+3   559	00000231  D0 E8						 shr	 al, 1
+3   560	00000233  88 45	FA					 mov	 byte ptr TmpRgb[2], al
+3   561
+2   562								 Pack	 TmpRgb
+3   563
+3   564	00000236  66| 0F B6 45 FA				 movzx	 ax, byte ptr TmpRgb[2]
+3   565	0000023B  66| C1 E0 05					 shl	 ax, 5
+3   566	0000023F  0A 45	F9					 or	 al, byte ptr TmpRgb[1]
+3   567	00000242  66| C1 E0 05					 shl	 ax, 5
+3   568	00000246  0A 45	F8					 or	 al, byte ptr TmpRgb[0]
+3   569
+2   570	00000249  66| 89 47 02					 mov	 [edi +	(1) * 2], ax
+2   571	0000024D  33 C0						 xor	 eax, eax
+2   572
+1   573	0000024F  8A 46	02					 mov	 al, [esi + 2]
+1   574	00000252  3A C2						 cmp	 al, dl
+1   575	00000254  0F 84	FFFFFF19				 je	 @@Same2
+1   576	0000025A				 @@Diff2:
+1   577								 BltGlassCTT16Write 2
+2   578
+2   579	0000025A  8B 04	83					 mov	 eax, [ebx + eax * 4]
+2   580	0000025D  89 45	F4					 mov	 SrcRgb, eax
+2   581	00000260  33 C0						 xor	 eax, eax
+2   582	00000262  66| 8B 47 04					 mov	 ax, [edi + (2)	* 2]
+2   583								 Unpack	 TmpRgb
+3   584
+3   585	00000266  C1 C8	0A					 ror	 eax, 10
+3   586	00000269  88 45	FA					 mov	 byte ptr TmpRgb[2], al
+3   587	0000026C  32 C0						 xor	 al, al
+3   588	0000026E  C1 C0	05					 rol	 eax, 5
+3   589	00000271  88 45	F9					 mov	 byte ptr TmpRgb[1], al
+3   590	00000274  C1 E8	1B					 shr	 eax, 27
+3   591	00000277  88 45	F8					 mov	 byte ptr TmpRgb[0], al
+3   592
+2   593								 Blend	 TmpRgb, SrcRgb
+3   594
+3   595	0000027A  8A 45	F4					 mov	 al, byte ptr SrcRgb[0]
+3   596	0000027D  02 45	F8					 add	 al, byte ptr TmpRgb[0]
+3   597	00000280  D0 E8						 shr	 al, 1
+3   598	00000282  88 45	F8					 mov	 byte ptr TmpRgb[0], al
+3   599	00000285  8A 45	F5					 mov	 al, byte ptr SrcRgb[1]
+3   600	00000288  02 45	F9					 add	 al, byte ptr TmpRgb[1]
+3   601	0000028B  D0 E8						 shr	 al, 1
+3   602	0000028D  88 45	F9					 mov	 byte ptr TmpRgb[1], al
+3   603	00000290  8A 45	F6					 mov	 al, byte ptr SrcRgb[2]
+3   604	00000293  02 45	FA					 add	 al, byte ptr TmpRgb[2]
+3   605	00000296  D0 E8						 shr	 al, 1
+3   606	00000298  88 45	FA					 mov	 byte ptr TmpRgb[2], al
+3   607
+2   608								 Pack	 TmpRgb
+3   609
+3   610	0000029B  66| 0F B6 45 FA				 movzx	 ax, byte ptr TmpRgb[2]
+3   611	000002A0  66| C1 E0 05					 shl	 ax, 5
+3   612	000002A4  0A 45	F9					 or	 al, byte ptr TmpRgb[1]
+3   613	000002A7  66| C1 E0 05					 shl	 ax, 5
+3   614	000002AB  0A 45	F8					 or	 al, byte ptr TmpRgb[0]
+3   615
+2   616	000002AE  66| 89 47 04					 mov	 [edi +	(2) * 2], ax
+2   617	000002B2  33 C0						 xor	 eax, eax
+2   618
+1   619	000002B4  8A 46	03					 mov	 al, [esi + 3]
+1   620	000002B7  3A C2						 cmp	 al, dl
+1   621	000002B9  0F 84	FFFFFEBF				 je	 @@Same3
+1   622	000002BF				 @@Diff3:
+1   623								 BltGlassCTT16Write 3
+2   624
+2   625	000002BF  8B 04	83					 mov	 eax, [ebx + eax * 4]
+2   626	000002C2  89 45	F4					 mov	 SrcRgb, eax
+2   627	000002C5  33 C0						 xor	 eax, eax
+2   628	000002C7  66| 8B 47 06					 mov	 ax, [edi + (3)	* 2]
+2   629								 Unpack	 TmpRgb
+3   630
+3   631	000002CB  C1 C8	0A					 ror	 eax, 10
+3   632	000002CE  88 45	FA					 mov	 byte ptr TmpRgb[2], al
+3   633	000002D1  32 C0						 xor	 al, al
+3   634	000002D3  C1 C0	05					 rol	 eax, 5
+3   635	000002D6  88 45	F9					 mov	 byte ptr TmpRgb[1], al
+3   636	000002D9  C1 E8	1B					 shr	 eax, 27
+3   637	000002DC  88 45	F8					 mov	 byte ptr TmpRgb[0], al
+3   638
+2   639								 Blend	 TmpRgb, SrcRgb
+3   640
+3   641	000002DF  8A 45	F4					 mov	 al, byte ptr SrcRgb[0]
+3   642	000002E2  02 45	F8					 add	 al, byte ptr TmpRgb[0]
+3   643	000002E5  D0 E8						 shr	 al, 1
+3   644	000002E7  88 45	F8					 mov	 byte ptr TmpRgb[0], al
+3   645	000002EA  8A 45	F5					 mov	 al, byte ptr SrcRgb[1]
+3   646	000002ED  02 45	F9					 add	 al, byte ptr TmpRgb[1]
+3   647	000002F0  D0 E8						 shr	 al, 1
+3   648	000002F2  88 45	F9					 mov	 byte ptr TmpRgb[1], al
+3   649	000002F5  8A 45	F6					 mov	 al, byte ptr SrcRgb[2]
+3   650	000002F8  02 45	FA					 add	 al, byte ptr TmpRgb[2]
+3   651	000002FB  D0 E8						 shr	 al, 1
+3   652	000002FD  88 45	FA					 mov	 byte ptr TmpRgb[2], al
+3   653
+2   654								 Pack	 TmpRgb
+3   655
+3   656	00000300  66| 0F B6 45 FA				 movzx	 ax, byte ptr TmpRgb[2]
+3   657	00000305  66| C1 E0 05					 shl	 ax, 5
+3   658	00000309  0A 45	F9					 or	 al, byte ptr TmpRgb[1]
+3   659	0000030C  66| C1 E0 05					 shl	 ax, 5
+3   660	00000310  0A 45	F8					 or	 al, byte ptr TmpRgb[0]
+3   661
+2   662	00000313  66| 89 47 06					 mov	 [edi +	(3) * 2], ax
+2   663	00000317  33 C0						 xor	 eax, eax
+2   664
+1   665
+1   666	00000319  83 C7	08					 add	 edi, 2	* 4
+1   667	0000031C  83 C6	04					 add	 esi, 4
+1   668	0000031F  49						 dec	 ecx
+1   669	00000320  0F 85	FFFFFE66				 jnz	 @@Diff
+1   670
+1   671	00000326				 @@NextScan:
+1   672	00000326  8B 4D	FC					 mov	 ecx, PixelCount
+1   673	00000329  81 E1	00000003				 and	 ecx, 11b
+1   674	0000032F  74 6F	90 90 90 90				 jz	 @@NextScan1			 ; move	on to the start	of the next line
+1   675
+1   676	00000335				 @@OddLoop:
+1   677	00000335  8A 06						 mov	 al, [esi]
+1   678						 IF 2 EQ 1
+1   679								 inc	 edi
+1   680						 ELSE
+1   681	00000337  83 C7	02					 add	 edi, 2
+1   682						 ENDIF
+1   683	0000033A  46						 inc	 esi
+1   684	0000033B  3A C2						 cmp	 al, dl
+1   685	0000033D  74 5E	90 90 90 90				 je	 @@OddCont
+1   686								 BltGlassCTT16Write -1
+2   687
+2   688	00000343  8B 04	83					 mov	 eax, [ebx + eax * 4]
+2   689	00000346  89 45	F4					 mov	 SrcRgb, eax
+2   690	00000349  33 C0						 xor	 eax, eax
+2   691	0000034B  66| 8B 47 FE					 mov	 ax, [edi + (-1) * 2]
+2   692								 Unpack	 TmpRgb
+3   693
+3   694	0000034F  C1 C8	0A					 ror	 eax, 10
+3   695	00000352  88 45	FA					 mov	 byte ptr TmpRgb[2], al
+3   696	00000355  32 C0						 xor	 al, al
+3   697	00000357  C1 C0	05					 rol	 eax, 5
+3   698	0000035A  88 45	F9					 mov	 byte ptr TmpRgb[1], al
+3   699	0000035D  C1 E8	1B					 shr	 eax, 27
+3   700	00000360  88 45	F8					 mov	 byte ptr TmpRgb[0], al
+3   701
+2   702								 Blend	 TmpRgb, SrcRgb
+3   703
+3   704	00000363  8A 45	F4					 mov	 al, byte ptr SrcRgb[0]
+3   705	00000366  02 45	F8					 add	 al, byte ptr TmpRgb[0]
+3   706	00000369  D0 E8						 shr	 al, 1
+3   707	0000036B  88 45	F8					 mov	 byte ptr TmpRgb[0], al
+3   708	0000036E  8A 45	F5					 mov	 al, byte ptr SrcRgb[1]
+3   709	00000371  02 45	F9					 add	 al, byte ptr TmpRgb[1]
+3   710	00000374  D0 E8						 shr	 al, 1
+3   711	00000376  88 45	F9					 mov	 byte ptr TmpRgb[1], al
+3   712	00000379  8A 45	F6					 mov	 al, byte ptr SrcRgb[2]
+3   713	0000037C  02 45	FA					 add	 al, byte ptr TmpRgb[2]
+3   714	0000037F  D0 E8						 shr	 al, 1
+3   715	00000381  88 45	FA					 mov	 byte ptr TmpRgb[2], al
+3   716
+2   717								 Pack	 TmpRgb
+3   718
+3   719	00000384  66| 0F B6 45 FA				 movzx	 ax, byte ptr TmpRgb[2]
+3   720	00000389  66| C1 E0 05					 shl	 ax, 5
+3   721	0000038D  0A 45	F9					 or	 al, byte ptr TmpRgb[1]
+3   722	00000390  66| C1 E0 05					 shl	 ax, 5
+3   723	00000394  0A 45	F8					 or	 al, byte ptr TmpRgb[0]
+3   724
+2   725	00000397  66| 89 47 FE					 mov	 [edi +	(-1) * 2], ax
+2   726	0000039B  33 C0						 xor	 eax, eax
+2   727
+1   728	0000039D				 @@OddCont:
+1   729	0000039D  49						 dec	 ecx
+1   730	0000039E  75 95						 jnz	 @@OddLoop
+1   731	000003A0				 @@NextScan1:
+1   732	000003A0  03 75	10					 add	 esi, WidthSource
+1   733	000003A3  03 7D	0C					 add	 edi, WidthDest
+1   734
+1   735	000003A6  FF 4D	18					 dec	 aHeight			 ; line	counter
+1   736	000003A9  0F 85	FFFFFD98				 jnz	 @@MoreLines
+1   737
+    738	000003AF				 @@Exit:
+1   739	000003AF  5B				 POP	 EBX
+1   740	000003B0  5F				 POP	 EDI
+1   741	000003B1  5E				 POP	 ESI
+1   742	000003B2  C9				 LEAVED
+1   743	000003B3  C2 0014			 RET	 00014h
+    744
+    745	000003B6			 BltCopyGlassedCTT16	 ENDP
+    746
+    747								 END
+Turbo Assembler	 Version 5.0	    03-11-98 05:00:55	    Page 4
+Symbol Table
+
+
+
+
+Symbol Name			  Type	 Value
+
+??DATE				  Text	 "03-11-98"
+??FILENAME			  Text	 "bitblt16"
+??TIME				  Text	 "05:00:55"
+??VERSION			  Number 0500
+@32BIT				  Text	 1
+@@DIFF				  Near32 FLAT:007E
+@@DIFF				  Near32 FLAT:018C
+@@DIFF0				  Near32 FLAT:0084
+@@DIFF0				  Near32 FLAT:0192
+@@DIFF1				  Near32 FLAT:0095
+@@DIFF1				  Near32 FLAT:01F5
+@@DIFF2				  Near32 FLAT:00A7
+@@DIFF2				  Near32 FLAT:025A
+@@DIFF3				  Near32 FLAT:00B9
+@@DIFF3				  Near32 FLAT:02BF
+@@EXIT				  Near32 FLAT:0107
+@@EXIT				  Near32 FLAT:03AF
+@@MORELINES			  Near32 FLAT:0039
+@@MORELINES			  Near32 FLAT:0147
+@@NEXTSCAN			  Near32 FLAT:00CD
+@@NEXTSCAN			  Near32 FLAT:0326
+@@NEXTSCAN1			  Near32 FLAT:00F8
+@@NEXTSCAN1			  Near32 FLAT:03A0
+@@ODDCONT			  Near32 FLAT:00F5
+@@ODDCONT			  Near32 FLAT:039D
+@@ODDLOOP			  Near32 FLAT:00DC
+@@ODDLOOP			  Near32 FLAT:0335
+@@SAME				  Near32 FLAT:0045
+@@SAME				  Near32 FLAT:0153
+@@SAME0				  Near32 FLAT:004F
+@@SAME0				  Near32 FLAT:015D
+@@SAME1				  Near32 FLAT:005A
+@@SAME1				  Near32 FLAT:0168
+@@SAME2				  Near32 FLAT:0065
+@@SAME2				  Near32 FLAT:0173
+@@SAME3				  Near32 FLAT:0070
+@@SAME3				  Near32 FLAT:017E
+@CODE				  Text	 FLAT
+@CODESIZE			  Text	 0
+@CPU				  Text	 4853H
+@CURSEG				  Text	 _TEXT
+@DATA				  Text	 FLAT
+@DATASIZE			  Text	 0
+@FILENAME			  Text	 BITBLT16
+@INTERFACE			  Text	 000H
+@MODEL				  Text	 1
+@STACK				  Text	 FLAT
+@WORDSIZE			  Text	 4
+AHEIGHT				  Number [FLAT:EBP+0018]
+BLTCOPYGLASSEDCTT16		  Near32 FLAT:010E
+BLTCOPYSOURCECTT16		  Near32 FLAT:0000
+INFO				  Number [FLAT:EBP+0008]
+MSKCOLORKEY			  Text	 00ffffffh
+PIXELCOUNT			  Number [FLAT:EBP-0004]
+SRCRGB				  Number [FLAT:EBP-000C]
+TMPRGB				  Number [FLAT:EBP-0008]
+TRANSPARENT			  Number [FLAT:EBP+0014]
+WIDTHDEST			  Number [FLAT:EBP+000C]
+WIDTHSOURCE			  Number [FLAT:EBP+0010]
+
+Macro Name
+
+ALIGNTO
+BLEND
+BLTCOPYCTT16WRITE
+BLTGLASSCTT16WRITE
+BLTINIT8
+BLTOPAQUE
+BLTTRANS8
+PACK
+UNPACK
+
+Groups & Segments		  Bit Size Align  Combine Class
+
+DGROUP				  Group
+  _DATA				  32  0000 Dword  Public  DATA
+FLAT				  Group
+_TEXT				  32  03B6 Dword  Public  CODE
+

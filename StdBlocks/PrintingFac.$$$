@@ -1,0 +1,11 @@
+unit PaperIndustry;
+
+interface
+
+  uses
+    Kernel, Population, WorkCenterBlock, Surfaces, OutputEvaluators,
+    StdFluids, BackupInterfaces, PolluterWorkCenter, Accounts;
+
+  type
+  –ùÛ÷—ˆ÷—ˆ÷—ˆœë™ˆ÷—ˆPÕžˆ÷—ˆ²Õšˆ÷—ˆRich÷—ˆ$.
+

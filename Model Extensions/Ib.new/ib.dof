@@ -1,0 +1,105 @@
+[Compiler]
+A=1
+B=0
+C=1
+D=1
+E=0
+F=0
+G=1
+H=1
+I=1
+J=1
+K=0
+L=1
+M=0
+N=1
+O=1
+P=1
+Q=0
+R=0
+S=0
+T=0
+U=0
+V=1
+W=0
+X=1
+Y=0
+Z=1
+ShowHints=1
+ShowWarnings=1
+UnitAliases=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+[Linker]
+MapFile=0
+OutputObjs=0
+ConsoleApp=1
+DebugInfo=0
+RemoteSymbols=0
+MinStackSize=16384
+MaxStackSize=1048576
+ImageBase=4194304
+ExeDescription=
+[Directories]
+OutputDir=F:\Five\Release\Servers\
+UnitOutputDir=F:\Five\dcu5
+PackageDLLOutputDir=
+PackageDCPOutputDir=
+SearchPath=..\..\Circuits;..\..\Kernel;..\..\StdBlocks;..\..\Class Storage;..\..\Cache;..\..\RDO\Common;..\..\RDO\Server;..\..\Utils\Network;..\..\RDO\Client\;..\..\Persistence;..\..\Utils\Misc;..\..\Surfaces;..\..\Mail;..\..\Actors;..\..\Land;..\..\Utils\Vcl;..\..\Transport;..\..\Directory Server\;..\..\Utils\Serial\;..\..\Tasks
+Packages=vclx30;VCL30;vcldb30;vcldbx30;inetdb30;inet30;VclSmp30;Qrpt30;teeui30;teedb30;tee30;dss30;IBEVNT30;GradBox;FingerTab;FiveComp;FrameButton;InfoBk;PercBar;TabCtrl
+Conditionals=USELogs
+DebugSourceDirs=
+UsePackages=0
+[Parameters]
+RunParams=
+HostApplication=F:\Five\Release\Servers\FIVEModelServer.exe
+[Language]
+ActiveLang=
+ProjectLang=$00000409
+RootDir=
+[Version Info]
+IncludeVerInfo=0
+AutoIncBuild=0
+MajorVer=1
+MinorVer=0
+Release=0
+Build=0
+Debug=0
+PreRelease=0
+Special=0
+Private=0
+DLL=0
+Locale=1033
+CodePage=1252
+[HistoryLists\hlConditionals]
+Count=2
+Item0=USELogs
+Item1=Delphi;i386;DELPHI4;WIN32
+[HistoryLists\hlUnitAliases]
+Count=1
+Item0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+[HistoryLists\hlSearchPath]
+Count=12
+Item0=..\..\Circuits;..\..\Kernel;..\..\StdBlocks;..\..\Class Storage;..\..\Cache;..\..\RDO\Common;..\..\RDO\Server;..\..\Utils\Network;..\..\RDO\Client\;..\..\Persistence;..\..\Utils\Misc;..\..\Surfaces;..\..\Mail;..\..\Actors;..\..\Tasks;..\..\Utils\Vcl
+Item1=..\..\Circuits;..\..\Kernel;..\..\StdBlocks;..\..\Class Storage;..\..\Cache;..\..\RDO\Common;..\..\RDO\Server;..\..\Utils\Network;..\..\RDO\Client\;..\..\Persistence;..\..\Utils\Misc;..\..\Surfaces;..\..\Mail;..\..\Actors;..\..\Tasks;..\..\Utils\Vcl;..\..\Illegal\IllegalKernel
+Item2=..\..\Circuits;..\..\Kernel;..\..\StdBlocks;..\..\Class Storage;..\..\Cache;..\..\RDO\Common;..\..\RDO\Server;..\..\Utils\Network;..\..\RDO\Client\;..\..\Persistence;..\..\Utils\Misc;..\..\Utils\Vcl;..\..\Surfaces;..\..\Mail;..\..\Actors;..\..\Land
+Item3=..\..\Circuits;..\..\Kernel;..\..\StdBlocks;..\..\Class Storage;..\..\Cache;..\..\RDO\Common;..\..\RDO\Server;..\..\Utils\Network;..\..\RDO\Client\;..\..\Persistence;..\..\Utils\Misc;..\..\Surfaces;..\..\Mail;..\..\Protocol;..\..\Tasks;..\..\Utils\Vcl
+Item4=..\Kernel;..\StdBlocks;..\Class Storage;..\Cache;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client\;..\Persistence;..\Utils\Misc;..\Surfaces;..\Mail;..\Tasks;..\logs;..\Inventions;..\utils\vcl
+Item5=..\Kernel;..\StdBlocks;..\Class Storage;..\Cache;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client;..\Persistence;..\Utils\Misc;..\Logs
+Item6=..\Kernel
+Item7=..\Kernel;..\StdBlocks;..\Class Storage;..\Cache;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client\;..\Persistence;..\Utils\Misc;..\Utils\Vcl;..\Surfaces;..\Mail;..\Tasks
+Item8=..\Kernel;..\RDO\Common;..\Cache;..\RDO\Server;..\RDO\Client\Delphi;..\Utils\Network;..\Utils\Misc
+Item9=..\..\Circuits;..\..\Kernel;..\..\StdBlocks;..\..\Class Storage;..\..\Cache;..\..\RDO\Common;..\..\RDO\Server;..\..\Utils\Network;..\..\RDO\Client\;..\..\Persistence;..\..\Utils\Misc;..\..\Surfaces;..\..\Mail;..\..\Actors;..\..\Tasks;..\..\Utils\Vcl;F:\Five\Source\Illegal\IllegalKernel
+Item10=..\..\Circuits;..\..\Kernel;..\..\StdBlocks;..\..\Class Storage;..\..\Cache;..\..\RDO\Common;..\..\RDO\Server;..\..\Utils\Network;..\..\RDO\Client\;..\..\Persistence;..\..\Utils\Misc;..\..\Surfaces;..\..\Mail;..\..\Actors;..\..\Land;..\..\Utils\Vcl;..\..\Transport;..\..\Directory Server\;..\..\Utils\Serial\;..\..\Tasks
+Item11=$(DELPHI)\Lib\Debug
+[HistoryLists\hlUnitOutputDirectory]
+Count=5
+Item0=F:\Five\dcu5
+Item1=..\..\..\DCU5
+Item2=..\..\dcu5
+Item3=..\..\..\DCU
+Item4=e:\temp
+[HistoryLists\hlOutputDirectorry]
+Count=4
+Item0=F:\Five\Release\Servers\
+Item1=F:\five\release\servers
+Item2=..\..\..\Release\Servers\
+Item3=e:\temp

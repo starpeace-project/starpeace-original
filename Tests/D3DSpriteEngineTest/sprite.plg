@@ -1,0 +1,39 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: sprite - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\WINDOWS\TEMP\RSP4305.TMP" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /Fp".\Debug/sprite.pch" /YX /Fo".\Debug/" /Fd".\Debug/" /FD /c 
+"C:\Work\Five\Source\Tests\D3DSpriteEngineTest\sprite.cpp"
+]
+Creating command line "cl.exe @C:\WINDOWS\TEMP\RSP4305.TMP" 
+Creating temporary file "C:\WINDOWS\TEMP\RSP4306.TMP" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib winmm.lib ddraw.lib d3dx.lib /nologo /subsystem:windows /incremental:yes /pdb:".\Debug/sprite.pdb" /debug /machine:I386 /out:".\Debug/sprite.exe" 
+.\Debug\sprite.obj
+.\Debug\sprite.res
+]
+Creating command line "link.exe @C:\WINDOWS\TEMP\RSP4306.TMP"
+<h3>Output Window</h3>
+Compiling...
+sprite.cpp
+C:\Work\Five\Source\Tests\D3DSpriteEngineTest\sprite.cpp(435) : warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+C:\Work\Five\Source\Tests\D3DSpriteEngineTest\sprite.cpp(436) : warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+C:\Work\Five\Source\Tests\D3DSpriteEngineTest\sprite.cpp(443) : warning C4244: 'argument' : conversion from 'float' to 'unsigned long', possible loss of data
+C:\Work\Five\Source\Tests\D3DSpriteEngineTest\sprite.cpp(443) : warning C4244: 'argument' : conversion from 'float' to 'unsigned long', possible loss of data
+C:\Work\Five\Source\Tests\D3DSpriteEngineTest\sprite.cpp(450) : warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+C:\Work\Five\Source\Tests\D3DSpriteEngineTest\sprite.cpp(451) : warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+Linking...
+
+
+
+<h3>Results</h3>
+sprite.exe - 0 error(s), 6 warning(s)
+</pre>
+</body>
+</html>

@@ -1,0 +1,15 @@
+ChartSheetViewer.Caption=
+ChartSheetViewer.Hint=
+Notebook.Hint=
+.Caption=Downloading
+.Hint=
+.Caption=Chart
+.Hint=
+.Caption=NoHistory
+.Hint=
+year1.Caption=Downloading chart information...
+year1.Hint=
+ChartPanel.Caption=ChartPanel
+ChartPanel.Hint=
+Label1.Caption=Sorry: No history information will be available until the end of this year.
+Label1.Hint=

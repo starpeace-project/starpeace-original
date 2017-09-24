@@ -1,0 +1,300 @@
+unit URLParser;
+
+interface
+
+  uses
+    VoyagerInterfaces, Controls;
+
+  type
+    TFramePositioning = (posRelative, posAbsolute);
+    TFrameAlign       = TAlign;
+
+  type
+    TDimension =
+      record
+        value    : integer;
+        relative : boolean;
+      end;
+
+  type
+    TVisibility = (visVisible, visHidden, visSwitch);
+
+  type
+    TAnchorData =
+      record
+        URL         : string;
+        Action      : string;
+        FrameId     : string;
+        FrameClass  : string;
+        Target      : string;
+        Positioning : TFramePositioning;
+        Align       : TFrameAlign;
+        Width       : TDimension;
+        Height      : TDimension;
+        Maximized   : boolean;
+        CloseFrame  : boolean;
+        VoidCache   : boolean;
+        ToHistory   : boolean;
+        Visibility  : TVisibility;
+      end;
+
+  function ExtractURL( var URL : string ) : string;
+
+  function StrToPositioning( str : string ) : TFramePositioning;
+  function StrToAlign( str : string ) : TFrameAlign;
+  function StrToBoolean( str : string ) : boolean;
+  function StrToDimension( str : string ) : TDimension;
+
+  function GetURLAction( URL : TURL ) : string;
+  function GetParmValue( URL : TURL; ParmName : string ) : string;
+  function GetAnchorData( URL : TURL ) : TAnchorData;
+
+  function EncodeEscSequences( URL : string ) : string;
+  function DecodeEscSequences( URL : string ) : string;
+
+  procedure DeleteParameter( var url : string; parm : string );
+
+  // HTML strings
+
+  const
+    URLJoint = '::';
+
+  const
+    htmlParmName_Action      = 'frame_Action';
+    htmlParmName_Id          = 'frame_Id';
+    htmlParmName_Class       = 'frame_Class';
+    htmlParmName_Positioning = 'frame_Positioning';
+    htmlParmName_Align       = 'frame_Align';
+    htmlParmName_Width       = 'frame_Width';
+    htmlParmName_Height      = 'frame_Height';
+    htmlParmName_Maximized   = 'frame_Maximized';
+    htmlParmName_Close       = 'frame_Close';
+    htmlParmName_VoidCache   = 'frame_VoidCache';
+    htmlParmName_Hidden      = 'frame_Hidden';
+    htmlParmName_Target      = 'frame_Target';
+    htmlParmName_Visibility  = 'frame_Visibility';
+    htmlParmName_ToHistory   = 'frame_ToHistory';
+
+  const
+    htmlValue_PosAbsolute = 'ABSOLUTE';
+    htmlValue_PosRelative = 'RELATIVE';
+    htmlValue_AlignClient = 'CLIENT';
+    htmlValue_AlignLeft   = 'LEFT';
+    htmlValue_AlignTop    = 'TOP';
+    htmlValue_AlignRight  = 'RIGHT';
+    htmlValue_AlignBottom = 'BOTTOM';
+    htmlValue_VisVisible  = 'VISIBLE';
+    htmlValue_VisHidden   = 'HIDDEN';
+    htmlValue_VisSwitch   = 'SWITCH';
+
+
+implementation
+
+  uses
+    Windows, SysUtils, mr_StrUtils, WinInet;
+
+  function ExtractURL( var URL : string ) : string;
+    var
+      p : integer;
+    begin
+      p := pos( URLJoint, URL, 1 );
+      if p = 0
+        then
+          begin
+            result := URL;
+            URL := '';
+          end
+        else
+          begin
+            result := copy( URL, 1, p - 1 );
+            delete( URL, 1, p + length(URLJoint) - 1 );
+          end;
+    end;
+
+  function StrToPositioning( str : string ) : TFramePositioning;
+    begin
+      str := uppercase( str );
+      if str = htmlValue_PosAbsolute
+        then result := posAbsolute
+        else result := posRelative;
+    end;
+
+  function StrToAlign( str : string ) : TFrameAlign;
+    begin
+      str := uppercase( str );
+      if str = htmlValue_AlignLeft
+        then result := alLeft
+        else
+          if str = htmlValue_AlignTop
+            then result := alTop
+            else
+              if str = htmlValue_AlignRight
+                then result := alRight
+                else
+                  if str = htmlValue_AlignBottom
+                    then result := alBottom
+                    else
+                      if str = htmlValue_AlignClient
+                        then result := alClient
+                        else result := alNone;
+    end;
+
+  function StrToBoolean( str : string ) : boolean;
+    begin
+      str    := uppercase( str );
+      result := (str = 'TRUE') or (str = 'YES')
+    end;
+
+  function StrToDimension( str : string ) : TDimension; 
+    begin
+      try
+        if str <> ''
+          then
+            if str[length(str)] = '%'
+              then
+                begin
+                  result.value := StrToInt( copy( str, 1, pred(length(str)) ));
+                  result.relative := true;
+                end
+              else
+                begin
+                  result.value := StrToInt( str );
+                  result.relative := false;
+                end
+          else
+            begin
+              result.value := -1;
+              result.relative := false;
+            end
+      except
+        result.value := -1;
+        result.relative := false;
+      end;
+    end;
+
+  function StrToVisibility( str : string ) : TVisibility;
+    begin
+      str := uppercase(str);
+      if str = htmlValue_VisSwitch
+        then result := visSwitch
+        else
+          if str = htmlValue_VisHidden
+            then result := visHidden
+            else result := visVisible;
+    end;
+
+  function GetURLAction( URL : TURL ) : string;
+    begin
+      URL := DecodeEscSequences( URL );
+      result := uppercase(GetParmValue( URL, htmlParmName_Action ));
+    end;
+
+  function GetParmValue( URL : TURL; ParmName : string ) : string;
+    var
+      p : integer;
+      UpperURL : string;
+      URLParm  : boolean;
+    begin
+      URL := DecodeEscSequences( URL );
+      UpperURL := uppercase( URL );
+      ParmName := uppercase( ParmName );
+      p := mr_strutils.pos( '&' + ParmName, UpperURL, 1 );
+      if p = 0
+        then p := mr_strutils.pos( '?' + ParmName, UpperURL, 1 );
+      if p > 0
+        then
+          begin
+            p := mr_strutils.pos( '=', UpperURL, p );
+            if p > 0
+              then
+                begin
+                  inc( p );
+                  result := '';
+                  URLParm := false;
+                  while (p <= length(URL)) and ((URL[p] <> '&') or URLParm) and (URL[p] <> '}') do
+                    begin
+                      if URL[p] = '{'
+                        then URLParm := true
+                        else result := result + URL[p];
+                      inc( p );
+                    end;
+                end
+              else result := '';
+          end
+        else result := '';
+    end;
+
+  function GetAnchorData( URL : TURL ) : TAnchorData;
+    var
+      hiddenParm : string;
+    begin
+      URL := DecodeEscSequences( URL );
+      result.URL         := URL;
+      result.Action      := GetURLAction( URL );
+      result.FrameId     := GetParmValue( URL, htmlParmName_Id );
+      result.FrameClass  := GetParmValue( URL, htmlParmName_Class );
+      result.Target      := GetParmValue( URL, htmlParmName_Target );
+      result.Positioning := StrToPositioning(GetParmValue( URL, htmlParmName_Positioning ));
+      result.Align       := StrToAlign(GetParmValue( URL, htmlParmName_Align ));
+      result.Width       := StrToDimension(GetParmValue( URL, htmlParmName_Width ));
+      result.Height      := StrToDimension(GetParmValue( URL, htmlParmName_Height ));
+      result.Maximized   := StrToBoolean(GetParmValue( URL, htmlParmName_Maximized ));
+      result.CloseFrame  := StrToBoolean(GetParmValue( URL, htmlParmName_Close ));
+      result.VoidCache   := StrToBoolean(GetParmValue( URL, htmlParmName_VoidCache ));
+      result.ToHistory   := StrToBoolean(GetParmValue( URL, htmlParmName_ToHistory ));
+      hiddenParm := GetParmValue( URL, htmlParmName_Hidden );
+      if hiddenParm = ''
+        then result.Visibility := StrToVisibility(GetParmValue( URL, htmlParmName_Visibility ))
+        else
+          if not StrToBoolean(hiddenParm)
+            then result.Visibility := visVisible
+            else result.Visibility := visHidden
+    end;
+
+  function EncodeEscSequences( URL : string ) : string;
+    var
+      buffer    : pchar;
+      bufferlen : dword;
+    begin
+      bufferlen := 2*length(URL);
+      buffer    := StrAlloc( bufferlen );
+      if InternetCanonicalizeUrlA( pchar(URL), buffer, bufferlen, ICU_ENCODE_SPACES_ONLY  )
+        then result := buffer
+        else result := URL;
+      StrDispose(buffer);
+    end;
+
+  function DecodeEscSequences( URL : string ) : string;
+    var
+      buffer    : pchar;
+      bufferlen : dword;
+    begin
+      bufferlen := 2*length(URL);
+      buffer    := StrAlloc( bufferlen );
+      if InternetCanonicalizeUrlA( pchar(URL), buffer, bufferlen, ICU_DECODE or ICU_NO_ENCODE )
+        then result := buffer
+        else result := URL;
+      StrDispose(buffer);
+    end;
+
+  procedure DeleteParameter( var url : string; parm : string );
+    var
+      workStr : string;
+      p1, p2  : integer;
+    begin
+      workStr := uppercase( url );
+      p1 := system.pos( uppercase( '&' + parm ), workStr );
+      if p1 > 0
+        then
+          begin
+            p2 := pos( '&', workStr, p1 + 1 );
+            if p2 > p1
+              then system.delete( url, p1, p2 - p1 );
+          end;
+    end;
+
+
+
+end.
+
+

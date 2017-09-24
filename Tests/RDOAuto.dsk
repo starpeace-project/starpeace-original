@@ -1,0 +1,179 @@
+[MainWindow]
+Create=1
+Visible=1
+State=0
+Left=0
+Top=0
+Width=800
+Height=107
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=792
+ClientHeight=60
+
+[CallStackWindow]
+Create=1
+Visible=1
+State=0
+Left=303
+Top=371
+Width=306
+Height=174
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=298
+ClientHeight=146
+
+[ProjectManager]
+LargeButtons=1
+Column0Width=75
+Column1Width=125
+Column2Width=125
+
+[PropertyInspector]
+Create=1
+Visible=1
+State=0
+Left=0
+Top=109
+Width=190
+Height=385
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=182
+ClientHeight=359
+SplitPos=84
+
+[HistoryLists\hiWatchExpression]
+Count=2
+H0=yi
+H1=xi
+
+[HistoryLists\hiEvalExpression]
+Count=32
+H0=1600/300
+H1=200
+H2=MetaInput.MaxFluid.Q = MaxInt
+H3=MetaInput
+H4=dt
+H5=MetaInput.MaxFluid.Q div 10
+H6=10
+H7=Facility.metafacility.Intown
+H8=Facility.MetaFacility
+H9=Facility
+H10=Inputs[0].MetaInput
+H11=Inputs[0]
+H12=fMetaBlock
+H13=info
+H14=CoveredPeople - (TotalPopulation*Importance)
+H15=CoveredPeople > (TotalPopulation*Importance)
+H16=CoveredPeople / (TotalPopulation*Importance)
+H17=CoveredPeople div (TotalPopulation*Importance)
+H18=CoveredPeople /TotalPopulation*Importance
+H19=TotalPopulation*Importance
+H20=TotalPopulation
+H21=TMetaPublicFacility(MetaBlock).Kind
+H22=TMetaPublicFacility(MetaBlock)
+H23=TMetaPublicFacility
+H24=MetaBlock
+H25=80 div 15
+H26=80/15
+H27=10000*10000*20
+H28=10000*10000
+H29=sqrt(100)
+H30=sqrt(20)
+H31=sqrt(10)
+
+[HistoryLists\hiOpenFile]
+Count=21
+H0=c:\work\five\source\rdo\rdoclient_tlb.pas
+H1=c:\work\five\source\kernel\stdblocks.pas
+H2=c:\work\five\source\tests\simtst1.dpr
+H3=c:\work\five\source\tests\simtst1blks.pas
+H4=c:\work\five\source\kernel\asxcriticalsections.pas
+H5=c:\work\five\source\class storage\classstorageint.pas
+H6=c:\program files\borland\delphi 3\source\rtl\sys\system.pas
+H7=c:\work\five\source\kernel\classstorage.pas
+H8=c:\work\five\source\kernel\world.pas
+H9=c:\work\five\source\kernel\collection.pas
+H10=c:\work\five\source\kernel\kernel.pas
+H11=c:\program files\borland\delphi 3\source\rtl\sys\sysutils.pas
+H12=c:\work\five\source\kernel\txtres.pas
+H13=c:\work\five\source\kernel\metakernel.pas
+H14=c:\work\five\source\kernel\imgres.pas
+H15=c:\work\five\source\class storage\nativeclassstorage.pas
+H16=c:\program files\borland\delphi 3\source\vcl\classes.pas
+H17=c:\work\five\class storage\nativeclassstorage.pas
+H18=c:\work\five\class storage\classstorageimp.pas
+H19=c:\work\five\class storage\classstorageint.pas
+H20=c:\work\test\testobjs.pas
+
+[HistoryLists\hiHostApplication]
+Count=1
+H0=C:\Work\Five\Release\CacheClient.exe
+
+[HistoryLists\hiUnitAlias]
+Count=1
+H0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+
+[HistoryLists\hiLibUnitAliases]
+Count=1
+H0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+
+[Closed Files]
+File_0=SourceModule,'C:\Work\Five\Source\RDO\Common\ObjectProxy.pas',0,1,376,5,401,0,0
+File_1=SourceModule,'C:\Work\Five\Source\Kernel\Kernel.pas',0,1,429,1,442,0,0
+File_2=SourceModule,'C:\Work\Five\Source\Tests\WorldTest1Form.pas',0,1,79,1,92,1,0
+File_3=SourceModule,'C:\Work\Five\Source\Kernel\PublicFacility.pas',0,1,1,1,1,0,0
+File_4=SourceModule,'C:\Work\Five\Source\Kernel\Population.pas',0,1,132,1,157,0,0
+File_5=SourceModule,'C:\Work\Five\Source\StdBlocks\Construction.pas',0,1,121,1,126,0,0
+File_6=SourceModule,'C:\Work\Five\Source\Kernel\Trade.pas',0,1,83,1,86,0,0
+File_7=SourceModule,'C:\Work\Five\Source\Kernel\PopulatedBlock.pas',0,1,190,1,197,0,0
+File_8=SourceModule,'C:\Work\Five\Source\Tests\BlockView.pas',0,1,43,1,57,0,0
+File_9=SourceModule,'C:\Work\Five\Source\Kernel\World.pas',0,1,22,39,36,0,0
+
+[Modules]
+Module0=C:\Work\Five\Source\Tests\RDOAuto.dpr
+Count=1
+EditWindowCount=1
+
+[C:\Work\Five\Source\Tests\RDOAuto.dpr]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[EditWindow0]
+Create=1
+Visible=1
+State=2
+Left=210
+Top=129
+Width=544
+Height=381
+MaxLeft=-1
+MaxTop=-1
+MaxWidth=808
+MaxHeight=579
+ClientWidth=800
+ClientHeight=551
+SplitPos=50
+MessagePane=0
+ViewCount=1
+CurrentView=0
+View0=0
+
+[View0]
+Module=C:\Work\Five\Source\Tests\RDOAuto.dpr
+CursorX=37
+CursorY=17
+TopLine=1
+LeftCol=1
+
+[Watches]
+Count=2
+Watch0='xi',256,0,18,1
+Watch1='yi',256,0,18,1
+
+[Breakpoints]
+Count=0
+

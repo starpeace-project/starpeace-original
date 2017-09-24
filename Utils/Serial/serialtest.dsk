@@ -1,0 +1,177 @@
+[MainWindow]
+Create=1
+Visible=1
+State=2
+Left=0
+Top=0
+Width=800
+Height=107
+MaxLeft=-1
+MaxTop=-1
+MaxWidth=1160
+MaxHeight=107
+ClientWidth=1152
+ClientHeight=60
+
+[ProjectManager]
+LargeButtons=1
+Column0Width=75
+Column1Width=125
+Column2Width=125
+
+[PropertyInspector]
+Create=1
+Visible=1
+State=0
+Left=-1
+Top=176
+Width=190
+Height=451
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=182
+ClientHeight=425
+SplitPos=84
+
+[HistoryLists\hiEvalExpression]
+Count=13
+H0=QueryText
+H1=Paramstr(0)
+H2=list[2]
+H3=list[1]
+H4=list[0]
+H5=self
+H6=fServer.fObjectCache[x, y]
+H7=UserName
+H8=x1 div MapChunkSize
+H9=y1 div MapChunkSize
+H10=x div MapChunkSize
+H11=y div MapChunkSize
+H12=MapChunkSize
+
+[HistoryLists\hiOpenFile]
+Count=23
+H0=e:\work\five\source\directory server\directoryserver.pas
+H1=e:\work\five\source\utils\serial\genidd.pas
+H2=e:\work\five\source\utils\serial\memmapfile.pas
+H3=e:\work\five\source\utils\serial\crc32.pas
+H4=e:\work\five\source\utils\serial\autocheck.pas
+H5=e:\work\five\source\logs\logs.pas
+H6=e:\work\five\source\protocol\protocol.pas
+H7=e:\work\five\source\utils\misc\mathutils.pas
+H8=e:\work\five\source\kernel\collection.pas
+H9=e:\work\five\source\utils\network\socketcomp.pas
+H10=e:\work\five\source\kernel\smartthreads.pas
+H11=e:\work\five\source\voyager\urlhandlers\servercnxhandler.pas
+H12=e:\work\five\source\remote admin\psapi.pas
+H13=e:\work\five\source\remote admin\remoteadm.pas
+H14=e:\work\five\source\utils\misc\strutils.pas
+H15=e:\work\five\source\remote admin\remoteadmin.pas
+H16=e:\work\five\source\kernel\world.pas
+H17=d:\work\five\source\rdo\common\rdointerfaces.pas
+H18=d:\work\five\source\utils\network\socketcomp.pas
+H19=d:\work\five\source\rdo\server\winsockrdoconnectionsserver.pas
+H20=d:\work\five\source\mail server\mailserver.pas
+H21=d:\work\five\source\mail server\modelserver.pas
+H22=e:\work\five\source\model server\modelserver.pas
+
+[HistoryLists\hiRunParams]
+Count=2
+H0=www.starpeace.net 8000
+H1=bean 8000
+
+[HistoryLists\hiUnitAlias]
+Count=1
+H0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+
+[HistoryLists\hiLibUnitAliases]
+Count=1
+H0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+
+[HistoryLists\hiSearchMasks]
+Count=4
+H0=D:\Work\Five\Source\RDO
+H1=D:\Work\Five\Source\
+H2=D:\Work\Five\Source\Mail Server
+H3=D:\Work\Five\Source\Mail
+
+[Closed Files]
+File_0=SourceModule,'E:\Work\Five\Source\Directory Server\DirectoryServerProtocol.pas',0,1,1,28,14,0,0
+File_1=SourceModule,'E:\Work\Five\Source\Utils\Serial\AutoCheck.pas',0,1,35,23,43,0,0
+File_2=SourceModule,'E:\Work\Five\Source\Utils\Serial\MemMapFile.pas',0,1,1,1,1,0,0
+File_3=SourceModule,'E:\Work\Five\Source\Utils\Serial\CRC32.pas',0,1,1,1,1,0,0
+File_4=SourceModule,'E:\FIVE\Source\Kernel\Collection.pas',0,1,36,57,53,0,0
+File_5=SourceModule,'E:\FIVE\Source\RDO\Server\RDOObjectServer.pas',0,1,296,1,318,0,0
+File_6=SourceModule,'E:\FIVE\Source\Tests\DirTest\alspform.pas',0,1,54,72,77,0,0
+File_7=SourceModule,'E:\FIVE\Source\Utils\vcl\Windows.pas',0,1,17247,1,17261,0,0
+
+[Modules]
+Module0=E:\Work\Five\Source\Utils\Serial\serialtest.dpr
+Module1=E:\Work\Five\Source\Directory Server\DirectoryServer.pas
+Module2=E:\Work\Five\Source\Utils\Serial\GenIdd.pas
+Count=3
+EditWindowCount=1
+
+[E:\Work\Five\Source\Utils\Serial\serialtest.dpr]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[E:\Work\Five\Source\Directory Server\DirectoryServer.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[E:\Work\Five\Source\Utils\Serial\GenIdd.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[EditWindow0]
+Create=1
+Visible=1
+State=0
+Left=210
+Top=125
+Width=783
+Height=549
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=775
+ClientHeight=521
+SplitPos=50
+MessagePane=0
+ViewCount=3
+CurrentView=0
+View0=0
+View1=1
+View2=2
+
+[View0]
+Module=E:\Work\Five\Source\Utils\Serial\serialtest.dpr
+CursorX=70
+CursorY=14
+TopLine=1
+LeftCol=1
+
+[View1]
+Module=E:\Work\Five\Source\Directory Server\DirectoryServer.pas
+CursorX=1
+CursorY=112
+TopLine=101
+LeftCol=1
+
+[View2]
+Module=E:\Work\Five\Source\Utils\Serial\GenIdd.pas
+CursorX=1
+CursorY=162
+TopLine=119
+LeftCol=1
+
+[Watches]
+Count=1
+Watch0='result',256,0,18,1
+
+[Breakpoints]
+Count=0
+

@@ -1,0 +1,61 @@
+RDO (Remote Delphi Objects) tiene las siguientes limitantes:
+- Los métodos de un RDO sólo pueden declarar parámetros constantes o por valor.
+- Los métodos de un RDO sólo pueden declarar parámetros de los siguientes tipos:
+  - Enteros de cualquier tamaño.
+  - Booleans.
+  - Flotantes de simple y doble precisión.
+  - OLE strings (wide strings).
+
+- Las funciones sólo pueden devolver valores de tipo variant.
+- Las propiedades de un RDO pueden ser de los siguientes tipos:
+  - Enteros de cualquier tamaño.
+  - Booleans.
+  - Flotantes de simple y doble precisión.
+  - OLE strings (wide strings).
+  - Delphi strings.
+  - Variants.
+
+- No se puede usar de forma remota objetos de la VCL (recuerden el Synchronize).
+- Los métodos que usen objetos de la VCL deben usar Synchronize cada vez que quie
+ran hacerlo.
+- Es imprescindible que los módulos servidores y clientes de RDO hechos en Delphi
+usen la unit ShareMem si usan RDO desde DLLs.
+
+Además debe tenerse cuidado al invocar dichos métodos pués el compilador no está
+haciendo chequeo de tipos y esto puede provocar errores catastróficos. Por ejemplo
+el código siguiente podría ejecutar mal:
+
+  type
+    class
+      TTest =
+         procedure aTestMethod( aSingle : single );
+      end;
+
+  ...
+
+  aTestObj.aTestMethod( 3.14 );
+
+En este caso el Delphi por ejemplo asume que el parámetro real es de tipo "double"
+pero el parámetro formal es "single" por lo que ocurre un error de ejecución. Otro
+compilador podría asumir "single" y funcionaría pero es mejor asegurarse. Por ejemplo:
+
+  type
+    class
+      TTest =
+         procedure aTestMethod( aSingle : single );
+      end;
+
+  ...
+
+  const
+    PI : single = 3.14;
+
+  ...
+
+  aTestObj.aTestMethod( PI );
+
+Nota: Si se sabe lo que está haciendo se puede pasar parámetros de otros tipos como
+punteros a objetos (siempre que existan en el espacio de direcciones del RDO server),
+pero esto es bastante peligroso.
+
+

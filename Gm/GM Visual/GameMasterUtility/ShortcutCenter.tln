@@ -1,0 +1,17 @@
+ShortcutCenter.Caption=Keyboard shortcuts
+ShortcutCenter.Hint=
+Label1.Caption=Registered Keyboard shortcuts
+Label1.Hint=
+ListView1.Columns=3
+ListView1.Columns.0=Description
+ListView1.Columns.1=Shortcut
+ListView1.Columns.2=Text
+ListView1.Hint=
+Button1.Caption=Add...
+Button1.Hint=
+Button2.Caption=Edit...
+Button2.Hint=
+Button3.Caption=Delete
+Button3.Hint=
+Button4.Caption=Close
+Button4.Hint=

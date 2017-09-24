@@ -1,0 +1,314 @@
+[MainWindow]
+Create=1
+Visible=1
+State=0
+Left=0
+Top=0
+Width=800
+Height=106
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=792
+ClientHeight=60
+
+[ProjectManager]
+LargeButtons=1
+Column0Width=75
+Column1Width=125
+Column2Width=125
+
+[PropertyInspector]
+Create=1
+Visible=1
+State=0
+Left=0
+Top=108
+Width=190
+Height=383
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=182
+ClientHeight=359
+SplitPos=84
+
+[HistoryLists\hiWatchExpression]
+Count=32
+H0=pdword( pointer( ebp-$8c) )^,8x
+H1=pdword( pointer( ebx) )^,8x
+H2=pdword( pointer( ebp-$70) )^,8x
+H3=pdword( @fSharedTimer.fItems[0] )^,8x
+H4=pdword( @Result )^,8x
+H5=pdword( @AnimPlayer.fSharedTimer.fItems[0] )^,8x
+H6=pdword( @AnimPlayer.SharedTimer.fItems[0] )^,8x
+H7=pdword( @fItems[0] )^,8x
+H8=dword( fItems[0] ),8x
+H9=pdword( pointer(@fItems[0] )),8x
+H10=pdword( pointer(@Items[0] )),8x
+H11=dword( Items[0] ),8x
+H12=dword( Active[0] ),8x
+H13=pbyte( edi - 4 )^,8x
+H14=pbyte( edi - 2 )^,4x
+H15=pbyte( edi )^,4x
+H16=pbyte( SaveECX )^,200x
+H17=pbyte( SaveECX )^,x200
+H18=pbyte( SaveECX )^,200
+H19=pbyte( SaveECX )^,3000
+H20=ax,x
+H21=ax
+H22=ebx
+H23=pchar(esi) - pchar( SaveEAX )
+H24=pchar(edi) - pchar( SaveECX )
+H25=pchar(edi) - pchar( SaveEDX )
+H26=curx
+H27=jumpy
+H28=Jumpx
+H29=pchar(PrevFramePixels)-trlepixels
+H30=pchar()-trlepixels
+H31=pchar(esi)-tdibpixels
+
+[HistoryLists\hiEvalExpression]
+Count=32
+H0=DibHeader^,r
+H1=Self,r
+H2=DibHeader
+H3=(200 * 128 + 128 * 100 ) div 256
+H4=(200 * 127 + 128 * 100 ) div 256
+H5=(1 * 255 + 255 * 16) div 256
+H6=(0 * 255 + 255 * 16) div 256
+H7=buf2.height
+H8=buf1.height
+H9=buf2.width
+H10=buf1.width
+H11=Buf2
+H12=256 / 32
+H13=@GradientFill
+H14=@TransparentDIBits
+H15=@AlphaDibBlend
+H16=@AlphaBlend
+H17=FrameCount
+H18=CurrentFrameIndx
+H19=3 mod 3
+H20=2 mod 3
+H21=1 mod 3
+H22=0 mod 3
+H23=4 mod 3
+H24=4 div 3
+H25=0 mod 2
+H26=0 div 3
+H27=3 div 3
+H28=2 div 3
+H29=1 div 3
+H30=1 div 2
+H31=0 div 2
+
+[HistoryLists\hiEvalNewValue]
+Count=2
+H0=255
+H1=0
+
+[HistoryLists\hiOpenFile]
+Count=32
+H0=\\kryster\source\experts\splash\splashdesigner.pas
+H1=e:\jrg\source\filefolders\frmmain.pas
+H2=e:\blend.txt
+H3=\\kryster\source\packages\axlgraph\axlgraph.dpk
+H4=\\kryster\source\packages\axlmisc\axlmisc.dpk
+H5=\\kryster\source\graphics\bitblt.asm
+H6=d:\program files\borland\delphi 3\source\toolsapi\fileintf.pas
+H7=d:\program files\borland\delphi 3\source\toolsapi\exptintf.pas
+H8=d:\dos\tasm\bin\tasm32.bat
+H9=\\kryster\source\graphics\colorquant.pas
+H10=\\kryster\source\graphics\colortrans.pas
+H11=e:\delphistuff\gifunit.pas
+H12=e:\x1\moreutil.pas
+H13=e:\jrg\source\utils\packages\axldesgn\axldesgn.dpk
+H14=e:\jrg\source\utils\packages\axlcompn\axlcompn.dpk
+H15=e:\jrg\source\utils\packages\axlmisc\axlmisc.dpk
+H16=e:\jrg\source\utils\packages\axlgraph\axlgraph.dpk
+H17=\\kryster\source\graphics\gradientutils.pas
+H18=\\kryster\source\vcl\commrez.pas
+H19=\\kryster\source\misc\listutils.pas
+H20=\\kryster\source\graphics\buffercolors.pas
+H21=\\kryster\source\gameapi\bitfonts.pas
+H22=e:\jrg\source\rla\frmmain.pas
+H23=d:\program files\borland\delphi 3\source\vcl\graphics.pas
+H24=\\kryster\source\vcl\logo.pas
+H25=e:\jrg\source\utils\vcl\logo.pas
+H26=d:\program files\borland\delphi 3\source\vcl\classes.pas
+H27=\\kryster\source\packages\axlcompn\axlcompn.dpk
+H28=d:\program files\borland\delphi 3\source\vcl\controls.pas
+H29=\\kryster\source\packages\axldesgn\axldesgn.dpk
+H30=e:\jrg\source\packages\axlcompn\axlcompn.dpk
+H31=\\kryster\source\vcl\toolbars.pas
+
+[HistoryLists\hiUnitAlias]
+Count=1
+H0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+
+[HistoryLists\hiSearchMasks]
+Count=2
+H0=D:\Program Files\Borland\Delphi 3\Source
+H1=E:\JRG\SOURCE
+
+[HistoryLists\hiPakDLLOutputDir]
+Count=1
+H0=d:\windows\system
+
+[HistoryLists\hiPakDCPOutputDir]
+Count=2
+H0=\\kryster\source\packages
+H1=e:\jrg\source\packages
+
+[Closed Files]
+File_0=SourceModule,'E:\JRG\Source\FileFolders\frmMain.pas',0,1,18,1,24,0,0
+File_1=SourceModule,'E:\JRG\Source\Utils\Experts\Splash\SplashDesigner.pas',0,1,32,20,40,1,0
+File_2=SourceModule,'\\Kryster\Source\VCL\AppSplash.pas',0,1,108,31,125,0,0
+File_3=SourceModule,'\\Kryster\Source\Graphics\ColorTrans.pas',0,1,138,23,141,0,0
+File_4=SourceModule,'E:\JRG\Source\FileFolders\frmMain.dfm',0,1,1,1,1,0,0
+File_5=SourceModule,'E:\JRG\Source\Utils\Experts\Splash\SplashDesigner.dfm',0,1,1,1,1,0,0
+File_6=SourceModule,'e:\jrg\Work\To Do\ToDo.pas',0,1,1,8,20,0,0
+File_7=SourceModule,'\\kryster\source\graphics\bitblt.asm',0,1,1,1,1,0,0
+
+[Modules]
+Module0=\\KRYSTER\SOURCE\Experts\Splash\SplashDesigner.pas
+Module1=\\Kryster\Source\Graphics\SpeedBmp.pas
+Module2=\\Kryster\Source\Graphics\CanvasBmp.pas
+Module3=\\KRYSTER\SOURCE\Experts\Splash\expTest.dpr
+Module4=\\Kryster\Source\VCL\SpeedImage.pas
+Module5=\\Kryster\Source\Graphics\Buffer.pas
+Module6=\\Kryster\Source\Misc\StreamUtils.pas
+Module7=\\Kryster\Source\Graphics\Dibs.pas
+Count=8
+EditWindowCount=1
+
+[\\KRYSTER\SOURCE\Experts\Splash\SplashDesigner.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[\\Kryster\Source\Graphics\SpeedBmp.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[\\Kryster\Source\Graphics\CanvasBmp.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[\\KRYSTER\SOURCE\Experts\Splash\expTest.dpr]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[\\Kryster\Source\VCL\SpeedImage.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[\\Kryster\Source\Graphics\Buffer.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[\\Kryster\Source\Misc\StreamUtils.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[\\Kryster\Source\Graphics\Dibs.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[EditWindow0]
+Create=1
+Visible=1
+State=0
+Left=210
+Top=127
+Width=544
+Height=380
+MaxLeft=-4
+MaxTop=-4
+ClientWidth=536
+ClientHeight=353
+SplitPos=50
+MessagePane=0
+ViewCount=8
+CurrentView=0
+View0=0
+View1=1
+View2=2
+View3=3
+View4=4
+View5=5
+View6=6
+View7=7
+
+[View0]
+Module=\\KRYSTER\SOURCE\Experts\Splash\SplashDesigner.pas
+CursorX=1
+CursorY=56
+TopLine=50
+LeftCol=1
+
+[View1]
+Module=\\Kryster\Source\Graphics\SpeedBmp.pas
+CursorX=1
+CursorY=701
+TopLine=688
+LeftCol=1
+
+[View2]
+Module=\\Kryster\Source\VCL\SpeedImage.pas
+CursorX=1
+CursorY=170
+TopLine=147
+LeftCol=1
+
+[View3]
+Module=\\Kryster\Source\Graphics\CanvasBmp.pas
+CursorX=1
+CursorY=685
+TopLine=667
+LeftCol=1
+
+[View4]
+Module=\\Kryster\Source\Graphics\Dibs.pas
+CursorX=1
+CursorY=1382
+TopLine=1361
+LeftCol=1
+
+[View5]
+Module=\\Kryster\Source\Graphics\Buffer.pas
+CursorX=61
+CursorY=275
+TopLine=257
+LeftCol=1
+
+[View6]
+Module=\\Kryster\Source\Misc\StreamUtils.pas
+CursorX=1
+CursorY=31
+TopLine=16
+LeftCol=1
+
+[View7]
+Module=\\KRYSTER\SOURCE\Experts\Splash\expTest.dpr
+CursorX=1
+CursorY=96
+TopLine=74
+LeftCol=1
+
+[Watches]
+Count=4
+Watch0='pdword( @Result )^,8x',256,0,18,1
+Watch1='pdword( @fSharedTimer.fItems[0] )^,8x',256,0,18,1
+Watch2='pdword( pointer( ebp-$8c) )^,8x',256,0,18,1
+Watch3='pdword( pointer( ebx) )^,8x',256,0,18,1
+
+[Breakpoints]
+Count=0
+

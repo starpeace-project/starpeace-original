@@ -1,0 +1,174 @@
+[MainWindow]
+Create=1
+Visible=1
+State=0
+Left=0
+Top=0
+Width=800
+Height=107
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=792
+ClientHeight=60
+
+[ProjectManager]
+LargeButtons=1
+Column0Width=75
+Column1Width=125
+Column2Width=125
+
+[PropertyInspector]
+Create=1
+Visible=1
+State=0
+Left=1
+Top=102
+Width=190
+Height=493
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=182
+ClientHeight=467
+SplitPos=84
+
+[HistoryLists\hiWatchExpression]
+Count=0
+
+[HistoryLists\hiEvalExpression]
+Count=8
+H0=self
+H1=fServer.fObjectCache[x, y]
+H2=UserName
+H3=x1 div MapChunkSize
+H4=y1 div MapChunkSize
+H5=x div MapChunkSize
+H6=y div MapChunkSize
+H7=MapChunkSize
+
+[HistoryLists\hiEvalNewValue]
+Count=0
+
+[HistoryLists\hiOpenFile]
+Count=11
+H0=e:\work\five\source\remote admin\remoteadm.pas
+H1=e:\work\five\source\utils\misc\strutils.pas
+H2=e:\work\five\source\remote admin\psapi.pas
+H3=e:\work\five\source\remote admin\remoteadmin.pas
+H4=e:\work\five\source\kernel\world.pas
+H5=d:\work\five\source\rdo\common\rdointerfaces.pas
+H6=d:\work\five\source\utils\network\socketcomp.pas
+H7=d:\work\five\source\rdo\server\winsockrdoconnectionsserver.pas
+H8=d:\work\five\source\mail server\mailserver.pas
+H9=d:\work\five\source\mail server\modelserver.pas
+H10=e:\work\five\source\model server\modelserver.pas
+
+[HistoryLists\hiRunParams]
+Count=0
+
+[HistoryLists\hiFindError]
+Count=0
+
+[HistoryLists\hiUnitAlias]
+Count=1
+H0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+
+[HistoryLists\hiLibUnitAliases]
+Count=1
+H0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+
+[HistoryLists\hiSearchMasks]
+Count=4
+H0=D:\Work\Five\Source\RDO
+H1=D:\Work\Five\Source\
+H2=D:\Work\Five\Source\Mail Server
+H3=D:\Work\Five\Source\Mail
+
+[HistoryLists\hiPakDLLOutputDir]
+Count=0
+
+[HistoryLists\hiPakDCPOutputDir]
+Count=0
+
+[Closed Files]
+File_0=SourceModule,'E:\Work\Five\Source\Utils\Misc\StrUtils.pas',0,1,1,1,1,0,0
+File_1=SourceModule,'E:\Work\Five\Source\RDO\Server\RDOQueryServer.pas',0,1,328,33,340,0,0
+File_2=SourceModule,'E:\Work\Five\Source\RDO\Client\WinsockRDOConnection.pas',0,1,201,1,219,0,0
+File_3=SourceModule,'E:\Work\Five\Source\Interface Server\InterfaceServer.pas',0,1,1,1,1,0,0
+File_4=SourceModule,'E:\Work\Five\Source\Kernel\Collection.pas',0,1,437,1,453,0,0
+File_5=SourceModule,'E:\Work\Five\Source\Protocol\Protocol.pas',0,1,1,17,13,0,0
+File_6=SourceModule,'E:\Work\Five\Source\Kernel\World.pas',0,1,193,1,193,0,0
+File_7=SourceModule,'D:\Work\Five\Source\Interface Server\InterfaceServer.pas',0,1,337,45,356,0,0
+File_8=SourceModule,'D:\Work\Five\Source\Utils\Vcl\Windows.pas',0,1,17411,1,17425,0,0
+
+[Modules]
+Module0=E:\Work\Five\Source\Remote Admin\test.dpr
+Module1=E:\Work\Five\Source\Remote Admin\RemoteAdm.pas
+Module2=E:\Work\Five\Source\Remote Admin\psapi.pas
+Count=3
+EditWindowCount=1
+
+[E:\Work\Five\Source\Remote Admin\test.dpr]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[E:\Work\Five\Source\Remote Admin\RemoteAdm.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[E:\Work\Five\Source\Remote Admin\psapi.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[EditWindow0]
+Create=1
+Visible=1
+State=2
+Left=192
+Top=108
+Width=785
+Height=563
+MaxLeft=-1
+MaxTop=-1
+MaxWidth=1032
+MaxHeight=747
+ClientWidth=1024
+ClientHeight=719
+SplitPos=50
+MessagePane=1
+ViewCount=3
+CurrentView=0
+View0=0
+View1=1
+View2=2
+
+[View0]
+Module=E:\Work\Five\Source\Remote Admin\test.dpr
+CursorX=29
+CursorY=20
+TopLine=10
+LeftCol=1
+
+[View1]
+Module=E:\Work\Five\Source\Remote Admin\RemoteAdm.pas
+CursorX=1
+CursorY=30
+TopLine=12
+LeftCol=1
+
+[View2]
+Module=E:\Work\Five\Source\Remote Admin\psapi.pas
+CursorX=35
+CursorY=58
+TopLine=33
+LeftCol=1
+
+[Watches]
+Count=1
+Watch0='result',256,0,18,1
+
+[Breakpoints]
+Count=0
+

@@ -1,0 +1,6 @@
+Label8.Caption=Select a folder:
+bOK.Hint=Display overlay map tools
+bOK.Text=MOVE
+bCancel.Hint=Display overlay map tools
+bCancel.Text=CANCEL
+CaptionPanel.Caption=MOVE FAVORITES

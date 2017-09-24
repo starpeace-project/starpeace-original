@@ -1,0 +1,72 @@
+package AxlGraph;
+
+{$R *.RES}
+{$R 'FlicPlayer.dcr'}
+{$ALIGN ON}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO ON}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION OFF}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES ON}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST ON}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $00400000}
+{$DESCRIPTION 'Merchise CodeLib - Graphics'}
+{$IMPLICITBUILD OFF}
+
+requires
+  vcl30,
+  AxlMisc;
+
+contains
+  FlicPlayer,
+  AnimPlayer,
+  VclUtils,
+  BitBlt,
+  Buffer,
+  BufferDraw,
+  ChunkStream,
+  ColorQuant,
+  ColorSpaces,
+  DibDraw,
+  DibRle,
+  Dibs,
+  Flics,
+  FliPlayback,
+  Gdi,
+  Palettes,
+  VideoDraw,
+  VideoICM,
+  VideoUtils,
+  ImageLib,
+  Images,
+  Sprites,
+  Dib2Frames,
+  GifPlayer,
+  RlePlayer,
+  FliPlay,
+  Gifs,
+  GifPlay,
+  SpeedImage,
+  AnimPlay,
+  RlePlay,
+  Gradients,
+  BufferColors,
+  ColorTrans,
+  GdiExt,
+  SpeedBmp,
+  CanvasBmp;
+
+end.

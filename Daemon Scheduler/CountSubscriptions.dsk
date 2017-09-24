@@ -1,0 +1,315 @@
+[MainWindow]
+Create=1
+Visible=1
+State=0
+Left=0
+Top=0
+Width=1025
+Height=106
+MaxLeft=-4
+MaxTop=-4
+ClientWidth=1017
+ClientHeight=60
+
+[BreakpointWindow]
+Create=1
+Visible=1
+State=0
+Left=285
+Top=285
+Width=490
+Height=281
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=482
+ClientHeight=254
+Column0Width=100
+Column1Width=60
+Column2Width=240
+Column3Width=40
+
+[WatchWindow]
+Create=1
+Visible=1
+State=0
+Left=189
+Top=225
+Width=421
+Height=149
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=413
+ClientHeight=122
+
+[ProjectManager]
+Create=1
+Visible=1
+State=0
+Left=200
+Top=108
+Width=337
+Height=239
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=329
+ClientHeight=215
+LargeButtons=1
+Column0Width=75
+Column1Width=125
+Column2Width=125
+
+[PropertyInspector]
+Create=1
+Visible=1
+State=0
+Left=1
+Top=102
+Width=210
+Height=401
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=202
+ClientHeight=377
+SplitPos=95
+
+[HistoryLists\hiWatchExpression]
+Count=4
+H0=fRankedPlayers[i]
+H1=integer(pointer($2227CE8)^)
+H2=integer(pointer($5E07E98)^)
+H3=TsetCompanyInfo(pointer($12FDCC)^)
+
+[HistoryLists\hiEvalExpression]
+Count=32
+H0=60*60*1000
+H1=cDefaultPeriod
+H2=171/21
+H3=3/21
+H4=1000 div 16
+H5=20000 div cPlanesTimerInterval
+H6=20000
+H7=cAirTrafficRegInterval
+H8=16280/4
+H9=10000 div 83
+H10=(((2147483647 div 1000) div 60) div 60) div 24
+H11=((2147483647 div 1000) div 60) div 60
+H12=(2147483647 div 1000) div 60
+H13=2147483647 div 1000
+H14=fControl
+H15=32737 + 32737 
+H16=33737 + 32737 
+H17=32737*65535
+H18=65535 div 1000
+H19=$FFFFFFFF div $200
+H20=$FFFFFFFF div 1000
+H21=$FFFFFFFF div 100
+H22=64*32*1024/1024
+H23=64*32*1024
+H24=64*32
+H25=MapName
+H26=32*32*32/1024
+H27=32*32*32
+H28=32*32
+H29=64*64*64/1024
+H30=256*256/1024
+H31=256*256/(1024*1024)
+
+[HistoryLists\hiOpenFile]
+Count=32
+H0=c:\work\five\release\servers\cacheserver.log
+H1=c:\work\five\source\daemon scheduler\rankingsdaemon.pas
+H2=c:\work\five\source\logs\logs.pas
+H3=c:\work\five\source\kernel\smartthreads.pas
+H4=c:\work\five\source\rdo\client\winsockrdoconnection.pas
+H5=c:\work\five\source\rdo\common\rdoutils.pas
+H6=c:\work\five\source\rdo\client\rdomarshalers.pas
+H7=c:\work\five\source\rdo\common\errorcodes.pas
+H8=c:\work\five\source\utils\network\spoolpackets.pas
+H9=c:\work\five\source\utils\network\socketcomp.pas
+H10=c:\work\five\source\rdo\common\rdoprotocol.pas
+H11=c:\work\five\source\rdo\client\rdoobjectproxy.pas
+H12=c:\work\five\source\rdo\common\rdointerfaces.pas
+H13=c:\work\five\source\daemon scheduler\dirserversession.pas
+H14=c:\work\five\source\daemon scheduler\daemons.pas
+H15=c:\shared\daemon scheduler\rankingsdaemon.pas
+H16=c:\work\five\source\kernel\collection.pas
+H17=c:\work\five\source\daemon scheduler\worldstatusdaemon.pas
+H18=c:\work\five\source\daemon scheduler\worldstatus.dpr
+H19=c:\work\five\source\daemon scheduler\fivedaemonscheduler.dpr
+H20=c:\work\five\source\tests\rdoconnectdisconnect\rdoconnectdisconnecttest.dpr
+H21=c:\work\five\source\utils\serial\genidd.pas
+H22=c:\work\five\source\directory server\directoryserverprotocol.pas
+H23=c:\work\five\release\servers\fivealsp.exe.general.log
+H24=c:\work\five\release\servers\alsp.exe.general.log
+H25=c:\work\five\source\daemon scheduler\testdaemon.dpr
+H26=c:\work\five\source\daemon scheduler\daemonschedulr.dpr
+H27=c:\work\five\source\remote admin\remoteadmin.dpr
+H28=c:\work\five\release\servers\daemonschedulr.exe.daemon scheduler.log
+H29=c:\work\five\source\voyager\fivevoyager.dpr
+H30=c:\work\five\source\utils\misc\mathutils.pas
+H31=\\bean\e\test1.txt
+
+[HistoryLists\hiRunParams]
+Count=3
+H0=http:\\bean\five\
+H1=http:\\www.starpeace.net\five\
+H2=http:\\lisa\five\
+
+[HistoryLists\hiHostApplication]
+Count=3
+H0=C:\Work\Five\Release\Servers\FiveDaemonScheduler.exe
+H1=C:\Work\Five\Release\Servers\DaemonSchedulr.exe
+H2=C:\Work\Five\Release\Servers\DaemonScheduler.exe
+
+[HistoryLists\hiUnitAlias]
+Count=1
+H0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+
+[HistoryLists\hiLibUnitAliases]
+Count=1
+H0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+
+[HistoryLists\hiSearchMasks]
+Count=7
+H0=C:\Work\Five\Source
+H1=C:\Work\Five\Source\Land
+H2=E:\Work\Five\Source\News Server
+H3=E:\Work\Five\Source\Voyager
+H4=E:\Work\Five\Source\Voyager\Components
+H5=E:\Work\Five\Source\Rdo
+H6=E:\Work\Five\Source\Utils
+
+[Closed Files]
+File_0=SourceModule,'C:\Work\Five\Release\Servers\CacheServer.log',0,1,1,1,1,0,0
+File_1=SourceModule,'C:\Work\Five\Source\Rdo\Client\WinSockRDOConnection.pas',0,1,94,5,111,0,0
+File_2=SourceModule,'C:\Work\Five\Source\Rdo\Common\RDOUtils.pas',0,1,1,12,17,0,0
+File_3=SourceModule,'C:\Work\Five\Source\Logs\Logs.pas',0,1,1,36,14,0,0
+File_4=SourceModule,'C:\Work\Five\Source\Kernel\SmartThreads.pas',0,1,1,20,14,0,0
+File_5=SourceModule,'C:\Work\Five\Source\Utils\Network\SocketComp.pas',0,1,1,63,19,0,0
+File_6=SourceModule,'C:\Work\Five\Source\Utils\Network\SpoolPackets.pas',0,1,1,72,17,0,0
+File_7=SourceModule,'C:\Work\Five\Source\Rdo\Common\RDOInterfaces.pas',0,1,1,18,6,0,0
+File_8=SourceModule,'C:\Work\Five\Source\Rdo\Common\RDOProtocol.pas',0,1,1,17,15,0,0
+File_9=SourceModule,'C:\Work\Five\Source\Rdo\Client\RDOObjectProxy.pas',0,1,49,62,67,0,0
+
+[Modules]
+Module0=C:\Work\Five\Source\Daemon Scheduler\SubscritionsCounter.pas
+Module1=C:\Work\Five\Source\Daemon Scheduler\RankingsDaemon.pas
+Module2=C:\Work\Five\Source\Daemon Scheduler\CountSubscriptions.dpr
+Module3=C:\Work\Five\Source\Daemon Scheduler\DirServerSession.pas
+Module4=C:\Work\Five\Source\Daemon Scheduler\Daemons.pas
+Count=5
+EditWindowCount=1
+
+[C:\Work\Five\Source\Daemon Scheduler\SubscritionsCounter.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\Daemon Scheduler\RankingsDaemon.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\Daemon Scheduler\CountSubscriptions.dpr]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\Daemon Scheduler\DirServerSession.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\Daemon Scheduler\Daemons.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[EditWindow0]
+Create=1
+Visible=1
+State=2
+Left=210
+Top=127
+Width=696
+Height=486
+MaxLeft=-1
+MaxTop=-1
+MaxWidth=1032
+MaxHeight=748
+ClientWidth=1024
+ClientHeight=721
+SplitPos=50
+MessagePane=1
+ViewCount=5
+CurrentView=2
+View0=0
+View1=1
+View2=2
+View3=3
+View4=4
+
+[View0]
+Module=C:\Work\Five\Source\Daemon Scheduler\Daemons.pas
+CursorX=33
+CursorY=356
+TopLine=337
+LeftCol=1
+
+[View1]
+Module=C:\Work\Five\Source\Daemon Scheduler\CountSubscriptions.dpr
+CursorX=36
+CursorY=11
+TopLine=1
+LeftCol=1
+
+[View2]
+Module=C:\Work\Five\Source\Daemon Scheduler\SubscritionsCounter.pas
+CursorX=52
+CursorY=75
+TopLine=52
+LeftCol=1
+
+[View3]
+Module=C:\Work\Five\Source\Daemon Scheduler\DirServerSession.pas
+CursorX=1
+CursorY=23
+TopLine=1
+LeftCol=1
+
+[View4]
+Module=C:\Work\Five\Source\Daemon Scheduler\RankingsDaemon.pas
+CursorX=1
+CursorY=1
+TopLine=1
+LeftCol=1
+
+[Watches]
+Count=1
+Watch0='fRankedPlayers[i]',256,0,18,1
+
+[Breakpoints]
+Count=0
+
+[PVCS Browser]
+Left=236
+Top=105
+Width=625
+Height=393
+State=0
+Visible=0
+
+[PVCS VDiff]
+Left=257
+Top=160
+Width=591
+Height=608
+Layout=1
+Orientation=1
+State=0
+Visible=0
+File1Color=16711680
+File2Color=255
+SpaceColor=16776960
+TextColor=0
+

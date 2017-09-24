@@ -1,0 +1,268 @@
+[MainWindow]
+Create=1
+Visible=1
+State=0
+Left=0
+Top=0
+Width=800
+Height=106
+MaxLeft=-4
+MaxTop=-4
+ClientWidth=792
+ClientHeight=60
+
+[ProjectManager]
+LargeButtons=1
+Column0Width=75
+Column1Width=125
+Column2Width=125
+
+[PropertyInspector]
+Create=1
+Visible=1
+State=0
+Left=0
+Top=108
+Width=229
+Height=383
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=221
+ClientHeight=359
+SplitPos=94
+
+[HistoryLists\hiSearchSymbol]
+Count=1
+H0=TheClientWorld
+
+[HistoryLists\hiEvalExpression]
+Count=32
+H0=2625106/(1024*1024)
+H1=1319914 / (1024*1024)
+H2=1319914 div (1024*1024)
+H3=528933 / (1024*1024)
+H4=528933 div (1024*1024)
+H5=528933 div 1024
+H6=3304163 div (1024*1024)
+H7=NewDirs.text
+H8=NewFiles.text
+H9=3304163 div 1024*1024
+H10=3304163 div 1024
+H11=1866752 div 1024
+H12=SyncDirs.text
+H13=SyncDirs
+H14=NewFiles
+H15=OldFiles[0]
+H16=OldFiles
+H17=SyncDirs[0]
+H18=NewDirs.count
+H19=NewDirs[0]
+H20=NewDirs
+H21=NewFiles.Count
+H22=count div 1024
+H23=Count
+H24=result
+H25=fFolderIndex[0]
+H26=fFolderIndex,r
+H27=fFolderIndex.classname
+H28=fFolderIndex
+H29=fFolderIndex.count
+H30=sizeof(TFileTime)
+H31=fFolderIndex[i],r
+
+[HistoryLists\hiOpenFile]
+Count=32
+H0=d:\work\five\source\utils\misc\delphistreamutils.pas
+H1=c:\program files\borland\delphi 3\source\rtl\win\windows.pas
+H2=d:\work\five\source\cache server\cacheserverreportform.dfm
+H3=d:\work\five\source\utils\synchro\syncindex.pas
+H4=d:\work\five\source\utils\synchro\cabutils.pas
+H5=d:\work\five\source\voyager\urlhandlers\mapisohandler.pas
+H6=d:\work\five\source\utils\codelib\axldebug.pas
+H7=d:\work\five\source\utils\codelib\threads.pas
+H8=d:\work\five\source\kernel\collection.pas
+H9=d:\work\five\source\utils\network\urlutils.pas
+H10=d:\work\five\source\utils\synchro\synchro.pas
+H11=e:\merchise\utils\misc\datetimeutils.pas
+H12=e:\esc\monikers\urlutils.pas
+H13=e:\esc\monikers\monmainform.pas
+H14=c:\program files\borland\delphi 3\source\rtl\win\urlmon.pas
+H15=e:\esc\cabs\delphi test\cabutils.pas
+H16=c:\program files\borland\delphi 3\source\rtl\win\wininet.pas
+H17=e:\esc\http\webloader.pas
+H18=e:\esc\http\httputils.pas
+H19=e:\troy\webloader.delphi\http.pas
+H20=e:\troy\webloader.delphi\webloader.pas
+H21=e:\troy\webloader.cpp\downloader.h
+H22=e:\troy\webloader.cpp\downloader.cpp
+H23=c:\program files\borland\delphi 3\source\internet\httpapp.pas
+H24=e:\esc\warpilot\server\serverworld.pas
+H25=e:\cliprect.pas
+H26=e:\esc\network\netutils.pas
+H27=e:\esc\war pilot\client\clientworld.pas
+H28=e:\merchise\utils\graphics\bufferdraw.pas
+H29=e:\esc\graph\unit1.pas
+H30=e:\merchise\utils\misc\streamutils.pas
+H31=e:\merchise\utils\graphics\palettes.pas
+
+[HistoryLists\hiRunParams]
+Count=5
+H0="D:\Work\Five\Five Web\Client\Test\"
+H1="D:\Work\Five\Five Web\Client\Test"
+H2="D:\Work\Five\Five Web\Client"
+H3="D:\Work\Five\Five Web\Client\"
+H4=D:\Work\Five\Five Web\Client\
+
+[HistoryLists\hiUnitAlias]
+Count=1
+H0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+
+[HistoryLists\hiLibUnitAliases]
+Count=1
+H0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+
+[HistoryLists\hiSearchMasks]
+Count=1
+H0=E:\Esc\War Pilot
+
+[Closed Files]
+File_0=SourceModule,'D:\Work\Five\Source\Cache Server\CacheServerReportForm.pas',0,1,48,1,60,0,0
+File_1=SourceModule,'D:\Work\Five\Source\Utils\Synchro\synchro.pas',0,1,239,5,241,0,0
+File_2=SourceModule,'D:\Work\Five\Source\Tests\SyncTest.pas',0,1,1,5,49,1,1
+File_3=SourceModule,'D:\Work\Five\Source\Utils\Synchro\CabUtils.pas',0,36,49,117,56,0,0
+File_4=SourceModule,'D:\Work\Five\Source\Utils\CodeLib\Threads.pas',0,1,776,1,790,0,0
+File_5=SourceModule,'D:\Work\Five\Source\Utils\Network\URLUtils.pas',0,1,1,1,15,0,0
+File_6=SourceModule,'D:\Work\Five\Source\Cache Server\CacheServerReportForm.dfm',0,1,1,1,1,0,0
+File_7=SourceModule,'\\Geena\C\Work\Isometric Viewer\ESC Sources\Monikers\MonMainForm.pas',0,1,25,1,31,1,0
+
+[Modules]
+Module0=D:\Work\Five\Source\Utils\Synchro\SyncIndex.pas
+Module1=D:\Work\Five\Source\Kernel\Collection.pas
+Module2=D:\Work\Five\Source\Utils\Synchro\comparefolders.dpr
+Module3=D:\Work\Five\Source\Utils\Vcl\Windows.pas
+Module4=D:\Work\Five\Source\Utils\Misc\DelphiStreamUtils.pas
+Module5=C:\Program Files\Borland\Delphi 3\Source\RTL\WIN\windows.pas
+Count=6
+EditWindowCount=1
+
+[D:\Work\Five\Source\Utils\Synchro\SyncIndex.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[D:\Work\Five\Source\Kernel\Collection.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[D:\Work\Five\Source\Utils\Synchro\comparefolders.dpr]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[D:\Work\Five\Source\Utils\Vcl\Windows.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[D:\Work\Five\Source\Utils\Misc\DelphiStreamUtils.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Program Files\Borland\Delphi 3\Source\RTL\WIN\windows.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[EditWindow0]
+Create=1
+Visible=1
+State=0
+Left=210
+Top=129
+Width=509
+Height=369
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=501
+ClientHeight=342
+SplitPos=50
+MessagePane=0
+ViewCount=6
+CurrentView=2
+View0=0
+View1=1
+View2=2
+View3=3
+View4=4
+View5=5
+
+[View0]
+Module=D:\Work\Five\Source\Utils\Synchro\comparefolders.dpr
+CursorX=1
+CursorY=23
+TopLine=16
+LeftCol=1
+
+[View1]
+Module=D:\Work\Five\Source\Utils\Misc\DelphiStreamUtils.pas
+CursorX=22
+CursorY=9
+TopLine=1
+LeftCol=1
+
+[View2]
+Module=D:\Work\Five\Source\Utils\Synchro\SyncIndex.pas
+CursorX=1
+CursorY=517
+TopLine=503
+LeftCol=1
+
+[View3]
+Module=D:\Work\Five\Source\Utils\Vcl\Windows.pas
+CursorX=1
+CursorY=16928
+TopLine=16914
+LeftCol=1
+
+[View4]
+Module=C:\Program Files\Borland\Delphi 3\Source\RTL\WIN\windows.pas
+CursorX=63
+CursorY=2622
+TopLine=2597
+LeftCol=1
+
+[View5]
+Module=D:\Work\Five\Source\Kernel\Collection.pas
+CursorX=1
+CursorY=202
+TopLine=186
+LeftCol=1
+
+[Watches]
+Count=0
+
+[Breakpoints]
+Count=0
+
+[PVCS Browser]
+Left=236
+Top=105
+Width=625
+Height=393
+State=0
+Visible=0
+[PVCS VDiff]
+Left=257
+Top=160
+Width=591
+Height=608
+Layout=1
+Orientation=1
+State=0
+Visible=0
+File1Color=16711680
+File2Color=255
+SpaceColor=16776960
+TextColor=0

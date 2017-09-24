@@ -1,0 +1,320 @@
+{***************************************************************
+ * Unit Name: MemoryManager
+ * Purpose  :
+ * Author   : Roberto Alonso Gomez
+ * History  : Viernes, Febrero 18 2000
+ ****************************************************************}
+
+unit MemoryManager;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs, StdCtrls, ExtCtrls;
+
+type
+  TMemoryShow = (msMemCount, msFreeMemCount, msReallocMemCount, msAllocMemCount, msAllocMemSize, msPendingCall);
+
+  TMemoryManagerClass =
+    class(TCustomLabel)
+      public
+        constructor Create(AOwner: TComponent); override;
+        destructor Destroy; override;
+        procedure Reset;
+      private
+        fActive     : boolean;
+        fMemoryShow : TMemoryShow;
+        function  GetTime: integer;
+        procedure SetTime(const Value: integer);
+      private
+        function  GetMemCount : integer;
+        function  GetFreeMemCount: integer;
+        function  GetReallocMemCount: integer;
+        function  GetAllocMemCount: integer;
+        function  GetAllocMemSize: integer;
+        procedure SetActive(const value : boolean);
+        procedure SetMemoryShow(const value: TMemoryShow);
+      public
+        property MemCount        : integer  read GetMemCount;
+        property FreeMemCount    : integer  read GetFreeMemCount;
+        property ReallocMemCount : integer  read GetReallocMemCount;
+        property AllocMemCount   : integer  read GetAllocMemCount;
+        property AllocMemSize    : integer  read GetAllocMemSize;
+      published
+        property Active: boolean            read fActive       write SetActive;
+        property MemoryShow: TMemoryShow    read fMemoryShow   write SetMemoryShow;
+        property Interval : integer         read GetTime         write SetTime;
+        property Align;
+        property Alignment;
+        property Anchors;
+        property AutoSize;
+        property Color;
+        property Constraints;
+        property Enabled;
+        property FocusControl;
+        property Font;
+        property ParentColor;
+        property ParentFont;
+        property ParentShowHint;
+        property ShowAccelChar;
+        property ShowHint;
+        property Transparent;
+        property Layout;
+        property Visible;
+        property WordWrap;
+      private
+        fChain : procedure of object;
+        flMemCount       : integer;
+        flFreeMemCount   : integer;
+        flReallocMemCount: integer;
+        flAllocMemCount  : integer;
+        flAllocMemSize   : integer;
+        fTimer            : TTimer;
+      private
+        procedure Change;
+        procedure UpDateShow;
+        procedure LocalTimer(Sender: TObject);
+    end;
+
+procedure Register;
+
+implementation{>>GpProfile U} uses GpProf; {GpProfile U>>}
+
+var
+  fGetMemCount    : Integer = 0;
+  fFreeMemCount   : Integer = 0;
+  fReallocMemCount: Integer = 0;
+  fOldMemMgr      : TMemoryManager;
+  fReference      : integer = 0;
+  fNotify         : procedure of object = nil;
+  fFlag           : boolean = true;
+
+function NewGetMem(Size: integer): pointer;
+  begin
+    inc(fGetMemCount);
+    result := fOldMemMgr.GetMem(Size);
+    if assigned(fNotify) and fFlag
+      then
+        begin
+          fFlag := false;
+          fNotify;
+          fFlag := true;
+        end;
+  end;
+
+function NewFreeMem(P: pointer): integer;
+  begin
+    inc(fFreeMemCount);
+    result := fOldMemMgr.FreeMem(P);
+    if assigned(fNotify) and fFlag
+      then
+        begin
+          fFlag := false;
+          fNotify;
+          fFlag := true;
+        end;
+  end;
+
+function NewReallocMem(P: pointer; Size: integer): pointer;
+  begin{>>GpProfile} ProfilerEnterProc(1); try {GpProfile>>}
+    inc(fReallocMemCount);
+    result := fOldMemMgr.ReallocMem(P, Size);
+    if assigned(fNotify) and fFlag
+      then
+        begin
+          fFlag := false;
+          fNotify;
+          fFlag := true;
+        end;
+  {>>GpProfile} finally ProfilerExitProc(1); end; {GpProfile>>}end;
+
+const
+  NewMemMgr: TMemoryManager = (
+  GetMem: NewGetMem;
+  FreeMem: NewFreeMem;
+  ReallocMem: NewReallocMem);
+
+procedure Register;
+  begin
+    RegisterComponents('rag', [TMemoryManagerClass]);
+  end;
+
+{ TMemoryManager }
+procedure TMemoryManagerClass.Change;
+  begin
+    if not fTimer.Enabled
+      then UpDateShow;
+    if assigned(fChain)
+      then fChain;
+  end;
+
+constructor TMemoryManagerClass.Create(AOwner: TComponent);
+  begin
+    inherited;
+    fActive := false;
+    fTimer := TTimer.Create(self);
+    fTimer.OnTimer := LocalTimer;
+    UpDateShow;
+  end;
+
+destructor TMemoryManagerClass.Destroy;
+  begin
+    Active := false;
+    inherited;
+  end;
+
+function TMemoryManagerClass.GetAllocMemCount: integer;
+  begin
+    result := system.AllocMemCount;
+  end;
+
+function TMemoryManagerClass.GetAllocMemSize: integer;
+  begin
+    result := system.AllocMemSize;
+  end;
+
+function TMemoryManagerClass.GetFreeMemCount: integer;
+  begin
+    result := fFreeMemCount;
+  end;
+
+function TMemoryManagerClass.GetMemCount: integer;
+  begin
+    result := fGetMemCount;
+  end;
+
+function TMemoryManagerClass.GetReallocMemCount: integer;
+  begin
+    result := fReallocMemCount;
+  end;
+
+function TMemoryManagerClass.GetTime: integer;
+  begin
+    result := fTimer.Interval;
+  end;
+
+procedure TMemoryManagerClass.LocalTimer(Sender: TObject);
+  begin
+    UpDateShow;
+  end;
+
+procedure TMemoryManagerClass.Reset;
+  begin
+    fGetMemCount    := 0;
+    fFreeMemCount   := 0;
+    fReallocMemCount:= 0;
+  end;
+
+procedure TMemoryManagerClass.SetActive(const value: boolean);
+  begin
+    if value<>fActive
+      then
+        begin
+          if value
+            then
+              begin
+                if (not (csDesigning in ComponentState)) and (fReference=0)
+                      then
+                        begin
+                          GetMemoryManager(fOldMemMgr);
+                          SetMemoryManager(NewMemMgr);
+                        end;
+                inc(fReference);
+                fChain := fNotify;
+                fNotify := Change;
+                if fTimer.Interval >0
+                  then fTimer.Enabled := true;
+              end
+            else
+              begin
+                fNotify := fChain;
+                if (not (csDesigning in ComponentState))  and (fReference=1)
+                  then SetMemoryManager(fOldMemMgr);
+                dec(fReference);
+                fTimer.Enabled := false;
+              end;
+          fActive := value;
+        end;
+  end;
+
+procedure TMemoryManagerClass.SetMemoryShow(const value: TMemoryShow);
+  begin
+    if fMemoryShow<>value
+      then fMemoryShow := value;
+  end;
+
+procedure TMemoryManagerClass.SetTime(const Value: integer);
+  begin
+    if Value = 0
+      then fTimer.Enabled := false
+      else
+        begin
+          fTimer.Interval := Value;
+          if fActive
+            then fTimer.Enabled := true;
+        end;
+  end;
+
+procedure TMemoryManagerClass.UpDateShow;
+  const
+    ActionStr:array[TMemoryShow] of string =
+      ('MemCount', 'FreeMemCount', 'ReallocMemCount', 'AllocMemCount', 'AllocMemSize', 'PendingCall');
+  begin
+    if (csDesigning in ComponentState)
+      then SetTextBuf(pchar(ActionStr[fMemoryShow]))
+      else
+        if fActive
+          then
+            begin
+              case fMemoryShow of
+                msMemCount:
+                  if fGetMemCount <> flMemCount
+                    then
+                      begin
+                        SetTextBuf(pchar(inttostr(fGetMemCount)));
+                        flMemCount := fGetMemCount;
+                      end;
+                msFreeMemCount:
+                  if fFreeMemCount<>flFreeMemCount
+                    then
+                      begin
+                        SetTextBuf(pchar(inttostr(fFreeMemCount)));
+                        flFreeMemCount := fFreeMemCount;
+                      end;
+                msReallocMemCount:
+                  if flReallocMemCount<>fReallocMemCount
+                    then
+                      begin
+                        SetTextBuf(pchar(inttostr(fReallocMemCount)));
+                        flReallocMemCount := fReallocMemCount;
+                      end;
+                msAllocMemCount:
+                  if flAllocMemCount<>system.AllocMemCount
+                    then
+                      begin
+                        SetTextBuf(pchar(inttostr(system.AllocMemCount)));
+                        flAllocMemCount:= system.AllocMemCount;
+                      end;
+                msAllocMemSize:
+                  if flAllocMemSize<>System.AllocMemSize
+                    then
+                      begin
+                        SetTextBuf(pchar(inttostr(System.AllocMemSize)));
+                        flAllocMemSize := System.AllocMemSize
+                      end;
+                msPendingCall:
+                  begin
+                    if flAllocMemSize<>System.AllocMemSize
+                      then
+                        begin
+                          SetTextBuf(pchar(inttostr(fGetMemCount-fFreeMemCount)));
+                          flAllocMemSize := System.AllocMemSize
+                        end;
+                  end;
+              end;
+            end
+          else SetTextBuf('UnActive');
+  end;
+
+end.
+

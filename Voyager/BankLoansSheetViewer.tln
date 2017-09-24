@@ -1,0 +1,10 @@
+BankLoansSheetViewer.Caption=
+BankLoansSheetViewer.Hint=
+Panel1.Caption=
+Panel1.Hint=
+lvLoans.Columns=4
+lvLoans.Columns.0=Debtor
+lvLoans.Columns.1=Amount
+lvLoans.Columns.2=Interest
+lvLoans.Columns.3=Term
+lvLoans.Hint=

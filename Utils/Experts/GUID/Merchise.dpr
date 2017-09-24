@@ -1,0 +1,218 @@
+library Merchise;
+
+  uses
+    Sharemem,
+    Forms,
+    Windows,
+    ExptIntf,
+    ToolIntf,
+    EditIntf,
+    ActiveX,
+    COMObj,
+    chCtoPas;
+
+  type
+    TMenuAdder =
+      class
+        public
+          constructor Create;
+          destructor  Destroy;   override;
+        private
+          fAddGUID  : TIMenuItemIntf;
+          fC2Pascal : TIMenuItemIntf;
+          fMerchise : TIMenuItemIntf;
+          procedure AddGUIDHandler(Sender : TIMenuItemIntf);
+          procedure ConvertCtoPascal(Sender : TIMenuItemIntf);
+      end;
+
+  var
+    gMenuAdder : TMenuAdder = nil;
+
+  // TMenuAdder
+
+  constructor TMenuAdder.Create;
+    const
+      idxAppend = -1;
+    var
+      MainMenu : TIMainMenuIntf;
+      EditMenu : TIMenuItemIntf;
+    begin
+      MainMenu  := ExptIntf.ToolServices.GetMainMenu;
+      if Assigned( MainMenu )
+        then
+          try
+            fMerchise := MainMenu.FindMenuItem('MerchiseEx');
+//            if not Assigned( fMerchise )
+  //            then
+                begin
+                  EditMenu := MainMenu.FindMenuItem('ToolsMenu');
+                  if Assigned( EditMenu )
+                    then fMerchise := EditMenu.InsertItem( 1, '&Merchise Tools', 'MerchiseEx', '', 0, 0, 0, [mfVisible, mfEnabled], nil);
+                end;
+//              else EditMenu := nil;
+            if Assigned( fMerchise )
+              then
+                begin
+                  fAddGUID  := fMerchise.InsertItem(idxAppend, '&Add GUID', 'AddGUID', '', KF_ALTDOWN or VK_F5, 0, 0, [mfVisible, mfEnabled], AddGUIDHandler);
+                  fC2Pascal := fMerchise.InsertItem(idxAppend, '&Block C to Pascal', 'C2Pascal', '', KF_ALTDOWN or VK_F4, 0, 0, [mfVisible, mfEnabled], ConvertCtoPascal);
+                end;
+            if Assigned( EditMenu )
+              then EditMenu.release;
+          finally
+            MainMenu.Release;
+          end;
+    end;
+
+  destructor TMenuAdder.Destroy;
+    begin
+      fAddGUID.Free;
+      fC2Pascal.free;
+      fMerchise.free;
+      inherited;
+    end;
+
+  procedure TMenuAdder.AddGUIDHandler(Sender : TIMenuItemIntf);
+    var
+      guid      : TGUID;
+      Module    : TIModuleInterface;
+      Editor    : TIEditorInterface;
+      View      : TIEditView;
+      Writer    : TIEditWriter;
+      CursorPos : TEditPos;
+      CharPos   : TCharPos;
+      Pos       : integer;
+    begin
+      with ExptIntf.ToolServices do
+        Module  := GetModuleInterface( GetCurrentFile );
+      if Assigned( Module )
+        then
+          try
+            Editor := Module.GetEditorInterface;
+            if Assigned( Editor )
+              then
+                try
+                  View := Editor.GetView(pred(Editor.GetViewCount));
+                  if Assigned( View )
+                    then
+                      try
+                        Writer := Editor.CreateUndoableWriter;
+                        if Assigned( Writer )
+                          then
+                            try
+                              CursorPos := View.CursorPos;
+                              View.ConvertPos( true, CursorPos, CharPos );
+                              Pos := View.CharPosToPos( CharPos );
+                              Writer.CopyTo( Pos );
+                              CoCreateGuid( guid );
+                              Writer.Insert( pchar( GUIDToString( guid )));
+                            finally
+                              Writer.Release;
+                            end;
+                      finally
+                        View.Release;
+                      end;
+                finally
+                  Editor.Release;
+                end;
+          finally
+            Module.Release;
+          end;
+    end;
+
+  procedure TMenuAdder.ConvertCtoPascal(Sender : TIMenuItemIntf);
+    var
+      s         : string;
+      Module    : TIModuleInterface;
+      Editor    : TIEditorInterface;
+      View      : TIEditView;
+      Writer    : TIEditWriter;
+      Reader    : TIEditReader;
+      Pos       : integer;
+      Count     : integer;
+    begin
+      with ExptIntf.ToolServices do
+        Module  := GetModuleInterface( GetCurrentFile );
+      try
+        if Assigned( Module )
+          then
+            try
+              Editor := Module.GetEditorInterface;
+              if Assigned( Editor )
+                then
+                  try
+                    Reader := Editor.CreateReader;
+                    if Assigned( Reader )
+                      then
+                        begin
+                          try
+                            View := Editor.GetView( pred( Editor.GetViewCount ));
+                            Pos := View.CharPosToPos( Editor.BlockStart );
+                            Count := View.CharPosToPos( Editor.BlockAfter )- Pos + 1;
+                            if Count > 0
+                              then
+                                begin
+                                  SetLength( s, Count );
+                                  Reader.GetText( Pos, pchar( s ), Count );
+                                end
+                              else s := '';
+                            // S = Lo que esta marcado en el bloque
+                          finally
+                            Reader.Release;
+                          end;
+                          if s <> ''
+                            then
+                              begin
+                                // s := ChangeCDefineToPasConst( s );
+                                s := ChangeCHeaderToPas( s );
+                                Writer := Editor.CreateUndoableWriter;
+                                if Assigned( Writer )
+                                  then
+                                    try
+                                      // Mandar a convertir S
+                                      Writer.CopyTo(Pos);
+                                      Writer.DeleteTo( Pos + Count ); // Delete Selection
+                                      Writer.Insert( pchar( s ));
+                                    finally
+                                      Writer.release;
+                                    end;
+                              end;
+                        end;
+                  finally
+                    Editor.Release;
+                  end;
+            finally
+              Module.Release;
+            end;
+      except
+      end;
+    end;
+
+  procedure HandleException;
+    begin
+      ExptIntf.ToolServices.RaiseException('ToolServices.RaiseException');
+    end;
+
+  procedure DoneExpert; export;
+    begin
+      gMenuAdder.Free;
+    end;
+
+  function InitExpert(ToolServices : TIToolServices; RegisterProc : TExpertRegisterProc; var Terminate : TExpertTerminateProc) : boolean; export; stdcall;
+    begin
+      if ExptIntf.ToolServices = nil
+        then
+          begin
+            ExptIntf.ToolServices := ToolServices;
+            if ToolServices <> nil
+              then Application.Handle := ToolServices.GetParentHandle;
+          end;
+      gMenuAdder := TMenuAdder.Create;
+      Terminate  := DoneExpert;
+      Result := true;
+    end;
+
+  exports
+    InitExpert name ExpertEntryPoint resident;
+
+end.
+

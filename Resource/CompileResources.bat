@@ -1,0 +1,1 @@
+"D:\Program Files\Borland\Delphi 3\BIN\BRC32.EXE" cursors.rc

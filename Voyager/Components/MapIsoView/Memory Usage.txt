@@ -1,0 +1,9 @@
+Objects cache: 28 Megs (if completely full)
+Building sizes cache: 64K
+Building classes: 51-128K approximately
+Car classes: 27K
+Plane classes: 27
+Traincar classes: 25
+Roadblock classes: 50
+Railroadblock classes: 194K
+Image cache: ???

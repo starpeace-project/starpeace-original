@@ -1,0 +1,528 @@
+unit RDOQueryServer;
+
+interface
+
+  uses
+    RDOInterfaces, RDOObjectServer, Logs;
+
+  const
+    tidConnRequestName = 'RDOCnntId';
+
+  type
+    TRDOQueryServer =
+      class( TInterfacedObject, IRDOQueryServer, IRDOLog )
+        public
+          constructor Create( ObjectServer : TRDOObjectServer );
+        private
+          fObjServer : TRDOObjectServer;
+          fLogAgents : ILogAgents;
+          fBusy      : boolean;
+        private // IRDOQueryServer
+          function  GetCommand( ObjectId : integer; QueryText : string; var ScanPos, ConnId : integer; var QueryStatus, RDOCallCnt : integer )  : string;
+          function  SetCommand( ObjectId : integer; QueryText : string; var ScanPos : integer; var QueryStatus, RDOCallCnt : integer )  : string;
+          function  CallCommand( ObjectId : integer; QueryText : string; var ScanPos : integer; var QueryStatus, RDOCallCnt : integer ) : string;
+          function  IdOfCommand( QueryText : string; var ScanPos : integer ) : string;
+        private // IRDOLog
+          function  ExecQuery( const QueryText : string; ConnId : integer; var QueryStatus, RDOCallCnt : integer ) : string;
+          procedure RegisterAgents( Agents : ILogAgents );
+          procedure ExecLogQuery(Query : string);
+          function  GetBusy : boolean;
+          function  GetStatus : integer;
+          procedure SetBusy(value : boolean);
+        public
+          property Status : integer read GetStatus;
+        private
+          procedure LogMethod(Obj : TObject; Query : string);
+      end;
+
+implementation
+
+  uses
+    Windows, SysUtils, RDOProtocol, RDOUtils, ErrorCodes, 
+    {$IFDEF VER140}
+     Variants,
+    {$ENDIF}
+    CompStringsParser;
+
+  type
+    TRDOCommand = ( cmSel, cmGet, cmSet, cmCall, cmIdOf, cmUnkCmd );
+
+  const
+    RDOCommandNames : array [ TRDOCommand ] of string =
+      (
+        SelObjCmd, GetPropCmd, SetPropCmd, CallMethCmd, IdOfCmd, ''
+      );
+
+  function MapIdentToCommand( Ident : string ) : TRDOCommand;
+    var
+      CurCmd       : TRDOCommand;
+      LowCaseIdent : string;
+    begin
+      CurCmd := Low( CurCmd );
+      LowCaseIdent := LowerCase( Ident );
+      while ( CurCmd <> High( CurCmd ) ) and ( RDOCommandNames[ CurCmd ] <> LowCaseIdent ) do
+        inc( CurCmd );
+      Result := CurCmd
+    end;
+
+  // TRDOQueryServer
+
+  constructor TRDOQueryServer.Create( ObjectServer : TRDOObjectServer );
+    begin
+      inherited Create;
+      fObjServer := ObjectServer
+    end;
+
+  function TRDOQueryServer.ExecQuery;
+    var
+      CurToken   : string;
+      CurCmd     : TRDOCommand;
+      Error      : boolean;
+      QueryId    : string;
+      ScanPos    : integer;
+      QueryLen   : integer;
+      ObjectId   : integer;
+      ThreadPrio : integer;
+    begin
+      QueryStatus := 1; {1} // starting
+      Error   := false;
+      ScanPos := 1;
+      SkipSpaces( QueryText, ScanPos );
+      QueryId  := ReadNumber( QueryText, ScanPos );
+      QueryLen := Length( QueryText );
+      SkipSpaces( QueryText, ScanPos );
+      CurToken   := ReadIdent( QueryText, ScanPos );
+      ThreadPrio := UnknownPriority;
+      if Length( CurToken ) = 1
+        then
+          ThreadPrio := PriorityIdToPriority( CurToken[ 1 ] );
+      if ThreadPrio <> UnknownPriority
+        then
+          begin
+            SetThreadPriority( GetCurrentThread, ThreadPrio );
+            SkipSpaces( QueryText, ScanPos );
+            CurToken := ReadIdent( QueryText, ScanPos )
+          end
+        else
+          SetThreadPriority( GetCurrentThread, THREAD_PRIORITY_HIGHEST ); // >> Priority changed by Cepero
+      CurCmd := MapIdentToCommand( CurToken );
+      if CurCmd = cmSel
+        then
+          begin
+            SkipSpaces( QueryText, ScanPos );
+            CurToken := ReadNumber( QueryText, ScanPos );
+            try
+              ObjectId := StrToInt( CurToken );
+            except
+              on EConvertError do
+                begin
+                  Error := true;
+                  ObjectId := 0;
+                  Result := CreateErrorMessage( errMalformedQuery );
+                  Logs.Log('Survival', DateTimeToStr(Now) + 'EConvertError in TRDOQueryServer.ExecQuery line (118)');
+                end
+              else
+                raise
+            end;
+            if not Error
+              then
+                begin
+                  Result := '';
+                  try
+                    QueryStatus := 2; {2}
+                    repeat
+                      SkipSpaces( QueryText, ScanPos );
+                      CurToken := ReadIdent( QueryText, ScanPos );
+                      CurCmd := MapIdentToCommand( CurToken );
+                      case CurCmd of
+                        cmGet:
+                          begin
+                            QueryStatus := 3; {3}
+                            Result := Result + GetCommand( ObjectId, QueryText, ScanPos, ConnId, QueryStatus, RDOCallCnt );
+                          end;
+                        cmSet:
+                          begin
+                            QueryStatus := 4; {4}
+                            Result  := Result + SetCommand( ObjectId, QueryText, ScanPos, QueryStatus, RDOCallCnt );
+                          end;
+                        cmCall:
+                          begin
+                            QueryStatus := 5; {5}
+                            Result  := Result + CallCommand( ObjectId, QueryText, ScanPos, QueryStatus, RDOCallCnt )
+                          end;
+                        else
+                          begin
+                            Error  := true;
+                            Result := CreateErrorMessage( errMalformedQuery )
+                          end
+                      end;
+                      SkipSpaces( QueryText, ScanPos );
+                    until EndOfStringText( ScanPos, QueryLen ) or ( QueryText[ ScanPos ] = QueryTerm ) or Error;
+                    QueryStatus := 6; {6}
+                  except
+                    Result := CreateErrorMessage( errMalformedQuery );
+                    Logs.Log('Survival', DateTimeToStr(Now) + 'Malformed query in TRDOQueryServer.ExecQuery line (160) ' + QueryText);
+                  end
+                end
+          end
+        else
+          if CurCmd = cmIdOf
+            then
+              Result := IdOfCommand( QueryText, ScanPos )
+            else
+              Result := CreateErrorMessage( errMalformedQuery );
+      if QueryId <> ''
+        then
+          Result := QueryId + Blank + Result + QueryTerm
+        else
+          Result := ''
+    end;
+
+  procedure TRDOQueryServer.RegisterAgents( Agents : ILogAgents );
+    begin
+      fLogAgents := Agents;
+    end;
+
+  procedure TRDOQueryServer.ExecLogQuery(Query : string);
+    var
+      len     : integer;
+      p       : integer;
+      AgentId : string;
+      ObjId   : string;
+      Agent   : ILogAgent;
+      Obj     : TObject;
+      aux1     : integer;
+      aux2     : integer;
+    begin
+      try
+        if fLogAgents <> nil
+          then
+            begin
+              len := length(Query);
+              p   := 1;
+              SkipSpaces(Query, p);
+              AgentId := GetNextStringUpTo(Query, p, '#');
+              inc(p);
+              ObjId   := GetNextStringUpTo(Query, p, '#');
+              inc(p);
+              Agent   := fLogAgents.GetLogAgentById(AgentId);
+              if Agent <> nil
+                then
+                  begin
+                    Obj := Agent.GetObject(ObjId);
+                    if Obj <> nil
+                      then ExecQuery('0 sel ' + IntToStr(integer(Obj)) + copy(Query, p, len), 0, aux1, aux2);
+                  end;
+            end;
+      except
+        //Logs.Log('Survival', DateTimeToStr(Now) + 'ExecLogQuery (213)');
+      end;
+    end;
+
+  function TRDOQueryServer.GetBusy : boolean;
+    begin
+      result := fBusy;
+    end;
+
+  function TRDOQueryServer.GetStatus : integer;
+    begin
+      result := 0;
+    end;
+
+  procedure TRDOQueryServer.SetBusy(value : boolean);
+    begin
+      fBusy := value;
+    end;
+
+  procedure TRDOQueryServer.LogMethod(Obj : TObject; Query : string);
+    var
+      aux   : string;
+      Agent : ILogAgent;
+    begin
+      try
+        Agent := fLogAgents.GetLogAgentByClass(Obj.ClassType);
+        if Agent <> nil
+          then
+            begin
+              aux := Agent.GetId + '#' + Agent.GetLogId(Obj) + '# ' + Query;
+              Agent.LogQuery(aux);
+            end;
+      except
+        // >>
+      end;
+    end;
+
+  function TRDOQueryServer.GetCommand( ObjectId : integer; QueryText : string; var ScanPos, ConnId : integer; var QueryStatus, RDOCallCnt : integer )  : string;
+    var
+      PropName     : string;
+      PropValue    : variant;
+      ErrorCode    : integer;
+      QueryLen     : integer;
+      PropValAsStr : string;
+      IllegalVType : boolean;
+    begin
+      QueryStatus := 31; {31}
+      Result := '';
+      QueryLen := Length( QueryText );
+      SkipSpaces( QueryText, ScanPos );
+      PropName := ReadIdent( QueryText, ScanPos );
+      if PropName = tidConnRequestName
+        then
+          begin
+            PropValue := IntToStr(ConnId);
+            ErrorCode := errNoError;
+          end
+        else PropValue := fObjServer.GetProperty( ObjectId, PropName, ErrorCode, QueryStatus, RDOCallCnt );  //##1
+      if ErrorCode <> errNoError
+        then
+          Result := CreateErrorMessage( ErrorCode ) + ' getting ' + PropName
+        else
+          begin
+            PropValAsStr := GetStrFromVariant( PropValue, IllegalVType );
+            if not IllegalVType
+              then
+                Result := PropName + NameValueSep + LiteralDelim + PropValAsStr + LiteralDelim
+              else
+                Result := CreateErrorMessage( errIllegalPropValue ) + ' getting ' + PropName
+          end;
+      QueryStatus := 32;
+      SkipSpaces( QueryText, ScanPos );
+      while not EndOfStringText( ScanPos, QueryLen ) and ( QueryText[ ScanPos ] = ParamDelim ) do
+        begin
+          inc( ScanPos );
+          SkipSpaces( QueryText, ScanPos );
+          QueryStatus   := 33;
+          PropName  := ReadIdent( QueryText, ScanPos );
+          PropValue := fObjServer.GetProperty( ObjectId, PropName, ErrorCode, QueryStatus, RDOCallCnt );
+          QueryStatus   := 34;
+          if ErrorCode <> errNoError
+            then
+              Result := Result + ParamDelim + CreateErrorMessage( ErrorCode ) + ' getting ' + PropName
+            else
+              begin
+                PropValAsStr := GetStrFromVariant( PropValue, IllegalVType );
+                if not IllegalVType
+                  then
+                    Result := Result + ParamDelim + PropName + NameValueSep + LiteralDelim + PropValAsStr + LiteralDelim
+                  else
+                    Result := Result + ParamDelim + CreateErrorMessage( ErrorCode ) + ' getting ' + PropName
+              end;
+          SkipSpaces( QueryText, ScanPos )
+        end;
+      QueryStatus := 33;
+    end;
+
+  function TRDOQueryServer.SetCommand( ObjectId : integer; QueryText : string; var ScanPos : integer; var QueryStatus, RDOCallCnt : integer ) : string;
+    var
+      PropName     : string;
+      PropValAsStr : string;
+      PropValue    : variant;
+      ErrorCode    : integer;
+      QueryLen     : integer;
+      SavePos      : integer;
+    begin
+      QueryStatus := 41;
+      Result := '';
+      QueryLen := Length( QueryText );
+      SkipSpaces( QueryText, ScanPos );
+      SavePos  := ScanPos;
+      PropName := ReadIdent( QueryText, ScanPos );
+      SkipSpaces( QueryText, ScanPos );
+      if (fLogAgents <> nil) and fLogAgents.LogableMethod(PropName)
+        then LogMethod(TObject(ObjectId), 'set ' + copy(QueryText, SavePos, QueryLen - SavePos + 1));
+      if not EndOfStringText( ScanPos, QueryLen ) and ( QueryText[ ScanPos ] = NameValueSep )
+        then
+          begin
+            inc( ScanPos );
+            SkipSpaces( QueryText, ScanPos );
+            PropValAsStr := ReadLiteral( QueryText, ScanPos );
+            try
+              PropValue := GetVariantFromStr( PropValAsStr );
+              fObjServer.SetProperty( ObjectId, PropName, PropValue, ErrorCode, QueryStatus, RDOCallCnt );
+              if ErrorCode <> errNoError
+                then
+                  Result := CreateErrorMessage( ErrorCode ) + ' setting ' + PropName
+            except
+              Result := CreateErrorMessage( errIllegalPropValue ) + ' setting ' + PropName;
+              Logs.Log('Survival', DateTimeToStr(Now) + 'Error in TRDOQueryServer.SetCommand (342)');
+            end;
+            QueryStatus := 42;
+            SkipSpaces( QueryText, ScanPos );
+            while not EndOfStringText( ScanPos, QueryLen ) and ( QueryText[ ScanPos ] = ParamDelim ) do
+              begin
+                inc( ScanPos );
+                SkipSpaces( QueryText, ScanPos );
+                PropName := ReadIdent( QueryText, ScanPos );
+                SkipSpaces( QueryText, ScanPos );
+                if not EndOfStringText( ScanPos, QueryLen ) and ( QueryText[ ScanPos ] = NameValueSep )
+                  then
+                    begin
+                      inc( ScanPos );
+                      SkipSpaces( QueryText, ScanPos );
+                      PropValAsStr := ReadLiteral( QueryText, ScanPos );
+                      try
+                        PropValue := GetVariantFromStr( PropValAsStr );
+                        QueryStatus := 43;
+                        fObjServer.SetProperty( ObjectId, PropName, PropValue, ErrorCode, QueryStatus, RDOCallCnt );
+                        QueryStatus := 44;
+                        if ErrorCode <> errNoError
+                          then
+                            if Result <> ''
+                              then
+                                Result := Result + ParamDelim + CreateErrorMessage( ErrorCode ) + ' setting ' + PropName
+                              else
+                                Result := CreateErrorMessage( ErrorCode ) + ' setting ' + PropName
+                      except
+                        if Result <> ''
+                          then
+                            Result := Result + ParamDelim + CreateErrorMessage( errIllegalPropValue ) + ' setting ' + PropName
+                          else
+                            Result := CreateErrorMessage( errIllegalPropValue ) + ' setting ' + PropName;
+                        Logs.Log('Survival', DateTimeToStr(Now) + 'Error in TRDOQueryServer.SetCommand (376)');
+                      end;
+                      SkipSpaces( QueryText, ScanPos )
+                    end
+                  else
+                    raise Exception.Create( '' )
+              end
+          end
+        else
+          raise Exception.Create( '' )
+    end;
+
+  function TRDOQueryServer.CallCommand( ObjectId : integer; QueryText : string; var ScanPos : integer; var QueryStatus, RDOCallCnt : integer ) : string;
+    var
+      MethodName : string;
+      ParamValue : string;
+      ResultType : string;
+      ErrorCode  : integer;
+      ParamIdx   : integer;
+      Params     : variant;
+      Res        : variant;
+      Tmp        : variant;
+      IllegVType : boolean;
+      VarAsStr   : string;
+      QueryLen   : integer;
+      BRefParIdx : integer;
+      SavePos    : integer;
+    begin
+      QueryStatus := 51;
+      QueryLen := Length( QueryText );
+      SkipSpaces( QueryText, ScanPos );
+      SavePos  := ScanPos;
+      MethodName := ReadIdent( QueryText, ScanPos );
+      SkipSpaces( QueryText, ScanPos );
+      if (fLogAgents <> nil) and fLogAgents.LogableMethod(MethodName)
+        then LogMethod(TObject(ObjectId), 'call ' + copy(QueryText, SavePos, QueryLen - ScanPos + 1));
+      ResultType := ReadLiteral( QueryText, ScanPos );
+      Res := UnAssigned;
+      if ( Length( ResultType ) = 1 ) and ( ( ResultType[ 1 ] = VariantId ) or ( ResultType[ 1 ] = VoidId ) )
+        then
+          begin
+            if ResultType[ 1 ] = VariantId
+              then
+                TVarData( Res ).VType := varVariant;
+            SkipSpaces( QueryText, ScanPos );
+            Params := UnAssigned;
+            if not EndOfStringText( ScanPos, QueryLen )
+              then
+                begin
+                  ParamValue := ReadLiteral( QueryText, ScanPos );
+                  if ParamValue <> ''
+                    then
+                      begin
+                        ParamIdx := 1;
+                        Params := VarArrayCreate( [ 1, 1 ], varVariant );
+                        Params[ ParamIdx ] := GetVariantFromStr( ParamValue );
+                        if TVarData( Params[ ParamIdx ] ).VType = varVariant
+                          then
+                            begin
+                              TVarData( Tmp ).VType := varVariant;
+                              GetMem( TVarData( Tmp ).VPointer, SizeOf( variant ) );
+                              Params[ ParamIdx ] := Tmp
+                            end;
+                        SkipSpaces( QueryText, ScanPos );
+                        while not EndOfStringText( ScanPos, QueryLen ) and ( QueryText[ ScanPos ] = ParamDelim ) do
+                          begin
+                            inc( ScanPos );
+                            SkipSpaces( QueryText, ScanPos );
+                            if not EndOfStringText( ScanPos, QueryLen )
+                              then
+                                begin
+                                  SkipSpaces( QueryText, ScanPos );
+                                  ParamValue := ReadLiteral( QueryText, ScanPos );
+                                  inc( ParamIdx );
+                                  VarArrayRedim( Params, ParamIdx );
+                                  Params[ ParamIdx ] := GetVariantFromStr( ParamValue );
+                                  if TVarData( Params[ ParamIdx ] ).VType = varVariant
+                                    then
+                                      begin
+                                        TVarData( Tmp ).VType := varVariant;
+                                        GetMem( TVarData( Tmp ).VPointer, SizeOf( variant ) );
+                                        Params[ ParamIdx ] := Tmp
+                                      end
+                                end
+                              else
+                                raise Exception.Create( '' )
+                          end
+                      end
+                end;
+            QueryStatus := 52;
+            fObjServer.CallMethod( ObjectId, MethodName, Params, Res, ErrorCode, QueryStatus, RDOCallCnt );
+            QueryStatus := 53;
+            if ErrorCode = errNoError
+              then
+                begin
+                  if TVarData( Res ).VType <> varEmpty
+                    then
+                      begin
+                        VarAsStr := GetStrFromVariant( Res, IllegVType );
+                        if not IllegVType
+                          then
+                            Result := ResultVarName + NameValueSep + LiteralDelim + VarAsStr + LiteralDelim
+                          else
+                            Result := CreateErrorMessage( errIllegalFunctionRes )
+                      end
+                    else
+                      Result := '';
+                  if TVarData( Params ).VType <> varEmpty
+                    then
+                      begin
+                        BRefParIdx := 1;
+                        for ParamIdx := 1 to VarArrayHighBound( Params, 1 ) do
+                          if VarType( Params[ ParamIdx ] ) and varTypeMask = varVariant
+                            then
+                              begin
+                                VarAsStr := GetStrFromVariant( PVariant( TVarData( Params[ ParamIdx ] ).VPointer )^, IllegVType );
+                                FreeMem( TVarData( Params[ ParamIdx ] ).VPointer );
+                                Result := Result + ByRefParName + IntToStr( BRefParIdx ) + NameValueSep + LiteralDelim + VarAsStr + LiteralDelim + Blank;
+                                inc( BRefParIdx )
+                              end
+                      end
+                end
+              else
+                Result := CreateErrorMessage( ErrorCode );
+              Params := NULL
+          end
+        else
+          Result := CreateErrorMessage( errMalformedQuery )
+    end;
+
+  function TRDOQueryServer.IdOfCommand( QueryText : string; var ScanPos : integer ) : string;
+    var
+      ObjectName  : string;
+      ObjectId    : integer;
+      ErrorCode   : integer;
+      QueryStatus : integer;
+    begin
+      SkipSpaces( QueryText, ScanPos );
+      ObjectName := ReadLiteral( QueryText, ScanPos );
+      ObjectId := fObjServer.GetIdOf( ObjectName, ErrorCode, QueryStatus );
+      if ErrorCode = errNoError
+        then
+          Result := ObjIdVarName + NameValueSep + LiteralDelim + IntToStr( ObjectId ) + LiteralDelim
+        else
+          Result := CreateErrorMessage( ErrorCode )
+    end;
+
+end.

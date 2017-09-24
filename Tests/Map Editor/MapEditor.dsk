@@ -1,0 +1,342 @@
+[MainWindow]
+Create=1
+Visible=1
+State=0
+Left=0
+Top=0
+Width=1024
+Height=106
+MaxLeft=0
+MaxTop=0
+ClientWidth=1016
+ClientHeight=60
+
+[CallStackWindow]
+Create=1
+Visible=1
+State=0
+Left=280
+Top=209
+Width=486
+Height=168
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=478
+ClientHeight=141
+
+[BreakpointWindow]
+Create=1
+Visible=1
+State=0
+Left=264
+Top=163
+Width=453
+Height=200
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=445
+ClientHeight=173
+Column0Width=100
+Column1Width=60
+Column2Width=240
+Column3Width=40
+
+[WatchWindow]
+Create=1
+Visible=1
+State=0
+Left=149
+Top=306
+Width=517
+Height=152
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=509
+ClientHeight=125
+
+[ProjectManager]
+Create=1
+Visible=1
+State=0
+Left=284
+Top=83
+Width=411
+Height=280
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=403
+ClientHeight=256
+LargeButtons=1
+Column0Width=75
+Column1Width=125
+Column2Width=199
+
+[PropertyInspector]
+Create=1
+Visible=1
+State=0
+Left=0
+Top=108
+Width=184
+Height=377
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=176
+ClientHeight=353
+SplitPos=89
+
+[HistoryLists\hiWatchExpression]
+Count=9
+H0=fSize
+H1=(rows + cols)*nu
+H2=du
+H3=nu
+H4=high(longint)
+H5=fViews.Count
+H6=fZoom
+H7=fRotation
+H8=fId
+
+[HistoryLists\hiEvalExpression]
+Count=8
+H0=high(integer)
+H1=4000*nu
+H2=10000*sizeof(TRect)/1024
+H3=10000*sizeof(TRect)
+H4=96*48
+H5=64*32 + 64*32
+H6=64*32
+H7=19*16
+
+[HistoryLists\hiOpenFile]
+Count=32
+H0=c:\work\five\source\gm\gmkernel.pas
+H1=c:\work\five\release\client\cache\maps\zyrane.ini
+H2=c:\work\five\source\tests\map editor\accidentimageviewercontrol.pas
+H3=c:\work\five\release\client\mapeditor.ini
+H4=c:\work\detac32\source\common\arrhythmiadetectorwindow.pas
+H5=c:\work\five\source\tests\map editor\spriteimageviewercontrol.pas
+H6=c:\work\five\source\voyager\components\mapisoview\localcachemanager.pas
+H7=c:\work\five\source\voyager\voyageruievents.pas
+H8=c:\work\five\source\voyager\components\mapisoview\map.pas
+H9=c:\work\five\source\tests\map editor\clientview.pas
+H10=c:\work\five\source\tests\map editor\mapeditormain.pas
+H11=c:\work\five\source\voyager\components\isometricmap\old isometricmap.pas
+H12=c:\work\five\source\tests\converttoisometric\converttoisometric.pas
+H13=c:\work\five\source\utils\gameapi\filters.pas
+H14=c:\windows\profiles\pepe\desktop\visualclassmanager.pas
+H15=c:\work\five\source\cache\iniclasses.pas
+H16=c:\work\five\source\kernel\newspapers.pas
+H17=c:\work\five\source\kernel\kernel.pas
+H18=c:\work\five\source\rdo\common\rdoprotocol.pas
+H19=c:\work\five\source\kernel\world.pas
+H20=c:\windows\profiles\pepe\desktop\servercnxhandler.pas
+H21=c:\work\five\source\tests\isometric viewer\clientview.pas
+H22=c:\work\five\source\tests\isometric viewer\oldclientview.pas
+H23=c:\work\five\source\tests\isometric viewer\newclientview.pas
+H24=c:\work\five\source\voyager\components\mapisoview\circuitshandler.pas
+H25=c:\work\five client versions\beta versions\mapisoview.8\map.pas
+H26=c:\work\five\source\utils\gameapi\spriteimages.pas
+H27=c:\work\five\source\voyager\components\ddraw mapisoview\gamecontrol.pas
+H28=c:\work\five\source\kernel\profiler.pas
+H29=c:\work\five\source\voyager\components\mapisoview\isoprofile.pas
+H30=c:\work\five\source\tests\d3d isometric viewer\fivemain.pas
+H31=c:\work\five\source\utils\gameapi\renderreports.pas
+
+[HistoryLists\hiRunParams]
+Count=4
+H0=C:\Work\Five\Release\Client\Cache Zyrane
+H1=Zyrane
+H2=Antiqua
+H3=Cybelle
+
+[HistoryLists\hiLibUnitAliases]
+Count=1
+H0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+
+[HistoryLists\hiSearchMasks]
+Count=6
+H0=C:\Work\Five\Source\Voyager
+H1=C:\Work\Five\Source\Model Server
+H2=C:\Work\Five\Source\News Server
+H3=C:\Work\Five\Source\Mail Server
+H4=C:\Work\Five\Source\Kernel
+H5=C:\Work\Five\Source\Utils\Graphics
+
+[Closed Files]
+File_0=SourceModule,'C:\Work\Five\Source\Tests\Map Editor\MasterURLHandler.pas',0,1,209,5,209,0,0
+File_1=SourceModule,'C:\Work\Five\Source\Voyager\VoyagerServerInterfaces.pas',0,1,1,1,6,0,0
+File_2=SourceModule,'C:\Work\Five\Source\Tests\Map Editor\MapIsoView\ImageLoader.pas',0,1,49,1,66,0,0
+File_3=SourceModule,'C:\Work\Five\Source\Tests\Map Editor\MapIsoView\CircuitsHandler.pas',0,1,1,11,23,0,0
+File_4=SourceModule,'C:\Work\Five\Source\Tests\Map Editor\MapIsoView\Circuits.pas',0,1,1,1,6,0,0
+File_5=SourceModule,'C:\Work\Five\Source\Gm\GMKernel.pas',0,1,1,1,13,0,0
+File_6=SourceModule,'C:\Work\Five\Source\Tests\Map Editor\ClientView.pas',0,1,152,1,152,0,0
+File_7=SourceModule,'C:\Work\Five\Source\Tests\Map Editor\AccidentImageViewerControl.pas',0,1,1,1,33,0,0
+File_8=SourceModule,'C:\Work\Five\Release\Client\cache\maps\Zyrane.ini',0,1,50,1,65,0,0
+
+[Modules]
+Module0=C:\Work\Five\Source\Tests\Map Editor\MapEditorMain.pas
+Module1=C:\Work\Five\Source\Tests\Map Editor\MapIsoView\MapTypes.pas
+Module2=C:\Work\Five\Source\Tests\Map Editor\MapEditor.dpr
+Module3=C:\Work\Five\Source\Tests\Map Editor\MapIsoView\Map.pas
+Module4=C:\Work\Five\Source\Tests\Map Editor\MapIsoView\Concrete.pas
+Module5=C:\Work\Five\Source\Tests\Map Editor\MapIsoView\MapControl.pas
+Module6=C:\Work\Five\Source\Tests\Map Editor\MapIsoView\LocalCacheManager.pas
+Module7=C:\Work\Five\Source\Tests\Map Editor\MapIsoView\FocusTypes.pas
+Count=8
+EditWindowCount=1
+
+[C:\Work\Five\Source\Tests\Map Editor\MapEditorMain.pas]
+ModuleType=SourceModule
+FormState=1
+FormOnTop=0
+
+[C:\Work\Five\Source\Tests\Map Editor\MapIsoView\MapTypes.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\Tests\Map Editor\MapEditor.dpr]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\Tests\Map Editor\MapIsoView\Map.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\Tests\Map Editor\MapIsoView\Concrete.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\Tests\Map Editor\MapIsoView\MapControl.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\Tests\Map Editor\MapIsoView\LocalCacheManager.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\Tests\Map Editor\MapIsoView\FocusTypes.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[EditWindow0]
+Create=1
+Visible=1
+State=0
+Left=210
+Top=127
+Width=696
+Height=486
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=688
+ClientHeight=459
+SplitPos=50
+MessagePane=0
+ViewCount=8
+CurrentView=0
+View0=0
+View1=1
+View2=2
+View3=3
+View4=4
+View5=5
+View6=6
+View7=7
+
+[View0]
+Module=C:\Work\Five\Source\Tests\Map Editor\MapEditorMain.pas
+CursorX=44
+CursorY=235
+TopLine=219
+LeftCol=1
+
+[View1]
+Module=C:\Work\Five\Source\Tests\Map Editor\MapEditor.dpr
+CursorX=44
+CursorY=51
+TopLine=32
+LeftCol=1
+
+[View2]
+Module=C:\Work\Five\Source\Tests\Map Editor\MapIsoView\FocusTypes.pas
+CursorX=10
+CursorY=284
+TopLine=268
+LeftCol=1
+
+[View3]
+Module=C:\Work\Five\Source\Tests\Map Editor\MapIsoView\LocalCacheManager.pas
+CursorX=43
+CursorY=244
+TopLine=225
+LeftCol=1
+
+[View4]
+Module=C:\Work\Five\Source\Tests\Map Editor\MapIsoView\MapControl.pas
+CursorX=1
+CursorY=741
+TopLine=727
+LeftCol=1
+
+[View5]
+Module=C:\Work\Five\Source\Tests\Map Editor\MapIsoView\Map.pas
+CursorX=1
+CursorY=1366
+TopLine=1346
+LeftCol=1
+
+[View6]
+Module=C:\Work\Five\Source\Tests\Map Editor\MapIsoView\Concrete.pas
+CursorX=1
+CursorY=29
+TopLine=1
+LeftCol=1
+
+[View7]
+Module=C:\Work\Five\Source\Tests\Map Editor\MapIsoView\MapTypes.pas
+CursorX=1
+CursorY=208
+TopLine=184
+LeftCol=1
+
+[Watches]
+Count=5
+Watch0='high(longint)',256,0,18,1
+Watch1='nu',256,0,18,1
+Watch2='du',256,0,18,1
+Watch3='(rows + cols)*nu',256,0,18,1
+Watch4='fSize',256,0,18,1
+
+[Breakpoints]
+Count=0
+
+[PVCS Browser]
+Left=236
+Top=105
+Width=625
+Height=393
+State=0
+Visible=0
+
+[PVCS VDiff]
+Left=257
+Top=160
+Width=591
+Height=608
+Layout=1
+Orientation=1
+State=0
+Visible=0
+File1Color=16711680
+File2Color=255
+SpaceColor=16776960
+TextColor=0
+

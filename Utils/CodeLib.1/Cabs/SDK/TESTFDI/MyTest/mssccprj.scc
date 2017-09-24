@@ -1,0 +1,5 @@
+SCC = This is a Source Code Control file
+
+[MyTest.dsp]
+SCC_Aux_Path = "\\Morpheus\Shared\StarPeace"
+SCC_Project_Name = "$/Source/Utils/CodeLib.1/Cabs/SDK/TESTFDI/MyTest", FKFAAAAA

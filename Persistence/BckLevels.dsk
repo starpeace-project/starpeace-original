@@ -1,0 +1,257 @@
+[MainWindow]
+Create=1
+Visible=1
+State=2
+Left=0
+Top=0
+Width=640
+Height=143
+MaxLeft=0
+MaxTop=0
+MaxWidth=1032
+MaxHeight=120
+ClientWidth=1024
+ClientHeight=63
+
+[BreakpointWindow]
+Create=1
+Visible=1
+State=0
+Left=84
+Top=214
+Width=556
+Height=242
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=548
+ClientHeight=209
+Column0Width=100
+Column1Width=60
+Column2Width=240
+Column3Width=40
+
+[ProjectManager]
+LargeButtons=1
+Column0Width=75
+Column1Width=125
+Column2Width=125
+
+[PropertyInspector]
+Create=1
+Visible=1
+State=0
+Left=0
+Top=109
+Width=194
+Height=389
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=186
+ClientHeight=359
+SplitPos=99
+
+[HistoryLists\hiWatchExpression]
+Count=2
+H0=yi
+H1=xi
+
+[HistoryLists\hiEvalExpression]
+Count=32
+H0=not error and ((level > 0) or (nxtProp = tidLevelClose))
+H1=IntToHex(10,6)
+H2=sizeof(TColor)
+H3=fHeaders.Values['subject']
+H4=fHeaders
+H5=sizeof(TCacheIOResult)
+H6=BackSlashChar
+H7=fWorldName
+H8=resError
+H9=MSObjectCacherName
+H10=ClearMask,h
+H11=ClearMask
+H12=130 and not((1 shl 6) - 1)
+H13=100 and not((1 shl 6) - 1)
+H14=66 and not((1 shl 6) - 1)
+H15=64 and not((1 shl 6) - 1)
+H16=not((1 shl 6) - 1),h
+H17=not((1 shl 6) - 1)
+H18=not $3F,h
+H19=$3F
+H20=$2F
+H21=$1F
+H22=$F
+H23=$FF
+H24=not 40,h
+H25=not 40
+H26=64,h
+H27=TTL
+H28=onBoth
+H29=faDirectory
+H30=faArchive
+H31=tidRDOHook_World
+
+[HistoryLists\hiEvalNewValue]
+Count=1
+H0='00/00/00 00:00:10 AM'
+
+[HistoryLists\hiOpenFile]
+Count=32
+H0=c:\tmp\test.txt
+H1=e:\five\source\kernel\collection.pas
+H2=e:\work\tcp\source\collection.pas
+H3=e:\five\source\kernel\txtres.pas
+H4=e:\five\source\persistence\backupconsts.pas
+H5=e:\five\source\persistence\backupobjects.pas
+H6=e:\five\source\utils\misc\delphistreamutils.pas
+H7=e:\five\source\utils\misc\streamutils.pas
+H8=e:\five\source\persistence\blocklevels.pas
+H9=c:\iroel\sizes.html
+H10=c:\iroel\test.htm
+H11=e:\five\source\tests\mailbrwfrm.pas
+H12=e:\five\source\mail\mailutils.pas
+H13=e:\five\source\mail server\mailserver.pas
+H14=e:\five\source\mail\maildata.pas
+H15=e:\five\source\cache\cacheobjects.pas
+H16=e:\five\source\cache\directoryiterator.pas
+H17=e:\five\source\utils\misc\diriterator.pas
+H18=e:\five\source\cache\mscachespool.pas
+H19=e:\five\source\cache\msobjectcacher.pas
+H20=c:\work\five\source\cache\specialchars.pas
+H21=c:\inetpub\wwwroot\five\visual\facilitylist.asp
+H22=c:\inetpub\wwwroot\five\visual\build.asp
+H23=c:\work\five\source\factory.asp
+H24=c:\work\five\source\rdo\common\logfile.pas
+H25=c:\work\five\source\rdo\common\logfiles.pas
+H26=c:\work\five\source\cache\msobjectcacher.pas
+H27=c:\work\five\source\model server\modelserver.pas
+H28=e:\five\source\cache\cachemanagerrdo.pas
+H29=e:\five\source\cache\cacheregistrydata.pas
+H30=c:\webshare\aspsamp\samples\browser\copy of cacheobject.asp
+H31=c:\webshare\aspsamp\samples\browser\cacheobject.asp
+
+[HistoryLists\hiRunParams]
+Count=0
+
+[HistoryLists\hiHostApplication]
+Count=5
+H0=E:\Five\Release\MailBrowser.exe
+H1=C:\Program Files\WEBSVR\SYSTEM\INETSW95.EXE
+H2=C:\Work\Five\Release\CMTest.exe
+H3=C:\Work\Five\Source\Tests\Itr.exe
+H4=E:\Five\Release\CacheMan.exe
+
+[HistoryLists\hiUnitAlias]
+Count=1
+H0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+
+[HistoryLists\hiLibUnitAliases]
+Count=1
+H0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+
+[HistoryLists\hiSearchMasks]
+Count=7
+H0=C:\Work\Five\Source\
+H1=e:\five\
+H2=C:\Work\Five\Source\Cache Server
+H3=C:\Work\Five\Source\Cache
+H4=C:\Work\Five\Source
+H5=C:\Work\Five\Source\Kernel
+H6=C:\Work\Five\Source;C:\Work\Five\StdBlocks
+
+[Closed Files]
+File_0=SourceModule,'C:\Five\Source\New Persistence\BlockLevels.pas',0,1,254,2,255,0,0
+File_1=SourceModule,'C:\Five\Source\Utils\Misc\StreamUtils.pas',0,1,1,1,1,0,0
+File_2=SourceModule,'C:\tmp\WBLib_TLB.pas',0,1,182,15,202,0,0
+File_3=SourceModule,'C:\tmp\test.txt',0,1,1,37,13,0,0
+File_4=SourceModule,'E:\work\tcp\source\Collection.pas',0,1,1,1,8,0,0
+File_5=SourceModule,'E:\Five\Source\Kernel\TxtRes.pas',0,1,1,1,1,0,0
+File_6=SourceModule,'E:\Five\Source\Utils\Misc\StreamUtils.pas',0,1,1,1,1,0,0
+File_7=SourceModule,'C:\Iroel\Sizes.html',0,1,1,1,1,0,0
+File_8=SourceModule,'C:\Iroel\Test.htm',0,1,19,1,38,0,0
+File_9=SourceModule,'C:\Program Files\Borland\Delphi 3\Demos\RICHEDIT\REMain.pas',0,1,600,11,615,0,0
+
+[Modules]
+Module0=\\Jill\five\Source\New Persistence\BackupObjects.pas
+Module1=\\Jill\five\Source\New Persistence\BackupInterfaces.pas
+Module2=\\Jill\five\Source\New Persistence\BckLevels.dpr
+Count=3
+EditWindowCount=1
+
+[\\Jill\five\Source\New Persistence\BackupObjects.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[\\Jill\five\Source\New Persistence\BackupInterfaces.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[\\Jill\five\Source\New Persistence\BckLevels.dpr]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[EditWindow0]
+Create=1
+Visible=1
+State=0
+Left=210
+Top=147
+Width=696
+Height=496
+MaxLeft=-4
+MaxTop=-4
+ClientWidth=688
+ClientHeight=463
+SplitPos=50
+MessagePane=0
+ViewCount=2
+CurrentView=0
+View0=0
+View1=1
+
+[View0]
+Module=\\Jill\five\Source\New Persistence\BackupObjects.pas
+CursorX=10
+CursorY=641
+TopLine=630
+LeftCol=1
+
+[View1]
+Module=\\Jill\five\Source\New Persistence\BackupInterfaces.pas
+CursorX=98
+CursorY=40
+TopLine=27
+LeftCol=26
+
+[Watches]
+Count=2
+Watch0='xi',256,0,18,1
+Watch1='yi',256,0,18,1
+
+[Breakpoints]
+Count=0
+
+[PVCS Browser]
+Left=15
+Top=58
+Width=625
+Height=393
+State=0
+Visible=0
+
+[PVCS VDiff]
+Left=49
+Top=0
+Width=591
+Height=451
+Layout=1
+Orientation=1
+State=0
+Visible=0
+File1Color=16711680
+File2Color=255
+SpaceColor=16776960
+TextColor=0
+

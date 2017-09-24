@@ -1,0 +1,299 @@
+[MainWindow]
+Create=1
+Visible=1
+State=2
+Left=0
+Top=0
+Width=802
+Height=106
+MaxLeft=0
+MaxTop=0
+MaxWidth=808
+MaxHeight=107
+ClientWidth=800
+ClientHeight=60
+
+[BreakpointWindow]
+Create=1
+Visible=1
+State=0
+Left=173
+Top=201
+Width=453
+Height=198
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=445
+ClientHeight=170
+Column0Width=100
+Column1Width=60
+Column2Width=240
+Column3Width=40
+
+[ProjectManager]
+Create=1
+Visible=1
+State=0
+Left=200
+Top=108
+Width=337
+Height=241
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=329
+ClientHeight=215
+LargeButtons=1
+Column0Width=146
+Column1Width=125
+Column2Width=54
+
+[PropertyInspector]
+Create=1
+Visible=1
+State=0
+Left=1
+Top=104
+Width=199
+Height=387
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=191
+ClientHeight=361
+SplitPos=84
+
+[HistoryLists\hiWatchExpression]
+Count=32
+H0=Instance.ClassName
+H1=i
+H2=Value[i]
+H3=DibHeader.biHeight *  DibHeader.biWidth;
+H4=Size
+H5=DibHeader.biHeight
+H6=DibHeader.biWidth
+H7=fDibHeader^
+H8=Images.DibHeader^
+H9=DibHeader^
+H10=Stream.position
+H11=fReceivedText
+H12=view.ClientRect
+H13=xmax
+H14=xmin
+H15=Segment.y2
+H16=Segment.y1
+H17=Segment.x2
+H18=Segment.x1
+H19=Segment
+H20=BuildInfo.fClass
+H21=PWordArray($12FD14)^
+H22=PWordArray($12FD14)
+H23=@target
+H24=target
+H25=ClipArea
+H26=Imager
+H27=PWordArray($12FD04)^
+H28=PDWordArray($12FD04)^
+H29=PIntegerArray($12FD04)^
+H30=PByteArray($12FD04)^
+H31=@Imager
+
+[HistoryLists\hiEvalExpression]
+Count=32
+H0=78/255
+H1=(2*255 - maximum - minimum)
+H2=heightinfo,r
+H3=heightinfo
+H4=37000000 / (1024*1024)
+H5=37000000 / 1024*1024
+H6=17000000 / 1024
+H7=1000*1000 * 17
+H8=1000*1000
+H9=lumN/sqrt(lumD)
+H10=sqrt(lumD)
+H11=lumD
+H12=sqrt(3)
+H13=1
+H14=Self
+H15=60*83
+H16=40*83
+H17=20000 div 62
+H18=20000
+H19=1000 div 16
+H20=83*120
+H21=10000 div 83
+H22=1000 div 83
+H23=1000 div 12
+H24=33*33*4
+H25=33*33
+H26=length(image)*2
+H27=length(image)
+H28=image
+H29=UserList.Selected.Caption
+H30=GateInfo.FValues.Text
+H31=GateInfo.fValues[0]
+
+[HistoryLists\hiEvalNewValue]
+Count=4
+H0=0
+H1=false
+H2='http://www.merchise.edu/five/visual/voyager/logon/chooseCorp.asp?frame_Id=LogonView&frame_Class=HTMLView&ClientViewId=13940992'
+H3='http://www.merchise.edu/FIVE/Visual/Navigator/ResidentialEdit.asp?x=33&y=39&WorldName=Tuguria&DAAddr=127.0.0.1&DAPort=7000'
+
+[HistoryLists\hiOpenFile]
+Count=32
+H0=c:\work\nek security\registrysecchecks.pas
+H1=c:\work\five\source\voyager\components\mapisoview\lander.pas
+H2=c:\work\five\source\voyager\components\mapisoview\map.pas
+H3=c:\downloads\hls-rgb\formula.txt
+H4=c:\work\five\source\utils\graphics\convertcolors.pas
+H5=c:\work\five\source\utils\graphics\colorspaces.pas
+H6=c:\work\five\source\utils\colorspaces.pas
+H7=c:\work\five\source\utils\misc\mathutils.pas
+H8=c:\work\five\source\tests\voxel renderer\good lander.pas
+H9=c:\work\five\source\utils\graphics\colortablemgr.pas
+H10=c:\work\five\source\utils\graphics\colortrans.pas
+H11=c:\work\five\source\voyager research\components\mapisoview\imagecache.pas
+H12=c:\work\five\source\utils\gameapi\spriteimages.pas
+H13=c:\work\five\source\voyager research\components\mapisoview\map.pas
+H14=c:\program files\borland\delphi 3\source\rtl\win\windows.pas
+H15=c:\work\five\source\tests\voxel renderer\mapisoview.pas
+H16=c:\work\five\source\voyager research\components\mapisoview\lander.pas
+H17=c:\work\five\source\tests\voxel renderer\localcachetypes.pas
+H18=c:\work\five\source\tests\voxel renderer\localcachemanager.pas
+H19=c:\work\five\source\tests\voxel renderer\maptypes.pas
+H20=c:\work\five\source\tests\voxel renderer\map.pas
+H21=c:\work\five\source\tests\voxel renderer\landertypes.pas
+H22=c:\work\five\source\tests\voxel renderer\lander.pas
+H23=c:\work\five\source\tests\voxel renderer\imageloader.pas
+H24=c:\work\five\source\tests\voxel renderer\imagecache.pas
+H25=c:\work\five\source\tests\voxel renderer\gametypes.pas
+H26=c:\work\five\source\tests\voxel renderer\gamecontrol.pas
+H27=c:\work\five\source\tests\voxel renderer\fivetypes.pas
+H28=c:\work\five\source\tests\voxel renderer\fivecontrol.pas
+H29=c:\work\five\source\land\landclasses.pas
+H30=c:\work\five\source\land\landgenerator.pas
+H31=c:\work\five\source\land\landinfo.pas
+
+[HistoryLists\hiRunParams]
+Count=7
+H0=http:\\206.186.157.3\five\
+H1=http:\\206.186.157.23\five\
+H2=http:\\206.186.157.22\five\
+H3=http://172.20.5.1/five/
+H4=http://172.20.5.139/five/
+H5=http://www.merchise.edu/five/
+H6=http://220.0.1.139/five/
+
+[HistoryLists\hiHostApplication]
+Count=0
+
+[HistoryLists\hiFindError]
+Count=1
+H0=4042180
+
+[HistoryLists\hiUnitAlias]
+Count=1
+H0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+
+[HistoryLists\hiLibUnitAliases]
+Count=1
+H0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+
+[HistoryLists\hiSearchMasks]
+Count=13
+H0=C:\Work\Five\Source
+H1=C:\Work\Five\Source\Voyager
+H2=D:\Work\Five\Source\Voyager
+H3=D:\Work\Five\Source\
+H4=c:\work\five\source\rdo\
+H5=D:\Work\Five\Source
+H6=D:\Work\Five\Source\Utils
+H7=D:\Work\Five\Source\Voyager\Components\MapIsoView
+H8=D:\Work\Five\Source\Voyager\
+H9=C:\Work\Five\Source\
+H10=C:\Work\Five\Source\RDO
+H11=C:\Work\Five\Source\Kernel
+H12=C:\Work\Five\Source;C:\Work\Five\StdBlocks
+
+[HistoryLists\hiPakDLLOutputDir]
+Count=1
+H0=D:\Work\Five\Source\Utils\Packages
+
+[HistoryLists\hiPakDCPOutputDir]
+Count=1
+H0=D:\Work\Five\Source\Utils\Packages
+
+[Closed Files]
+File_0=SourceModule,'C:\Work\NEK Security\RegistrySecChecks.pas',0,1,2,1,2,0,0
+File_1=SourceModule,'C:\Work\Five\Source\Voyager\Components\MapIsoView\Lander.pas',0,1,551,17,557,0,0
+File_2=SourceModule,'C:\Work\Five\Source\Voyager\Components\MapIsoView\Map.pas',0,1,1472,1,1494,0,0
+File_3=SourceModule,'C:\Work\Five\Source\Utils\Graphics\ColorSpaces.pas',0,1,66,83,78,0,0
+File_4=SourceModule,'C:\Work\Five\Source\Utils\Misc\MathUtils.pas',0,1,1,20,9,0,0
+File_5=SourceModule,'C:\Work\Five\Source\Utils\ColorSpaces.pas',0,1,13,1,40,0,0
+File_6=SourceModule,'C:\Work\Five\Source\Tests\Voxel Renderer\ImageCache.pas',0,1,7,1,14,0,0
+File_7=SourceModule,'C:\Work\Five\Source\Utils\Graphics\ColorTrans.pas',0,1,70,5,93,0,0
+File_8=SourceModule,'C:\Work\Five\Source\Utils\Graphics\ColorTableMgr.pas',0,1,200,1,224,0,0
+File_9=SourceModule,'C:\Work\Five\Source\Utils\Graphics\Gifs.pas',0,1,691,1,707,0,0
+
+[Modules]
+Module0=E:\Work\Five\Source\Tests\Voxel Renderer\Map.pas
+Module1=E:\Work\Five\Source\Tests\Voxel Renderer\Lander.pas
+Module2=E:\Work\Five\Source\Tests\Voxel Renderer\VoxelRenderer.dpr
+Count=3
+EditWindowCount=1
+
+[E:\Work\Five\Source\Tests\Voxel Renderer\Map.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[E:\Work\Five\Source\Tests\Voxel Renderer\Lander.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[E:\Work\Five\Source\Tests\Voxel Renderer\VoxelRenderer.dpr]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[EditWindow0]
+Create=1
+Visible=1
+State=0
+Left=210
+Top=129
+Width=544
+Height=381
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=536
+ClientHeight=353
+SplitPos=50
+MessagePane=1
+ViewCount=2
+CurrentView=1
+View0=0
+View1=1
+
+[View0]
+Module=E:\Work\Five\Source\Tests\Voxel Renderer\Lander.pas
+CursorX=62
+CursorY=210
+TopLine=197
+LeftCol=1
+
+[View1]
+Module=E:\Work\Five\Source\Tests\Voxel Renderer\Map.pas
+CursorX=13
+CursorY=264
+TopLine=250
+LeftCol=1
+
+[Watches]
+Count=2
+Watch0='i',256,0,18,1
+Watch1='Instance.ClassName',256,0,18,1
+
+[Breakpoints]
+Count=0
+

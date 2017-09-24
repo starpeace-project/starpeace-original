@@ -1,0 +1,349 @@
+[MainWindow]
+Create=1
+Visible=1
+State=2
+Left=0
+Top=0
+Width=802
+Height=106
+MaxLeft=-1
+MaxTop=-1
+MaxWidth=1288
+MaxHeight=106
+ClientWidth=1280
+ClientHeight=60
+
+[BreakpointWindow]
+Create=1
+Visible=1
+State=1
+Left=194
+Top=113
+Width=499
+Height=197
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=491
+ClientHeight=170
+Column0Width=100
+Column1Width=60
+Column2Width=287
+Column3Width=40
+
+[ProjectManager]
+LargeButtons=1
+Column0Width=75
+Column1Width=125
+Column2Width=125
+
+[PropertyInspector]
+Create=1
+Visible=1
+State=0
+Left=0
+Top=109
+Width=189
+Height=385
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=181
+ClientHeight=359
+SplitPos=92
+
+[HistoryLists\hiWatchExpression]
+Count=32
+H0=Instance.ClassName
+H1=i
+H2=Value[i]
+H3=DibHeader.biHeight *  DibHeader.biWidth;
+H4=Size
+H5=DibHeader.biHeight
+H6=DibHeader.biWidth
+H7=fDibHeader^
+H8=Images.DibHeader^
+H9=DibHeader^
+H10=Stream.position
+H11=fReceivedText
+H12=view.ClientRect
+H13=xmax
+H14=xmin
+H15=Segment.y2
+H16=Segment.y1
+H17=Segment.x2
+H18=Segment.x1
+H19=Segment
+H20=BuildInfo.fClass
+H21=PWordArray($12FD14)^
+H22=PWordArray($12FD14)
+H23=@target
+H24=target
+H25=ClipArea
+H26=Imager
+H27=PWordArray($12FD04)^
+H28=PDWordArray($12FD04)^
+H29=PIntegerArray($12FD04)^
+H30=PByteArray($12FD04)^
+H31=@Imager
+
+[HistoryLists\hiEvalExpression]
+Count=32
+H0=path + SearchRec.Name + '\newspaper.ini'
+H1=100/1000
+H2=1
+H3=TReporter(Reporters[6]).Strength
+H4=TReporter(Reporters[5]).Strength
+H5=TReporter(Reporters[4]).Strength
+H6=TReporter(Reporters[3]).Strength
+H7=TReporter(Reporters[2]).Strength
+H8=TReporter(Reporters[1]).Strength
+H9=TReporter(Reporters[0]).Strength
+H10=TReporter(Reporters[9]).Strength
+H11=TReporter(Reporters[8]).Strength
+H12=TReporter(Reporters[7]).Strength
+H13=TReporter(Reporters[i]).Strength
+H14=TReporter(Reporters[i]),r
+H15=VarIsEmpty(Obj)
+H16=TStyle(Styles[2]).Name
+H17=TStyle(Styles[1]).Name
+H18=TStyle(Styles[0]).Name
+H19=Name
+H20=self
+H21=fFrames.Count
+H22=TFrame(Frames[4])
+H23=TFrame(Frames[3])
+H24=TFrame(Frames[2])
+H25=TFrame(Frames[1])
+H26=TFrame(Frames[0])
+H27=result
+H28=118,x
+H29=Stories[5]
+H30=Stories[4]
+H31=Stories[3]
+
+[HistoryLists\hiEvalNewValue]
+Count=3
+H0=false
+H1='http://www.merchise.edu/five/visual/voyager/logon/chooseCorp.asp?frame_Id=LogonView&frame_Class=HTMLView&ClientViewId=13940992'
+H2='http://www.merchise.edu/FIVE/Visual/Navigator/ResidentialEdit.asp?x=33&y=39&WorldName=Tuguria&DAAddr=127.0.0.1&DAPort=7000'
+
+[HistoryLists\hiOpenFile]
+Count=32
+H0=e:\work\five\source\utils\misc\strutils.pas
+H1=e:\work\five\source\news server\newsregistry.pas
+H2=e:\work\five\source\news server\fileutilsobj.pas
+H3=e:\work\five\source\cache\cachedobjectauto.pas
+H4=e:\work\five\source\cache\cachemanager_tlb.pas
+H5=e:\work\five\source\cache\cachemanagerauto.pas
+H6=e:\work\five\source\model server\modelserver.pas
+H7=e:\work\five\source\persistence\backupinterfaces.pas
+H8=e:\work\five\source\kernel\persistent.pas
+H9=e:\work\five\source\cache server\cacheserverreportform.pas
+H10=e:\work\five\source\model server\modelserverreportform.pas
+H11=d:\work\five\source\protocol\protocol.pas
+H12=d:\work\five\source\utils\misc\compstringsparser.pas
+H13=d:\work\five\source\cache server\cacheserverreportform.pas
+H14=c:\work\five\source\persistence\backupinterfaces.pas
+H15=d:\work\med\lab\map.pas
+H16=d:\work\five\source\kernel\world.pas
+H17=d:\work\isometric viewer\lab\car.pas
+H18=d:\work\isometric viewer\lab\map.pas
+H19=d:\work\five\source\utils\vcl\playergif.pas
+H20=d:\work\five\source\utils\winutils\winutils.pas
+H21=d:\work\five\source\voyager\components\mapisoview\cartypes.pas
+H22=d:\work\five\source\voyager\components\mapisoview\car.pas
+H23=d:\work\five\source\voyager\components\mapisoview\landertypes.pas
+H24=d:\work\five\source\voyager\components\mapisoview\lander.pas
+H25=d:\work\five\source\utils\gameapi\spriteimages.pas
+H26=d:\work\five\source\voyager\components\mapisoview\gametypes.pas
+H27=d:\work\five\source\voyager\components\mapisoview\maptypes.pas
+H28=d:\work\five\source\voyager\components\mapisoview\map.pas
+H29=d:\work\five\source\voyager\components\mapisoview\fivecontrol.pas
+H30=d:\work\five\source\utils\misc\numutils.pas
+H31=d:\work\five\source\utils\graphics\bitblt.pas
+
+[HistoryLists\hiRunParams]
+Count=6
+H0=http:\\206.186.157.3\five\
+H1=http:\\206.186.157.22\five\
+H2=http://172.20.5.1/five/
+H3=http://172.20.5.139/five/
+H4=http://www.merchise.edu/five/
+H5=http://220.0.1.139/five/
+
+[HistoryLists\hiFindError]
+Count=1
+H0=4042180
+
+[HistoryLists\hiUnitAlias]
+Count=1
+H0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+
+[HistoryLists\hiLibUnitAliases]
+Count=1
+H0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+
+[HistoryLists\hiSearchMasks]
+Count=15
+H0=E:\Work\Five\Source
+H1=E:\Work\Five\Source\Cache
+H2=E:\Work\Five\Source\
+H3=D:\Work\Five\Source\Voyager
+H4=D:\Work\Five\Source\
+H5=D:\Work\Five\Source\Utils
+H6=D:\Work\Five\Source\Voyager\Components\MapIsoView
+H7=D:\Work\Five\Source\Voyager\
+H8=D:\Work\Five\Source
+H9=C:\Work\Five\Source\Voyager
+H10=C:\Work\Five\Source
+H11=C:\Work\Five\Source\
+H12=C:\Work\Five\Source\RDO
+H13=C:\Work\Five\Source\Kernel
+H14=C:\Work\Five\Source;C:\Work\Five\StdBlocks
+
+[HistoryLists\hiPakDLLOutputDir]
+Count=1
+H0=D:\Work\Five\Source\Utils\Packages
+
+[HistoryLists\hiPakDCPOutputDir]
+Count=1
+H0=D:\Work\Five\Source\Utils\Packages
+
+[Closed Files]
+File_0=SourceModule,'E:\Work\Five\Source\Utils\Misc\StrUtils.pas',0,1,25,1,25,0,0
+File_1=SourceModule,'E:\Work\Five\Source\Kernel\Collection.pas',0,1,385,19,386,0,0
+File_2=SourceModule,'E:\Work\Five\Source\News Server\MainWindow.pas',0,1,3,1,11,1,0
+File_3=SourceModule,'E:\Work\Five\Source\News Server\News.pas',0,1,878,35,890,0,0
+File_4=SourceModule,'E:\Work\Five\Source\News Server\NewsServer.pas',0,1,1,1,24,0,0
+File_5=SourceModule,'E:\Work\Five\Source\News Server\StdReporters.pas',0,1,86,1,113,0,0
+File_6=SourceModule,'E:\Work\Five\Source\Kernel\Persistent.pas',0,1,1,1,14,0,0
+File_7=SourceModule,'E:\Work\Five\Source\Model Server\ModelServer.pas',0,1,249,1,273,0,0
+
+[Modules]
+Module0=E:\Work\Five\Source\News Server\FileUtilsObj.pas
+Module1=E:\Work\Five\Source\News Server\FileToolsObj.pas
+Module2=E:\Work\Five\Source\News Server\NewsFileUtils.dpr
+Module3=E:\Work\Five\Source\News Server\NewsRegistry.pas
+Module4=E:\Work\Five\Source\News Server\FileUtils_TLB.pas
+Module5=E:\Work\Five\Source\News Server\NewsFileUtils.tlb
+Count=6
+EditWindowCount=1
+TypeLibWindowCount=1
+
+[E:\Work\Five\Source\News Server\FileUtilsObj.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[E:\Work\Five\Source\News Server\FileToolsObj.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[E:\Work\Five\Source\News Server\NewsFileUtils.dpr]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[E:\Work\Five\Source\News Server\NewsRegistry.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[E:\Work\Five\Source\News Server\FileUtils_TLB.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[E:\Work\Five\Source\News Server\NewsFileUtils.tlb]
+ModuleType=TypeLibModule
+FormState=0
+FormOnTop=0
+
+[EditWindow0]
+Create=1
+Visible=1
+State=0
+Left=199
+Top=136
+Width=938
+Height=663
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=930
+ClientHeight=636
+SplitPos=50
+MessagePane=0
+ViewCount=6
+CurrentView=4
+View0=0
+View1=1
+View2=2
+View3=3
+View4=4
+View5=5
+
+[View0]
+Module=E:\Work\Five\Source\News Server\NewsFileUtils.tlb
+CursorX=1
+CursorY=1
+TopLine=1
+LeftCol=1
+
+[View1]
+Module=E:\Work\Five\Source\News Server\NewsFileUtils.dpr
+CursorX=1
+CursorY=1
+TopLine=1
+LeftCol=1
+
+[View2]
+Module=E:\Work\Five\Source\News Server\NewsRegistry.pas
+CursorX=19
+CursorY=6
+TopLine=1
+LeftCol=1
+
+[View3]
+Module=E:\Work\Five\Source\News Server\FileToolsObj.pas
+CursorX=1
+CursorY=1
+TopLine=1
+LeftCol=1
+
+[View4]
+Module=E:\Work\Five\Source\News Server\FileUtilsObj.pas
+CursorX=68
+CursorY=105
+TopLine=86
+LeftCol=1
+
+[View5]
+Module=E:\Work\Five\Source\News Server\FileUtils_TLB.pas
+CursorX=3
+CursorY=4
+TopLine=1
+LeftCol=1
+
+[TypeLibEditWindow0]
+Create=1
+Visible=1
+State=0
+Left=276
+Top=214
+Width=596
+Height=409
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=588
+ClientHeight=382
+LargeButtons=1
+Module=E:\Work\Five\Source\News Server\NewsFileUtils.tlb
+
+[Watches]
+Count=2
+Watch0='i',256,0,18,1
+Watch1='Instance.ClassName',256,0,18,1
+
+[Breakpoints]
+Count=0
+

@@ -1,0 +1,254 @@
+[MainWindow]
+Create=1
+Visible=1
+State=0
+Left=0
+Top=0
+Width=808
+Height=106
+MaxLeft=-4
+MaxTop=-4
+ClientWidth=800
+ClientHeight=60
+
+[ProjectManager]
+LargeButtons=1
+Column0Width=75
+Column1Width=125
+Column2Width=125
+
+[PropertyInspector]
+Create=1
+Visible=1
+State=0
+Left=69
+Top=87
+Width=245
+Height=490
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=237
+ClientHeight=466
+SplitPos=106
+
+[HistoryLists\hiEvalExpression]
+Count=32
+H0=ShellExecute( Handle, '', pchar(AppPath + WMPInstall), pchar(WMPParams), '', SW_SHOW );
+H1=AppPath + WMPInstall
+H2=WMPInstall
+H3=ProvidedDXVersion
+H4=ver
+H5=RequiredDXVersion
+H6=result
+H7=Desc
+H8=Registry.currentkey
+H9=Registry
+H10=(Screen.Width div 2)
+H11=(Screen.Width div 2)  - (ResW div 2)
+H12=fGameMasters.Count
+H13=fGameMasters
+H14=Pending
+H15=Customers
+H16=Status
+H17=TGameMasterInfo(fGameMasters[0]), r
+H18=TGameMasterInfo(fGameMasters[0])
+H19=GameMasters
+H20=ClientId
+H21=Info
+H22=Msg
+H23=CustomerId
+H24=IServer
+H25=ISId
+H26=GM
+H27=ConnFlags
+H28=GM_CONNFLAGS_USEOPTIMAL
+H29=OptGM
+H30=GMName
+H31=GameMasterList.count
+
+[HistoryLists\hiOpenFile]
+Count=15
+H0=c:\program files\borland\delphi 3\source\rtl\win\shellapi.pas
+H1=c:\work\five\source\installersplash\apppathutils.pas
+H2=c:\work\five\source\directx sources\directinput.pas
+H3=c:\work\five\source\directx sources\dxcommon.pas
+H4=c:\work\five\source\directx sources\directdraw.pas
+H5=c:\work\five\source\utils\codelib\axldebug.pas
+H6=c:\work\five\source\utils\codelib\threads.pas
+H7=c:\work\five\source\voyager\urlhandlers\gmchathandler.pas
+H8=c:\work\five\source\logs\logs.pas
+H9=c:\work\five\source\utils\vcl\typinfo.pas
+H10=c:\work\five\source\utils\network\hostnames.pas
+H11=c:\work\five\source\rdo\client\winsockrdoconnection.pas
+H12=\\bean\e\work\five\source\interface server\interfaceserverreportform.pas
+H13=\\bean\e\work\five\source\interface server\interfaceserver.pas
+H14=c:\work\five\source\gm\gm visual\gmlist.pas
+
+[HistoryLists\hiRunParams]
+Count=1
+H0=AutoRUN
+
+[HistoryLists\hiUnitAlias]
+Count=1
+H0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+
+[HistoryLists\hiLibUnitAliases]
+Count=1
+H0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+
+[HistoryLists\hiSearchMasks]
+Count=0
+
+[Closed Files]
+File_0=SourceModule,'C:\Program Files\Borland\Delphi 3\Source\RTL\WIN\shellapi.pas',0,1,1,1,463,0,0
+File_1=SourceModule,'C:\Work\Five\Source\Utils\CodeLib\AxlDebug.pas',0,1,1,40,31,0,0
+File_2=SourceModule,'C:\Work\Five\Source\Utils\CodeLib\Threads.pas',0,1,1,22,6,0,0
+File_3=SourceModule,'C:\Work\Five\Source\GM\GMServer.pas',0,1,1,1,1,0,0
+File_4=SourceModule,'C:\Work\Five\Source\GM\GM Visual\GameMasterServer\GameMasterServerFrm.pas',0,1,140,1,152,3,0
+File_5=SourceModule,'C:\Work\Five\Source\GM\GMKernel.pas',0,1,27,1,58,0,0
+File_6=SourceModule,'C:\Work\Five\Source\GM\GM Visual\GameMasterServer\GMServerRDOMger.pas',0,1,152,21,169,0,0
+File_7=SourceModule,'C:\Work\Five\Source\GM\GM Visual\GMList.pas',0,1,143,46,180,0,0
+File_8=SourceModule,'C:\Work\Five\Source\Voyager\URLHandlers\GMChatHandler.pas',0,1,195,32,204,0,0
+File_9=SourceModule,'C:\Work\Five\Source\Rdo\Client\RDOObjectProxy.pas',0,1,435,1,459,0,0
+
+[Modules]
+Module0=C:\Work\Five\Source\InstallerSplash\frmSplash.pas
+Module1=C:\Work\Five\Source\DirectX Sources\DXCommon.pas
+Module2=C:\Work\Five\Source\InstallerSplash\autorun.dpr
+Module3=C:\Work\Five\Source\InstallerSplash\AppPathUtils.pas
+Module4=c:\work\five\source\voyager\components\MultiBMPButton.pas
+Module5=C:\Work\Five\Source\DirectX Sources\DirectDraw.pas
+Module6=C:\Work\Five\Source\DirectX Sources\DirectInput.pas
+Count=7
+EditWindowCount=1
+
+[C:\Work\Five\Source\InstallerSplash\frmSplash.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\DirectX Sources\DXCommon.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\InstallerSplash\autorun.dpr]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\InstallerSplash\AppPathUtils.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[c:\work\five\source\voyager\components\MultiBMPButton.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\DirectX Sources\DirectDraw.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\DirectX Sources\DirectInput.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[EditWindow0]
+Create=1
+Visible=1
+State=2
+Left=254
+Top=84
+Width=696
+Height=486
+MaxLeft=-1
+MaxTop=-1
+MaxWidth=808
+MaxHeight=580
+ClientWidth=800
+ClientHeight=553
+SplitPos=50
+MessagePane=0
+ViewCount=6
+CurrentView=0
+View0=0
+View1=1
+View2=2
+View3=3
+View4=4
+View5=5
+
+[View0]
+Module=C:\Work\Five\Source\InstallerSplash\frmSplash.pas
+CursorX=40
+CursorY=45
+TopLine=31
+LeftCol=1
+
+[View1]
+Module=C:\Work\Five\Source\InstallerSplash\AppPathUtils.pas
+CursorX=10
+CursorY=14
+TopLine=1
+LeftCol=1
+
+[View2]
+Module=c:\work\five\source\voyager\components\MultiBMPButton.pas
+CursorX=1
+CursorY=233
+TopLine=216
+LeftCol=1
+
+[View3]
+Module=C:\Work\Five\Source\DirectX Sources\DirectDraw.pas
+CursorX=46
+CursorY=1029
+TopLine=1011
+LeftCol=1
+
+[View4]
+Module=C:\Work\Five\Source\DirectX Sources\DirectInput.pas
+CursorX=1
+CursorY=2182
+TopLine=2151
+LeftCol=1
+
+[View5]
+Module=C:\Work\Five\Source\DirectX Sources\DXCommon.pas
+CursorX=1
+CursorY=1
+TopLine=1
+LeftCol=1
+
+[Watches]
+Count=0
+
+[Breakpoints]
+Count=0
+
+[PVCS Browser]
+Left=236
+Top=105
+Width=625
+Height=393
+State=0
+Visible=0
+
+[PVCS VDiff]
+Left=257
+Top=160
+Width=591
+Height=608
+Layout=1
+Orientation=1
+State=0
+Visible=0
+File1Color=16711680
+File2Color=255
+SpaceColor=16776960
+TextColor=0
+

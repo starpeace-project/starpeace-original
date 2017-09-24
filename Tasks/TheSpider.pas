@@ -1,0 +1,44 @@
+unit TheSpider;
+
+interface
+
+  uses
+    Tasks, InformativeTask, Kernel, Accounts, CacheAgent, BackupInterfaces, MathUtils;
+
+  type
+    TMetaTheSpiderTask =
+      class(TMetaTask)
+        private
+          fAnswer : integer;
+        public
+          property Answer : integer read fAnswer write fAnswer;
+      end;
+
+    TTheSpiderTask =
+      class(TInformativeTask)
+        {public
+          function Execute : TTaskResult; override;
+        private
+          fProfit     : TMoney;
+          fLastProfit : TMoney;}
+        public
+          procedure StoreToCache(Prefix : string; Cache : TObjectCache); override;
+      end;
+
+    procedure RegisterBackup;
+
+implementation
+
+  // TWhoYouAreTask
+
+  procedure TTheSpiderTask.StoreToCache(Prefix : string; Cache : TObjectCache);
+    begin
+      inherited;
+    end;
+
+  procedure RegisterBackup;
+    begin
+      RegisterClass(TTheSpiderTask);
+    end;
+
+end.

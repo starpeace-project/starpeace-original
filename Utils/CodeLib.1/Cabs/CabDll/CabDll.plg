@@ -1,0 +1,31 @@
+--------------------Configuration: CabDll - Win32 Debug--------------------
+Begining build with project "E:\Esc\Cabs\CabDll\CabDll.dsp", at root.
+Active configuration is Win32 (x86) Dynamic-Link Library (based on Win32 (x86) Dynamic-Link Library)
+
+Project's tools are:
+			"32-bit C/C++ Compiler for 80x86" with flags "/nologo /MTd /W3 /Gm /GX /Zi /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /FR"Debug/" /Fp"Debug/CabDll.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /c "
+			"OLE Type Library Maker" with flags "/nologo /D "_DEBUG" /mktyplib203 /o NUL /win32 "
+			"Win32 Resource Compiler" with flags "/l 0x409 /d "_DEBUG" "
+			"Browser Database Maker" with flags "/nologo /o"Debug/CabDll.bsc" "
+			"COFF Linker for 80x86" with flags "kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib fdi.lib /nologo /subsystem:windows /dll /incremental:yes /pdb:"Debug/CabDll.pdb" /debug /machine:I386 /def:".\CabDll.def" /out:"Debug/CabDll.dll" /implib:"Debug/CabDll.lib" /pdbtype:sept "
+			"Custom Build" with flags ""
+			"<Component 0xa>" with flags ""
+
+Creating temp file "C:\WINDOWS\TEMP\RSPA383.TMP" with contents </nologo /MTd /W3 /Gm /GX /Zi /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /FR"Debug/" /Fp"Debug/CabDll.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /c 
+"E:\Esc\Cabs\CabDll\CabDll.cpp"
+>
+Creating command line "cl.exe @C:\WINDOWS\TEMP\RSPA383.TMP" 
+Creating temp file "C:\WINDOWS\TEMP\RSPA384.TMP" with contents <kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib fdi.lib /nologo /subsystem:windows /dll /incremental:yes /pdb:"Debug/CabDll.pdb" /debug /machine:I386 /def:".\CabDll.def" /out:"Debug/CabDll.dll" /implib:"Debug/CabDll.lib" /pdbtype:sept 
+.\Debug\CabDll.obj>
+Creating command line "link.exe @C:\WINDOWS\TEMP\RSPA384.TMP" 
+Compiling...
+CabDll.cpp
+E:\Esc\Cabs\CabDll\CabDll.cpp(54) : warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
+E:\Esc\Cabs\CabDll\CabDll.cpp(55) : warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+Linking...
+Creating command line "bscmake.exe /nologo /o"Debug/CabDll.bsc"  .\Debug\CabDll.sbr" 
+Creating browse info file...
+
+
+
+CabDll.dll - 0 error(s), 2 warning(s)

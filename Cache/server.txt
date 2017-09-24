@@ -1,0 +1,2 @@
+Received queries : 0
+Answered queries : 0

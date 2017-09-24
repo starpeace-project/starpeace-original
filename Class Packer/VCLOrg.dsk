@@ -1,0 +1,270 @@
+[MainWindow]
+Create=1
+Visible=1
+State=2
+Left=6
+Top=74
+Width=801
+Height=106
+MaxLeft=-1
+MaxTop=-1
+MaxWidth=808
+MaxHeight=106
+ClientWidth=800
+ClientHeight=60
+
+[BreakpointWindow]
+Column0Width=100
+Column1Width=60
+Column2Width=240
+Column3Width=40
+
+[ProjectManager]
+LargeButtons=1
+Column0Width=75
+Column1Width=125
+Column2Width=125
+
+[PropertyInspector]
+Create=1
+Visible=1
+State=0
+Left=0
+Top=108
+Width=190
+Height=383
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=182
+ClientHeight=359
+SplitPos=84
+
+[HistoryLists\hiWatchExpression]
+Count=1
+H0=Facility.Name
+
+[HistoryLists\hiEvalExpression]
+Count=32
+H0=Props.text
+H1=Props
+H2=Sec.Properties.text
+H3=Sec.Properties
+H4=Entry
+H5=faArchive
+H6=Invention.fResp = 'Industry Headquarter'
+H7=Invention
+H8=0.5*5
+H9=0.5
+H10=Building.classname
+H11=Building
+H12=fSpontaneousBuildings[0],p
+H13=fSpontaneousBuildings[0],r
+H14=fSpontaneousBuildings[0]
+H15=fSpontaneousBuildings[0].ClassName
+H16=fSpontaneousBuildings
+H17=Name
+H18=ClassName
+H19=fCookies[0]
+H20=fCookies[1]
+H21=Id
+H22=self.Id
+H23=fCookies.Values['LastX.0']
+H24=Tycoon.fCookies.Values['LastX.0']
+H25=Tycoon.fCookies.Values[string('LastX.0')]
+H26=CookieId
+H27=Tycoon.fCookies.Values[string(CookieId)]
+H28=Tycoon.fCookies.Values[CookieId]
+H29=nil
+H30=length(CookieId) = length('LastX.0')
+H31=length(CookieId)
+
+[HistoryLists\hiEvalNewValue]
+Count=2
+H0=1
+H1=true
+
+[HistoryLists\hiOpenFile]
+Count=32
+H0=d:\work\five\source\class packer\vclorgfrm.pas
+H1=d:\work\five\source\class packer\classhash.pas
+H2=d:\work\five\source\class packer\vcpmainfrm.pas
+H3=d:\work\five\source\class packer\visualclassmanager.pas
+H4=d:\work\five\source\class packer\classtree.pas
+H5=e:\work\five\source\stdblocks\serviceblock.pas
+H6=e:\work\five\source\tasks\choicetask.pas
+H7=e:\work\five\source\tasks\informativetask.pas
+H8=e:\work\five\source\tasks\taskutils.pas
+H9=d:\work\five\source\tasks\buildfacilitiestask.pas
+H10=d:\work\five\source\stdblocks\farms.pas
+H11=e:\work\five\source\model extensions\facids.pas
+H12=e:\work\five\source\tasks\buildfacilitiestask.pas
+H13=e:\work\five\source\interface server\interfaceserver.pas
+H14=e:\work\five\source\kernel\outputevaluators.pas
+H15=e:\work\five\source\tasks\cacheobjects.pas
+H16=e:\work\five\source\tasks\tutorial.pas
+H17=e:\work\five\source\tasks\residentialtasks.pas
+H18=e:\work\five\source\tasks\headquartertasks.pas
+H19=e:\work\five\source\tasks\tasks.pas
+H20=e:\work\five\source\voyager\towntaxessheet.pas
+H21=e:\work\five\source\utils\gameapi\spriteloaders.pas
+H22=e:\work\five\source\actors\actorpool.pas
+H23=e:\work\five\source\actors\synch.pas
+H24=e:\work\five\source\actors\timing.pas
+H25=e:\work\five\source\actors\stateengine.pas
+H26=e:\work\five\source\actors\distributedstates.pas
+H27=e:\work\five\source\kernel\collectionbackup.pas
+H28=e:\work\five\source\kernel\politics.pas
+H29=e:\work\five\source\utils\misc\mapstringtoobject.pas
+H30=e:\work\five\source\cache\visualclassesdata.pas
+H31=e:\work\five\source\cache\visualclasses.pas
+
+[HistoryLists\hiRunParams]
+Count=0
+
+[HistoryLists\hiHostApplication]
+Count=0
+
+[HistoryLists\hiFindError]
+Count=3
+H0=1674960
+H1=1574960
+H2=01674960
+
+[HistoryLists\hiUnitAlias]
+Count=1
+H0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+
+[HistoryLists\hiLibUnitAliases]
+Count=1
+H0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+
+[HistoryLists\hiSearchMasks]
+Count=6
+H0=E:\Work\Five\Source
+H1=D:\Work\Five\Source\Tasks
+H2=E:\Work\Five\Source\Voyager
+H3=E:\Work\Five\Source\
+H4=E:\work\five\Source\Persistence
+H5=E:\work\five\Source\StdBlocks
+
+[HistoryLists\hiPakDLLOutputDir]
+Count=0
+
+[HistoryLists\hiPakDCPOutputDir]
+Count=0
+
+[Closed Files]
+File_0=SourceModule,'D:\Work\Five\Source\Class Packer\VCPMainFrm.pas',0,1,1,5,5,1,0
+File_1=SourceModule,'D:\Work\Five\Source\Utils\Vcl\Windows.pas',0,1,18101,1,18115,0,0
+File_2=SourceModule,'d:\work\five\source\kernel\Collection.pas',0,1,23,86,33,0,0
+File_3=SourceModule,'d:\work\five\source\utils\misc\DelphiStreamUtils.pas',0,1,1,1,1,0,0
+File_4=SourceModule,'d:\work\five\source\utils\misc\CompStringsParser.pas',0,1,1,1,1,0,0
+File_5=SourceModule,'D:\Work\Five\Source\Class Packer\ClassTree.pas',0,1,1,1,2,0,0
+File_6=SourceModule,'D:\Work\Five\Release\Servers\Inventions\PublicFacilities.xml',0,1,1,14,6,0,0
+File_7=SourceModule,'D:\Work\Five\Source\Persistence\BackupObjects.pas',0,1,1005,1,1013,0,0
+
+[Modules]
+Module0=D:\Work\Five\Source\Class Packer\VisualClassManager.pas
+Module1=D:\Work\Five\Source\Class Packer\ClassHash.pas
+Module2=D:\Work\Five\Source\Class Packer\VCLOrgFrm.pas
+Module3=D:\Work\Five\Source\Class Packer\VCLOrg.dpr
+Count=4
+EditWindowCount=1
+
+[D:\Work\Five\Source\Class Packer\VisualClassManager.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[D:\Work\Five\Source\Class Packer\ClassHash.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[D:\Work\Five\Source\Class Packer\VCLOrgFrm.pas]
+ModuleType=SourceModule
+FormState=1
+FormOnTop=0
+
+[D:\Work\Five\Source\Class Packer\VCLOrg.dpr]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[EditWindow0]
+Create=1
+Visible=1
+State=2
+Left=210
+Top=123
+Width=544
+Height=380
+MaxLeft=-1
+MaxTop=-1
+MaxWidth=808
+MaxHeight=580
+ClientWidth=800
+ClientHeight=553
+SplitPos=50
+MessagePane=0
+ViewCount=4
+CurrentView=0
+View0=0
+View1=1
+View2=2
+View3=3
+
+[View0]
+Module=D:\Work\Five\Source\Class Packer\VisualClassManager.pas
+CursorX=1
+CursorY=309
+TopLine=288
+LeftCol=1
+
+[View1]
+Module=D:\Work\Five\Source\Class Packer\VCLOrgFrm.pas
+CursorX=1
+CursorY=11
+TopLine=11
+LeftCol=1
+
+[View2]
+Module=D:\Work\Five\Source\Class Packer\VCLOrg.dpr
+CursorX=1
+CursorY=13
+TopLine=1
+LeftCol=1
+
+[View3]
+Module=D:\Work\Five\Source\Class Packer\ClassHash.pas
+CursorX=1
+CursorY=289
+TopLine=280
+LeftCol=1
+
+[Watches]
+Count=0
+
+[Breakpoints]
+Count=0
+
+[PVCS Browser]
+Left=236
+Top=105
+Width=625
+Height=393
+State=0
+Visible=0
+[PVCS VDiff]
+Left=257
+Top=160
+Width=591
+Height=608
+Layout=1
+Orientation=1
+State=0
+Visible=0
+File1Color=16711680
+File2Color=255
+SpaceColor=16776960
+TextColor=0

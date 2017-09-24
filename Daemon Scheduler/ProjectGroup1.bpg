@@ -1,0 +1,30 @@
+#------------------------------------------------------------------------------
+VERSION = BWS.01
+#------------------------------------------------------------------------------
+!ifndef ROOT
+ROOT = $(MAKEDIR)\..
+!endif
+#------------------------------------------------------------------------------
+MAKE = $(ROOT)\bin\make.exe -$(MAKEFLAGS) -f$**
+DCC = $(ROOT)\bin\dcc32.exe $**
+BRCC = $(ROOT)\bin\brcc32.exe $**
+#------------------------------------------------------------------------------
+PROJECTS = FiveDaemonScheduler.exe CountSubscriptions.dll Rankings.dll \
+  WorldStatus.dll
+#------------------------------------------------------------------------------
+default: $(PROJECTS)
+#------------------------------------------------------------------------------
+
+FiveDaemonScheduler.exe: FiveDaemonScheduler.dpr
+  $(DCC)
+
+CountSubscriptions.dll: CountSubscriptions.dpr
+  $(DCC)
+
+Rankings.dll: Rankings.dpr
+  $(DCC)
+
+WorldStatus.dll: WorldStatus.dpr
+  $(DCC)
+
+

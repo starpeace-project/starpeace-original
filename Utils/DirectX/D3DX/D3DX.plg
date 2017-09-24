@@ -1,0 +1,39 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: D3DX - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\WINDOWS\TEMP\RSPC335.TMP" with contents
+[
+/nologo /MTd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "D3DX_EXPORTS" /Fp"Debug/D3DX.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"c:\WORK\FIVE\SOURCE\DIRECTX7\D3DX\d3dxcore.cpp"
+"c:\WORK\FIVE\SOURCE\DIRECTX7\D3DX\d3dxsprite.cpp"
+]
+Creating command line "cl.exe @C:\WINDOWS\TEMP\RSPC335.TMP" 
+Creating temporary file "C:\WINDOWS\TEMP\RSPC336.TMP" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib d3dx.lib ddraw.lib /nologo /dll /incremental:yes /pdb:"..\..\..\Release\Client/D3DX.pdb" /debug /machine:I386 /out:"..\..\..\Release\Client/D3DX.dll" /implib:"..\..\..\Release\Client/D3DX.lib" /pdbtype:sept 
+.\Debug\D3DX.obj
+.\Debug\d3dxcore.obj
+.\Debug\d3dxsprite.obj
+.\Debug\StdAfx.obj
+]
+Creating command line "link.exe @C:\WINDOWS\TEMP\RSPC336.TMP"
+<h3>Output Window</h3>
+Compiling...
+d3dxsprite.cpp
+Generating Code...
+Skipping... (no relevant changes detected)
+d3dxcore.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+D3DX.dll - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

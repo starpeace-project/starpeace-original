@@ -1,0 +1,224 @@
+BODY
+{
+	BACKGROUND-COLOR: white;
+	FONT-FAMILY: "Verdana", sans-serif;
+	MARGIN-LEFT: 0px;
+	MARGIN-TOP: 0px
+}
+P
+{
+	FONT-FAMILY: "Verdana", sans-serif;
+	FONT-SIZE: 70%;
+	LINE-HEIGHT: 12pt;
+	MARGIN-BOTTOM: 0px;
+	MARGIN-LEFT: 20px;
+	MARGIN-TOP: 10px
+}
+.note
+{
+	BACKGROUND-COLOR:  #ffffff;
+	COLOR: #666699;
+	FONT-FAMILY: "Verdana", sans-serif;
+	FONT-SIZE: 100%;
+	LINE-HEIGHT: 12pt;
+	MARGIN-BOTTOM: 0px;
+	MARGIN-LEFT: 20px;
+	MARGIN-TOP: 10px
+	PADDING-LEFT: 10PX;
+	PADDING-RIGHT: 10px;
+}
+.infotable
+{
+	BACKGROUND-COLOR: #f0f0e0;
+	BORDER-BOTTOM: #ffffff 0px solid;
+	BORDER-COLLAPSE: collapse;
+	BORDER-LEFT: #ffffff 0px solid;
+	BORDER-RIGHT: #ffffff 0px solid;
+	BORDER-TOP: #ffffff 0px solid;
+	FONT-SIZE: 70%;
+	MARGIN-LEFT: 10px
+}
+.issuetable
+{
+	BACKGROUND-COLOR: #ffffe8;
+	BORDER-BOTTOM: 10px;
+	BORDER-COLLAPSE: collapse;
+	BORDER-LEFT: 0px;
+	BORDER-RIGHT: 0px;
+	BORDER-TOP: 0px;
+	COLOR: #000000;
+	FONT-SIZE: 100%;
+	MARGIN-BOTTOM: 10px;
+	MARGIN-LEFT: 13px;
+	MARGIN-TOP: 0px
+}
+.issuetitle
+{
+	BACKGROUND-COLOR: #ffffff;
+	BORDER-BOTTOM: #f0f0ff 1px solid;
+	COLOR: #000000;
+	FONT-WEIGHT: normal
+}
+.header
+{
+	BACKGROUND-COLOR: #669999;
+	BORDER-BOTTOM: #eaeaea 1px solid;
+	BORDER-LEFT: #eaeaea 1px solid;
+	BORDER-RIGHT: #eaeaea 1px solid;
+	BORDER-TOP: #eaeaea 1px solid;
+	COLOR: #ffffff;
+	FONT-WEIGHT: bold
+}
+.issuehdr
+{
+	BACKGROUND-COLOR: #eaeaea;
+	BORDER-BOTTOM: #dcdcdc 1px solid;
+	BORDER-TOP: #dcdcdc 1px solid;
+	BORDER-LEFT: #dcdcdc 1px solid;
+	BORDER-RIGHT: #dcdcdc 1px solid;
+	COLOR: #666666;
+	FONT-WEIGHT: bold
+}
+.issuenone
+{
+	BACKGROUND-COLOR: #ffffff;
+	BORDER-BOTTOM: 0px;
+	BORDER-LEFT: 0px;
+	BORDER-RIGHT: 0px;
+	BORDER-TOP: 0px;
+	COLOR: #000000;
+	FONT-WEIGHT: normal
+}
+.content
+{
+	BACKGROUND-COLOR: #f0f0e0;
+	BORDER-BOTTOM: #dcdcdc 1px solid;
+	BORDER-RIGHT: #dcdcdc 1px solid;
+	BORDER-TOP: #dcdcdc 1px solid;
+	PADDING-LEFT: 3px
+}
+.issuecontent
+{
+	BACKGROUND-COLOR: #ffffff;
+	BORDER-BOTTOM: #dcdcdc 1px solid;
+	BORDER-LEFT: #dcdcdc 1px solid;
+	BORDER-RIGHT: #dcdcdc 1px solid;
+	BORDER-TOP: #dcdcdc 1px solid;
+	PADDING-LEFT: 3px
+}
+.tblcontent
+{
+	FONT-FAMILY: "Verdana", sans-serif;
+	FONT-SIZE: 70%;
+	MARGIN-BOTTOM: 0px;
+	MARGIN-LEFT: 0px
+}
+.frmHeader
+{
+	COLOR: #336666;
+	FONT-FAMILY: "Verdana", sans-serif;
+	FONT-SIZE: 70%;
+	FONT-WEIGHT: bold;
+	MARGIN-BOTTOM: 0px;
+	MARGIN-LEFT: 0px
+}
+
+A:link
+{
+	COLOR: #cc3300;
+	TEXT-DECORATION: none
+}
+A:visited
+{
+	COLOR: #cc3300
+}
+A:active
+{
+	COLOR: #cc3300
+}
+A:hover
+{
+	COLOR: #cc3300;
+	TEXT-DECORATION: underline
+}
+H1
+{
+	BACKGROUND-COLOR: #666699;
+	COLOR: #ffffff;
+	FONT-SIZE: 130%;
+	FONT-WEIGHT: normal;
+	MARGIN: 0em 0em 0em -20px;
+	PADDING-BOTTOM: 8px;
+	PADDING-LEFT: 30px;
+	PADDING-TOP: 16px;
+}
+H2
+{
+	COLOR: #000000;
+	FONT-SIZE: 110%;
+	FONT-WEIGHT: normal;
+	MARGIN-BOTTOM: 5px;
+	MARGIN-LEFT: 10px;
+	MARGIN-TOP: -5px;
+	PADDING-LEFT: 0px
+}
+H3
+{
+	COLOR: #ffffff;
+	FONT-SIZE: 80%;
+	FONT-WEIGHT: bold;
+	MARGIN-BOTTOM: 0px;
+	MARGIN-TOP: 0px
+}
+H4
+{
+	COLOR: #000000;
+	FONT-SIZE: 70%;
+	FONT-WEIGHT: bold;
+	MARGIN-BOTTOM: 0px;
+	MARGIN-TOP: 15px;
+	PADDING-BOTTOM: 0px
+}
+UL
+{
+	COLOR: #000000;
+	FONT-SIZE: 70%;
+	LIST-STYLE: square;
+	MARGIN-BOTTOM: 0pt;
+	MARGIN-TOP: 0pt
+}
+OL
+{
+	COLOR: #000000;
+	FONT-SIZE: 70%;
+	LIST-STYLE: square;
+	MARGIN-BOTTOM: 0pt;
+	MARGIN-TOP: 0pt
+}
+LI
+{
+	LIST-STYLE: square;
+	MARGIN-LEFT: 0px
+}
+.button
+{
+	BACKGROUND-COLOR: #e5e5cc;
+	BORDER-BOTTOM: #cccc66 1px solid;
+	BORDER-LEFT: #cccc66 1px solid;
+	BORDER-RIGHT: #cccc66 1px solid;
+	BORDER-TOP: #cccc66 1px solid;
+	FONT-FAMILY: Verdana
+}
+.expandable
+{
+	COLOR: green;
+	CURSOR: hand
+}
+.expanded
+{
+	font-color: cyan
+}
+.collapsed
+{
+	DISPLAY: none
+}

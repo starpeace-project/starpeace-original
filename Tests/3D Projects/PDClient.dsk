@@ -1,0 +1,393 @@
+[Main Window]
+Create=1
+Visible=1
+State=0
+Left=0
+Top=0
+Width=1024
+Height=105
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=1016
+ClientHeight=78
+
+[PropertyInspector]
+Create=1
+Visible=1
+State=0
+Left=1
+Top=124
+Width=190
+Height=492
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=180
+ClientHeight=466
+TBDockHeight=494
+LRDockWidth=190
+Dockable=1
+SplitPos=85
+
+[WatchWindow]
+Create=1
+Visible=0
+State=0
+Left=11
+Top=0
+Width=701
+Height=133
+MaxLeft=0
+MaxTop=0
+ClientWidth=701
+ClientHeight=133
+TBDockHeight=133
+LRDockWidth=121
+Dockable=1
+
+[BreakpointWindow]
+Column0Width=100
+Column1Width=60
+Column2Width=240
+Column3Width=40
+
+[Closed Files]
+File_0=SourceModule,'C:\Work\Five\Source\DirectX Sources\D3d.pas',0,1,1,1,1,0,0
+File_1=SourceModule,'C:\Work\PD Client\3D Client\3D Engine\RM Engine\RMEngine.pas',0,1,645,13,662,0,0
+File_2=SourceModule,'C:\Work\PD Client\Release\Classes\Test.ini',0,1,5,28,6,0,0
+File_3=SourceModule,'C:\Work\PD Client\3D Client\Projects\PDMainForm.pas',0,1,180,48,186,0,0
+File_4=SourceModule,'C:\Work\PD Client\3D Client\3D Engine\Notifications.pas',0,1,87,1,107,0,0
+File_5=SourceModule,'C:\Work\PD Client\Kernel\InterfaceCollection.pas',0,1,104,1,131,0,0
+File_6=SourceModule,'C:\Work\PD Client\3D Client\3D Engine\Events.pas',0,1,1,5,25,0,0
+File_7=SourceModule,'C:\Work\PD Client\3D Client\3D Engine\Engine3D.pas',0,1,394,1,415,0,0
+File_8=SourceModule,'C:\Work\PD Client\3D Client\3D Engine\Todo.txt',0,1,1,40,24,0,0
+File_9=SourceModule,'C:\Work\PD Client\3D Client\3D Engine\RM Engine\RMEngineInt.pas',0,1,25,26,36,0,0
+
+[Modules]
+Module0=C:\Work\Five\Source\3D Engine\Engine3D.pas
+Module1=C:\Work\Five\Source\Kernel\InterfaceCollection.pas
+Module2=C:\Work\Five\Source\3D Engine\Notifications.pas
+Module3=C:\Work\Five\Source\Kernel\Collection.pas
+Module4=C:\Work\Five\Source\Fake Voyager3D\Components\Map3DView\VisualClasses.pas
+Module5=C:\Work\Five\Source\Tests\3D Projects\PDMainForm.pas
+Module6=C:\Work\Five\Source\DirectX Sources\Multimon.pas
+Module7=C:\Work\Five\Source\Fake Voyager3D\Components\Map3DView\Dresser.pas
+Module8=C:\Work\Five\Source\3D Engine\RM Engine\AmbientEffects.pas
+Module9=C:\Work\Five\Source\Tests\3D Projects\PDClient.dpr
+Count=10
+EditWindowCount=1
+
+[C:\Work\Five\Source\3D Engine\Engine3D.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\Kernel\InterfaceCollection.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\3D Engine\Notifications.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\Kernel\Collection.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\Fake Voyager3D\Components\Map3DView\VisualClasses.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\Tests\3D Projects\PDMainForm.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\DirectX Sources\Multimon.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\Fake Voyager3D\Components\Map3DView\Dresser.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\3D Engine\RM Engine\AmbientEffects.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\Tests\3D Projects\PDClient.dpr]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Program Files\Borland\Delphi4\Bin\ProjectGroup1.bpg]
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\3D Engine\Events.pas]
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\3D Engine\OutputEngine.pas]
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\3D Engine\RM Engine\AmbientEffectsInt.pas]
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\3D Engine\RM Engine\ClassLibrary.pas]
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\3D Engine\RM Engine\D3DRMTypes.pas]
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\3D Engine\RM Engine\DDEngine.pas]
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\3D Engine\RM Engine\FrameExplorer.pas]
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\3D Engine\RM Engine\LODs.pas]
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\3D Engine\RM Engine\RMEngine.pas]
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\3D Engine\RM Engine\RMEngineInt.pas]
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\DirectX Sources\D3DCaps.pas]
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\DirectX Sources\D3DRM.pas]
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\DirectX Sources\D3DRMDef.pas]
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\DirectX Sources\D3drmobj.pas]
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\DirectX Sources\D3DRMWin.pas]
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\DirectX Sources\D3DTypes.pas]
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\DirectX Sources\Ddraw.pas]
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\DirectX Sources\DInput.pas]
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\DirectX Sources\DPlay.pas]
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\DirectX Sources\DPLobby.pas]
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\DirectX Sources\DSetup.pas]
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\DirectX Sources\DSound.pas]
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\DirectX Sources\DVP.pas]
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\DirectX Sources\DXFile.pas]
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\DirectX Sources\DXTools.pas]
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\DirectX Sources\RMXFGUID.pas]
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\DirectX Sources\RMXFTmpl.pas]
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\Fake Voyager3D\Components\Map3DView\RMDresser.pas]
+FormState=0
+FormOnTop=0
+
+[EditWindow0]
+CodeExplorer=CodeExplorer@EditWindow0
+MessageView=MessageView@EditWindow0
+Create=1
+Visible=1
+State=0
+Left=216
+Top=118
+Width=720
+Height=485
+MaxLeft=-4
+MaxTop=-4
+ClientWidth=712
+ClientHeight=458
+LeftPanelSize=0
+LeftPanelClients=CodeExplorer@EditWindow0
+LeftPanelData=00000400010000000C000000436F64654578706C6F7265720000000000000000000000000000000000FFFFFFFF
+RightPanelSize=0
+BottomPanelSize=0
+BottomPanelClients=WatchWindow,MessageView@EditWindow0
+BottomPanelData=00000400020000000B000000576174636857696E646F770B0000004D65737361676556696577AC00000000000000000004000000000000FFFFFFFF
+ViewCount=10
+CurrentView=9
+View0=0
+View1=1
+View2=2
+View3=3
+View4=4
+View5=5
+View6=6
+View7=7
+View8=8
+View9=9
+
+[CodeExplorer@EditWindow0]
+Create=1
+Visible=0
+State=0
+Left=0
+Top=11
+Width=140
+Height=568
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=140
+ClientHeight=568
+TBDockHeight=305
+LRDockWidth=140
+Dockable=1
+
+[MessageView@EditWindow0]
+Create=1
+Visible=0
+State=0
+Left=11
+Top=0
+Width=1013
+Height=52
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=1013
+ClientHeight=52
+TBDockHeight=52
+LRDockWidth=443
+Dockable=1
+
+[View0]
+Module=C:\Work\Five\Source\Tests\3D Projects\PDClient.dpr
+CursorX=1
+CursorY=5
+TopLine=1
+LeftCol=1
+
+[View1]
+Module=C:\Work\Five\Source\3D Engine\RM Engine\AmbientEffects.pas
+CursorX=1
+CursorY=1
+TopLine=1
+LeftCol=1
+
+[View2]
+Module=C:\Work\Five\Source\Fake Voyager3D\Components\Map3DView\Dresser.pas
+CursorX=15
+CursorY=4
+TopLine=1
+LeftCol=1
+
+[View3]
+Module=C:\Work\Five\Source\DirectX Sources\Multimon.pas
+CursorX=18
+CursorY=452
+TopLine=444
+LeftCol=1
+
+[View4]
+Module=C:\Work\Five\Source\Tests\3D Projects\PDMainForm.pas
+CursorX=1
+CursorY=6
+TopLine=1
+LeftCol=1
+
+[View5]
+Module=C:\Work\Five\Source\Fake Voyager3D\Components\Map3DView\VisualClasses.pas
+CursorX=14
+CursorY=6
+TopLine=1
+LeftCol=1
+
+[View6]
+Module=C:\Work\Five\Source\Kernel\Collection.pas
+CursorX=1
+CursorY=1
+TopLine=1
+LeftCol=1
+
+[View7]
+Module=C:\Work\Five\Source\3D Engine\Notifications.pas
+CursorX=15
+CursorY=6
+TopLine=1
+LeftCol=1
+
+[View8]
+Module=C:\Work\Five\Source\Kernel\InterfaceCollection.pas
+CursorX=35
+CursorY=12
+TopLine=1
+LeftCol=1
+
+[View9]
+Module=C:\Work\Five\Source\3D Engine\Engine3D.pas
+CursorX=37
+CursorY=12
+TopLine=1
+LeftCol=1
+
+[DockHosts]
+DockHostCount=0
+
+[Watches]
+Count=0
+
+[Breakpoints]
+Count=1
+Breakpoint0='C:\Work\PD Client\3D Client\3D Engine\RM Engine\RMEngine.pas',1148,'',0,1
+
+[AddressBreakpoints]
+Count=0
+

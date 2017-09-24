@@ -1,0 +1,201 @@
+unit main;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  StdCtrls, ExtCtrls, Menus, ComCtrls, OleCtrls, ISP3, Buttons, ActiveX;
+
+type
+  TForm1 = class(TForm)
+    StatusBar1: TStatusBar;
+    MainMenu1: TMainMenu;
+    File1: TMenuItem;
+    Exit1: TMenuItem;
+    Panel1: TPanel;
+    Bevel1: TBevel;
+    URLs: TComboBox;
+    GoButton: TSpeedButton;
+    CancelBtn: TSpeedButton;
+    Label1: TLabel;
+    HTTP1: THTTP;
+    Memo1: TMemo;
+    procedure Exit1Click(Sender: TObject);
+    procedure GoButtonClick(Sender: TObject);
+    procedure CancelBtnClick(Sender: TObject);
+    procedure HTML1BeginRetrieval(Sender: TObject);
+    procedure HTML1EndRetrieval(Sender: TObject);
+    procedure URLsKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure HTTP1DocOutput(Sender: TObject; const DocOutput: DocOutput);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+  Data: String;
+
+implementation
+
+{$R *.DFM}
+
+{ TSimpleHTMLParser }
+
+type
+
+  TToken = (etEnd, etSymbol, etLineEnd, etHTMLTag);
+
+  TSimpleHTMLParser = class
+  private
+    FText: string;
+    FSourcePtr: PChar;
+    FTokenPtr: PChar;
+    FTokenString: string;
+    FToken: TToken;
+    procedure NextToken;
+    function TokenHTMLTagIs(const S: string): Boolean;
+  public
+    constructor Create(const Text: string);
+  end;
+
+constructor TSimpleHTMLParser.Create(const Text: string);
+begin
+  FText := Text;
+  FSourcePtr := PChar(Text);
+  NextToken;
+end;
+
+procedure TSimpleHTMLParser.NextToken;
+var
+  P, TokenStart: PChar;
+begin
+  FTokenString := '';
+  P := FSourcePtr;
+  while (P^ <> #0) and (P^ <= ' ') do Inc(P);
+  FTokenPtr := P;
+  case P^ of
+    '<':
+      begin
+        Inc(P);
+        TokenStart := P;
+        while (P^ <> '>') and (P^ <> #0) do Inc(P);
+        SetString(FTokenString, TokenStart, P - TokenStart);
+        FToken := etHTMLTag;
+        Inc(P);
+      end;
+    #13: FToken := etLineEnd;
+    #0: FToken := etEnd;
+  else
+    begin
+      TokenStart := P;
+      Inc(P);
+      while not (P^ in ['<', #0, #13,#10]) do Inc(P);
+      SetString(FTokenString, TokenStart, P - TokenStart);
+      FToken := etSymbol;
+    end;
+  end;
+  FSourcePtr := P;
+end;
+
+function TSimpleHTMLParser.TokenHTMLTagIs(const S: string): Boolean;
+begin
+  Result := (FToken = etHTMLTag) and ((CompareText(FTokenString, S) = 0) or
+    (AnsiPos(S, FTokenString) = 1));
+end;
+
+procedure TForm1.Exit1Click(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure TForm1.GoButtonClick(Sender: TObject);
+var
+  a,b: Olevariant;
+begin
+  Memo1.Lines.Clear;
+  if URLs.Items.IndexOf(URLs.Text) = -1 then
+    URLs.Items.Add(URLs.Text);
+  if HTTP1.Busy then
+    HTTP1.Cancel;
+  HTTP1.OleObject.GetDoc(URLs.text, a, b);
+  Statusbar1.Panels[0].Text := HTTP1.URL;
+end;
+
+procedure TForm1.CancelBtnClick(Sender: TObject);
+begin
+  HTTP1.Cancel;
+  CancelBtn.Enabled := False;
+end;
+
+procedure TForm1.HTML1BeginRetrieval(Sender: TObject);
+begin
+  CancelBtn.Enabled := True;
+end;
+
+procedure TForm1.HTML1EndRetrieval(Sender: TObject);
+begin
+  CancelBtn.Enabled := False;
+end;
+
+procedure TForm1.URLsKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if Key = VK_Return then
+    GoButtonClick(nil);
+end;
+
+procedure TForm1.HTTP1DocOutput(Sender: TObject;
+  const DocOutput: DocOutput);
+var
+  S: OleVariant;
+  Parser: TSimpleHTMLParser;
+  ALine: String;
+begin
+  Statusbar1.Panels[2].Text := Format('Bytes: %d',[DocOutput.BytesTransferred]);
+  case DocOutput.State of
+    icDocBegin:
+      begin
+        Memo1.Lines.Clear;
+        Data := '';
+      end;
+    icDocData:
+      begin
+        DocOutput.GetData(S, '');
+        Data := Data + S;
+      end;
+    icDocEnd:
+      begin
+        { Now remove all the HTML tags and only display the text }
+        Parser := TSimpleHTMLParser.Create(Data);
+        ALine := '';
+        while Parser.FToken <> etEnd do
+        begin
+          case Parser.FToken of
+            etHTMLTag:
+              begin
+                if Parser.TokenHTMLTagIs('BR') then
+                  ALine := ALine + #13#10;
+                if Parser.TokenHTMLTagIs('P') then
+                  ALine := ALine + #13#10#13#10;
+              end;
+            etSymbol: ALine := ALine + ' ' + Parser.FTokenString;
+            etLineEnd:
+              begin
+                Memo1.Lines.Add(ALine);
+                ALine := '';
+              end;
+          end;
+          Parser.NextToken;
+        end;
+        Memo1.Lines.Add(ALine);
+        Memo1.SelStart := 0;
+        SendMessage(Memo1.Handle, EM_ScrollCaret, 0, 0);
+      end;
+  end;
+  Refresh;
+end;
+
+end.

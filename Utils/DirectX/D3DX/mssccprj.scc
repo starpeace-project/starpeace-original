@@ -1,0 +1,5 @@
+SCC = This is a Source Code Control file
+
+[D3DX.dsp]
+SCC_Aux_Path = "\\Morpheus\Shared\StarPeace"
+SCC_Project_Name = "$/Source/Utils/DirectX/D3DX", FIEAAAAA

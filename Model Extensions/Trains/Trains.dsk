@@ -1,0 +1,299 @@
+[MainWindow]
+Create=1
+Visible=1
+State=2
+Left=6
+Top=74
+Width=801
+Height=107
+MaxLeft=-1
+MaxTop=-1
+MaxWidth=1032
+MaxHeight=106
+ClientWidth=1024
+ClientHeight=60
+
+[BreakpointWindow]
+Column0Width=100
+Column1Width=60
+Column2Width=240
+Column3Width=40
+
+[ProjectManager]
+LargeButtons=1
+Column0Width=75
+Column1Width=125
+Column2Width=125
+
+[PropertyInspector]
+Create=1
+Visible=1
+State=0
+Left=0
+Top=109
+Width=190
+Height=383
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=182
+ClientHeight=359
+SplitPos=84
+
+[HistoryLists\hiWatchExpression]
+Count=1
+H0=Facility.Name
+
+[HistoryLists\hiEvalExpression]
+Count=32
+H0=y2 < y1
+H1=sin(result)
+H2=sin(pi + result)
+H3=y2 - y1
+H4=result
+H5=cos(arctan((y1 - y2)/(x1 - x2)))
+H6=arctan((y1 - y2)/(x1 - x2))
+H7=cos(arctan((y2 - y1)/(x2 - x1)))
+H8=sin(arctan((y2 - y1)/(x2 - x1)))
+H9=arctan((y2 - y1)/(x2 - x1))
+H10=arctan(abs(y2 - y1)/abs(x2 - x1))
+H11=4 - 2*pi
+H12=sin(4 - 2*pi)
+H13=sin(4)
+H14=sin(-4)
+H15=sin(-10*0.33)
+H16=sin(-10*0.33 - 2*pi)
+H17=sin(-0.33 - 2*pi)
+H18=sin(-0.33)
+H19=sin(0.33)
+H20=90 + 180*fCurrGeoSeg.Angle/pi
+H21=180*fCurrGeoSeg.Angle/pi
+H22=360 + 180*fCurrGeoSeg.Angle/pi
+H23=fCurrGeoSeg
+H24=360-270
+H25=180*(pi + result)/pi
+H26=pi + result
+H27=180*result/pi
+H28=fCurrGeoSeg.Angle
+H29=fCurrGeoSeg.y2
+H30=fCurrGeoSeg.y1
+H31=fCurrGeoSeg.x1
+
+[HistoryLists\hiEvalNewValue]
+Count=1
+H0=-59
+
+[HistoryLists\hiOpenFile]
+Count=32
+H0=e:\work\five\source\utils\serial\genidd.pas
+H1=e:\work\five\source\directory server\directoryserverprotocol.pas
+H2=e:\work\five\source\protocol\rankprotocol.pas
+H3=d:\work\five\source\inventions\inventions.pas
+H4=d:\work\five\source\utils\vcl\fiveerrorhandler.pas
+H5=d:\work\five\source\logs\logs.pas
+H6=e:\work\five\source\tasks\choicetask.pas
+H7=e:\work\five\source\tasks\residentialtasks.pas
+H8=e:\work\five\source\tasks\taskutils.pas
+H9=e:\work\five\source\tasks\buildfacilitiestask.pas
+H10=e:\work\five\source\tasks\headquartertasks.pas
+H11=e:\work\five\source\model extensions\standards.pas
+H12=e:\work\five\source\model extensions\facids.pas
+H13=d:\work\five\source\tasks\informativetask.pas
+H14=d:\work\five\source\tasks\tutorial.pas
+H15=d:\work\five\source\tasks\tasks.pas
+H16=e:\work\five\source\rdo\common\logfile.pas
+H17=e:\work\five\source\stdblocks\stdfluids.pas
+H18=e:\work\five\source\kernel\population.pas
+H19=e:\work\five\source\actors\stateengine.pas
+H20=e:\work\five\source\circuits\circuits.pas
+H21=e:\work\five\source\actors\automaton.pas
+H22=e:\work\five\source\actors\actorpool.pas
+H23=e:\work\five\source\actors\distributedstates.pas
+H24=e:\work\five\source\voyager\vehicles.pas
+H25=e:\work\five\source\kernel\collection.pas
+H26=e:\work\five\source\model extensions\trains\train.pas
+H27=e:\work\five\source\actors\actortypes.pas
+H28=e:\work\five\source\kernel\persistent.pas
+H29=e:\work\five\source\transport\matrixlayer.pas
+H30=e:\work\five\source\transport\transport.pas
+H31=e:\work\five\source\news server\newsserverinterfaces.pas
+
+[HistoryLists\hiRunParams]
+Count=0
+
+[HistoryLists\hiHostApplication]
+Count=1
+H0=e:\Work\Five\Release\Servers\FIVEModelServer.exe
+
+[HistoryLists\hiFindError]
+Count=3
+H0=1674960
+H1=1574960
+H2=01674960
+
+[HistoryLists\hiUnitAlias]
+Count=1
+H0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+
+[HistoryLists\hiLibUnitAliases]
+Count=1
+H0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+
+[HistoryLists\hiSearchMasks]
+Count=6
+H0=E:\Work\Five\Source\Model Extensions\Trains
+H1=E:\Work\Five\Source\Rdo
+H2=E:\Work\Five\Source\Voyager
+H3=E:\Work\Five\Source\
+H4=E:\work\five\Source\Persistence
+H5=E:\work\five\Source\StdBlocks
+
+[Closed Files]
+File_0=SourceModule,'D:\Work\Five\Source\Tasks\TycoonContext.pas',0,1,1,1,1,0,0
+File_1=SourceModule,'D:\Work\Five\Source\RDO\Client\WinSockRDOConnection.pas',0,1,1,5,14,0,0
+File_2=SourceModule,'E:\Work\Five\Source\Circuits\Circuits.pas',0,1,40,1,66,0,0
+File_3=SourceModule,'E:\Work\Five\Source\Actors\StateEngine.pas',0,1,687,1,702,0,0
+File_4=SourceModule,'E:\Work\Five\Source\Utils\Vcl\Windows.pas',0,1,16986,1,17001,0,0
+
+[Modules]
+Module0=E:\Work\Five\Source\Model Extensions\Trains\Trains.dpr
+Module1=E:\Work\Five\Source\RDO\Server\RDOObjectServer.pas
+Module2=E:\Work\Five\Source\Utils\Serial\GenIdd.pas
+Module3=E:\Work\Five\Source\Directory Server\DirectoryServerProtocol.pas
+Module4=E:\Work\Five\Source\Kernel\World.pas
+Module5=E:\Work\Five\Source\Protocol\RankProtocol.pas
+Module6=E:\Work\Five\Source\Kernel\Rankings.pas
+Module7=E:\Work\Five\Source\Model Extensions\Trains\TrainsSystem.pas
+Count=8
+EditWindowCount=1
+
+[E:\Work\Five\Source\Model Extensions\Trains\Trains.dpr]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[E:\Work\Five\Source\RDO\Server\RDOObjectServer.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[E:\Work\Five\Source\Utils\Serial\GenIdd.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[E:\Work\Five\Source\Directory Server\DirectoryServerProtocol.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[E:\Work\Five\Source\Kernel\World.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[E:\Work\Five\Source\Protocol\RankProtocol.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[E:\Work\Five\Source\Kernel\Rankings.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[E:\Work\Five\Source\Model Extensions\Trains\TrainsSystem.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[EditWindow0]
+Create=1
+Visible=1
+State=0
+Left=210
+Top=125
+Width=783
+Height=549
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=775
+ClientHeight=522
+SplitPos=50
+MessagePane=1
+ViewCount=8
+CurrentView=0
+View0=0
+View1=1
+View2=2
+View3=3
+View4=4
+View5=5
+View6=6
+View7=7
+
+[View0]
+Module=E:\Work\Five\Source\Model Extensions\Trains\Trains.dpr
+CursorX=37
+CursorY=28
+TopLine=19
+LeftCol=1
+
+[View1]
+Module=E:\Work\Five\Source\Kernel\Rankings.pas
+CursorX=53
+CursorY=55
+TopLine=38
+LeftCol=1
+
+[View2]
+Module=E:\Work\Five\Source\Protocol\RankProtocol.pas
+CursorX=1
+CursorY=1
+TopLine=1
+LeftCol=1
+
+[View3]
+Module=E:\Work\Five\Source\Model Extensions\Trains\TrainsSystem.pas
+CursorX=1
+CursorY=92
+TopLine=70
+LeftCol=1
+
+[View4]
+Module=E:\Work\Five\Source\Kernel\World.pas
+CursorX=35
+CursorY=540
+TopLine=524
+LeftCol=1
+
+[View5]
+Module=E:\Work\Five\Source\Directory Server\DirectoryServerProtocol.pas
+CursorX=35
+CursorY=40
+TopLine=23
+LeftCol=1
+
+[View6]
+Module=E:\Work\Five\Source\Utils\Serial\GenIdd.pas
+CursorX=36
+CursorY=6
+TopLine=1
+LeftCol=1
+
+[View7]
+Module=E:\Work\Five\Source\RDO\Server\RDOObjectServer.pas
+CursorX=16
+CursorY=88
+TopLine=81
+LeftCol=1
+
+[Watches]
+Count=0
+
+[Breakpoints]
+Count=4
+Breakpoint0='E:\Work\Five\Source\Model Extensions\Trains\TrainsSystem.pas',844,'fActorPool.TickCount = 213',0,0
+Breakpoint1='E:\Work\Five\Source\Model Extensions\Trains\ServerTrain.pas',1098,'',0,0
+Breakpoint2='E:\Work\Five\Source\Model Extensions\Trains\ServerTrain.pas',441,'',0,0
+Breakpoint3='E:\Work\Five\Source\Model Extensions\Trains\ServerTrain.pas',443,'',0,0
+

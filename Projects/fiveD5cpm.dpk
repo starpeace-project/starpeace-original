@@ -1,0 +1,51 @@
+package fiveD5cpm;
+
+{$R *.RES}
+{$ALIGN ON}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO ON}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION ON}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES OFF}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST ON}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DESCRIPTION 'Esto es para delphi 5'}
+{$IMPLICITBUILD OFF}
+{$DEFINE USECARGODATA}
+{$DEFINE EXCMAGIC_GUI}
+{$DEFINE LIBRARY}
+
+requires
+  Vcl50;
+
+contains
+  BlockTicker in '..\Voyager\components\BlockTicker.pas',
+  ColoredGauge in '..\Voyager\components\ColoredGauge.pas',
+  FingerTabs in '..\Voyager\components\FingerTabs.pas',
+  FramedButton in '..\Voyager\components\FramedButton.pas',
+  GradientBox in '..\Voyager\components\GradientBox.pas',
+  InfoBook in '..\Voyager\components\InfoBook.pas',
+  InternationalizerComponent in '..\Voyager\components\InternationalizerComponent.pas',
+  MarqueeCtrl in '..\Voyager\components\MarqueeCtrl.pas',
+  MultiBMPButton in '..\Voyager\components\MultiBMPButton.pas',
+  OpaquePanel in '..\Voyager\components\OpaquePanel.pas',
+  PDTabControl in '..\Voyager\components\PDTabControl.pas',
+  PercentEdit in '..\Voyager\components\PercentEdit.pas',
+  EnhanceComponents in '..\Voyager\Components\EnhanceComponents.pas',
+  PlayerGif in '..\Utils\Graphics\PlayerGif.pas',
+  FlatPopupMenu in '..\Voyager\Components\FlatPopupMenu.pas';
+
+end.

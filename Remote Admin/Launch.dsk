@@ -1,0 +1,245 @@
+[MainWindow]
+Create=1
+Visible=1
+State=2
+Left=0
+Top=0
+Width=800
+Height=106
+MaxLeft=-4
+MaxTop=-4
+MaxWidth=1032
+MaxHeight=106
+ClientWidth=1024
+ClientHeight=60
+
+[ProjectManager]
+Create=1
+Visible=1
+State=0
+Left=200
+Top=104
+Width=337
+Height=239
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=329
+ClientHeight=215
+LargeButtons=1
+Column0Width=75
+Column1Width=125
+Column2Width=125
+
+[CPUWindow]
+DumpPane=79
+DisassemblyPane=188
+StackPane=95
+RegisterPane=121
+
+[PropertyInspector]
+Create=1
+Visible=1
+State=0
+Left=1
+Top=102
+Width=190
+Height=491
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=182
+ClientHeight=467
+SplitPos=84
+
+[HistoryLists\hiEvalExpression]
+Count=8
+H0=self
+H1=fServer.fObjectCache[x, y]
+H2=UserName
+H3=x1 div MapChunkSize
+H4=y1 div MapChunkSize
+H5=x div MapChunkSize
+H6=y div MapChunkSize
+H7=MapChunkSize
+
+[HistoryLists\hiOpenFile]
+Count=30
+H0=c:\work\five\source\remote admin\reboot.dpr
+H1=c:\work\five\source\remote admin\remoteadm.pas
+H2=c:\work\five\source\remote admin\taskmanager.pas
+H3=c:\work\five\source\cgi\cgireportmodule.pas
+H4=c:\work\five\source\cgi\cgisvrreport.dpr
+H5=c:\work\five\source\remote admin\launch.dpr
+H6=c:\tmp\shellexecute.pas
+H7=c:\work\five\source\cgi\isinterface.dpr
+H8=c:\work\five\source\remote admin\backupmgr.dpr
+H9=c:\work\five\source\kernel\world.pas
+H10=c:\work\five\source\model server\modelserver.pas
+H11=c:\work\five\source\tests\smtptest\smtptest.dpr
+H12=c:\work\five\source\directory server\directorymanager.pas
+H13=c:\work\five\source\remote admin\backupmgr_tlb.pas
+H14=c:\program files\borland\delphi 3\source\internet\httpapp.pas
+H15=c:\work\five\source\remote admin\remoteadmin.dpr
+H16=c:\work\five\source\logs\logs.pas
+H17=c:\work\cgitest\cgiwebmodule.pas
+H18=c:\work\five\source\daemon scheduler\rankings.dpr
+H19=e:\work\five\source\remote admin\remoteadm.pas
+H20=e:\work\five\source\utils\misc\strutils.pas
+H21=e:\work\five\source\remote admin\psapi.pas
+H22=e:\work\five\source\remote admin\remoteadmin.pas
+H23=e:\work\five\source\kernel\world.pas
+H24=d:\work\five\source\rdo\common\rdointerfaces.pas
+H25=d:\work\five\source\utils\network\socketcomp.pas
+H26=d:\work\five\source\rdo\server\winsockrdoconnectionsserver.pas
+H27=d:\work\five\source\mail server\mailserver.pas
+H28=d:\work\five\source\mail server\modelserver.pas
+H29=e:\work\five\source\model server\modelserver.pas
+
+[HistoryLists\hiUnitAlias]
+Count=1
+H0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+
+[HistoryLists\hiLibUnitAliases]
+Count=1
+H0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+
+[HistoryLists\hiSearchMasks]
+Count=4
+H0=D:\Work\Five\Source\RDO
+H1=D:\Work\Five\Source\
+H2=D:\Work\Five\Source\Mail Server
+H3=D:\Work\Five\Source\Mail
+
+[Closed Files]
+File_0=SourceModule,'C:\Work\Five\Source\Remote Admin\TaskManager.pas',0,1,50,1,60,0,0
+File_1=SourceModule,'C:\Tmp\ShellExecute.pas',0,1,1,1,32,1,0
+File_2=SourceModule,'C:\Program Files\Borland\Delphi 3\Source\INTERNET\cgiapp.pas',0,1,552,81,561,0,0
+File_3=SourceModule,'C:\Work\Five\Source\Remote Admin\BackUpMgr_TLB.pas',0,1,1,1,1,0,0
+File_4=SourceModule,'C:\Work\Five\Source\Kernel\World.pas',0,1,172,19,196,0,0
+File_5=SourceModule,'C:\Work\Five\Source\Model Server\ModelServer.pas',0,1,1,1,1,0,0
+File_6=SourceModule,'C:\Work\Five\Source\Directory Server\DirectoryManager.pas',0,1,698,45,713,0,0
+File_7=SourceModule,'C:\Program Files\Borland\Delphi 3\Source\INTERNET\httpapp.pas',0,1,1727,1,1727,0,0
+File_8=SourceModule,'E:\Work\Five\Source\Remote Admin\RemoteAdm.pas',0,1,36,68,62,0,0
+File_9=SourceModule,'E:\Work\Five\Source\Remote Admin\psapi.pas',0,1,33,35,58,0,0
+
+[Modules]
+Module0=C:\Work\Five\Source\Remote Admin\LaunchWebModule.pas
+Module1=C:\Work\Five\Source\Remote Admin\RemoteAdm.pas
+Module2=C:\Work\Five\Source\CGI\CGIReportModule.pas
+Module3=C:\Work\Five\Source\Remote Admin\Launch.dpr
+Module4=C:\Work\Five\Source\Logs\Logs.pas
+Count=5
+EditWindowCount=1
+
+[C:\Work\Five\Source\Remote Admin\LaunchWebModule.pas]
+ModuleType=SourceModule
+FormState=1
+FormOnTop=0
+
+[C:\Work\Five\Source\Remote Admin\RemoteAdm.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\CGI\CGIReportModule.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\Remote Admin\Launch.dpr]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\Logs\Logs.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[EditWindow0]
+Create=1
+Visible=1
+State=2
+Left=210
+Top=123
+Width=696
+Height=486
+MaxLeft=-1
+MaxTop=-1
+MaxWidth=1032
+MaxHeight=748
+ClientWidth=1024
+ClientHeight=721
+SplitPos=50
+MessagePane=0
+ViewCount=5
+CurrentView=0
+View0=0
+View1=1
+View2=2
+View3=3
+View4=4
+
+[View0]
+Module=C:\Work\Five\Source\Remote Admin\LaunchWebModule.pas
+CursorX=13
+CursorY=39
+TopLine=19
+LeftCol=1
+
+[View1]
+Module=C:\Work\Five\Source\Remote Admin\RemoteAdm.pas
+CursorX=11
+CursorY=103
+TopLine=66
+LeftCol=1
+
+[View2]
+Module=C:\Work\Five\Source\CGI\CGIReportModule.pas
+CursorX=1
+CursorY=171
+TopLine=134
+LeftCol=1
+
+[View3]
+Module=C:\Work\Five\Source\Logs\Logs.pas
+CursorX=84
+CursorY=12
+TopLine=1
+LeftCol=1
+
+[View4]
+Module=C:\Work\Five\Source\Remote Admin\Launch.dpr
+CursorX=6
+CursorY=14
+TopLine=1
+LeftCol=1
+
+[Watches]
+Count=1
+Watch0='result',256,0,18,1
+
+[Breakpoints]
+Count=0
+
+[PVCS Browser]
+Left=236
+Top=105
+Width=625
+Height=393
+State=0
+Visible=0
+
+[PVCS VDiff]
+Left=257
+Top=160
+Width=591
+Height=608
+Layout=1
+Orientation=1
+State=0
+Visible=0
+File1Color=16711680
+File2Color=255
+SpaceColor=16776960
+TextColor=0
+

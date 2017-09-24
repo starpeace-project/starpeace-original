@@ -1,0 +1,141 @@
+[FileVersion]
+Version=6.0
+[Compiler]
+A=8
+B=0
+C=1
+D=1
+E=0
+F=0
+G=1
+H=1
+I=1
+J=1
+K=0
+L=1
+M=0
+N=1
+O=1
+P=1
+Q=0
+R=0
+S=0
+T=0
+U=0
+V=1
+W=0
+X=1
+Y=0
+Z=1
+ShowHints=1
+ShowWarnings=1
+UnitAliases=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE
+[Linker]
+MapFile=0
+OutputObjs=0
+ConsoleApp=1
+DebugInfo=0
+RemoteSymbols=0
+MinStackSize=16384
+MaxStackSize=1048576
+ImageBase=4194304
+ExeDescription=
+[Directories]
+OutputDir=S:\Release
+UnitOutputDir=S:\dcu
+PackageDLLOutputDir=
+PackageDCPOutputDir=
+SearchPath=$(DELPHI)\Lib\Debug;..\Utils\Network;..\RDO\Client\;..\Utils\Misc;..\Voyager;..\Voyager\URLHandlers;..\Kernel;$(DELPHI)\Source\Toolsapi;..\Rdo\Client;..\RDO\Common;..\Utils\CodeLib;..\Utils\debug;..\DServer;..\Utils\Voice;..\Utils\Graphics;..\Utils\GameAPI;..\Voyager\Components;..\Utils\Winutils
+Packages=Vcl50;Vclx50;fiveD5cpm
+Conditionals=
+DebugSourceDirs=$(DELPHI)\Source\Rtl;$(DELPHI)\Source\Vcl
+UsePackages=0
+[Parameters]
+RunParams=
+HostApplication=
+Launcher=
+UseLauncher=0
+DebugCWD=
+[Language]
+ActiveLang=
+ProjectLang=
+RootDir=S:\Source\Voyager\
+[Version Info]
+IncludeVerInfo=1
+AutoIncBuild=0
+MajorVer=2
+MinorVer=0
+Release=1
+Build=24
+Debug=0
+PreRelease=0
+Special=0
+Private=1
+DLL=0
+Locale=1033
+CodePage=1252
+[Version Info Keys]
+CompanyName=Oceanus Communications
+FileDescription=
+FileVersion=2.0.1.24
+InternalName=
+LegalCopyright=Merchise Group
+LegalTrademarks=
+OriginalFilename=
+ProductName=
+ProductVersion=2.0.1.24
+Comments=
+PrivateBuild=
+[Excluded Packages]
+C:\WINNT\System32\ibevnt60.bpl=Borland Interbase Event Alerter Component
+c:\program files\borland\delphi6\Bin\dclclxdb60.bpl=Borland CLX Database Components
+C:\Program Files\Borland\Delphi6\Bin\dcldb60.bpl=Borland Database Components
+C:\Program Files\Borland\Delphi6\Bin\dclclxstd60.bpl=Borland CLX Standard Components
+c:\program files\borland\delphi6\Bin\dclsmp60.bpl=Borland Sample Components
+c:\program files\borland\delphi6\Bin\dcloffice2k60.bpl=Microsoft Office 2000 Sample Automation Server Wrapper Components
+c:\program files\borland\delphi6\Bin\dclado60.bpl=Borland ADO DB Components
+c:\program files\borland\delphi6\Bin\dclbde60.bpl=Borland BDE DB Components
+C:\Program Files\Borland\Delphi6\Bin\dbx60.bpl=Borland SQL Explorer UI Package
+c:\program files\borland\delphi6\Bin\DCLIB60.bpl=InterBase Data Access Components
+c:\program files\borland\delphi6\Bin\dclcds60.bpl=Borland Base Cached ClientDataset Component
+C:\Program Files\Borland\Delphi6\Bin\dclmid60.bpl=Borland MyBase DataAccess Components
+c:\program files\borland\delphi6\Bin\dclbdecds60.bpl=Borland Local BDE ClientDataset Components
+c:\program files\borland\delphi6\Bin\dclqrt60.bpl=QuickReport Components
+c:\program files\borland\delphi6\Bin\dcltee60.bpl=TeeChart Components
+c:\program files\borland\delphi6\Bin\dcldss60.bpl=Borland Decision Cube Components
+c:\program files\borland\delphi6\Bin\dcltqr60.bpl=TeeChart for QuickReport Components
+c:\program files\borland\delphi6\Bin\dclmcn60.bpl=Borland DataSnap Connection Components
+c:\program files\borland\delphi6\Bin\applet60.bpl=Borland Control Panel Applet Package
+c:\program files\borland\delphi6\Bin\dclemacsedit60.bpl=Borland Editor Emacs Enhancements
+c:\program files\borland\delphi6\Bin\dclshlctrls60.bpl=Shell Control Property and Component Editors
+c:\program files\borland\delphi6\Bin\DCLNMF60.bpl=NetMasters Fastnet Tools
+c:\program files\borland\delphi6\Bin\dclwbm60.bpl=Borland InternetExpress Components
+c:\program files\borland\delphi6\Bin\dclwebsnap60.bpl=Borland WebSnap Components
+c:\program files\borland\delphi6\Bin\dclsoap60.bpl=Borland Soap Components
+c:\program files\borland\delphi6\Bin\dcldbx60.bpl=Borland dbExpress Components
+c:\program files\borland\delphi6\Bin\dcldbxcds60.bpl=Borland Local DBX ClientDataset Components
+c:\program files\borland\delphi6\Bin\dclindy60.bpl=Internet Direct (Indy) for D6 Property and Component Editors
+c:\program files\borland\delphi6\Bin\DBWEBXPRT.BPL=Borland Web Wizard Package
+[HistoryLists\hlDebugSourcePath]
+Count=1
+Item0=$(DELPHI)\Source\Rtl;$(DELPHI)\Source\Vcl
+[HistoryLists\hlConditionals]
+Count=1
+Item0=USECARGODATA;EXCMAGIC_GUI;LIBRARY;QuickOut
+[HistoryLists\hlUnitAliases]
+Count=1
+Item0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE
+[HistoryLists\hlSearchPath]
+Count=6
+Item0=$(DELPHI)\Lib\Debug;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client\;..\Utils\Misc;..\Voyager;..\Voyager\URLHandlers;Components;..\Kernel;..\Utils\GameAPI;..\Utils\Graphics;..\Utils\Voice;..\DServer;$(DELPHI)\Source\Toolsapi;..\Utils\CodeLib;..\Utils\debug
+Item1=$(DELPHI)\Lib\Debug;..\Utils\Network;..\RDO\Client\;..\Utils\Misc;..\Voyager;..\Voyager\URLHandlers;..\Kernel;$(DELPHI)\Source\Toolsapi;..\Rdo\Client;..\RDO\Common;..\Utils\CodeLib;..\Utils\debug;..\DServer;..\Utils\Voice;..\Utils\Graphics;..\Utils\GameAPI;..\Voyager\Components;..\Utils\Winutils
+Item2=$(DELPHI)\Lib\Debug;..\Utils\Network;..\RDO\Client\;..\Utils\Misc;..\Voyager;..\Voyager\URLHandlers;..\Kernel;$(DELPHI)\Source\Toolsapi;..\Rdo\Client;..\RDO\Common;..\Utils\CodeLib;..\Utils\debug;..\DServer;..\Utils\Voice;..\Utils\Graphics;..\Utils\GameAPI;..\Voyager\Components
+Item3=$(DELPHI)\Lib\Debug;..\Utils\Network;..\RDO\Client\;..\Utils\Misc;..\Voyager;..\Voyager\URLHandlers;Components;..\Kernel;$(DELPHI)\Source\Toolsapi;..\..\Rdo\Client;..\..\RDO\Common;..\..\Utils\Network;..\..\Utils\CodeLib;..\..\Utils\debug;..\..\DServer;..\..\Utils\Voice;..\..\Utils\Graphics;..\..\Utils\GameAPI
+Item4=$(DELPHI)\Lib\Debug;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client\;..\Utils\Misc;..\Voyager;..\Voyager\URLHandlers;Components;..\Kernel;..\Utils\GameAPI;..\Utils\Graphics;..\Utils\Voice;..\DServer;$(DELPHI)\Source\Toolsapi;..\Utils\CodeLib;..\Utils\debug;S:\Source\Rdo\Client;..\..\Rdo\Client
+Item5=$(DELPHI)\Lib\Debug;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client\;..\Utils\Misc;..\Voyager;..\Voyager\URLHandlers;Components;..\Kernel;..\Utils\GameAPI;..\Utils\Graphics;..\Utils\Voice;..\DServer;$(DELPHI)\Source\Toolsapi;..\Utils\CodeLib;..\Utils\debug;S:\Source\Rdo\Client
+[HistoryLists\hlUnitOutputDirectory]
+Count=1
+Item0=S:\dcu
+[HistoryLists\hlOutputDirectorry]
+Count=1
+Item0=S:\Release

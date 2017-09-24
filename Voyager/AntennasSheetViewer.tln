@@ -1,0 +1,9 @@
+AntennasSheetViewer.Caption=
+AntennasSheetViewer.Hint=
+Panel1.Caption=
+Panel1.Hint=
+lvAntennas.Columns=3
+lvAntennas.Columns.0=Name
+lvAntennas.Columns.1=Town
+lvAntennas.Columns.2=Viewers
+lvAntennas.Hint=

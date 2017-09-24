@@ -1,0 +1,234 @@
+[MainWindow]
+Create=1
+Visible=1
+State=2
+Left=0
+Top=0
+Width=800
+Height=107
+MaxLeft=-4
+MaxTop=-4
+MaxWidth=808
+MaxHeight=107
+ClientWidth=800
+ClientHeight=60
+
+[ProjectManager]
+LargeButtons=1
+Column0Width=75
+Column1Width=125
+Column2Width=125
+
+[PropertyInspector]
+Create=1
+Visible=1
+State=0
+Left=0
+Top=102
+Width=190
+Height=385
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=182
+ClientHeight=359
+SplitPos=84
+
+[HistoryLists\hiWatchExpression]
+Count=7
+H0=i
+H1=word(result[i])
+H2=length(str)
+H3=str[i]
+H4=result[i]
+H5=yi
+H6=xi
+
+[HistoryLists\hiEvalExpression]
+Count=32
+H0=Facility.Name
+H1=HomelessPerc[i]
+H2=Unemployment[i]
+H3=fResInmigration[i].Extra
+H4=fResInmigration
+H5=fHomeless
+H6=TSlice(fSlices[i]).val
+H7=MetaOutput
+H8=ConnectionCount
+H9=self,r
+H10=integer(high(TPeopleKind))
+H11=high(TPeopleKind)
+H12=MoneyReasonId[i]
+H13=MoneyReasonId
+H14=sizeof(TMoneyReason)
+H15=report
+H16=i
+H17=fWorkForce[i].Extra.Q
+H18=100/6
+H19=100/7
+H20=20/5
+H21=20/6
+H22=6
+H23=sizeof(TMetaFacilityOptions)
+H24=0.01*100
+H25=0
+H26=((300 - Kl - fResDemand[i].K - fWorkDemand[i].K)*sqrt(Kf)*EmigrationProb[i]*fPopulation[i].Q*dt)/(100*300*EmigrationTimeSlope) + fResEmigration[i].Extra.Q
+H27=sqrt(Kf)
+H28=(1 - sqrt(Kf))
+H29=fWorkForce[i].Q
+H30=sqrt((HomelessPerc[i] + Unemployment[i])/(2*100))
+H31=(HomelessPerc[i] + Unemployment[i])/(2*100)
+
+[HistoryLists\hiOpenFile]
+Count=32
+H0=c:\work\five\source\voyager\urlhandlers\msgcomposerhandler.pas
+H1=c:\work\five\source\mail server\mailserver.pas
+H2=\\jill\five\source\stdblocks\farms.pas
+H3=c:\work\five\source\mail\attachments.pas
+H4=c:\work\five\source\mail\mailserverinterfaces.pas
+H5=c:\work\five\source\mail\mailconsts.pas
+H6=c:\work\five\source\mail\mailbrowser.dpr
+H7=c:\work\five\source\mail\mailprotocol.pas
+H8=c:\work\five\source\kernel\workcenterblock.pas
+H9=c:\work\five\source\kernel\researchcenter.pas
+H10=c:\work\five\source\kernel\copy of kernel.pas
+H11=c:\work\five\source\interface server\interfaceserver.pas
+H12=c:\work\five\source\stdblocks\shops.pas
+H13=c:\work\five\source\stdblocks\evaluatedblock.pas
+H14=c:\work\five\source\modelserver.pas
+H15=c:\work\five\source\utils\network\tcpsockets.pas
+H16=c:\work\five\source\rdo\server\rdoserver.pas
+H17=c:\work\five\source\rdo\server\winsockrdoconnectionsserver.pas
+H18=c:\work\five\source\kernel\politics.pas
+H19=c:\work\five\source\stdblocks\farms.pas
+H20=c:\work\five\source\kernel\productor.pas
+H21=c:\work\five\source\kernel\automaticevaluatedblocks.pas
+H22=c:\work\five\source\kernel\outputevaluators.pas
+H23=c:\work\five\source\cache\msobjectcacher.pas
+H24=c:\work\five\source\protocol\protocol.pas
+H25=c:\work\five\source\stdblocks\construction.pas
+H26=c:\work\five\source\utils\network\socketcomp.pas
+H27=c:\work\five\source\cache\wsobjectcacher.pas
+H28=c:\work\five\source\cache\cacheobjects.pas
+H29=c:\work\five\source\kernel\publicfacility.pas
+H30=c:\work\five\source\kernel\population.pas
+H31=c:\work\five\source\kernel\kernelbackup.pas
+
+[HistoryLists\hiUnitAlias]
+Count=1
+H0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+
+[HistoryLists\hiLibUnitAliases]
+Count=1
+H0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+
+[HistoryLists\hiSearchMasks]
+Count=7
+H0=C:\Work\Five\Source
+H1=C:\Work\Five\Source\Rdo
+H2=C:\Work\Five\Source\
+H3=C:\Work\Five\Source\Cache
+H4=C:\Work\Five\Source\Kernel
+H5=C:\Work\Five\Source\Cache Server
+H6=C:\Work\Five\Source;C:\Work\Five\StdBlocks
+
+[Closed Files]
+File_0=SourceModule,'C:\Work\Five\Source\Voyager\URLHandlers\MsgComposerHandler.pas',0,1,259,1,280,0,0
+File_1=SourceModule,'C:\Work\Five\Source\Mail Server\MailServer.pas',0,1,555,38,575,0,0
+File_2=SourceModule,'\\Jill\five\Source\Kernel\World.pas',0,1,671,1,685,0,0
+File_3=SourceModule,'\\Jill\five\Source\Model Server\FIVEModelServer.dpr',0,1,1,1,1,0,0
+File_4=SourceModule,'C:\Work\Five\Source\Kernel\ResearchCenter.pas',0,1,89,37,105,0,0
+File_5=SourceModule,'C:\Work\Five\Source\Kernel\WorkCenterBlock.pas',0,1,128,19,145,0,0
+File_6=SourceModule,'C:\Work\Five\Source\Kernel\Population.pas',0,1,315,20,317,0,0
+File_7=SourceModule,'C:\Work\Five\Source\Kernel\PopulatedBlock.pas',0,1,1,1,1,0,0
+File_8=SourceModule,'C:\Work\Five\Source\Model Server\ModelServer.pas',0,1,1,1,12,0,0
+File_9=SourceModule,'C:\Work\Five\Source\Kernel\World.pas',0,1,239,1,266,0,0
+
+[Modules]
+Module0=C:\Work\Five\Source\Interface Server\URLTrigger.pas
+Module1=C:\Work\Five\Source\Interface Server\FiveWebUtils.tlb
+Module2=C:\Work\Five\Source\Interface Server\FiveWebUtils.dpr
+Count=3
+EditWindowCount=1
+TypeLibWindowCount=1
+
+[C:\Work\Five\Source\Interface Server\URLTrigger.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\Interface Server\FiveWebUtils.tlb]
+ModuleType=TypeLibModule
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\Interface Server\FiveWebUtils.dpr]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[EditWindow0]
+Create=1
+Visible=1
+State=1
+Left=210
+Top=125
+Width=544
+Height=381
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=536
+ClientHeight=353
+SplitPos=50
+MessagePane=0
+ViewCount=3
+CurrentView=2
+View0=0
+View1=1
+View2=2
+
+[View0]
+Module=C:\Work\Five\Source\Interface Server\FiveWebUtils.dpr
+CursorX=1
+CursorY=1
+TopLine=1
+LeftCol=1
+
+[View1]
+Module=C:\Work\Five\Source\Interface Server\FiveWebUtils.tlb
+CursorX=1
+CursorY=1
+TopLine=1
+LeftCol=1
+
+[View2]
+Module=C:\Work\Five\Source\Interface Server\URLTrigger.pas
+CursorX=34
+CursorY=35
+TopLine=24
+LeftCol=1
+
+[TypeLibEditWindow0]
+Create=1
+Visible=1
+State=0
+Left=200
+Top=105
+Width=596
+Height=410
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=588
+ClientHeight=382
+LargeButtons=1
+Module=C:\Work\Five\Source\Interface Server\FiveWebUtils.tlb
+
+[Watches]
+Count=4
+Watch0='word(result[i])',256,0,18,1
+Watch1='str[i]',256,0,18,1
+Watch2='length(str)',256,0,18,1
+Watch3='i',256,0,18,1
+
+[Breakpoints]
+Count=0
+

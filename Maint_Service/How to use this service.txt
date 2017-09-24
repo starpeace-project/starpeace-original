@@ -1,0 +1,28 @@
+The input parameters for this service must be located in a file named "MSWatcher.ini" located on \WINNT\System32
+the format of the file is as fallows:
+
+;////////////begin of file//////////////
+;the time on CheckPeriod is in seconds
+;  Program to Watch is the program been watched to run
+;  File to Check is the file that the application leave if it finished Ok
+; CheckPeriod is the watchdog time period.
+;server is the mail server for sending notification, name not ip number
+;email  is the address to notify
+
+[MSWatcher params]
+Program to Watch=C:\winnt\system32\calc.exe
+File to Check=c:\file.txt
+CheckPeriod=2
+Server=mail.starpeace.net
+email=orelbigm@starpeace.net
+;//////////end of file//////////////
+
+For installing the service copy the file MSWatcher.ini to the directory \WINNT\System32 and then install the service
+just write at a command prompt   "MSWatcher /install"
+
+Attention!!!!! this is very important:
+In the configuration of the service you must set the properties as fallows:
+On the Services Administrative Tools select SMSWatcher, right click on it and select properties, on the Tab that
+saids Log On make sure to check "Allow service to interact with desktop
+
+

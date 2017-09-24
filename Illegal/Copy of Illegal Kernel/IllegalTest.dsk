@@ -1,0 +1,257 @@
+[MainWindow]
+Create=1
+Visible=1
+State=2
+Left=6
+Top=74
+Width=801
+Height=107
+MaxLeft=-1
+MaxTop=-1
+MaxWidth=1160
+MaxHeight=107
+ClientWidth=1152
+ClientHeight=60
+
+[BreakpointWindow]
+Column0Width=100
+Column1Width=60
+Column2Width=240
+Column3Width=40
+
+[ProjectManager]
+LargeButtons=1
+Column0Width=75
+Column1Width=125
+Column2Width=125
+
+[PropertyInspector]
+Create=1
+Visible=1
+State=0
+Left=0
+Top=109
+Width=190
+Height=385
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=182
+ClientHeight=359
+SplitPos=84
+
+[HistoryLists\hiWatchExpression]
+Count=1
+H0=Facility.Name
+
+[HistoryLists\hiEvalExpression]
+Count=32
+H0=y2 < y1
+H1=sin(result)
+H2=sin(pi + result)
+H3=y2 - y1
+H4=result
+H5=cos(arctan((y1 - y2)/(x1 - x2)))
+H6=arctan((y1 - y2)/(x1 - x2))
+H7=cos(arctan((y2 - y1)/(x2 - x1)))
+H8=sin(arctan((y2 - y1)/(x2 - x1)))
+H9=arctan((y2 - y1)/(x2 - x1))
+H10=arctan(abs(y2 - y1)/abs(x2 - x1))
+H11=4 - 2*pi
+H12=sin(4 - 2*pi)
+H13=sin(4)
+H14=sin(-4)
+H15=sin(-10*0.33)
+H16=sin(-10*0.33 - 2*pi)
+H17=sin(-0.33 - 2*pi)
+H18=sin(-0.33)
+H19=sin(0.33)
+H20=90 + 180*fCurrGeoSeg.Angle/pi
+H21=180*fCurrGeoSeg.Angle/pi
+H22=360 + 180*fCurrGeoSeg.Angle/pi
+H23=fCurrGeoSeg
+H24=360-270
+H25=180*(pi + result)/pi
+H26=pi + result
+H27=180*result/pi
+H28=fCurrGeoSeg.Angle
+H29=fCurrGeoSeg.y2
+H30=fCurrGeoSeg.y1
+H31=fCurrGeoSeg.x1
+
+[HistoryLists\hiEvalNewValue]
+Count=1
+H0=-59
+
+[HistoryLists\hiOpenFile]
+Count=32
+H0=d:\work\five\source\inventions\inventions.pas
+H1=d:\work\five\source\utils\vcl\fiveerrorhandler.pas
+H2=d:\work\five\source\logs\logs.pas
+H3=e:\work\five\source\tasks\choicetask.pas
+H4=e:\work\five\source\tasks\residentialtasks.pas
+H5=e:\work\five\source\tasks\taskutils.pas
+H6=e:\work\five\source\tasks\buildfacilitiestask.pas
+H7=e:\work\five\source\tasks\headquartertasks.pas
+H8=e:\work\five\source\model extensions\standards.pas
+H9=e:\work\five\source\model extensions\facids.pas
+H10=d:\work\five\source\tasks\informativetask.pas
+H11=d:\work\five\source\tasks\tutorial.pas
+H12=d:\work\five\source\tasks\tasks.pas
+H13=e:\work\five\source\rdo\common\logfile.pas
+H14=e:\work\five\source\stdblocks\stdfluids.pas
+H15=e:\work\five\source\kernel\population.pas
+H16=e:\work\five\source\actors\stateengine.pas
+H17=e:\work\five\source\circuits\circuits.pas
+H18=e:\work\five\source\actors\automaton.pas
+H19=e:\work\five\source\actors\actorpool.pas
+H20=e:\work\five\source\actors\distributedstates.pas
+H21=e:\work\five\source\voyager\vehicles.pas
+H22=e:\work\five\source\kernel\collection.pas
+H23=e:\work\five\source\model extensions\trains\train.pas
+H24=e:\work\five\source\actors\actortypes.pas
+H25=e:\work\five\source\kernel\persistent.pas
+H26=e:\work\five\source\transport\matrixlayer.pas
+H27=e:\work\five\source\transport\transport.pas
+H28=e:\work\five\source\news server\newsserverinterfaces.pas
+H29=e:\work\five\source\class packer\visualclassmanager.pas
+H30=e:\work\five\source\transport\transportinterfaces.pas
+H31=e:\work\five\source\protocol\protocol.pas
+
+[HistoryLists\hiRunParams]
+Count=0
+
+[HistoryLists\hiHostApplication]
+Count=1
+H0=e:\Work\Five\Release\Servers\FIVEModelServer.exe
+
+[HistoryLists\hiFindError]
+Count=3
+H0=1674960
+H1=1574960
+H2=01674960
+
+[HistoryLists\hiUnitAlias]
+Count=1
+H0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+
+[HistoryLists\hiLibUnitAliases]
+Count=1
+H0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+
+[HistoryLists\hiSearchMasks]
+Count=6
+H0=E:\Work\Five\Source\Rdo
+H1=E:\Work\Five\Source\Model Extensions\Trains
+H2=E:\Work\Five\Source\Voyager
+H3=E:\Work\Five\Source\
+H4=E:\work\five\Source\Persistence
+H5=E:\work\five\Source\StdBlocks
+
+[Closed Files]
+File_0=SourceModule,'E:\Work\Five\Source\Model Extensions\Trains\TrainsSystem.pas',0,1,1,14,6,0,0
+File_1=SourceModule,'E:\Work\Five\Source\Kernel\World.pas',0,1,114,101,139,0,0
+File_2=SourceModule,'D:\Work\Five\Source\Tasks\TycoonContext.pas',0,1,1,1,1,0,0
+File_3=SourceModule,'D:\Work\Five\Source\RDO\Client\WinSockRDOConnection.pas',0,1,1,5,14,0,0
+File_4=SourceModule,'E:\Work\Five\Source\Circuits\Circuits.pas',0,1,40,1,66,0,0
+File_5=SourceModule,'E:\Work\Five\Source\Actors\StateEngine.pas',0,1,687,1,702,0,0
+File_6=SourceModule,'E:\Work\Five\Source\Utils\Vcl\Windows.pas',0,1,16986,1,17001,0,0
+
+[Modules]
+Module0=E:\Work\Five\Source\Illegal\Illegal Kernel\Creator.pas
+Module1=E:\Work\Five\Source\Illegal\Illegal Kernel\Unit1.pas
+Module2=E:\Work\Five\Source\Illegal\Illegal Kernel\IllegalKernel.pas
+Module3=E:\Work\Five\Source\Illegal\Illegal Kernel\BankRobbery.pas
+Module4=E:\Work\Five\Source\Illegal\Illegal Kernel\IllegalTest.dpr
+Count=5
+EditWindowCount=1
+
+[E:\Work\Five\Source\Illegal\Illegal Kernel\Creator.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[E:\Work\Five\Source\Illegal\Illegal Kernel\Unit1.pas]
+ModuleType=SourceModule
+FormState=3
+FormOnTop=0
+
+[E:\Work\Five\Source\Illegal\Illegal Kernel\IllegalKernel.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[E:\Work\Five\Source\Illegal\Illegal Kernel\BankRobbery.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[E:\Work\Five\Source\Illegal\Illegal Kernel\IllegalTest.dpr]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[EditWindow0]
+Create=1
+Visible=1
+State=2
+Left=196
+Top=105
+Width=783
+Height=549
+MaxLeft=-1
+MaxTop=-1
+MaxWidth=1160
+MaxHeight=843
+ClientWidth=1152
+ClientHeight=815
+SplitPos=67
+MessagePane=0
+ViewCount=5
+CurrentView=1
+View0=0
+View1=1
+View2=2
+View3=3
+View4=4
+
+[View0]
+Module=E:\Work\Five\Source\Illegal\Illegal Kernel\Unit1.pas
+CursorX=1
+CursorY=1
+TopLine=1
+LeftCol=1
+
+[View1]
+Module=E:\Work\Five\Source\Illegal\Illegal Kernel\Creator.pas
+CursorX=57
+CursorY=30
+TopLine=1
+LeftCol=1
+
+[View2]
+Module=E:\Work\Five\Source\Illegal\Illegal Kernel\IllegalTest.dpr
+CursorX=1
+CursorY=15
+TopLine=1
+LeftCol=1
+
+[View3]
+Module=E:\Work\Five\Source\Illegal\Illegal Kernel\IllegalKernel.pas
+CursorX=1
+CursorY=8
+TopLine=1
+LeftCol=1
+
+[View4]
+Module=E:\Work\Five\Source\Illegal\Illegal Kernel\BankRobbery.pas
+CursorX=38
+CursorY=3627
+TopLine=3602
+LeftCol=1
+
+[Watches]
+Count=0
+
+[Breakpoints]
+Count=0
+

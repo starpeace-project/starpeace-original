@@ -1,0 +1,141 @@
+<HTML>
+	<HEAD>
+		<TITLE></TITLE>
+		<META NAME="GENERATOR" Content="Microsoft Visual Studio 7.0">
+	</HEAD>
+	<BODY>
+		<DIV>
+			Estas son las instruciones de Iroel.
+		</DIV>
+		<DIV>
+			&nbsp;
+		</DIV>
+		<DIV>
+			&nbsp;
+		</DIV>
+		<DIV>
+			El el .ZIP te mando una estructura de directorios, donde debes buscar.
+		</DIV>
+		<DIV>
+			&nbsp;
+		</DIV>
+		<DIV>
+			Ejemplo de una entrada: B<FONT color="#ff0000">165</FONT>}<FONT color="#ff0000">231</FONT>}0}5}Blue}Malunga}<FONT color="#0000ff">Car 
+				Store 3</FONT>}
+		</DIV>
+		<DIV>
+			Ejemplo de una salida:&nbsp;&nbsp;&nbsp; D<FONT color="#ff0000">110</FONT>}<FONT color="#ff0000">247</FONT>}0}150000000}0}Blue}Malunga}<FONT color="#0000ff">UW 
+				General Storage 1</FONT>}126698584,
+		</DIV>
+		<DIV>
+			&nbsp;
+		</DIV>
+		<DIV>
+			Lo que esta en rojo son las coordenadas x, y; lo que esta en azul es el nombre. 
+			Debes comparar los nombres de forma case-insensitive para que no halla 
+			escaches.
+		</DIV>
+		<DIV>
+			&nbsp;
+		</DIV>
+		<DIV>
+			Para acceder al Model Server, quien te va a dar informacion para saber si eso 
+			existe o no debes usar el camino que esta en el registry:
+		</DIV>
+		<DIV>
+			&nbsp;
+		</DIV>
+		<DIV>
+			[HKEY_LOCAL_MACHINE\SOFTWARE\Oceanus\Five\Cache\Worlds\<FONT color="#ff00ff">Mondronia</FONT>]
+		</DIV>
+		<DIV>
+			&nbsp;
+		</DIV>
+		<DIV>
+			Como ves el nombre te lo puse de otro color. Lees el valor de "<EM>Server" </EM>
+			saber el IP y el puerto lo pones alambrado, siempre es 7001.
+		</DIV>
+		<DIV>
+			&nbsp;
+		</DIV>
+		<DIV>
+			Codigo para acceder al MS:
+		</DIV>
+		<DIV>
+			&nbsp;
+		</DIV>
+		<DIV>
+			&nbsp; var
+			<BR>
+			&nbsp;&nbsp;&nbsp; MS&nbsp;&nbsp; : OleVariant;
+			<BR>
+			&nbsp;&nbsp;&nbsp; Cnnt : OleVariant;
+			<BR>
+			&nbsp;&nbsp;&nbsp; fac&nbsp; : integer;
+			<BR>
+			&nbsp;&nbsp;&nbsp; nm&nbsp;&nbsp; : string;
+			<BR>
+			&nbsp; begin
+			<BR>
+			&nbsp;&nbsp;&nbsp; Cnnt := CreateOleObject('RDOClient.WinSockRDOConnection');
+			<BR>
+			&nbsp;&nbsp;&nbsp; Cnnt.Server := '216.191.227.174';
+			<BR>
+			&nbsp;&nbsp;&nbsp; Cnnt.Port&nbsp;&nbsp; := 7001;
+			<BR>
+			&nbsp;&nbsp;&nbsp; if Cnnt.Connect(10000)
+			<BR>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; then
+			<BR>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; begin
+			<BR>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MS := 
+			CreateOleObject('RDOClient.RDOObjectProxy');
+			<BR>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MS.SetConnection(Cnnt);
+			<BR>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if MS.BindTo('World')
+			<BR>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; then
+			<BR>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+			begin
+			<BR>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+			fac := MS.RDOFacilityAt(462, 410);
+			<BR>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+			if (fac &lt;&gt; 0) and MS.BindTo(fac)
+			<BR>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+			then
+			<BR>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+			begin
+			<BR>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+			nm := MS.Name;
+			<BR>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+			ShowMessage(nm);
+			<BR>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+			end;
+			<BR>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+			end;
+			<BR>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end;
+		</DIV>
+		<DIV>
+			&nbsp; end;
+			<BR>
+		</DIV>
+		<DIV>
+			&nbsp;
+		</DIV>
+		<DIV>
+			&nbsp;
+		</DIV>
+	</BODY>
+</HTML>

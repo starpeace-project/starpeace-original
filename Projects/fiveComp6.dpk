@@ -1,0 +1,47 @@
+package fiveComp6;
+
+{$R *.res}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO ON}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION ON}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO OFF}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES OFF}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST ON}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$IMPLICITBUILD OFF}
+
+requires
+  rtl,
+  vcl,
+  designide;
+
+contains
+  BlockTicker in '..\Voyager\Components\BlockTicker.pas',
+  ColoredGauge in '..\Voyager\Components\ColoredGauge.pas',
+  PercentEdit in '..\Voyager\Components\PercentEdit.pas',
+  FramedButton in '..\Voyager\Components\FramedButton.pas',
+  GradientBox in '..\Voyager\Components\GradientBox.pas',
+  InternationalizerComponent in '..\Voyager\Components\InternationalizerComponent.pas',
+  MarqueeCtrl in '..\Voyager\Components\MarqueeCtrl.pas',
+  MultiBMPButton in '..\Voyager\Components\MultiBMPButton.pas',
+  OpaquePanel in '..\Voyager\Components\OpaquePanel.pas',
+  PDTabControl in '..\Voyager\Components\PDTabControl.pas',
+  FingerTabs in '..\Voyager\Components\FingerTabs.pas',
+  PlayerGif in '..\Utils\Graphics\PlayerGif.pas',
+  InfoBook in '..\Voyager\Components\InfoBook.pas';
+
+end.

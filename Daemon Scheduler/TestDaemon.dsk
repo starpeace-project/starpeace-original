@@ -1,0 +1,292 @@
+[MainWindow]
+Create=1
+Visible=1
+State=0
+Left=0
+Top=0
+Width=1025
+Height=106
+MaxLeft=-4
+MaxTop=-4
+ClientWidth=1017
+ClientHeight=60
+
+[BreakpointWindow]
+Create=1
+Visible=1
+State=0
+Left=173
+Top=201
+Width=453
+Height=200
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=445
+ClientHeight=173
+Column0Width=100
+Column1Width=60
+Column2Width=240
+Column3Width=40
+
+[WatchWindow]
+Create=1
+Visible=1
+State=0
+Left=189
+Top=225
+Width=421
+Height=149
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=413
+ClientHeight=122
+
+[ProjectManager]
+Create=1
+Visible=1
+State=0
+Left=200
+Top=108
+Width=337
+Height=239
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=329
+ClientHeight=215
+LargeButtons=1
+Column0Width=75
+Column1Width=125
+Column2Width=125
+
+[PropertyInspector]
+Create=1
+Visible=1
+State=0
+Left=1
+Top=102
+Width=210
+Height=401
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=202
+ClientHeight=377
+SplitPos=95
+
+[HistoryLists\hiWatchExpression]
+Count=3
+H0=integer(pointer($2227CE8)^)
+H1=integer(pointer($5E07E98)^)
+H2=TsetCompanyInfo(pointer($12FDCC)^)
+
+[HistoryLists\hiEvalExpression]
+Count=32
+H0=171/21
+H1=3/21
+H2=1000 div 16
+H3=20000 div cPlanesTimerInterval
+H4=20000
+H5=cAirTrafficRegInterval
+H6=16280/4
+H7=10000 div 83
+H8=(((2147483647 div 1000) div 60) div 60) div 24
+H9=((2147483647 div 1000) div 60) div 60
+H10=(2147483647 div 1000) div 60
+H11=2147483647 div 1000
+H12=fControl
+H13=32737 + 32737 
+H14=33737 + 32737 
+H15=32737*65535
+H16=65535 div 1000
+H17=$FFFFFFFF div $200
+H18=$FFFFFFFF div 1000
+H19=$FFFFFFFF div 100
+H20=64*32*1024/1024
+H21=64*32*1024
+H22=64*32
+H23=MapName
+H24=32*32*32/1024
+H25=32*32*32
+H26=32*32
+H27=64*64*64/1024
+H28=256*256/1024
+H29=256*256/(1024*1024)
+H30=256*256*256/(1024*1024)
+H31=256*256*256/1024*1024
+
+[HistoryLists\hiEvalNewValue]
+Count=0
+
+[HistoryLists\hiOpenFile]
+Count=32
+H0=c:\work\five\source\daemon scheduler\worldstatus.dpr
+H1=c:\work\five\source\daemon scheduler\rankingsdaemon.pas
+H2=c:\work\five\source\daemon scheduler\worldstatusdaemon.pas
+H3=c:\work\five\source\daemon scheduler\daemons.pas
+H4=c:\work\five\source\voyager\components\mapisoview\localcachemanager.pas
+H5=c:\work\five\source\directory server\directorymanager.pas
+H6=c:\work\five\source\utils\misc\mathutils.pas
+H7=c:\work\five\source\utils\network\spoolpackets.pas
+H8=c:\work\five\source\kernel\collection.pas
+H9=c:\work\five\source\utils\network\socketcomp.pas
+H10=c:\work\five\source\kernel\smartthreads.pas
+H11=c:\work\five\source\rdo\common\errorcodes.pas
+H12=c:\work\five\source\rdo\common\rdoprotocol.pas
+H13=c:\work\five\source\rdo\common\rdoutils.pas
+H14=c:\work\five\source\rdo\common\rdointerfaces.pas
+H15=c:\work\five\source\rdo\client\rdoobjectproxy.pas
+H16=c:\work\five\source\rdo\client\winsockrdoconnection.pas
+H17=c:\work\five\source\rdo\client\rdomarshalers.pas
+H18=c:\work\five\source\tests\isometric viewer\clientview.pas
+H19=c:\work\five\source\voyager\components\mapisoview\mapisoview.dfm
+H20=c:\work\five\source\voyager\components\last mapisoview\map.pas
+H21=c:\work\five\source\voyager\components\fixed mapisoview\fivecontrol.pas
+H22=c:\work\five\source\voyager\components\last mapisoview\fivecontrol.pas
+H23=c:\work\five\source\utils\gameapi\spriteutils.pas
+H24=c:\work\five\source\utils\gameapi\spriteloaders.pas
+H25=c:\work\five\source\utils\gameapi\spriteimages.pas
+H26=c:\work\five\source\utils\gameapi\renderreports.pas
+H27=c:\work\five\source\utils\directx\dxcommon.pas
+H28=c:\work\five\source\utils\directx\directdraw.pas
+H29=c:\work\five\source\utils\directx\direct3d.pas
+H30=c:\work\five\source\utils\directx\directsound.pas
+H31=c:\work\five\source\voyager\components\mapisoview\isoprofile.pas
+
+[HistoryLists\hiRunParams]
+Count=3
+H0=http:\\bean\five\
+H1=http:\\www.starpeace.net\five\
+H2=http:\\lisa\five\
+
+[HistoryLists\hiHostApplication]
+Count=0
+
+[HistoryLists\hiUnitAlias]
+Count=1
+H0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+
+[HistoryLists\hiLibUnitAliases]
+Count=1
+H0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+
+[HistoryLists\hiSearchMasks]
+Count=7
+H0=C:\Work\Five\Source\Land
+H1=C:\Work\Five\Source
+H2=E:\Work\Five\Source\News Server
+H3=E:\Work\Five\Source\Voyager
+H4=E:\Work\Five\Source\Voyager\Components
+H5=E:\Work\Five\Source\Rdo
+H6=E:\Work\Five\Source\Utils
+
+[HistoryLists\hiPakDLLOutputDir]
+Count=0
+
+[HistoryLists\hiPakDCPOutputDir]
+Count=0
+
+[Closed Files]
+File_0=SourceModule,'C:\Work\Five\Source\Daemon Scheduler\WorldStatusDaemon.pas',0,1,1,1,1,0,0
+File_1=SourceModule,'C:\Work\Five\Source\Daemon Scheduler\RankingsDaemon.pas',0,1,1,1,1,0,0
+File_2=SourceModule,'C:\Work\Five\Source\Directory Server\DirectoryServer.pas',0,1,17,1,29,0,0
+File_3=SourceModule,'C:\Work\Five\Source\Directory Server\DirectoryManager.pas',0,1,66,1,85,0,0
+File_4=SourceModule,'C:\Work\Five\Source\Daemon Scheduler\DaemonSchedulerReport.pas',0,1,99,1,133,1,0
+File_5=SourceModule,'C:\Work\Five\Source\Rdo\Client\RDOObjectProxy.pas',0,1,1,1,1,0,0
+File_6=SourceModule,'C:\Work\Five\Source\Voyager\Components\MapIsoView\LocalCacheManager.pas',0,1,1,1,2,0,0
+File_7=SourceModule,'C:\Work\Five\Source\Rdo\Common\ErrorCodes.pas',0,1,1,26,15,0,0
+File_8=SourceModule,'C:\Work\Five\Source\Rdo\Common\RDOProtocol.pas',0,1,1,1,1,0,0
+File_9=SourceModule,'C:\Work\Five\Source\Rdo\Common\RDOUtils.pas',0,1,35,1,51,0,0
+
+[Modules]
+Module0=C:\Work\Five\Source\Daemon Scheduler\TestDaemon.dpr
+Module1=C:\Work\Five\Source\Daemon Scheduler\SimpleDaemon.pas
+Module2=C:\Work\Five\Source\Daemon Scheduler\Daemons.pas
+Count=3
+EditWindowCount=1
+
+[C:\Work\Five\Source\Daemon Scheduler\TestDaemon.dpr]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\Daemon Scheduler\SimpleDaemon.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\Daemon Scheduler\Daemons.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[EditWindow0]
+Create=1
+Visible=1
+State=2
+Left=210
+Top=127
+Width=696
+Height=486
+MaxLeft=-1
+MaxTop=-1
+MaxWidth=1032
+MaxHeight=748
+ClientWidth=1024
+ClientHeight=721
+SplitPos=50
+MessagePane=0
+ViewCount=3
+CurrentView=0
+View0=0
+View1=1
+View2=2
+
+[View0]
+Module=C:\Work\Five\Source\Daemon Scheduler\TestDaemon.dpr
+CursorX=1
+CursorY=1
+TopLine=1
+LeftCol=1
+
+[View1]
+Module=C:\Work\Five\Source\Daemon Scheduler\Daemons.pas
+CursorX=1
+CursorY=8
+TopLine=1
+LeftCol=1
+
+[View2]
+Module=C:\Work\Five\Source\Daemon Scheduler\SimpleDaemon.pas
+CursorX=1
+CursorY=1
+TopLine=1
+LeftCol=1
+
+[Watches]
+Count=1
+Watch0='integer(pointer($2227CE8)^)',256,0,18,1
+
+[Breakpoints]
+Count=0
+
+[PVCS Browser]
+Left=236
+Top=105
+Width=625
+Height=393
+State=0
+Visible=0
+
+[PVCS VDiff]
+Left=257
+Top=160
+Width=591
+Height=608
+Layout=1
+Orientation=1
+State=0
+Visible=0
+File1Color=16711680
+File2Color=255
+SpaceColor=16776960
+TextColor=0
+

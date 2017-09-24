@@ -1,0 +1,109 @@
+[Compiler]
+A=1
+B=0
+C=1
+D=0
+E=0
+F=0
+G=1
+H=1
+I=1
+J=1
+K=0
+L=0
+M=0
+N=1
+O=0
+P=1
+Q=0
+R=0
+S=0
+T=0
+U=0
+V=1
+W=0
+X=1
+Y=2
+Z=1
+ShowHints=1
+ShowWarnings=1
+UnitAliases=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+[Linker]
+MapFile=0
+OutputObjs=0
+ConsoleApp=1
+DebugInfo=0
+RemoteSymbols=0
+MinStackSize=16384
+MaxStackSize=1048576
+ImageBase=4194304
+ExeDescription=
+[Directories]
+OutputDir=..\..\release\servers\web objects
+UnitOutputDir=..\..\DCU
+PackageDLLOutputDir=
+PackageDCPOutputDir=
+SearchPath=..\Kernel;..\RDO\Common;..\RDO\Client;..\Utils\Network;..\Logs
+Packages=Vcl50;Vclx50;VclSmp50
+Conditionals=
+DebugSourceDirs=
+UsePackages=0
+[Parameters]
+RunParams=/p:"IIS-{Default Web Site//Root/Five}"
+HostApplication=D:\WINNT\system32\mtx.exe
+[Version Info]
+IncludeVerInfo=0
+AutoIncBuild=0
+MajorVer=1
+MinorVer=0
+Release=0
+Build=0
+Debug=0
+PreRelease=0
+Special=0
+Private=0
+DLL=0
+Locale=1033
+CodePage=1252
+[Version Info Keys]
+CompanyName=
+FileDescription=
+FileVersion=1.0.0.0
+InternalName=
+LegalCopyright=
+LegalTrademarks=
+OriginalFilename=
+ProductName=
+ProductVersion=1.0.0.0
+Comments=
+[Excluded Packages]
+$(DELPHI)\Bin\dcl31w50.bpl=Delphi 1.0 Compatibility Components
+$(DELPHI)\Bin\dclbde50.bpl=Borland BDE DB Components
+$(DELPHI)\Bin\dcltee50.bpl=TeeChart 5.0 Components
+$(DELPHI)\Bin\dcldss50.bpl=Borland Decision Cube Components
+$(DELPHI)\Bin\applet50.bpl=Borland Control Panel Applet Package
+$(DELPHI)\Bin\DCLIB50.bpl=InterBase Data Access Components
+$(DELPHI)\Bin\dclsmpedit50.bpl=Borland Editor Script Enhancements
+$(DELPHI)\Bin\dclmid50.bpl=Borland MIDAS Components
+$(DELPHI)\Bin\dclnet50.bpl=Borland Internet Components
+$(DELPHI)\Bin\DBWEBXPRT.BPL=Borland Web Wizard Package
+$(DELPHI)\Bin\dclwbm50.bpl=Borland InternetExpress Components
+$(DELPHI)\Bin\dclie50.bpl=Internet Explorer Components
+$(DELPHI)\Bin\dclocx50.bpl=Borland Sample Imported ActiveX Controls
+$(DELPHI)\Bin\dclite50.bpl=Borland Integrated Translation Environment
+[HistoryLists\hlUnitAliases]
+Count=1
+Item0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+[HistoryLists\hlSearchPath]
+Count=4
+Item0=..\Kernel;..\RDO\Common;..\RDO\Client;..\Utils\Network;..\Logs
+Item1=..\Kernel;..\RDO\Common;..\RDO\Client;..\Utils\Network; ..\Logs
+Item2=..\Kernel;..\RDO\Common;..\RDO\Client;..\Utils\Network
+Item3=..\Kernel;..\RDO\Common;..\RDO\Client
+[HistoryLists\hlUnitOutputDirectory]
+Count=1
+Item0=..\..\DCU
+[HistoryLists\hlOutputDirectorry]
+Count=2
+Item0=..\..\release\servers\web objects
+Item1=..\..\release

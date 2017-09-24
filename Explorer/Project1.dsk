@@ -1,0 +1,257 @@
+[MainWindow]
+Create=1
+Visible=1
+State=2
+Left=0
+Top=0
+Width=800
+Height=107
+MaxLeft=0
+MaxTop=0
+MaxWidth=1032
+MaxHeight=107
+ClientWidth=1024
+ClientHeight=60
+
+[ProjectManager]
+LargeButtons=1
+Column0Width=75
+Column1Width=125
+Column2Width=125
+
+[PropertyInspector]
+Create=1
+Visible=1
+State=0
+Left=22
+Top=180
+Width=234
+Height=499
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=226
+ClientHeight=473
+SplitPos=105
+
+[HistoryLists\hiWatchExpression]
+Count=1
+H0=Elem.NodeName
+
+[HistoryLists\hiEvalExpression]
+Count=32
+H0=EntryList.Text
+H1=Text
+H2=EntryList
+H3=fQuerySession.FieldByName('Counter').AsInteger - 1
+H4=fquerysession.SQL.text
+H5=1
+H6=FQuerySession.FieldByName('Counter').AsInteger
+H7=edFullPathKey.Text
+H8=edFullPathKey
+H9=GetFullPath(aName)
+H10=Elem
+H11=count
+H12=aName
+H13=Elem.Text
+H14=AuxStr
+H15=Elem.NodeName
+H16=tQuery
+H17=fQuerySession.EOF
+H18=fQuerySession.BOF
+H19=EOF
+H20=S.Text
+H21=S
+H22=DM.KeysCount
+H23=DM
+H24=fquerysession.FieldByName('Entry').AsInteger
+H25=Fquerysession.FieldByName('ID').AsInteger
+H26=rList.Text
+H27=rList
+H28=str
+H29=Aux2
+H30=s[i]
+H31=resultList.Text
+
+[HistoryLists\hiEvalNewValue]
+Count=2
+H0=1
+H1=-1
+
+[HistoryLists\hiOpenFile]
+Count=32
+H0=d:\work\sources\tests\explorer\explorerprj.dpr
+H1=d:\work\sources\tests\explorer\explorer.pas
+H2=e:\prueba\project1.dpr
+H3=d:\work\sources\tests\sql explorer single\directorymanager.pas
+H4=d:\work\sources\tests\sql explorer single\sqlexplorerapp.pas
+H5=d:\work\sources\directory server\directorymanager.pas
+H6=d:\work\sources\tests\sql single test\sqldm.pas
+H7=d:\work\sources\tests\sql single test\sqlapp.pas
+H8=d:\work\sources\tests\new explorer single\sqlexplorer.dpr
+H9=d:\work\sources\tests\new explorer single\sqlexplorerapp.pas
+H10=d:\work\sources\tests\new explorer single\directorymanager.pas
+H11=d:\work\sources\tests\sql explorer single\sqlexplorer.dpr
+H12=d:\work\utils\strutils.pas
+H13=d:\work\sources\tests\sql explorer single\configuration.pas
+H14=d:\work\sources\directory server\fivedirectoryserver.dpr
+H15=d:\work\sources\directory server\directoryserver.pas
+H16=d:\work\sources\tests\sql explorer\sqlexplorerapp.pas
+H17=d:\work\sources\tests\sql explorer\configuration.pas
+H18=d:\work\sources\tests\sql explorer\editkeyfrm.pas
+H19=d:\work\sources\tests\sql explorer\newkeyfrm.pas
+H20=d:\work\sources\tests\sql explorer\directorymanager.pas
+H21=d:\work\sources\tests\sql explorer\sqlexplorer.dpr
+H22=d:\work\sources\tests\sql explorer single\newkeyfrm.pas
+H23=d:\work\sources\tests\sql explorer single\editkeyfrm.pas
+H24=d:\work\sources\tests\sql single test\project1.dpr
+H25=d:\work\sources\tests\sql connection\sqlserverrdoapp.pas
+H26=d:\work\sources\tests\sql single test\directorymanager.pas
+H27=d:\work\sources\tests\xml database\project1.dpr
+H28=d:\work\sources\tests\sql explorer\sqlserverrdoapp.pas
+H29=e:\electric information\soft-sources\psx 3.0\editor\lf_engine.pas
+H30=e:\electric information\soft-sources\psx 3.0\editor\utils.pas
+H31=e:\electric information\soft-sources\psx 3.0\editor\regdata.pas
+
+[HistoryLists\hiRunParams]
+Count=4
+H0=localhost 1111
+H1=localhost 5555
+H2=www.starpeace.net 8000
+H3=bean 8000
+
+[HistoryLists\hiUnitAlias]
+Count=1
+H0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+
+[HistoryLists\hiLibUnitAliases]
+Count=1
+H0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+
+[HistoryLists\hiSearchMasks]
+Count=6
+H0=D:\Work\Sources\Directory Server
+H1=E:\Electric Information\Soft-Sources\PSX 3.0\Component\Elements
+H2=D:\Work\Five\Source\RDO
+H3=D:\Work\Five\Source\
+H4=D:\Work\Five\Source\Mail Server
+H5=D:\Work\Five\Source\Mail
+
+[Closed Files]
+File_0=SourceModule,'D:\Work\Sources\Tests\SQL Explorer Single\DirectoryManager.pas',0,1,321,1,321,0,0
+File_1=SourceModule,'D:\Work\Sources\Tests\New Explorer Single\DirectoryManager.pas',0,1,560,25,570,0,0
+File_2=SourceModule,'D:\Work\Sources\Utils\vcl\Windows.pas',0,1,17245,1,17261,0,0
+File_3=SourceModule,'D:\Work\Sources\Tests\SQL Explorer Single\SQLexplorer.dpr',0,1,1,1,1,0,0
+File_4=SourceModule,'D:\Work\Sources\Tests\SQL Explorer\SQLexplorer.dpr',0,1,1,1,1,0,0
+File_5=SourceModule,'D:\Work\Sources\Tests\New Explorer Single\SQLExplorerApp.pas',0,1,64,1,64,1,1
+File_6=SourceModule,'D:\Work\Sources\Directory Server\DirectoryManager.pas',0,1,794,40,819,0,0
+File_7=SourceModule,'D:\Work\Sources\Tests\SQL Single Test\SQLDM.pas',0,1,1095,43,1109,0,0
+File_8=SourceModule,'D:\Work\Sources\Tests\SQL Single Test\SQLApp.pas',0,1,939,43,939,1,0
+
+[Modules]
+Module0=D:\Work\Sources\Tests\SQL Explorer Single\SQLExplorerApp.pas
+Module1=D:\Work\Sources\Tests\Explorer\Project1.dpr
+Module2=D:\Work\Sources\Tests\Explorer\Explorer.pas
+Module3=E:\Prueba\Project1.dpr
+Module4=E:\Prueba\DirectoryManager.pas
+Count=5
+EditWindowCount=1
+
+[D:\Work\Sources\Tests\SQL Explorer Single\SQLExplorerApp.pas]
+ModuleType=SourceModule
+FormState=1
+FormOnTop=0
+
+[D:\Work\Sources\Tests\Explorer\Project1.dpr]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[D:\Work\Sources\Tests\Explorer\Explorer.pas]
+ModuleType=SourceModule
+FormState=1
+FormOnTop=0
+
+[E:\Prueba\Project1.dpr]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[E:\Prueba\DirectoryManager.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[EditWindow0]
+Create=1
+Visible=1
+State=2
+Left=210
+Top=129
+Width=696
+Height=488
+MaxLeft=-4
+MaxTop=103
+MaxWidth=1032
+MaxHeight=669
+ClientWidth=1024
+ClientHeight=641
+SplitPos=50
+MessagePane=1
+ViewCount=3
+CurrentView=1
+View0=0
+View1=1
+View2=2
+
+[View0]
+Module=E:\Prueba\DirectoryManager.pas
+CursorX=52
+CursorY=570
+TopLine=544
+LeftCol=1
+
+[View1]
+Module=D:\Work\Sources\Tests\SQL Explorer Single\SQLExplorerApp.pas
+CursorX=11
+CursorY=167
+TopLine=152
+LeftCol=1
+
+[View2]
+Module=D:\Work\Sources\Tests\Explorer\Explorer.pas
+CursorX=5
+CursorY=5
+TopLine=1
+LeftCol=1
+
+[Watches]
+Count=2
+Watch0='result',256,0,18,1
+Watch1='Elem.NodeName',256,0,18,1
+
+[Breakpoints]
+Count=1
+Breakpoint0='E:\Prueba\Unit1.pas',82,'',0,1
+
+[PVCS Browser]
+Left=224
+Top=106
+Width=625
+Height=393
+State=0
+Visible=0
+
+[PVCS VDiff]
+Left=259
+Top=0
+Width=591
+Height=571
+Layout=1
+Orientation=1
+State=0
+Visible=0
+File1Color=16711680
+File2Color=255
+SpaceColor=16776960
+TextColor=0
+

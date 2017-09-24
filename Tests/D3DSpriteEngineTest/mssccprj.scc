@@ -1,0 +1,9 @@
+SCC = This is a Source Code Control file
+
+[sprite.dsp]
+SCC_Aux_Path = "\\Morpheus\Shared\StarPeace"
+SCC_Project_Name = "$/Source/Tests/D3DSpriteEngineTest", LIDAAAAA
+
+[sprite.mak]
+SCC_Aux_Path = "\\Morpheus\Shared\StarPeace"
+SCC_Project_Name = "$/Source/Tests/D3DSpriteEngineTest", LIDAAAAA

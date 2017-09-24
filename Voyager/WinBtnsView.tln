@@ -1,0 +1,6 @@
+WinBtnsView.Caption=WinBtnsView
+WinBtnsView.Hint=
+CloseBtn.Hint=Close application
+CloseBtn.Text=x
+MinimizeBtn.Hint=Minimize application
+MinimizeBtn.Text=–

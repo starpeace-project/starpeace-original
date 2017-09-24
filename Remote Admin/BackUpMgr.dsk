@@ -1,0 +1,228 @@
+[MainWindow]
+Create=1
+Visible=1
+State=2
+Left=0
+Top=0
+Width=800
+Height=106
+MaxLeft=-4
+MaxTop=-4
+MaxWidth=1032
+MaxHeight=106
+ClientWidth=1024
+ClientHeight=60
+
+[ProjectManager]
+LargeButtons=1
+Column0Width=75
+Column1Width=125
+Column2Width=125
+
+[PropertyInspector]
+Create=1
+Visible=1
+State=0
+Left=1
+Top=102
+Width=190
+Height=491
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=182
+ClientHeight=467
+SplitPos=84
+
+[HistoryLists\hiEvalExpression]
+Count=8
+H0=self
+H1=fServer.fObjectCache[x, y]
+H2=UserName
+H3=x1 div MapChunkSize
+H4=y1 div MapChunkSize
+H5=x div MapChunkSize
+H6=y div MapChunkSize
+H7=MapChunkSize
+
+[HistoryLists\hiOpenFile]
+Count=25
+H0=c:\tmp\project2.dpr
+H1=c:\work\five\source\remote admin\remoteadmin.dpr
+H2=c:\work\five\source\daemon scheduler\worldstatus.dpr
+H3=c:\work\five\source\interface server\interfaceserverreportform.pas
+H4=c:\work\five\source\protocol\protocol.pas
+H5=c:\work\five\source\interface server\interfaceserver.pas
+H6=c:\work\five\source\interface server\fiveinterfaceserver_tlb.pas
+H7=c:\program files\borland\delphi 3\source\rtl\sys\sysutils.pas
+H8=c:\work\five\source\daemon scheduler\daemonscheduler.pas
+H9=c:\work\five\source\remote admin\taskmanager.pas
+H10=c:\program files\borland\delphi 3\source\internet\httpapp.pas
+H11=c:\work\five\source\logs\logs.pas
+H12=c:\work\cgitest\cgiwebmodule.pas
+H13=c:\work\five\source\daemon scheduler\rankings.dpr
+H14=e:\work\five\source\remote admin\remoteadm.pas
+H15=e:\work\five\source\utils\misc\strutils.pas
+H16=e:\work\five\source\remote admin\psapi.pas
+H17=e:\work\five\source\remote admin\remoteadmin.pas
+H18=e:\work\five\source\kernel\world.pas
+H19=d:\work\five\source\rdo\common\rdointerfaces.pas
+H20=d:\work\five\source\utils\network\socketcomp.pas
+H21=d:\work\five\source\rdo\server\winsockrdoconnectionsserver.pas
+H22=d:\work\five\source\mail server\mailserver.pas
+H23=d:\work\five\source\mail server\modelserver.pas
+H24=e:\work\five\source\model server\modelserver.pas
+
+[HistoryLists\hiUnitAlias]
+Count=1
+H0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+
+[HistoryLists\hiLibUnitAliases]
+Count=1
+H0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+
+[HistoryLists\hiSearchMasks]
+Count=4
+H0=D:\Work\Five\Source\RDO
+H1=D:\Work\Five\Source\
+H2=D:\Work\Five\Source\Mail Server
+H3=D:\Work\Five\Source\Mail
+
+[Closed Files]
+File_0=SourceModule,'C:\Work\Five\Source\Interface Server\InterfaceServer.pas',0,1,2274,5,2286,0,0
+File_1=SourceModule,'C:\Work\Five\Source\Protocol\Protocol.pas',0,1,78,1,97,0,0
+File_2=SourceModule,'C:\Work\Five\Source\Interface Server\InterfaceServerReportForm.pas',0,1,142,1,151,1,0
+File_3=SourceModule,'C:\Work\Five\Source\Interface Server\FIVEInterfaceServer_TLB.pas',0,1,1,1,1,0,0
+File_4=SourceModule,'C:\Work\Five\Source\Daemon Scheduler\DaemonScheduler.pas',0,1,1,10,1,0,0
+File_5=SourceModule,'C:\Program Files\Borland\Delphi 3\Source\INTERNET\cgiapp.pas',0,1,552,1,552,0,0
+File_6=SourceModule,'C:\Work\Five\Source\Remote Admin\LaunchWebModule.pas',0,1,40,41,59,1,0
+File_7=SourceModule,'C:\Work\Five\Source\Logs\Logs.pas',0,1,1,1,2,0,0
+File_8=SourceModule,'C:\Program Files\Borland\Delphi 3\Source\INTERNET\httpapp.pas',0,1,1727,1,1727,0,0
+File_9=SourceModule,'E:\Work\Five\Source\Remote Admin\RemoteAdm.pas',0,1,36,68,62,0,0
+
+[Modules]
+Module0=C:\Work\Five\Source\Remote Admin\TaskManager.pas
+Module1=C:\Work\Five\Source\Remote Admin\BackUpMgr.tlb
+Module2=C:\Work\Five\Source\Remote Admin\BackUpMgr.dpr
+Module3=C:\Program Files\Borland\Delphi 3\Source\RTL\SYS\sysutils.pas
+Module4=C:\Work\Five\Source\Remote Admin\BackUpManager.pas
+Count=5
+EditWindowCount=1
+TypeLibWindowCount=1
+
+[C:\Work\Five\Source\Remote Admin\TaskManager.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\Remote Admin\BackUpMgr.tlb]
+ModuleType=TypeLibModule
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\Remote Admin\BackUpMgr.dpr]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Program Files\Borland\Delphi 3\Source\RTL\SYS\sysutils.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Work\Five\Source\Remote Admin\BackUpManager.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[EditWindow0]
+Create=1
+Visible=1
+State=2
+Left=210
+Top=123
+Width=696
+Height=486
+MaxLeft=-1
+MaxTop=-1
+MaxWidth=1032
+MaxHeight=748
+ClientWidth=1024
+ClientHeight=721
+SplitPos=50
+MessagePane=0
+ViewCount=5
+CurrentView=3
+View0=0
+View1=1
+View2=2
+View3=3
+View4=4
+
+[View0]
+Module=C:\Work\Five\Source\Remote Admin\BackUpMgr.dpr
+CursorX=1
+CursorY=1
+TopLine=1
+LeftCol=1
+
+[View1]
+Module=C:\Work\Five\Source\Remote Admin\BackUpManager.pas
+CursorX=1
+CursorY=1
+TopLine=1
+LeftCol=1
+
+[View2]
+Module=C:\Program Files\Borland\Delphi 3\Source\RTL\SYS\sysutils.pas
+CursorX=1
+CursorY=2
+TopLine=1
+LeftCol=1
+
+[View3]
+Module=C:\Work\Five\Source\Remote Admin\TaskManager.pas
+CursorX=75
+CursorY=6
+TopLine=1
+LeftCol=1
+
+[View4]
+Module=C:\Work\Five\Source\Remote Admin\BackUpMgr.tlb
+CursorX=1
+CursorY=1
+TopLine=1
+LeftCol=1
+
+[TypeLibEditWindow0]
+LargeButtons=1
+Module=C:\Work\Five\Source\Remote Admin\BackUpMgr.tlb
+
+[Watches]
+Count=1
+Watch0='result',256,0,18,1
+
+[Breakpoints]
+Count=0
+
+[PVCS Browser]
+Left=236
+Top=105
+Width=625
+Height=393
+State=0
+Visible=0
+
+[PVCS VDiff]
+Left=257
+Top=160
+Width=591
+Height=608
+Layout=1
+Orientation=1
+State=0
+Visible=0
+File1Color=16711680
+File2Color=255
+SpaceColor=16776960
+TextColor=0
+

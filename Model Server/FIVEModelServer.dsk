@@ -1,0 +1,461 @@
+[MainWindow]
+Create=1
+Visible=1
+State=2
+Left=0
+Top=80
+Width=801
+Height=106
+MaxLeft=-1
+MaxTop=-1
+MaxWidth=1160
+MaxHeight=106
+ClientWidth=1152
+ClientHeight=60
+
+[BreakpointWindow]
+Column0Width=100
+Column1Width=60
+Column2Width=240
+Column3Width=40
+
+[ProjectManager]
+LargeButtons=1
+Column0Width=75
+Column1Width=125
+Column2Width=125
+
+[CPUWindow]
+DumpPane=79
+DisassemblyPane=184
+StackPane=95
+RegisterPane=117
+
+[PropertyInspector]
+Create=1
+Visible=1
+State=0
+Left=0
+Top=108
+Width=190
+Height=551
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=182
+ClientHeight=527
+SplitPos=84
+
+[HistoryLists\hiWatchExpression]
+Count=1
+H0=Facility.Name
+
+[HistoryLists\hiEvalExpression]
+Count=32
+H0=Obj.classname
+H1=Obj
+H2=Budget
+H3=Name
+H4=theObject.classname
+H5=theObject
+H6=LangList.text
+H7=LangList
+H8=MaxInputsByEvaluator
+H9=TCircuit(Circuits[0]),r
+H10=TCircuit(Circuits[0])
+H11=Circuits.Count
+H12=Circuits
+H13=TSegment(Segs[i]).fCircuit,r
+H14=TSegment(Segs[i]).fCircuit
+H15=TSegment
+H16=Segments.Count
+H17=Segments
+H18=Facility.Name
+H19=WinSock.LocalAddress
+H20=WinSock
+H21=IsMultiThread
+H22=fCurriculum.Count
+H23=fCurriculum
+H24=fFacilities.Count
+H25=fFacilities
+H26=TFacility(fFacilities[fFacilities.Count - 10])
+H27=TFacility(fFacilities[fFacilities.Count - 1])
+H28=TFacility(fFacilities[fFacilities.Count - 1]).CurrBlock
+H29=TFacility(fFacilities[fFacilities.Count - 1]).yPos
+H30=TFacility(fFacilities[fFacilities.Count - 1]).xPos
+H31=TFacility(fFacilities[fFacilities.Count - 1]).CurrBlock.ClassName
+
+[HistoryLists\hiEvalNewValue]
+Count=32
+H0=090909092426699.65
+H1=9090909092426699.65
+H2=909090909242669947.65
+H3=390367500500000.86
+H4=3903675005000000.86
+H5=39036755000000.86
+H6=390367550000.86
+H7=31
+H8=12
+H9=2
+H10=0
+H11=-4000
+H12=3000
+H13=10000000000
+H14=1000000000
+H15=9999999999
+H16=1000000000000
+H17=100000000000
+H18=10000000000000
+H19=2041009881.574
+H20=30
+H21='MCEPEROG2'
+H22=10000000
+H23=899998000000
+H24='1'
+H25='2'
+H26='0'
+H27=180803840000.534
+H28=444933970006.96
+H29=perYear
+H30=1
+H31=true
+
+[HistoryLists\hiOpenFile]
+Count=32
+H0=d:\program files\borland\delphi 3\source\rtl\sys\sharemem.pas
+H1=e:\work\five\source\voyager\supplysheetform.pas
+H2=e:\work\five\source\voyager\urlhandlers\objectinspectorhandler.pas
+H3=e:\work\five\source\voyager\urlhandlers\inputsearchhandler.pas
+H4=e:\work\five\source\voyager\connectoptionsfrm.pas
+H5=e:\work\five\source\interface server\interfaceserver.pas
+H6=e:\work\five\source\voyager\industrygeneralsheet.pas
+H7=e:\work\five\source\rdo\server\rdoobjectserver.pas
+H8=e:\work\five\source\persistence\backupobjects.pas
+H9=e:\work\five\source\kernel\outputevaluators.pas
+H10=e:\work\five\source\stdblocks\serviceblock.pas
+H11=e:\work\five\source\rdo\server\winsockrdoconnectionsserver.pas
+H12=e:\work\five\source\rdo\server\rdoqueryserver.pas
+H13=e:\work\five\source\stdblocks\warehouses.pas
+H14=e:\work\five\source\kernel\workcenterblock.pas
+H15=e:\work\five\source\directory server\directoryserver.pas
+H16=e:\work\five\source\rdo\client\winsockrdoconnection.pas
+H17=e:\work\five\source\stdblocks\stdaccounts.pas
+H18=e:\work\five\source\stdblocks\evaluatedblock.pas
+H19=e:\work\five\source\stdblocks\orestorage.pas
+H20=e:\work\five\source.1\kernel\world.pas
+H21=e:\work\five\source\rdo\client\rdoobjectproxy.pas
+H22=e:\work\five\source\interface server\ismls.pas
+H23=e:\work\five\source\directory server\directorymanager.pas
+H24=e:\work\five\source\interface server\interfaceserverreportform.pas
+H25=e:\work\five\source\logs\bblogsfrm.pas
+H26=e:\work\five\source.2\stdblocks\metalindustry.pas
+H27=e:\work\five\source.1\stdblocks\metalindustry.pas
+H28=e:\work\five\source\stdblocks\metalindustry.pas
+H29=e:\work\five\source\news server\newsserver.pas
+H30=e:\work\five\source\cache\modelservercache.pas
+H31=y:\work\five\source\voyager\inventionssheet.pas
+
+[HistoryLists\hiRunParams]
+Count=4
+H0=AUTORUN f-t-p-c-
+H1=AUTORUN c+p+t+f+
+H2=AUTORUN cpt
+H3=AUTORUN fcpt
+
+[HistoryLists\hiHostApplication]
+Count=0
+
+[HistoryLists\hiFindError]
+Count=4
+H0=004056f4
+H1=1674960
+H2=1574960
+H3=01674960
+
+[HistoryLists\hiUnitAlias]
+Count=1
+H0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+
+[HistoryLists\hiLibUnitAliases]
+Count=1
+H0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+
+[HistoryLists\hiSearchMasks]
+Count=20
+H0=E:\Work\Five\Source\Voyager\URLHandlers
+H1=E:\Work\Five\Source\
+H2=E:\Work\Five\Source\Voyager
+H3=E:\Work\Five\Source
+H4=E:\Work\MUD
+H5=Y:\Work\Five\Source
+H6=E:\Work\Five\Source\RDO
+H7=E:\Work\Five\Source\News Server
+H8=E:\Work\Five\Source\Voyager\Components
+H9=D:\Work\Five\Source\
+H10=D:\Work\Five\Source\RDO\
+H11=D:\Work\Five\Source\Kernel
+H12=D:\Work\Five\Source\StdBlocks
+H13=D:\Work\Five\Source\Transport
+H14=D:\Work\Five\Source\Voyager
+H15=D:\Work\Five\Source\RDO
+H16=E:\Work\Five\Source\Voyager\
+H17=D:\Work\Five\Source\Tasks
+H18=E:\work\five\Source\Persistence
+H19=E:\work\five\Source\StdBlocks
+
+[HistoryLists\hiPakDLLOutputDir]
+Count=0
+
+[HistoryLists\hiPakDCPOutputDir]
+Count=0
+
+[Closed Files]
+File_0=SourceModule,'E:\Work\Five\Source\Utils\VCL\graphics.pas',0,1,1009,1,1025,0,0
+File_1=SourceModule,'E:\Work\Five\Source\Kernel\Languages.pas',0,1,77,1,85,0,0
+File_2=SourceModule,'E:\Work\Five\Source\Kernel\KernelCache.pas',0,1,248,29,261,0,0
+File_3=SourceModule,'E:\Work\Five\Source\Interface Server\InterfaceServer.pas',0,1,841,1,864,0,0
+File_4=SourceModule,'E:\Work\Five\Source\Voyager\URLHandlers\InputSearchHandler.pas',0,1,1,10,7,0,0
+File_5=SourceModule,'E:\Work\Five\Source\Voyager\URLHandlers\InputSearchHandlerViewer.pas',0,1,98,33,113,0,0
+File_6=SourceModule,'E:\Work\Five\Source\Voyager\SupplySheetForm.pas',0,1,217,10,235,0,0
+File_7=SourceModule,'E:\Work\Five\Source\Kernel\ResearchCenter.pas',0,1,498,37,524,0,0
+
+[Modules]
+Module0=E:\Work\Five\Source\Model Server\ModelServerReportForm.pas
+Module1=E:\Work\Five\Source\Utils\Misc\DataRegistry.pas
+Module2=E:\Work\Five\Source\Model Server\FIVEModelServer.dpr
+Module3=E:\Work\Five\Source\Persistence\BackupAgentRegistry.pas
+Module4=E:\Work\Five\Source\Cache\ModelServerCache.pas
+Module5=E:\Work\Five\Source\Kernel\World.pas
+Module6=E:\Work\Five\Source\Model Server\ModelServer.pas
+Module7=E:\Work\Five\Source\Kernel\Kernel.pas
+Module8=E:\Work\Five\Source\Persistence\BackupObjects.pas
+Module9=E:\Work\Five\Source\RDO\Server\RDOObjectServer.pas
+Module10=E:\Work\Five\Source\RDO\Server\RDOQueryServer.pas
+Module11=D:\Program Files\Borland\Delphi 3\Source\RTL\SYS\sharemem.pas
+Module12=E:\Work\Five\Source\Kernel\Collection.pas
+Count=13
+EditWindowCount=1
+
+[E:\Work\Five\Source\Model Server\ModelServerReportForm.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[E:\Work\Five\Source\Utils\Misc\DataRegistry.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[E:\Work\Five\Source\Model Server\FIVEModelServer.dpr]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[E:\Work\Five\Source\Persistence\BackupAgentRegistry.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[E:\Work\Five\Source\Cache\ModelServerCache.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[E:\Work\Five\Source\Kernel\World.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[E:\Work\Five\Source\Model Server\ModelServer.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[E:\Work\Five\Source\Kernel\Kernel.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[E:\Work\Five\Source\Persistence\BackupObjects.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[E:\Work\Five\Source\RDO\Server\RDOObjectServer.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[E:\Work\Five\Source\RDO\Server\RDOQueryServer.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[D:\Program Files\Borland\Delphi 3\Source\RTL\SYS\sharemem.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[E:\Work\Five\Source\Kernel\Collection.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[EditWindow0]
+Create=1
+Visible=1
+State=0
+Left=174
+Top=156
+Width=783
+Height=547
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=775
+ClientHeight=520
+SplitPos=50
+MessagePane=1
+ViewCount=13
+CurrentView=12
+View0=0
+View1=1
+View2=2
+View3=3
+View4=4
+View5=5
+View6=6
+View7=7
+View8=8
+View9=9
+View10=10
+View11=11
+View12=12
+
+[View0]
+Module=E:\Work\Five\Source\Model Server\FIVEModelServer.dpr
+CursorX=8
+CursorY=12
+TopLine=1
+LeftCol=1
+
+[View1]
+Module=D:\Program Files\Borland\Delphi 3\Source\RTL\SYS\sharemem.pas
+CursorX=40
+CursorY=23
+TopLine=16
+LeftCol=1
+
+[View2]
+Module=E:\Work\Five\Source\Kernel\Collection.pas
+CursorX=1
+CursorY=239
+TopLine=235
+LeftCol=1
+
+[View3]
+Module=E:\Work\Five\Source\Model Server\ModelServer.pas
+CursorX=1
+CursorY=1961
+TopLine=1942
+LeftCol=1
+
+[View4]
+Module=E:\Work\Five\Source\RDO\Server\RDOQueryServer.pas
+CursorX=33
+CursorY=461
+TopLine=449
+LeftCol=1
+
+[View5]
+Module=E:\Work\Five\Source\Kernel\World.pas
+CursorX=25
+CursorY=1924
+TopLine=1903
+LeftCol=1
+
+[View6]
+Module=E:\Work\Five\Source\RDO\Server\RDOObjectServer.pas
+CursorX=12
+CursorY=84
+TopLine=58
+LeftCol=1
+
+[View7]
+Module=E:\Work\Five\Source\Kernel\Kernel.pas
+CursorX=1
+CursorY=9592
+TopLine=9584
+LeftCol=1
+
+[View8]
+Module=E:\Work\Five\Source\Cache\ModelServerCache.pas
+CursorX=1
+CursorY=292
+TopLine=280
+LeftCol=1
+
+[View9]
+Module=E:\Work\Five\Source\Persistence\BackupAgentRegistry.pas
+CursorX=1
+CursorY=30
+TopLine=1
+LeftCol=1
+
+[View10]
+Module=E:\Work\Five\Source\Utils\Misc\DataRegistry.pas
+CursorX=38
+CursorY=44
+TopLine=31
+LeftCol=1
+
+[View11]
+Module=E:\Work\Five\Source\Persistence\BackupObjects.pas
+CursorX=1
+CursorY=1174
+TopLine=1155
+LeftCol=1
+
+[View12]
+Module=E:\Work\Five\Source\Model Server\ModelServerReportForm.pas
+CursorX=19
+CursorY=178
+TopLine=170
+LeftCol=1
+
+[Watches]
+Count=0
+
+[Breakpoints]
+Count=32
+Breakpoint0='E:\Work\Five\Source\Kernel\World.pas',3834,'',0,0
+Breakpoint1='E:\Work\Five\Source\Kernel\Kernel.pas',8300,'fName = ''HuBBa ChAkA''',0,0
+Breakpoint2='E:\Work\Five\Source\Kernel\Kernel.pas',5994,'(Block.xPos = 988) and (Block.yPos = 430) and (MetaInput.Index =2)',0,0
+Breakpoint3='E:\Work\Five\Source\Kernel\Kernel.pas',6481,'(Block.xPos = 990) and (Block.yPos = 435) and (MetaOutput.Index = 6)',0,0
+Breakpoint4='E:\Work\Five\Source\Kernel\Population.pas',778,'fPopulation[i].Q + fResInmigration[i].Extra.Q > 10000000',0,0
+Breakpoint5='E:\Work\Five\Source\Kernel\Kernel.pas',5136,'(Facility.fXPos = 249) and (Facility.fYPos = 651)',0,0
+Breakpoint6='E:\Work\Five\Source\Kernel\Kernel.pas',6019,'(Block.Facility.fXPos = 249) and (Block.Facility.fYPos = 651)',0,0
+Breakpoint7='E:\Work\Five\Source\Kernel\World.pas',2268,'',0,0
+Breakpoint8='E:\Work\Five\Source\Kernel\TownPolitics.pas',723,'',0,0
+Breakpoint9='E:\Work\Five\Source\Kernel\Kernel.pas',3527,'',0,0
+Breakpoint10='E:\Work\Five\Source\Kernel\PopulatedBlock.pas',454,'(xPos = 166) and (yPos = 216)',0,0
+Breakpoint11='E:\Work\Five\Source\Kernel\TycoonLevels.pas',117,'',0,0
+Breakpoint12='E:\Work\Five\Source\Kernel\TycoonLevels.pas',112,'',0,0
+Breakpoint13='E:\Work\Five\Source\Kernel\Accounts.pas',370,'integer(SuperAccount) = $4482f2c',0,0
+Breakpoint14='E:\Work\Five\Source\Kernel\Population.pas',638,'(xPos = 166) and (yPos = 216)',0,0
+Breakpoint15='E:\Work\Five\Source\Kernel\WorkCenterBlock.pas',604,'',0,0
+Breakpoint16='E:\Work\Five\Source\Kernel\Population.pas',913,'(xPos = 170) and (yPos = 215) and (i = pkLow)',0,0
+Breakpoint17='E:\Work\Five\Source\Kernel\Population.pas',751,'(Facility.Town.Name = ''Aurelia'')',0,0
+Breakpoint18='E:\Work\Five\Source\Kernel\Population.pas',650,'(xPos = 632) and (yPos = 711)',0,0
+Breakpoint19='E:\Work\Five\Source\Kernel\Population.pas',861,'(xPos = 632) and (yPos = 711)',0,0
+Breakpoint20='E:\Work\Five\Source\Kernel\Kernel.pas',4274,'(fxPos = 448) and (fyPos = 857)',0,0
+Breakpoint21='E:\Work\Five\Source\Kernel\PopulatedBlock.pas',456,'fPopulation.Q > 10000',0,0
+Breakpoint22='E:\Work\Five\Source\Model Server\ModelServerReportForm.pas',459,'',0,0
+Breakpoint23='E:\Work\Five\Source\Model Server\ModelServer.pas',253,'',0,0
+Breakpoint24='E:\Work\Five\Source\Kernel\PublicFacility.pas',138,'(xPos=101) and (yPos=804)',0,0
+Breakpoint25='E:\Work\Five\Source\Kernel\Accounts.pas',360,'Account.MetaAccount.AccId >= MaxAccounts',0,0
+Breakpoint26='E:\Work\Five\Source\Kernel\Kernel.pas',9791,'',0,0
+Breakpoint27='E:\Work\Five\Source\Kernel\Kernel.pas',9938,'fName = ''OFsmoke''',0,0
+Breakpoint28='E:\Work\Five\Source\Kernel\ResearchCenter.pas',645,'(xPos = 386) and (yPos = 339)',0,0
+Breakpoint29='E:\Work\Five\Source\Kernel\Kernel.pas',9811,'fName = ''OFsmoke''',0,0
+Breakpoint30='E:\Work\Five\Source\Cache\ModelServerCache.pas',330,'',0,1
+Breakpoint31='E:\Work\Five\Source\Kernel\Kernel.pas',4745,'(xPos = 408) and (yPos = 284)',0,1
+

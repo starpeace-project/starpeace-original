@@ -1,0 +1,134 @@
+[Compiler]
+A=1
+B=0
+C=1
+D=1
+E=0
+F=0
+G=1
+H=1
+I=1
+J=1
+K=0
+L=1
+M=0
+N=1
+O=0
+P=1
+Q=0
+R=0
+S=0
+T=0
+U=0
+V=1
+W=0
+X=1
+Y=1
+Z=1
+ShowHints=1
+ShowWarnings=1
+UnitAliases=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+[Linker]
+MapFile=0
+OutputObjs=0
+ConsoleApp=1
+DebugInfo=0
+RemoteSymbols=0
+MinStackSize=16384
+MaxStackSize=1048576
+ImageBase=4194304
+ExeDescription=
+[Directories]
+OutputDir=Release
+UnitOutputDir=DCU
+PackageDLLOutputDir=
+PackageDCPOutputDir=
+SearchPath=$(DELPHI)\Lib\Debug
+Packages=Vcl50;Vclx50;VclSmp50;Vcldb50;vclado50;ibevnt50;Vclbde50;vcldbx50;Qrpt50;TeeUI50;TeeDB50;Tee50;Dss50;TeeQR50;VCLIB50;Vclmid50;vclie50;Inetdb50;Inet50;NMFast50;webmid50;dclocx50;dclaxserver50
+Conditionals=
+DebugSourceDirs=
+UsePackages=0
+[Parameters]
+RunParams=
+HostApplication=
+[Language]
+ActiveLang=
+ProjectLang=$00000409
+RootDir=
+[Version Info]
+IncludeVerInfo=0
+AutoIncBuild=0
+MajorVer=1
+MinorVer=0
+Release=0
+Build=0
+Debug=0
+PreRelease=0
+Special=0
+Private=0
+DLL=0
+Locale=1033
+CodePage=1252
+[Version Info Keys]
+CompanyName=
+FileDescription=
+FileVersion=1.0.0.0
+InternalName=
+LegalCopyright=
+LegalTrademarks=
+OriginalFilename=
+ProductName=
+ProductVersion=1.0.0.0
+Comments=
+[Excluded Packages]
+$(DELPHI)\Bin\dphide50.bpl=Borland Delphi Core IDE Package
+$(DELPHI)\Bin\direct50.bpl=Borland Direct IDE Package
+$(DELPHI)\Bin\stride50.bpl=String Resource Editor IDE Package
+$(DELPHI)\Bin\dphpro50.bpl=Borland Delphi Professional IDE Package
+$(DELPHI)\Bin\DbX50.bpl=(untitled)
+[HistoryLists\hlUnitAliases]
+Count=1
+Item0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+[HistoryLists\hlSearchPath]
+Count=28
+Item0=$(DELPHI)\Lib\Debug
+Item1=C:\Work\Esc\Five\IB\Old\Source\Persistence;C:\Work\Esc\Five\IB\Old\Source\Class Storage;C:\Work\Esc\Five\IB\Old\Source\Kernel;C:\Work\Esc\Five\IB\Old\Source\Cache;C:\Work\Esc\Five\IB\Old\Source\Rdo\Common;C:\Work\Esc\Five\IB\Old\Source\Rdo\Server;C:\Work\Esc\Five\IB\Old\Source\Logs;C:\Work\Esc\Five\IB\Old\Source\Utils\network;C:\Work\Esc\Five\IB\Old\Source\Utils\misc;C:\Work\Esc\Five\IB\Old\Source\Rdo\client;C:\Work\Esc\Five\IB\Old\Source\Land;C:\Work\Esc\Five\IB\Old\Source\surfaces;C:\Work\Esc\Five\IB\Old\Source\Protocol;C:\Work\Esc\Five\IB\Old\Source\mail;C:\Work\Esc\Five\IB\Old\Source\Circuits;C:\Work\Esc\Five\IB\Old\Source\Transport;C:\Work\Esc\Five\IB\Old\Source\class packer;C:\Work\Esc\Five\IB\Old\Source\Tasks;C:\Work\Esc\Five\IB\Old\Source\Model Extensions;C:\Work\Esc\Five\IB\Old\Source\Inventions;C:\Work\Esc\Five\IB\Old\Source\stdblocks;C:\Work\Esc\Five\IB\Old\Source\news;C:\Work\Esc\Five\IB\Old\Source\news server;C:\Work\Esc\Five\IB\Old\Source\Actors;C:\Work\Esc\Five\IB\Old\Source\Directory Server;C:\Work\Esc\Five\IB\Old\Source\Utils\serial
+Item2=C:\Work\Esc\Five\IB\Old\Source\Persistence;C:\Work\Esc\Five\IB\Old\Source\Class Storage;C:\Work\Esc\Five\IB\Old\Source\Kernel;C:\Work\Esc\Five\IB\Old\Source\Cache;C:\Work\Esc\Five\IB\Old\Source\Rdo\Common;C:\Work\Esc\Five\IB\Old\Source\Rdo\Server;C:\Work\Esc\Five\IB\Old\Source\Logs;C:\Work\Esc\Five\IB\Old\Source\Utils\network;C:\Work\Esc\Five\IB\Old\Source\Utils\misc;C:\Work\Esc\Five\IB\Old\Source\Rdo\client;C:\Work\Esc\Five\IB\Old\Source\Land;C:\Work\Esc\Five\IB\Old\Source\surfaces;C:\Work\Esc\Five\IB\Old\Source\Protocol;C:\Work\Esc\Five\IB\Old\Source\mail;C:\Work\Esc\Five\IB\Old\Source\Circuits;C:\Work\Esc\Five\IB\Old\Source\Transport;C:\Work\Esc\Five\IB\Old\Source\class packer;C:\Work\Esc\Five\IB\Old\Source\Tasks;C:\Work\Esc\Five\IB\Old\Source\Model Extensions;C:\Work\Esc\Five\IB\Old\Source\Inventions;C:\Work\Esc\Five\IB\Old\Source\stdblocks;C:\Work\Esc\Five\IB\Old\Source\news;C:\Work\Esc\Five\IB\Old\Source\news server;C:\Work\Esc\Five\IB\Old\Source\Actors;C:\Work\Esc\Five\IB\Old\Source\Directory Server
+Item3=C:\Work\Esc\Five\IB\Old\Source\Persistence;C:\Work\Esc\Five\IB\Old\Source\Class Storage;C:\Work\Esc\Five\IB\Old\Source\Kernel;C:\Work\Esc\Five\IB\Old\Source\Cache;C:\Work\Esc\Five\IB\Old\Source\Rdo\Common;C:\Work\Esc\Five\IB\Old\Source\Rdo\Server;C:\Work\Esc\Five\IB\Old\Source\Logs;C:\Work\Esc\Five\IB\Old\Source\Utils\network;C:\Work\Esc\Five\IB\Old\Source\Utils\misc;C:\Work\Esc\Five\IB\Old\Source\Rdo\client;C:\Work\Esc\Five\IB\Old\Source\Land;C:\Work\Esc\Five\IB\Old\Source\surfaces;C:\Work\Esc\Five\IB\Old\Source\Protocol;C:\Work\Esc\Five\IB\Old\Source\mail;C:\Work\Esc\Five\IB\Old\Source\Circuits;C:\Work\Esc\Five\IB\Old\Source\Transport;C:\Work\Esc\Five\IB\Old\Source\class packer;C:\Work\Esc\Five\IB\Old\Source\Tasks;C:\Work\Esc\Five\IB\Old\Source\Model Extensions;C:\Work\Esc\Five\IB\Old\Source\Inventions;C:\Work\Esc\Five\IB\Old\Source\stdblocks;C:\Work\Esc\Five\IB\Old\Source\news;C:\Work\Esc\Five\IB\Old\Source\news server;C:\Work\Esc\Five\IB\Old\Source\Actors
+Item4=C:\Work\Esc\Five\IB\Old\Source\Persistence;C:\Work\Esc\Five\IB\Old\Source\Class Storage;C:\Work\Esc\Five\IB\Old\Source\Kernel;C:\Work\Esc\Five\IB\Old\Source\Cache;C:\Work\Esc\Five\IB\Old\Source\Rdo\Common;C:\Work\Esc\Five\IB\Old\Source\Rdo\Server;C:\Work\Esc\Five\IB\Old\Source\Logs;C:\Work\Esc\Five\IB\Old\Source\Utils\network;C:\Work\Esc\Five\IB\Old\Source\Utils\misc;C:\Work\Esc\Five\IB\Old\Source\Rdo\client;C:\Work\Esc\Five\IB\Old\Source\Land;C:\Work\Esc\Five\IB\Old\Source\surfaces;C:\Work\Esc\Five\IB\Old\Source\Protocol;C:\Work\Esc\Five\IB\Old\Source\mail;C:\Work\Esc\Five\IB\Old\Source\Circuits;C:\Work\Esc\Five\IB\Old\Source\Transport;C:\Work\Esc\Five\IB\Old\Source\class packer;C:\Work\Esc\Five\IB\Old\Source\Tasks;C:\Work\Esc\Five\IB\Old\Source\Model Extensions;C:\Work\Esc\Five\IB\Old\Source\Inventions;C:\Work\Esc\Five\IB\Old\Source\stdblocks;C:\Work\Esc\Five\IB\Old\Source\news;C:\Work\Esc\Five\IB\Old\Source\news server
+Item5=C:\Work\Esc\Five\IB\Old\Source\Persistence;C:\Work\Esc\Five\IB\Old\Source\Class Storage;C:\Work\Esc\Five\IB\Old\Source\Kernel;C:\Work\Esc\Five\IB\Old\Source\Cache;C:\Work\Esc\Five\IB\Old\Source\Rdo\Common;C:\Work\Esc\Five\IB\Old\Source\Rdo\Server;C:\Work\Esc\Five\IB\Old\Source\Logs;C:\Work\Esc\Five\IB\Old\Source\Utils\network;C:\Work\Esc\Five\IB\Old\Source\Utils\misc;C:\Work\Esc\Five\IB\Old\Source\Rdo\client;C:\Work\Esc\Five\IB\Old\Source\Land;C:\Work\Esc\Five\IB\Old\Source\surfaces;C:\Work\Esc\Five\IB\Old\Source\Protocol;C:\Work\Esc\Five\IB\Old\Source\mail;C:\Work\Esc\Five\IB\Old\Source\Circuits;C:\Work\Esc\Five\IB\Old\Source\Transport;C:\Work\Esc\Five\IB\Old\Source\class packer;C:\Work\Esc\Five\IB\Old\Source\Tasks;C:\Work\Esc\Five\IB\Old\Source\Model Extensions;C:\Work\Esc\Five\IB\Old\Source\Inventions;C:\Work\Esc\Five\IB\Old\Source\stdblocks;C:\Work\Esc\Five\IB\Old\Source\news
+Item6=C:\Work\Esc\Five\IB\Old\Source\Persistence;C:\Work\Esc\Five\IB\Old\Source\Class Storage;C:\Work\Esc\Five\IB\Old\Source\Kernel;C:\Work\Esc\Five\IB\Old\Source\Cache;C:\Work\Esc\Five\IB\Old\Source\Rdo\Common;C:\Work\Esc\Five\IB\Old\Source\Rdo\Server;C:\Work\Esc\Five\IB\Old\Source\Logs;C:\Work\Esc\Five\IB\Old\Source\Utils\network;C:\Work\Esc\Five\IB\Old\Source\Utils\misc;C:\Work\Esc\Five\IB\Old\Source\Rdo\client;C:\Work\Esc\Five\IB\Old\Source\Land;C:\Work\Esc\Five\IB\Old\Source\surfaces;C:\Work\Esc\Five\IB\Old\Source\Protocol;C:\Work\Esc\Five\IB\Old\Source\mail;C:\Work\Esc\Five\IB\Old\Source\Circuits;C:\Work\Esc\Five\IB\Old\Source\Transport;C:\Work\Esc\Five\IB\Old\Source\class packer;C:\Work\Esc\Five\IB\Old\Source\Tasks;C:\Work\Esc\Five\IB\Old\Source\Model Extensions;C:\Work\Esc\Five\IB\Old\Source\Inventions;C:\Work\Esc\Five\IB\Old\Source\stdblocks
+Item7=C:\Work\Esc\Five\IB\Old\Source\Persistence;C:\Work\Esc\Five\IB\Old\Source\Class Storage;C:\Work\Esc\Five\IB\Old\Source\Kernel;C:\Work\Esc\Five\IB\Old\Source\Cache;C:\Work\Esc\Five\IB\Old\Source\Rdo\Common;C:\Work\Esc\Five\IB\Old\Source\Rdo\Server;C:\Work\Esc\Five\IB\Old\Source\Logs;C:\Work\Esc\Five\IB\Old\Source\Utils\network;C:\Work\Esc\Five\IB\Old\Source\Utils\misc;C:\Work\Esc\Five\IB\Old\Source\Rdo\client;C:\Work\Esc\Five\IB\Old\Source\Land;C:\Work\Esc\Five\IB\Old\Source\surfaces;C:\Work\Esc\Five\IB\Old\Source\Protocol;C:\Work\Esc\Five\IB\Old\Source\mail;C:\Work\Esc\Five\IB\Old\Source\Circuits;C:\Work\Esc\Five\IB\Old\Source\Transport;C:\Work\Esc\Five\IB\Old\Source\class packer;C:\Work\Esc\Five\IB\Old\Source\Tasks;C:\Work\Esc\Five\IB\Old\Source\Model Extensions;C:\Work\Esc\Five\IB\Old\Source\Inventions
+Item8=C:\Work\Esc\Five\IB\Old\Source\Persistence;C:\Work\Esc\Five\IB\Old\Source\Class Storage;C:\Work\Esc\Five\IB\Old\Source\Kernel;C:\Work\Esc\Five\IB\Old\Source\Cache;C:\Work\Esc\Five\IB\Old\Source\Rdo\Common;C:\Work\Esc\Five\IB\Old\Source\Rdo\Server;C:\Work\Esc\Five\IB\Old\Source\Logs;C:\Work\Esc\Five\IB\Old\Source\Utils\network;C:\Work\Esc\Five\IB\Old\Source\Utils\misc;C:\Work\Esc\Five\IB\Old\Source\Rdo\client;C:\Work\Esc\Five\IB\Old\Source\Land;C:\Work\Esc\Five\IB\Old\Source\surfaces;C:\Work\Esc\Five\IB\Old\Source\Protocol;C:\Work\Esc\Five\IB\Old\Source\mail;C:\Work\Esc\Five\IB\Old\Source\Circuits;C:\Work\Esc\Five\IB\Old\Source\Transport;C:\Work\Esc\Five\IB\Old\Source\class packer;C:\Work\Esc\Five\IB\Old\Source\Tasks;C:\Work\Esc\Five\IB\Old\Source\Model Extensions
+Item9=C:\Work\Esc\Five\IB\Old\Source\Persistence;C:\Work\Esc\Five\IB\Old\Source\Class Storage;C:\Work\Esc\Five\IB\Old\Source\Kernel;C:\Work\Esc\Five\IB\Old\Source\Cache;C:\Work\Esc\Five\IB\Old\Source\Rdo\Common;C:\Work\Esc\Five\IB\Old\Source\Rdo\Server;C:\Work\Esc\Five\IB\Old\Source\Logs;C:\Work\Esc\Five\IB\Old\Source\Utils\network;C:\Work\Esc\Five\IB\Old\Source\Utils\misc;C:\Work\Esc\Five\IB\Old\Source\Rdo\client;C:\Work\Esc\Five\IB\Old\Source\Land;C:\Work\Esc\Five\IB\Old\Source\surfaces;C:\Work\Esc\Five\IB\Old\Source\Protocol;C:\Work\Esc\Five\IB\Old\Source\mail;C:\Work\Esc\Five\IB\Old\Source\Circuits;C:\Work\Esc\Five\IB\Old\Source\Transport;C:\Work\Esc\Five\IB\Old\Source\class packer;C:\Work\Esc\Five\IB\Old\Source\Tasks
+Item10=C:\Work\Esc\Five\IB\Old\Source\Persistence;C:\Work\Esc\Five\IB\Old\Source\Class Storage;C:\Work\Esc\Five\IB\Old\Source\Kernel;C:\Work\Esc\Five\IB\Old\Source\Cache;C:\Work\Esc\Five\IB\Old\Source\Rdo\Common;C:\Work\Esc\Five\IB\Old\Source\Rdo\Server;C:\Work\Esc\Five\IB\Old\Source\Logs;C:\Work\Esc\Five\IB\Old\Source\Utils\network;C:\Work\Esc\Five\IB\Old\Source\Utils\misc;C:\Work\Esc\Five\IB\Old\Source\Rdo\client;C:\Work\Esc\Five\IB\Old\Source\Land;C:\Work\Esc\Five\IB\Old\Source\surfaces;C:\Work\Esc\Five\IB\Old\Source\Protocol;C:\Work\Esc\Five\IB\Old\Source\mail;C:\Work\Esc\Five\IB\Old\Source\Circuits;C:\Work\Esc\Five\IB\Old\Source\Transport;C:\Work\Esc\Five\IB\Old\Source\class packer
+Item11=C:\Work\Esc\Five\IB\Old\Source\Persistence;C:\Work\Esc\Five\IB\Old\Source\Class Storage;C:\Work\Esc\Five\IB\Old\Source\Kernel;C:\Work\Esc\Five\IB\Old\Source\Cache;C:\Work\Esc\Five\IB\Old\Source\Rdo\Common;C:\Work\Esc\Five\IB\Old\Source\Rdo\Server;C:\Work\Esc\Five\IB\Old\Source\Logs;C:\Work\Esc\Five\IB\Old\Source\Utils\network;C:\Work\Esc\Five\IB\Old\Source\Utils\misc;C:\Work\Esc\Five\IB\Old\Source\Rdo\client;C:\Work\Esc\Five\IB\Old\Source\Land;C:\Work\Esc\Five\IB\Old\Source\surfaces;C:\Work\Esc\Five\IB\Old\Source\Protocol;C:\Work\Esc\Five\IB\Old\Source\mail;C:\Work\Esc\Five\IB\Old\Source\Circuits;C:\Work\Esc\Five\IB\Old\Source\Transport
+Item12=C:\Work\Esc\Five\IB\Old\Source\Persistence;C:\Work\Esc\Five\IB\Old\Source\Class Storage;C:\Work\Esc\Five\IB\Old\Source\Kernel;C:\Work\Esc\Five\IB\Old\Source\Cache;C:\Work\Esc\Five\IB\Old\Source\Rdo\Common;C:\Work\Esc\Five\IB\Old\Source\Rdo\Server;C:\Work\Esc\Five\IB\Old\Source\Logs;C:\Work\Esc\Five\IB\Old\Source\Utils\network;C:\Work\Esc\Five\IB\Old\Source\Utils\misc;C:\Work\Esc\Five\IB\Old\Source\Rdo\client;C:\Work\Esc\Five\IB\Old\Source\Land;C:\Work\Esc\Five\IB\Old\Source\surfaces;C:\Work\Esc\Five\IB\Old\Source\Protocol;C:\Work\Esc\Five\IB\Old\Source\mail;C:\Work\Esc\Five\IB\Old\Source\Circuits
+Item13=C:\Work\Esc\Five\IB\Old\Source\Persistence;C:\Work\Esc\Five\IB\Old\Source\Class Storage;C:\Work\Esc\Five\IB\Old\Source\Kernel;C:\Work\Esc\Five\IB\Old\Source\Cache;C:\Work\Esc\Five\IB\Old\Source\Rdo\Common;C:\Work\Esc\Five\IB\Old\Source\Rdo\Server;C:\Work\Esc\Five\IB\Old\Source\Logs;C:\Work\Esc\Five\IB\Old\Source\Utils\network;C:\Work\Esc\Five\IB\Old\Source\Utils\misc;C:\Work\Esc\Five\IB\Old\Source\Rdo\client;C:\Work\Esc\Five\IB\Old\Source\Land;C:\Work\Esc\Five\IB\Old\Source\surfaces;C:\Work\Esc\Five\IB\Old\Source\Protocol;C:\Work\Esc\Five\IB\Old\Source\mail
+Item14=C:\Work\Esc\Five\IB\Old\Source\Persistence;C:\Work\Esc\Five\IB\Old\Source\Class Storage;C:\Work\Esc\Five\IB\Old\Source\Kernel;C:\Work\Esc\Five\IB\Old\Source\Cache;C:\Work\Esc\Five\IB\Old\Source\Rdo\Common;C:\Work\Esc\Five\IB\Old\Source\Rdo\Server;C:\Work\Esc\Five\IB\Old\Source\Logs;C:\Work\Esc\Five\IB\Old\Source\Utils\network;C:\Work\Esc\Five\IB\Old\Source\Utils\misc;C:\Work\Esc\Five\IB\Old\Source\Rdo\client;C:\Work\Esc\Five\IB\Old\Source\Land;C:\Work\Esc\Five\IB\Old\Source\surfaces;C:\Work\Esc\Five\IB\Old\Source\Protocol
+Item15=C:\Work\Esc\Five\IB\Old\Source\Persistence;C:\Work\Esc\Five\IB\Old\Source\Class Storage;C:\Work\Esc\Five\IB\Old\Source\Kernel;C:\Work\Esc\Five\IB\Old\Source\Cache;C:\Work\Esc\Five\IB\Old\Source\Rdo\Common;C:\Work\Esc\Five\IB\Old\Source\Rdo\Server;C:\Work\Esc\Five\IB\Old\Source\Logs;C:\Work\Esc\Five\IB\Old\Source\Utils\network;C:\Work\Esc\Five\IB\Old\Source\Utils\misc;C:\Work\Esc\Five\IB\Old\Source\Rdo\client;C:\Work\Esc\Five\IB\Old\Source\Land;C:\Work\Esc\Five\IB\Old\Source\surfaces
+Item16=C:\Work\Esc\Five\IB\Old\Source\Persistence;C:\Work\Esc\Five\IB\Old\Source\Class Storage;C:\Work\Esc\Five\IB\Old\Source\Kernel;C:\Work\Esc\Five\IB\Old\Source\Cache;C:\Work\Esc\Five\IB\Old\Source\Rdo\Common;C:\Work\Esc\Five\IB\Old\Source\Rdo\Server;C:\Work\Esc\Five\IB\Old\Source\Logs;C:\Work\Esc\Five\IB\Old\Source\Utils\network;C:\Work\Esc\Five\IB\Old\Source\Utils\misc;C:\Work\Esc\Five\IB\Old\Source\Rdo\client;C:\Work\Esc\Five\IB\Old\Source\Land
+Item17=C:\Work\Esc\Five\IB\Old\Source\Persistence;C:\Work\Esc\Five\IB\Old\Source\Class Storage;C:\Work\Esc\Five\IB\Old\Source\Kernel;C:\Work\Esc\Five\IB\Old\Source\Cache;C:\Work\Esc\Five\IB\Old\Source\Rdo\Common;C:\Work\Esc\Five\IB\Old\Source\Rdo\Server;C:\Work\Esc\Five\IB\Old\Source\Logs;C:\Work\Esc\Five\IB\Old\Source\Utils\network;C:\Work\Esc\Five\IB\Old\Source\Utils\misc;C:\Work\Esc\Five\IB\Old\Source\Rdo\client
+Item18=C:\Work\Esc\Five\IB\Old\Source\Persistence;C:\Work\Esc\Five\IB\Old\Source\Class Storage;C:\Work\Esc\Five\IB\Old\Source\Kernel;C:\Work\Esc\Five\IB\Old\Source\Cache;C:\Work\Esc\Five\IB\Old\Source\Rdo\Common;C:\Work\Esc\Five\IB\Old\Source\Rdo\Server;C:\Work\Esc\Five\IB\Old\Source\Logs;C:\Work\Esc\Five\IB\Old\Source\Utils\network;C:\Work\Esc\Five\IB\Old\Source\Utils\misc
+Item19=C:\Work\Esc\Five\IB\Old\Source\Persistence;C:\Work\Esc\Five\IB\Old\Source\Class Storage;C:\Work\Esc\Five\IB\Old\Source\Kernel;C:\Work\Esc\Five\IB\Old\Source\Cache;C:\Work\Esc\Five\IB\Old\Source\Rdo\Common;C:\Work\Esc\Five\IB\Old\Source\Rdo\Server;C:\Work\Esc\Five\IB\Old\Source\Logs;C:\Work\Esc\Five\IB\Old\Source\Utils\network
+Item20=C:\Work\Esc\Five\IB\Old\Source\Persistence;C:\Work\Esc\Five\IB\Old\Source\Class Storage;C:\Work\Esc\Five\IB\Old\Source\Kernel;C:\Work\Esc\Five\IB\Old\Source\Cache;C:\Work\Esc\Five\IB\Old\Source\Rdo\Common;C:\Work\Esc\Five\IB\Old\Source\Rdo\Server;C:\Work\Esc\Five\IB\Old\Source\Logs
+Item21=C:\Work\Esc\Five\IB\Old\Source\Persistence;C:\Work\Esc\Five\IB\Old\Source\Class Storage;C:\Work\Esc\Five\IB\Old\Source\Kernel;C:\Work\Esc\Five\IB\Old\Source\Cache;C:\Work\Esc\Five\IB\Old\Source\Rdo\Common;C:\Work\Esc\Five\IB\Old\Source\Rdo\Server
+Item22=C:\Work\Esc\Five\IB\Old\Source\Persistence;C:\Work\Esc\Five\IB\Old\Source\Class Storage;C:\Work\Esc\Five\IB\Old\Source\Kernel;C:\Work\Esc\Five\IB\Old\Source\Cache;C:\Work\Esc\Five\IB\Old\Source\Rdo\Common
+Item23=C:\Work\Esc\Five\IB\Old\Source\Persistence;C:\Work\Esc\Five\IB\Old\Source\Class Storage;C:\Work\Esc\Five\IB\Old\Source\Kernel;C:\Work\Esc\Five\IB\Old\Source\Cache
+Item24=C:\Work\Esc\Five\IB\Old\Source\Persistence;C:\Work\Esc\Five\IB\Old\Source\Class Storage;C:\Work\Esc\Five\IB\Old\Source\Kernel
+Item25= C:\Work\Esc\Five\IB\Old\Source\kernel;C:\Work\Esc\Five\IB\Old\Source\Persistence;C:\Work\Esc\Five\IB\Old\Source\Class Storage
+Item26=C:\Work\Esc\Five\IB\Old\Source\Persistence; C:\Work\Esc\Five\IB\Old\Source\kernel; ;C:\Work\Esc\Five\IB\Old\Source\Class Storage
+Item27=C:\Work\Esc\Five\IB\Old\Source\Persistence; C:\Work\Esc\Five\IB\Old\Source\kernel;
+[HistoryLists\hlUnitOutputDirectory]
+Count=3
+Item0=DCU
+Item1=C:\Work\Esc\IB\Mission Editor\DCU
+Item2=C:\Work\Esc\IBDisplay\Mission Editor
+[HistoryLists\hlOutputDirectorry]
+Count=6
+Item0=Release
+Item1=C:\Work\Esc\IB\Mission Editor\Release
+Item2=C:\Work\Esc\IBDisplay\Mission Editor
+Item3=C:\Work\Esc\Five\IB\Old\Source\Persistance;C:\Work\Esc\Five\IB\Old\Source\kernel;
+Item4=C:\Work\Esc\Five\IB\Old\Source\Persistence;C:\Work\Esc\Five\IB\Old\Source\kernel;
+Item5=C:\Work\Esc\Five\IB\Old\Source\Kernel

@@ -1,0 +1,35 @@
+#------------------------------------------------------------------------------
+VERSION = BWS.01
+#------------------------------------------------------------------------------
+!ifndef ROOT
+ROOT = $(MAKEDIR)\..
+!endif
+#------------------------------------------------------------------------------
+MAKE = $(ROOT)\bin\make.exe -$(MAKEFLAGS) -f$**
+DCC = $(ROOT)\bin\dcc32.exe $**
+BRCC = $(ROOT)\bin\brcc32.exe $**
+#------------------------------------------------------------------------------
+PROJECTS = FIVEVoyager.exe voyager.exe FiveProxyCfg.exe ChatTest.exe Projectsupply.exe ImageTest.exe
+#------------------------------------------------------------------------------
+default: $(PROJECTS)
+#------------------------------------------------------------------------------
+
+FIVEVoyager.exe: ..\Voyager\FIVEVoyager.dpr
+  $(DCC)
+
+voyager.exe: ..\Installer\voyager.dpr
+  $(DCC)
+
+FiveProxyCfg.exe: FiveProxyCfg.dpr
+  $(DCC)
+
+ChatTest.exe: ..\Test\ChatTest\ChatTest.dpr
+  $(DCC)
+
+Projectsupply.exe: ..\Test\alldir5\Projectsupply.dpr
+  $(DCC)
+
+ImageTest.exe: ..\Tests\ImageTests\ImageTest.dpr
+  $(DCC)
+
+

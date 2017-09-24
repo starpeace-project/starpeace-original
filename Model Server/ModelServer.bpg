@@ -1,0 +1,49 @@
+#------------------------------------------------------------------------------
+VERSION = BWS.01
+#------------------------------------------------------------------------------
+!ifndef ROOT
+ROOT = $(MAKEDIR)\..
+!endif
+#------------------------------------------------------------------------------
+MAKE = $(ROOT)\bin\make.exe -$(MAKEFLAGS) -f$**
+DCC = $(ROOT)\bin\dcc32.exe $**
+BRCC = $(ROOT)\bin\brcc32.exe $**
+#------------------------------------------------------------------------------
+PROJECTS = ib.mdx DissidentPack1.mdx GeneralPack1.mdx MagnaPack1.mdx \
+  MarikoPack1.mdx MoabPack1.mdx PGIPack1.mdx Trains.mdx UWPack1.mdx \
+  FIVEModelServer.exe
+#------------------------------------------------------------------------------
+default: $(PROJECTS)
+#------------------------------------------------------------------------------
+
+ib.mdx: ..\Model Extensions\IB\ib.dpr
+  $(DCC)
+
+DissidentPack1.mdx: ..\Model Extensions\Dissidents\DissidentPack1.dpr
+  $(DCC)
+
+GeneralPack1.mdx: ..\Model Extensions\General\GeneralPack1.dpr
+  $(DCC)
+
+MagnaPack1.mdx: ..\Model Extensions\Magna\MagnaPack1.dpr
+  $(DCC)
+
+MarikoPack1.mdx: ..\Model Extensions\Mariko\MarikoPack1.dpr
+  $(DCC)
+
+MoabPack1.mdx: ..\Model Extensions\Moab\MoabPack1.dpr
+  $(DCC)
+
+PGIPack1.mdx: ..\Model Extensions\PGI\PGIPack1.dpr
+  $(DCC)
+
+Trains.mdx: ..\Model Extensions\Trains\Trains.dpr
+  $(DCC)
+
+UWPack1.mdx: ..\Model Extensions\UW\UWPack1.dpr
+  $(DCC)
+
+FIVEModelServer.exe: FIVEModelServer.dpr
+  $(DCC)
+
+

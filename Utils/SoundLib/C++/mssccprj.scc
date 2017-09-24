@@ -1,0 +1,10 @@
+SCC = This is a Source Code Control file
+
+[SoundLib.mak]
+SCC_Project_Name = "$/Source/Utils/SoundLib/C++", UREAAAAA
+
+SCC_Aux_Path = "\\Morpheus\Shared\StarPeace"
+
+[SoundLib.dsp]
+SCC_Aux_Path = "\\Morpheus\Shared\StarPeace"
+SCC_Project_Name = "$/Source/Utils/SoundLib/C++", UREAAAAA

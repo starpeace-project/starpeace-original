@@ -1,0 +1,61 @@
+<VisualStudioProject>
+    <VisualBasic>
+        <Build>
+            <Settings
+                AssemblyName = "Project1"
+                OutputType = "WinExe"
+                StartupObject = "Project1.MainForm"
+                AssemblyMajorVersion = "1"
+                AssemblyMinorVersion = "0"
+                AssemblyRevisionNumber = "0"
+                GenerateRevisionNumber = "False"
+                AssemblyCompanyName = "Oceanus Communications"
+            >
+                <Config
+                    Name = "Debug"
+                    DebugSymbols = "True"
+                    DefineDebug = "True"
+                    DefineTrace = "True"
+                    OutputPath = ".\bin\Debug\"
+                    DefineConstants = "Win32 = True"
+                />
+                <Config
+                    Name = "Release"
+                    DebugSymbols = "False"
+                    DefineDebug = "False"
+                    DefineTrace = "False"
+                    OutputPath = ".\bin\Release\"
+                    DefineConstants = "Win32 = True"
+                />
+            </Settings>
+            <References>
+                <Reference Name = "System" />
+                <Reference Name = "System.Drawing" />
+                <Reference Name = "System.WinForms" />
+                <Reference Name = "System.WinForms.Design" />
+                <Reference Name = "System.Data" />
+                <Reference Name = "System.Web.Services" />
+                <Reference Name = "System.Configuration" />
+                <Reference Name = "System.Diagnostics" />
+                <Reference Name = "Microsoft.Win32.Interop" />
+                <Reference Name = "Microsoft.VisualBasic.Compatibility" />
+                <Reference Name = "System.XML.Serialization" />
+            </References>
+            <Imports>
+                <Import Namespace = "Microsoft.VisualBasic" />
+                <Import Namespace = "Microsoft.VisualBasic.Compatibility" />
+                <Import Namespace = "System" />
+            </Imports>
+        </Build>
+        <Files>
+			<Include>
+                <File
+                    RelPath = "_UpgradeReport.htm"
+                    BuildAction = "None"
+                    SubType = "Preview"
+                />
+			</Include>
+            <Include/>
+        </Files>
+    </VisualBasic>
+</VisualStudioProject>
