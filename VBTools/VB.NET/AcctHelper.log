@@ -1,0 +1,51 @@
+<MigrationLog>
+    <Settings>
+        <Setting
+            Name = "LogFile"
+            Value = "AcctHelper.log"
+        />
+        <Setting
+            Name = "GenerateInterfacesForClasses"
+            Value = "FALSE"
+        />
+        <Setting
+            Name = "TimeMark"
+            Value = "FALSE"
+        />
+        <Setting
+            Name = "ADOPlus"
+            Value = "FALSE"
+        />
+        <Setting
+            Name = "NativeArrays"
+            Value = "FALSE"
+        />
+        <Setting
+            Name = "ProjectName"
+            Value = "AcctHelper"
+        />
+        <Setting
+            Name = "OutputDir"
+            Value = "S:\Source\VBTools\VB.NET"
+        />
+        <Setting
+            Name = "ProjectPath"
+            Value = "S:\Source\VBTools\AcctHelper.vbp"
+        />
+        <Setting
+            Name = "MigrateProjectTo"
+            Value = "WinExe"
+        />
+    </Settings>
+    <File
+        OldPath = "D:\Program Files\Microsoft Visual Studio\VB98\Form1.frm"
+        NewPath = "S:\Source\VBTools\VB.NET\Form1.vb"
+        FileType = "Form"
+    >
+        <Issue
+            Type = "Compile"
+            Number = "6"
+        >General error accessing file &quot;D:\Program Files\Microsoft Visual Studio\VB98\Form1.frm&quot;</Issue>
+    </File>
+</MigrationLog>
+

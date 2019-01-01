@@ -1,0 +1,12 @@
+Sending and waiting: idof "InterfaceServer";
+Result :  objid = "12806448"
+Sending and waiting: sel 12806448 get WorldName;
+Result :  WorldName = "Tuguria"
+Sending and waiting: sel 12806448 call CreateAccount "^" "$Mike3", "$";
+Result :  res = "0"
+Sending and waiting: sel 12806448 call Logon "^" "$Mike3", "$";
+Result :  res = "12835172"
+Sending and waiting: sel 12835172 get UserName;
+Result :  UserName = "Mike3"
+Sending and waiting: sel 12835172 call ObjectsInArea "^" "#0", "#0", "#39", "#26";
+Query timed out

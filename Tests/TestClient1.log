@@ -1,0 +1,90 @@
+Sending and waiting: idof "Form";
+Result :  objid = "7936300"
+Sending and waiting: sel 7936300 set Left="10";
+Result :  
+Sending and waiting: sel 7936300 set Top="15";
+Result :  
+Sending and waiting: sel 7936300 set Width="700";
+Result :  
+Sending and waiting: sel 7936300 set Height="400";
+Result :  
+Sending and waiting: sel 7936300 set Caption="A test with my IDispatch";
+Result :  
+Sending and waiting: sel 7936300 get Left;
+Result :  Left = "10"
+Sending and waiting: sel 7936300 set Hint="Could do it";
+Result :  
+Sending and waiting: idof "Object";
+Result :  objid = "7943620"
+Sending and waiting: sel 7943620 call TestProc "*" "$This is the string; I want in the test file";
+Result :  
+Sending and waiting: sel 7943620 call TestMethod "^" "$Test method; called successfully","@3.14","#10";
+Result :  res = "TTestParent TTestObject"
+Sending and waiting: sel 7943620 set WStrProp="Testing; wide char; properties";
+Result :  
+Sending and waiting: sel 7943620 get WStrProp;
+Result :  WStrProp = "Testing; wide char; properties"
+Sending and waiting: sel 7943620 set IsSet="-1";
+Result :  
+Sending and waiting: sel 7943620 get IsSet;
+Result :  IsSet = "255"
+Sending and waiting: idof "Form";
+Result :  objid = "7936300"
+Sending and waiting: sel 7936300 set Left="10";
+Result :  
+Sending and waiting: sel 7936300 set Top="15";
+Result :  
+Sending and waiting: sel 7936300 set Width="700";
+Result :  
+Sending and waiting: sel 7936300 set Height="400";
+Result :  
+Sending and waiting: sel 7936300 set Caption="A test with my IDispatch";
+Result :  
+Sending and waiting: sel 7936300 get Left;
+Result :  Left = "10"
+Sending and waiting: sel 7936300 set Hint="Could do it";
+Result :  
+Sending and waiting: idof "Object";
+Result :  objid = "7943620"
+Sending and waiting: sel 7943620 call TestProc "*" "$This is the string; I want in the test file";
+Result :  
+Sending and waiting: sel 7943620 call TestMethod "^" "$Test method; called successfully","@3.14","#10";
+Result :  res = "TTestParent TTestObject"
+Sending and waiting: sel 7943620 set WStrProp="Testing; wide char; properties";
+Result :  
+Sending and waiting: sel 7943620 get WStrProp;
+Result :  WStrProp = "Testing; wide char; properties"
+Sending and waiting: sel 7943620 set IsSet="-1";
+Result :  
+Sending and waiting: sel 7943620 get IsSet;
+Result :  IsSet = "255"
+Sending and waiting: idof "Form";
+Result :  objid = "7936300"
+Sending and waiting: sel 7936300 set Left="10";
+Result :  
+Sending and waiting: sel 7936300 set Top="15";
+Result :  
+Sending and waiting: sel 7936300 set Width="700";
+Result :  
+Sending and waiting: sel 7936300 set Height="400";
+Result :  
+Sending and waiting: sel 7936300 set Caption="A test with my IDispatch";
+Result :  
+Sending and waiting: sel 7936300 get Left;
+Result :  Left = "10"
+Sending and waiting: sel 7936300 set Hint="Could do it";
+Result :  
+Sending and waiting: idof "Object";
+Result :  objid = "7943620"
+Sending and waiting: sel 7943620 call TestProc "*" "$This is the string; I want in the test file";
+Result :  
+Sending and waiting: sel 7943620 call TestMethod "^" "$Test method; called successfully","@3.14","#10";
+Result :  res = "TTestParent TTestObject"
+Sending and waiting: sel 7943620 set WStrProp="Testing; wide char; properties";
+Result :  
+Sending and waiting: sel 7943620 get WStrProp;
+Result :  WStrProp = "Testing; wide char; properties"
+Sending and waiting: sel 7943620 set IsSet="-1";
+Result :  
+Sending and waiting: sel 7943620 get IsSet;
+Result :  IsSet = "255"

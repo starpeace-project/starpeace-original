@@ -1,0 +1,22 @@
+d:\work\sources\Kernel
+d:\work\sources\StdBlocks\
+d:\work\sources\Class Storage\
+d:\work\sources\Cache\
+d:\work\sources\RDO\Common\
+d:\work\sources\RDO\Server\
+d:\work\sources\Utils\Network
+d:\work\sources\RDO\Client\
+d:\work\sources\Persistence
+d:\work\sources\Utils\Misc
+d:\work\sources\Surfaces
+d:\work\sources\Mail
+d:\work\sources\Utils\Vcl
+d:\work\sources\DServer
+C:\Program Files\Borland\Delphi5\Source\Property Editors
+
+//////
+MainWindow
+Collection
+smarthreads
+
+

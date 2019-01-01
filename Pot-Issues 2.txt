@@ -1,0 +1,52 @@
+[l]1- Conflit between the News Alert and the Tutorial at the beginning.
+[x]2- Include a button in the interface to easily show the tutorial thing.
+[m]3- Check all the world Maps for errors.
+[c]4- What should we do with the news in the game?
+[i]5- Solve the problems with the photos of the players.
+[x]6- Tutorial link in Profile disappeared and the tutorial is still not finished.
+[i]7- Mention in the tutorial you cannot pass to the next assigment (build) until the research is finished.
+[x]8- Dissable the Warehouse Company Type when creating a new company.
+[x]9- Funeral Research is in Moab and the actual facility is not in Moab. 
+[x]10- To put Gas in the Trade Center to give variaty to the tutorial if that is not a problem.
+[x]11- Minery researches available when Industry Basic is not completed yet in Mariko (probably in all of them)
+[x]12- Put the cost of the General Warehouse to 10 million.
+[x]13- To do Real Estates easier for Tycoons and harder for Mayors.
+[x]14- Zones linked to roads and roads very expensives.
+[x]15- Building zonning on need to match one square.
+[x]16- Check the way the history of profit/lost in buildings is saved to the backup.
+[ ]17- [VERY IMPORTANT ADDITION] Add the diversity factor to tycoons.
+[x]18- Bring back the transportation cost in the game.
+[ ]19- Check the vacancies of residential do not match the numbers sometimes.
+[ ]20- Change the initial budget thingy so they get the money times the nobility in any world they start.
+[ ]21- Fix Furniture Store image icon.
+[x]22- Satellite Path.
+[x]23- Movie Studios showing zillions of films.
+[x]24- Fix the Newspaper generation frequency.
+[ ]25- Deleting companies (if there are no researches left).
+[x]26- Deleting E-mails in the e-mail clients.
+[ ]27- If you have built a Mausoleum and have a loan and so you cannot transcend, have a message saying so.
+[x]28- Charge Mayors for the roads.
+[x]29- Screw Magna Commerce.
+[x]30- Increase the cost of civics.
+[x]31- No refunds on Company Services (e.g. Ads, Lawyers & Software)
+[x]32- Put Missing Overlay to the Client.
+[x]33- Facilities Losing Money not working as it should.
+[x]34- WHs showing ugly texts.
+[x]35- To fix Cache Connection TTL errors.
+[x]36- Fix Economy relay in Commerce.
+[x]37- Fix send message to Facilities.
+[x]38- Put Toy Factory Price $70M
+[x]39- Warehouse Inpector problem with Modes.
+[ ]40- In the search panel put Owner not the Company.
+[ ]41- Put limit on the money a tycoon can have.
+[ ]42- Refresh bank page asking loan (solve).
+[ ]43- The build page shows scroll bars when a NOT AVAILABLE is shown.
+[x]44- Cache the Tycoon when he reaserchs something with a licence.
+[x]45- Speed up whs build.
+[x]46- Fix Desirability so it includes the Ads.
+[x]47- Lower CD plant price.
+[x]48- Speed up Gas Station build.
+[?]48- Speed up research in General.
+[x]49- Construction Sites Start/Stop in Inspect not working properly.
+[x]50- Show the transportation costs in the Supply/Products lists.
+[ ]51- Make Hq buy ads by default.

@@ -1,0 +1,2778 @@
+unit DirectoryServer;
+
+interface
+
+  uses
+    Classes, Collection, RDOServer, RDOInterfaces, SyncObjs, DirectoryManager, DirectoryServerProtocol;
+
+  const
+    NoExpire = 0;
+
+  type
+    {$M+}
+    TDirectoryServer = class;
+
+    TDirectorySession =
+      class
+        public
+          constructor Create( aServer : TDirectoryServer; aDBName : string; isSecure : boolean );
+          destructor  Destroy; override;
+        private
+          fLock     : TCriticalsection;
+          fRefCount : integer;
+        private
+          procedure Lock;
+          procedure Unlock;
+        private
+          function  GetCurrentKey : widestring;
+          procedure SetCurrentKey   ( FullPathKey : widestring );
+
+        published
+          procedure RDOEndSession;
+
+          property RDOCurrentKey : widestring read GetCurrentKey write SetCurrentKey;
+
+          function RDOGetCurrentKey : olevariant;
+          function RDOSetCurrentKey( FullPathKey : widestring ) : olevariant;
+
+          function RDOCreateFullPathKey( FullPathKey : widestring; ForcePath : wordbool ) : olevariant;
+          function RDOCreateKey        ( KeyName     : widestring ) : olevariant;
+
+          function RDOFullPathKeyExists( FullPathKey : widestring ) : olevariant;
+          function RDOKeyExists        ( KeyName     : widestring ) : olevariant;
+
+          function RDOKeysCount   : olevariant;
+          function RDOValuesCount : olevariant;
+
+          function RDOGetKeyNames   : olevariant;
+          function RDOGetValueNames : olevariant;
+
+          function RDOSetSecurityLevel( secLevel : wordbool ) : olevariant;
+
+          procedure RDOWriteBoolean    ( Name : widestring; Value : wordbool );
+          procedure RDOWriteInteger    ( Name : widestring; Value : integer  );
+          procedure RDOWriteFloat      ( Name : widestring; Value : double   );
+          procedure RDOWriteString     ( Name, Value : widestring );
+          procedure RDOWriteDate       ( Name : widestring; Value : TDateTime );
+          procedure RDOWriteDateFromStr( Name, Value : widestring );
+          procedure RDOWriteCurrency   ( Name : widestring; Value : currency  );
+
+          function RDOReadBoolean  ( Name : widestring ) : olevariant;
+          function RDOReadInteger  ( Name : widestring ) : olevariant;
+          function RDOReadFloat    ( Name : widestring ) : olevariant;
+          function RDOReadString   ( Name : widestring ) : olevariant;
+          function RDOReadDate     ( Name : widestring ) : olevariant;
+          function RDOReadDateAsStr( Name : widestring ) : olevariant;
+          function RDOReadCurrency ( Name : widestring ) : olevariant;
+
+          function RDOFullPathValueExists( FullPathName : widestring ) : olevariant;
+          function RDOValueExists        ( Name         : widestring ) : olevariant;
+
+          function RDODeleteFullPathNode( FullPathNode : widestring ) : olevariant;
+          function RDODeleteNode        ( NodeName     : widestring ) : olevariant;
+
+          function RDOIsSecureKey     ( FullKeyName : widestring                      ) : olevariant;
+          function RDOSetSecurityOfKey( FullKeyName : widestring; Security : wordbool ) : olevariant;
+
+          function RDOIsSecureValue     ( FullPathName : widestring                      ) : olevariant;
+          function RDOSetSecurityOfValue( FullPathName : widestring; Security : wordbool ) : olevariant;
+
+          function RDOTypeOf( FullPathNode : widestring ) : olevariant;
+
+          function RDOIntegrateValues( RelValuePath : widestring ) : olevariant;
+          function RDOQueryKey( FullKeyName, ValueNameList : widestring ) : olevariant;
+          function RDOSearchKey( SearchPattern, ValueNameList : widestring ) : olevariant;
+          function RDOEditKey  ( FullPathKey, newName, oldName : widestring; Security : byte ) : olevariant;
+        published
+          function RDOGenAccountId( FamilyId : integer ) : olevariant;
+          function RDOGenSubscriptionId( Alias : widestring ) : olevariant;
+          function RDOGenTransactionId( Alias : widestring ) : olevariant;
+          function RDONewAccount( AccountId : widestring; FamilyId : integer ) : olevariant;
+          function RDONewUserId( Alias, Password, AccountId : widestring; FamilyId : integer ) : olevariant;
+          function RDOLogonUser( Alias, Password : widestring ) : olevariant;
+          function RDOMapSegaUser(Alias : widestring ) : olevariant;
+          //function RDOSNAPLogonUser( Alias, Password : widestring ) : olevariant;
+          function RDOExtendTrial(Alias : widestring; days : integer) : OleVariant;
+          function RDOIsOnTrial(Alias : widestring) : OleVariant;
+          function RDONextChargeDate(Alias : widestring) : OleVariant;
+
+          function RDORecordSubscriptionInfo( SubscriptionId, Data : widestring ) : olevariant;
+          function RDORecordExtraInfo( Alias, Data : widestring ) : olevariant;
+          function RDONotifyCharge(subsid, pnref, resp_code, resp_msg : widestring) : olevariant;
+          function RDONotifyMoneyTransfer(subsid, ttype, tinfo, months : widestring) : olevariant;
+          function RDOUnsubscribe(alias, subsid : widestring) : olevariant;
+          function RDOUpdateSubs(alias : widestring; valid : wordbool) : olevariant;
+          function RDOUpdateAccount(alias, expDate : widestring) : olevariant;
+          function RDOGetExpDays(alias : widestring) : olevariant;
+
+          function RDOStoreKey(key : widestring) : olevariant;
+          function RDORetrieveKey(index : integer) : olevariant;
+          function RDOLastKey : olevariant;
+
+          function RDOIsValidAlias( Alias : widestring ) : olevariant;
+          function RDOGetAliasId( Alias   : widestring ) : olevariant;
+          function RDOGetUserPath( Alias  : widestring ) : olevariant;
+
+          function RDOCanJoinNewWorld( Alias : widestring ) : olevariant;
+
+          function RDOGenSessionKey(len : integer) : olevariant;
+          function RDOEncryptText(text : widestring) : olevariant;
+          function RDOGetSecureTransId : olevariant;
+          function RDOValidateTransId(id : widestring; mins : integer) : olevariant;
+
+          procedure KeepAlive;
+          procedure RDOSetExpires(value : WordBool);
+        private
+          fServer     : TDirectoryServer;
+          fDirMng     : TDirectoryManager;
+          fSessionKey : string;
+        private
+          fLastUpdate : TDateTime;
+        {private
+          function  RootExists(SerialNo : string) : boolean;
+          procedure AddRoot(SerialNo : string);}
+      end;
+
+    TDirectoryServer =
+      class
+        public
+          constructor Create( Port : integer; aDBName : string; isSecure : boolean );
+          destructor  Destroy; override;
+
+        published
+          function RDOOpenSession : olevariant;
+
+        private
+          procedure EndSession( aSession : TDirectorySession );
+
+        private
+          fDBName    : string;
+          fIsSecure  : boolean;
+          fDAConn    : IRDOConnectionsServer;
+          fDAServ    : TRDOServer;
+          fSessions  : TLockableCollection;
+          fDomain    : string;
+
+        // Account system
+        private
+          fAccountLock    : TCriticalSection;
+          fAccountsExpire : boolean;
+
+        public
+          property AccountsExpire : boolean read fAccountsExpire write fAccountsExpire;
+          property Domain : string read fDomain write fDomain;
+
+        private
+          function GenAccountId( FamilyId : TSerialFamilyId ) : TAccountId;
+          function NewAccount( AccountId : TAccountId; FamilyId : TSerialFamilyId ) : integer;
+          function NewUserId( Alias, Password, AccountId : widestring; FamilyId : TSerialFamilyId ) : integer;
+
+          function LogonSegaUser(Alias, Password : widestring; useSWAN : boolean) : olevariant;
+          function LogonRemoteUser(Alias, Password : widestring; useSWAN : boolean) : olevariant;
+          function GetRemoteSession : olevariant;
+
+          function MapSegaUser(Alias : widestring) : olevariant;
+          function CanJoinNewWorld( Alias : widestring ) : boolean;
+
+          function GenSubscriptionId( Alias : widestring ) : integer;
+          function GenTransactionId ( Alias : widestring ) : integer;
+          function RecordSubscriptionInfo( SubscriptionId, Data : widestring ) : integer;
+          function RecordExtraInfo  ( Alias, Data : widestring ) : integer;
+          function NotifyCharge(subsid, pnref, resp_code, resp_msg : widestring) : integer;
+          function NotifyMoneyTransfer(subsid, ttype, tinfo, months : widestring) : integer;
+          function Unsubscribe(alias, subsid : widestring) : integer;
+          function UpdateSubscription(alias : widestring; valid : wordbool) : integer;
+          function UpdateAccount(alias, expDate : widestring) : integer;
+          function GetExpDays(alias : widestring) : integer;
+
+          function StoreKey(key : string) : integer;
+          function RetrieveKey(index : integer) : string;
+          function LastKey : integer;
+
+//        function GenAccountId( FamilyId : TSerialFamilyId ) : TAccountId;
+//        function NewAccount( AccountId : TAccountId; FamilyId : TSerialFamilyId ) : integer;
+//        function NewUserId( Alias, Password, AccountId : widestring; FamilyId : TSerialFamilyId ) : integer;
+//        function LogonUser( Alias, Password : widestring ) : olevariant;
+//        function CanJoinNewWorld( Alias : widestring ) : boolean;
+
+          procedure GetGlobalFields;
+          procedure SetGlobalFields;
+        private
+          procedure LogThis( const Msg : string );
+          function  GetSessionCount : integer;
+        public
+          procedure CheckSessions(TTL : TDateTime);
+        public
+          property SessionCount  : integer read GetSessionCount;
+          property IsSecure      : boolean read fIsSecure;
+        private  // Global Fields
+          GenID         : boolean;
+          cNobPoints    : integer;
+          End_Of_Trial  : integer;
+          MaxSerialUses : integer;
+          MaxTrialBySerial : integer;
+        private
+          function MapSegaError(error : integer) : integer;
+      end;
+    {$M-}
+
+  const
+    tidRDOHook_DirectoryServer = 'DirectoryServer';
+
+    function authUser(usr, psw : pchar) : integer; cdecl; external 'sega_snap.dll'
+    function getInitResult : integer;              cdecl; external 'sega_snap.dll'
+    //function initAuthFunc : integer;              cdecl; external 'sega_snap.dll'
+
+implementation
+
+  uses
+    Windows, SysUtils, WinSockRDOConnectionsServer, GenIdd, Logs, StrUtils, wininet, MainWindow,
+    WinSockRDOConnection, RDOObjectProxy, rc4, MathUtils, Protocol,
+    CompStringsParser;
+
+  const
+    SOFT_KEY = 'starpeace';
+    THE_SEED = 'E665896B97326423843A38121D89042992E1D6';
+
+
+  function UNIV_KEY : string;
+    var
+      RC4 : TRC4;
+    begin
+      RC4 := TRC4.Create;
+      RC4.Key := SOFT_KEY;
+      result  := RC4.Apply(RC4.toBin(THE_SEED));
+    end;
+
+  function NobilityToWorlds(value : integer) : integer;
+    var
+      tmp : integer;
+    begin
+      result := 1;
+      tmp := 200;
+      while value >= tmp do
+        begin
+          tmp := 2*tmp;
+          inc(result);
+        end;
+    end;
+
+    
+  // TDirectorySession
+
+  constructor TDirectorySession.Create( aServer : TDirectoryServer; aDBName : string; isSecure : boolean );
+    begin
+      inherited Create;
+      try
+        fServer     := aServer;
+        fDirMng     := TDirectoryManager.Create( aDBName, isSecure );
+        fLastUpdate := NoExpire;
+        fLock       := TCriticalsection.Create;
+        fRefCount   := 1;
+      except
+        on e : Exception do
+          begin
+            aServer.LogThis( e.Message + ' @ TDirectorySession.Create' );
+            raise e;
+          end;
+      end;
+     end;
+
+  destructor TDirectorySession.Destroy;
+    begin
+      fLock.Free;
+      fDirMng.Free;
+      inherited;
+    end;
+
+  procedure TDirectorySession.RDOEndSession;
+    var
+      srv : TDirectoryServer;
+    begin
+      srv := fServer;
+      try
+        try
+          dec(fRefCount);
+          if fRefCount <= 0
+            then srv.EndSession( self );
+        finally
+        end;
+      except
+        on e : Exception do
+          begin
+            srv.LogThis( e.Message + ' @ TDirectorySession.RDOEndSession' );
+          end;
+      end;
+    end;
+
+  function TDirectorySession.RDOGetCurrentKey : olevariant;
+    begin
+      Lock;
+      try
+        KeepAlive;
+        result := fDirMng.GetCurrentKey;
+      finally
+        Unlock;
+      end;
+    end;
+
+  function TDirectorySession.RDOSetCurrentKey( FullPathKey : widestring ) : olevariant;
+    begin
+      Lock;
+      try
+        KeepAlive;
+        result := fDirMng.SetCurrentKey( FullPathKey );
+      finally
+        Unlock;
+      end;
+    end;
+
+  function TDirectorySession.RDOCreateFullPathKey( FullPathKey : widestring; ForcePath : wordbool ) : olevariant;
+    begin
+      Lock;
+      try
+        KeepAlive;
+        result := fDirMng.CreateFullPathKey( FullPathKey, ForcePath );
+      finally
+        Unlock;
+      end;
+    end;
+
+  function TDirectorySession.RDOCreateKey( KeyName : widestring ) : olevariant;
+    begin
+      Lock;
+      try
+        KeepAlive;
+        result := fDirMng.CreateKey( KeyName );
+      finally
+        UnLock;
+      end;
+    end;
+
+  function TDirectorySession.RDOFullPathKeyExists( FullPathKey : widestring ) : olevariant;
+    begin
+      Lock;
+      try
+        KeepAlive;
+        result := fDirMng.FullPathKeyExists( FullPathKey );
+      finally
+        UnLock;
+      end;
+    end;
+
+  function TDirectorySession.RDOKeyExists( KeyName : widestring ) : olevariant;
+    begin
+      Lock;
+      try
+        KeepAlive;
+        result := fDirMng.KeyExists( KeyName );
+      finally
+        UnLock;
+      end;
+    end;
+
+  function TDirectorySession.RDOKeysCount : olevariant;
+    begin
+      Lock;
+      try
+        KeepAlive;
+        result := fDirMng.KeysCount;
+      finally
+        UnLock;
+      end;
+    end;
+
+  function TDirectorySession.RDOValuesCount : olevariant;
+    begin
+      Lock;
+      try
+        KeepAlive;
+        result := fDirMng.ValuesCount;
+      finally
+        UnLock;
+      end;
+    end;
+
+  function TDirectorySession.RDOGetKeyNames : olevariant;
+    begin
+      //fServer.LogThis(DateTimeToStr(Now) + 'Enter Get Key Names');
+      Lock;
+      try
+        KeepAlive;
+        if fServer.IsSecure
+          then result := fDirMng.GetKeyNames
+          else result := '<nothing>';
+      finally
+        UnLock;
+      end;
+      //fServer.LogThis(DateTimeToStr(Now) + 'Leave Get Key Names');
+    end;
+
+  function TDirectorySession.RDOGetValueNames : olevariant;
+    begin
+      Lock;
+      try
+        KeepAlive;
+        if fServer.IsSecure
+          then result := fDirMng.GetValueNames
+          else result := '<empty>';
+      finally
+        UnLock;
+      end;
+    end;
+
+
+  function TDirectorySession.RDOSetSecurityLevel( secLevel : wordbool ) : olevariant;
+    begin
+      Lock;
+      try
+        KeepAlive;
+        if fServer.IsSecure
+          then fDirMng.SetSecurityLevel( secLevel );
+        result := 0;
+      finally
+        UnLock;
+      end;
+    end;
+
+
+  procedure TDirectorySession.RDOWriteBoolean( Name : widestring; Value : wordbool );
+    var
+      dummyResult : olevariant;
+    begin
+      Lock;
+      try
+        KeepAlive;
+        dummyResult := fDirMng.WriteBoolean( Name, Value );
+      finally
+        UnLock;
+      end;
+    end;
+
+  procedure TDirectorySession.RDOWriteInteger( Name : widestring; Value : integer );
+    var
+      dummyResult : olevariant;
+    begin
+      Lock;
+      try
+        KeepAlive;
+        dummyResult := fDirMng.WriteInteger( Name, Value );
+      finally
+        UnLock;
+      end;
+    end;
+
+  procedure TDirectorySession.RDOWriteFloat( Name : widestring; Value : double );
+    var
+      dummyResult : olevariant;
+    begin
+      Lock;
+      try
+        KeepAlive;
+        dummyResult := fDirMng.WriteFloat( Name, Value );
+      finally
+        UnLock;
+      end;
+    end;
+
+  procedure TDirectorySession.RDOWriteString( Name, Value : widestring );
+    var
+      dummyResult : olevariant;
+    begin
+      Lock;
+      try
+        KeepAlive;
+        dummyResult := fDirMng.WriteString( Name, Value );
+      finally
+        UnLock;
+      end;
+    end;
+
+  procedure TDirectorySession.RDOWriteDate( Name : widestring; Value : TDateTime );
+    var
+      dummyResult : olevariant;
+    begin
+      Lock;
+      try
+        KeepAlive;
+        dummyResult := fDirMng.WriteDate( Name, Value );
+      finally
+        UnLock;
+      end;
+    end;
+
+  procedure TDirectorySession.RDOWriteDateFromStr( Name, Value : widestring );
+    var
+      dummyResult : olevariant;
+    begin
+      Lock;
+      try
+        KeepAlive;
+        dummyResult := fDirMng.WriteDateFromStr( Name, Value );
+      finally
+        UnLock;
+      end;
+    end;
+
+  procedure TDirectorySession.RDOWriteCurrency( Name : widestring; Value : currency );
+    var
+      dummyResult : olevariant;
+    begin
+      Lock;
+      try
+        KeepAlive;
+        dummyResult := fDirMng.WriteCurrency( Name, Value );
+      finally
+        UnLock;
+      end;
+    end;
+
+  function TDirectorySession.RDOReadBoolean( Name : widestring ) : olevariant;
+    begin
+      Lock;
+      try
+        try
+          KeepAlive;
+          result := fDirMng.ReadBoolean( Name );
+        finally
+          UnLock;
+        end;
+      except
+        result := false;
+      end;
+    end;
+
+  function TDirectorySession.RDOReadInteger( Name : widestring ) : olevariant;
+    begin
+      Lock;
+      try
+        try
+          KeepAlive;
+          result := fDirMng.ReadInteger( Name );
+        finally
+          UnLock;
+        end;
+      except
+        result := 0;
+      end;
+    end;
+
+  function TDirectorySession.RDOReadFloat( Name : widestring ) : olevariant;
+    begin
+      Lock;
+      try
+        try
+          KeepAlive;
+          result := fDirMng.ReadFloat( Name );
+        finally
+          UnLock;
+        end;
+      except
+        result := 0;
+      end;
+    end;
+
+  function TDirectorySession.RDOReadString( Name : widestring ) : olevariant;
+    begin
+      Lock;
+      try
+        try
+          KeepAlive;
+          result := fDirMng.ReadString( Name );
+        finally
+          UnLock;
+        end;
+      except
+        result := '';
+      end;
+    end;
+
+  function TDirectorySession.RDOReadDate( Name : widestring ) : olevariant;
+    begin
+      Lock;
+      try
+        try
+          KeepAlive;
+          result := fDirMng.ReadDate( Name );
+        finally
+          UnLock;
+        end;
+      except
+        result := 0;
+      end;
+    end;
+
+  function TDirectorySession.RDOReadDateAsStr( Name : widestring ) : olevariant;
+    begin
+      Lock;
+      try
+        try
+          KeepAlive;
+          result := fDirMng.ReadDateAsStr( Name );
+        finally
+          UnLock;
+        end;
+      except
+        result := ''
+      end;
+    end;
+
+  function TDirectorySession.RDOReadCurrency( Name : widestring ) : olevariant;
+    begin
+      Lock;
+      try
+        try
+          KeepAlive;
+          result := fDirMng.ReadCurrency( Name );
+        finally
+          UnLock;
+        end;
+      except
+        result := 0;
+      end;
+    end;
+
+  function TDirectorySession.RDOFullPathValueExists( FullPathName : widestring ) : olevariant;
+    begin
+      Lock;
+      try
+        KeepAlive;
+        result := fDirMng.FullPathValueExists( FullPathName );
+      finally
+        UnLock;
+      end;
+    end;
+
+  function TDirectorySession.RDOValueExists( Name : widestring ) : olevariant;
+    begin
+      Lock;
+      try
+        KeepAlive;
+        result := fDirMng.ValueExists( Name );
+      finally
+        UnLock;
+      end;
+    end;
+
+  function TDirectorySession.RDODeleteFullPathNode( FullPathNode : widestring ) : olevariant;
+    begin
+      Lock;
+      try
+        KeepAlive;
+        result := fDirMng.DeleteFullPathNode( FullPathNode );
+      finally
+        UnLock;
+      end;
+    end;
+
+  function TDirectorySession.RDODeleteNode( NodeName : widestring ) : olevariant;
+    begin
+      Lock;
+      try
+        KeepAlive;
+        result := fDirMng.DeleteNode( NodeName );
+      finally
+        UnLock;
+      end;
+    end;
+
+  function TDirectorySession.RDOIsSecureKey( FullKeyName : widestring ) : olevariant;
+    begin
+      Lock;
+      try
+        KeepAlive;
+        result := fDirMng.IsSecureKey( FullKeyName );
+      finally
+        UnLock;
+      end;
+    end;
+
+  function TDirectorySession.RDOSetSecurityOfKey( FullKeyName : widestring; Security : wordbool ) : olevariant;
+    begin
+      Lock;
+      try
+        KeepAlive;
+        result := fDirMng.SetSecurityOfKey( FullKeyName, Security );
+      finally
+        UnLock;
+      end;
+    end;
+
+  function TDirectorySession.RDOIsSecureValue( FullPathName : widestring ) : olevariant;
+    begin
+      Lock;
+      try
+        KeepAlive;
+        result := fDirMng.IsSecureValue( FullPathName );
+      finally
+        UnLock;
+      end;
+    end;
+
+  function TDirectorySession.RDOSetSecurityOfValue( FullPathName : widestring; Security : wordbool ) : olevariant;
+    begin
+      Lock;
+      try
+        KeepAlive;
+        result := fDirMng.SetSecurityOfValue( FullPathName, Security );
+      finally
+        UnLock;
+      end;
+    end;
+
+  function TDirectorySession.RDOTypeOf( FullPathNode : widestring ) : olevariant;
+    begin
+      Lock;
+      try
+        KeepAlive;
+        result := fDirMng.TypeOf( FullPathNode );
+      finally
+        UnLock;
+      end;
+    end;
+
+  function TDirectorySession.RDOIntegrateValues( RelValuePath : widestring ) : olevariant;
+    begin
+      Lock;
+      try
+        KeepAlive;
+        result := fDirMng.IntegrateValues( RelValuePath );
+      finally
+        UnLock;
+      end;
+    end;
+
+  function TDirectorySession.RDOQueryKey( FullKeyName, ValueNameList : widestring ) : olevariant;
+    begin
+      Lock;
+      try
+        KeepAlive;
+        result := fDirMng.QueryKey( FullKeyName, ValueNameList );
+      finally
+        UnLock;
+      end;
+    end;
+
+  function TDirectorySession.RDOSearchKey( SearchPattern, ValueNameList : widestring ) : olevariant;
+    begin
+      Lock;
+      try
+        KeepAlive;
+        result := fDirMng.SearchKey( SearchPattern, ValueNameList );
+      finally
+        UnLock;
+      end;
+    end;
+
+  function TDirectorySession.RDOEditKey( FullPathKey, newName, oldName : widestring; Security : byte ) : olevariant;
+    begin
+      Lock;
+      try
+        KeepAlive;
+        if fServer.IsSecure
+          then result := fDirMng.EditKey( FullPathKey, newName, oldName, Security )
+          else result := false;
+      finally
+        UnLock;
+      end;
+    end;
+
+  function TDirectorySession.RDOGenAccountId( FamilyId : integer ) : olevariant;
+    begin
+      Lock;
+      try
+        KeepAlive;
+        try
+          result := fServer.GenAccountId( TSerialFamilyId(FamilyId) );
+        except
+          on e : Exception do
+            begin
+              fServer.LogThis( e.Message + ' @ TDirectorySession.RDOGenAccountId' );
+              result := '';
+            end;
+        end;
+      finally
+        UnLock;
+      end;
+    end;
+
+  function TDirectorySession.RDOGenTransactionId( Alias : widestring ) : olevariant;
+    begin
+      Lock;
+      try
+        KeepAlive;
+        try
+          result := fServer.GenTransactionId( Alias );
+        except
+          on e : Exception do
+            begin
+              fServer.LogThis( e.Message + ' @ TDirectorySession.RDOGenTransactionId' );
+              result := 0;
+            end;
+        end;
+      finally
+        UnLock;
+      end;
+    end;
+
+  function TDirectorySession.RDONewAccount( AccountId : widestring; FamilyId : integer ) : olevariant;
+    begin
+      Lock;
+      try
+        KeepAlive;
+        try
+          result := fServer.NewAccount( AccountId, TSerialFamilyId(FamilyId) )
+        except
+          on e : Exception do
+            begin
+              fServer.LogThis( e.Message + ' @ TDirectorySession.RDONewAccount' );
+              result := DIR_ERROR_Unknown;
+            end;
+        end;
+      finally
+        UnLock;
+      end;
+    end;
+
+  function TDirectorySession.RDOMapSegaUser(Alias : widestring ) : olevariant;
+    begin
+      try
+        result := fServer.MapSegaUser(Alias);
+      except
+        on e : Exception do
+          begin
+            fServer.LogThis(e.Message + ' @ TDirectorySession.RDOMapSegaUser');
+            result := '';
+          end;
+      end;
+    end;
+
+  function TDirectorySession.RDOExtendTrial(Alias : widestring; days : integer) : OleVariant;
+    var
+      dt      : TDateTime;
+      userKey : string;
+    begin
+      try
+        userkey := GetUserPath(Alias);
+        if fDirMng.SetCurrentKey(userkey)
+          then
+            begin
+              dt := Now + days;
+              result := fDirMng.WriteDate('TrialExpires', dt);
+            end
+          else result := false;
+      except
+        result := false;
+      end;
+    end;
+
+  function TDirectorySession.RDOIsOnTrial(Alias : widestring) : OleVariant;
+    var
+      cdt, edt : TDateTime;
+      userkey  : string;
+    begin
+      try
+        userkey := GetUserPath(Alias);
+        if fDirMng.SetCurrentKey(userkey)
+          then
+            begin
+              cdt := fDirMng.ReadDate('created');
+              edt := fDirMng.ReadDate('trialexpires');
+              result := edt - cdt <= 30;
+            end
+          else result := false;
+      except
+        result := false;
+      end;
+    end;
+
+  function TDirectorySession.RDONextChargeDate(Alias : widestring) : OleVariant;
+    var
+      userkey  : string;
+      ndt, edt : TDateTime;
+    begin
+      ndt := Now;
+      try
+        userkey := GetUserPath(Alias);
+        if fDirMng.SetCurrentKey(userkey)
+          then edt := fDirMng.ReadDate('trialexpires')
+          else edt := ndt;
+        if ndt < edt
+          then result := edt + 30
+          else result := ndt + 30;
+      except
+        result := ndt + 30;
+      end;
+    end;
+
+  function TDirectorySession.RDORecordSubscriptionInfo( SubscriptionId, Data : widestring ) : olevariant;
+    begin
+      Lock;
+      try
+        KeepAlive;
+        try
+          result := fServer.RecordSubscriptionInfo( SubscriptionId, Data );
+        except
+          on e : Exception do
+            begin
+              fServer.LogThis( e.Message + ' @ TDirectorySession.RecordSubscriptionInfo: ' + Data );
+              result := DIR_ERROR_Unknown;
+            end;
+        end;
+      finally
+        UnLock;
+      end;
+    end;
+
+  function TDirectorySession.RDONotifyCharge(subsid, pnref, resp_code, resp_msg : widestring) : olevariant;
+    begin
+      Lock;
+      try
+        KeepAlive;
+        try
+          result := fServer.NotifyCharge(subsid, pnref, resp_code, resp_msg);
+        except
+          on e : Exception do
+            begin
+              fServer.LogThis(e.Message + ' @ TDirectorySession.RDONotifyCharge: ' + subsid);
+              result := DIR_ERROR_Unknown;
+            end;
+        end;
+      finally
+        UnLock;
+      end;
+    end;
+
+  function TDirectorySession.RDONotifyMoneyTransfer(subsid, ttype, tinfo, months : widestring) : olevariant;
+    begin
+      Lock;
+      try
+        KeepAlive;
+        try
+          result := fServer.NotifyMoneyTransfer(subsid, ttype, tinfo, months);
+        except
+          on e : Exception do
+            begin
+              fServer.LogThis(e.Message + ' @ TDirectorySession.RDONotifyMoneyTransfer: ' + subsid);
+              result := DIR_ERROR_Unknown;
+            end;
+        end;
+      finally
+        UnLock;
+      end;
+    end;
+
+  function TDirectorySession.RDOUnsubscribe(alias, subsid : widestring) : olevariant;
+    begin
+      Lock;
+      try
+        KeepAlive;
+        try
+          result := fServer.Unsubscribe(alias, subsid);
+        except
+          on e : Exception do
+            begin
+              fServer.LogThis(e.Message + ' @ TDirectorySession.RDOUnsubscribe: ' + alias);
+              result := DIR_ERROR_Unknown;
+            end;
+        end;
+      finally
+        UnLock;
+      end;
+    end;
+
+  function TDirectorySession.RDOUpdateSubs(alias : widestring; valid : wordbool) : olevariant;
+    begin
+      Lock;
+      try
+        KeepAlive;
+        try
+          result := fServer.UpdateSubscription(alias, valid);
+        except
+          on e : Exception do
+            begin
+              fServer.LogThis(e.Message + ' @ TDirectorySession.RDOUpdateSubs: ' + alias);
+              result := DIR_ERROR_Unknown;
+            end;
+        end;
+      finally
+        UnLock;
+      end;
+    end;
+
+  function TDirectorySession.RDOUpdateAccount(alias, expDate : widestring) : olevariant;
+    begin
+      Lock;
+      try
+        KeepAlive;
+        try
+          result := fServer.UpdateAccount(alias, expDate);
+        except
+          on e : Exception do
+            begin
+              fServer.LogThis(e.Message + ' @ TDirectorySession.RDOUpdateSubs: ' + alias);
+              result := DIR_ERROR_Unknown;
+            end;
+        end;
+      finally
+        UnLock;
+      end;
+    end;
+
+  function TDirectorySession.RDOGetExpDays(alias : widestring) : olevariant;
+    begin
+      Lock;
+      try
+        KeepAlive;
+        try
+          result := fServer.GetExpDays(alias);
+        except
+          on e : Exception do
+            begin
+              fServer.LogThis(e.Message + ' @ TDirectorySession.RDOGetExpDays: ' + alias);
+              result := DIR_ERROR_Unknown;
+            end;
+        end;
+      finally
+        UnLock;
+      end;
+    end;
+
+  function TDirectorySession.RDOStoreKey(key : widestring) : olevariant;
+    begin
+      Lock;
+      try
+        KeepAlive;
+        try
+          result := fServer.StoreKey(key);
+        except
+          on e : Exception do
+            begin
+              fServer.LogThis(e.Message + ' @ TDirectorySession.RDOStoreKey: ' + key);
+              result := -1;
+            end;
+        end;
+      finally
+        UnLock;
+      end;
+    end;
+
+  function TDirectorySession.RDORetrieveKey(index : integer) : olevariant;
+    begin
+      Lock;
+      try
+        KeepAlive;
+        try
+          result := fServer.RetrieveKey(index);
+        except
+          on e : Exception do
+            begin
+              fServer.LogThis(e.Message + ' @ TDirectorySession.RDORetrieveKey');
+              result := '';
+            end;
+        end;
+      finally
+        UnLock;
+      end;
+    end;
+
+  function TDirectorySession.RDOLastKey : olevariant;
+    begin
+      Lock;
+      try
+        KeepAlive;
+        try
+          result := fServer.LastKey;
+        except
+          on e : Exception do
+            begin
+              fServer.LogThis(e.Message + ' @ TDirectorySession.LastKey');
+              result := -1;
+            end;
+        end;
+      finally
+        UnLock;
+      end;
+    end;
+
+  function TDirectorySession.RDORecordExtraInfo( Alias, Data : widestring ) : olevariant;
+    begin
+      Lock;
+      try
+        KeepAlive;
+        try
+          result := fServer.RecordExtraInfo( Alias, Data );
+        except
+          on e : Exception do
+            begin
+              fServer.LogThis( e.Message + ' @ TDirectorySession.RDORecordExtraInfo: ' + Data );
+              result := DIR_ERROR_Unknown;
+            end;
+        end;
+      finally
+        UnLock;
+      end;
+    end;
+
+
+  function TDirectorySession.RDONewUserId( Alias, Password, AccountId : widestring; FamilyId : integer ) : olevariant;
+    begin
+      Lock;
+      try
+        KeepAlive;
+        try
+          result := fServer.NewUserId( Alias, Password, AccountId, TSerialFamilyId(FamilyId) )
+        except
+          on e : Exception do
+            begin
+              fServer.LogThis( e.Message + ' @ TDirectorySession.RDONewUserId' );
+              result := DIR_ERROR_Unknown;
+            end;
+        end;
+      finally
+        UnLock;
+      end;
+    end;
+
+
+  function TDirectorySession.RDOLogonUser( Alias, Password : widestring ) : olevariant; //RDOSNAPLogonUser
+    begin
+      Lock;
+      try
+        KeepAlive;
+        try
+          if not DirectoryWin.cbSlave.Checked
+            then result := fServer.LogonSegaUser(Alias, Password, DirectoryWin.cbSegaAuth.Checked)
+            else result := fServer.LogonRemoteUser(Alias, Password, DirectoryWin.cbSegaAuth.Checked);
+        except
+          on e : Exception do
+            begin
+              fServer.LogThis( e.Message + ' @ TDirectorySession.RDOLogonUser' );
+              result := DIR_ERROR_Unknown;
+            end;
+        end;
+      finally
+        UnLock;
+      end;
+    end;
+
+
+  function TDirectorySession.RDOIsValidAlias( Alias : widestring ) : olevariant;
+    begin
+      Lock;
+      try
+        KeepAlive;
+        try
+          result := IsValidAlias( Alias );
+        except
+          on e : Exception do
+            begin
+              fServer.LogThis( e.Message + ' @ TDirectorySession.RDOIsValidAlias' );
+              result := DIR_ERROR_Unknown;
+            end;
+        end;
+      finally
+        UnLock;
+      end;
+    end;
+
+  function TDirectorySession.RDOGetAliasId( Alias : widestring ) : olevariant;
+    begin
+      Lock;
+      try
+        KeepAlive;
+        try
+          result := GetAliasId( Alias );
+        except
+          on e : Exception do
+            begin
+              fServer.LogThis( e.Message + ' @ TDirectorySession.RDOGetAliasId' );
+              result := DIR_ERROR_Unknown;
+            end;
+        end;
+      finally
+        UnLock;
+      end;
+    end;
+
+  function TDirectorySession.RDOGetUserPath( Alias : widestring ) : olevariant;
+    begin
+      Lock;
+      try
+        KeepAlive;
+        try
+          result := GetUserPath( Alias );
+        except
+          on e : Exception do
+            begin
+              fServer.LogThis( e.Message + ' @ TDirectorySession.RDOGetUserPath' );
+              result := DIR_ERROR_Unknown;
+            end;
+        end;
+      finally
+        UnLock;
+      end;
+    end;
+
+  function TDirectorySession.RDOCanJoinNewWorld( Alias : widestring ) : olevariant;
+    begin
+      Lock;
+      try
+        KeepAlive;
+        try
+          result := fServer.CanJoinNewWorld( Alias ) or DirectoryWin.cbJoinAllWorlds.Checked;
+        except
+          on e : Exception do
+            begin
+              fServer.LogThis( e.Message + ' @ TDirectorySession.RDOCanJoinNewWorld' );
+              result := DIR_ERROR_Unknown;
+            end;
+        end;
+      finally
+        UnLock;
+      end;
+    end;
+
+
+  function TDirectorySession.RDOGenSubscriptionId( Alias : widestring ) : olevariant;
+    begin
+      Lock;
+      try
+        KeepAlive;
+        try
+          result := fServer.GenSubscriptionId( Alias );
+        except
+          on e : Exception do
+            begin
+              fServer.LogThis( e.Message + ' @ TDirectorySession.RDOGenSubscriptionId' );
+              result := 0;
+            end;
+        end;
+      finally
+        UnLock;
+      end;
+    end;
+
+  function TDirectorySession.RDOGenSessionKey(len : integer) : olevariant;
+    var
+      RC4 : TRC4;
+    begin
+      Lock;
+      RC4 := TRC4.Create;
+      try
+        KeepAlive;
+        if len <= 0
+          then len := 20;
+        fSessionKey := RC4.genKey(len);
+        result := fSessionKey;
+      finally
+        RC4.Free;
+        UnLock;
+      end;
+    end;
+
+  function TDirectorySession.RDOEncryptText(text : widestring) : olevariant;
+    var
+      RC4 : TRC4;
+      dcypText : string;
+    begin
+      Lock;
+      RC4 := TRC4.Create;
+      try
+        KeepAlive;
+        RC4.Key := fSessionKey;
+        dcypText := RC4.Apply(RC4.toBin(text));
+        RC4.Key := UNIV_KEY;
+        result := RC4.toHex(RC4.Apply(dcypText));
+      finally
+        RC4.Free;
+        UnLock;
+      end;
+    end;
+
+  function TDirectorySession.RDOGetSecureTransId : olevariant;
+    var
+      RC4 : TRC4;
+      cypText : string;
+    begin
+      try
+        Lock;
+        RC4 := TRC4.Create;
+        try
+          KeepAlive;
+          RC4.Key := UNIV_KEY;
+          cypText := DateTimeToStr(Now);
+          result  := RC4.toHex(RC4.Apply(cypText));
+        finally
+          RC4.Free;
+          UnLock;
+        end;
+      except
+        result := '';
+      end;
+    end;
+
+  function TDirectorySession.RDOValidateTransId(id : widestring; mins : integer) : olevariant;
+    function Minutes(m : word) : TDateTime;
+      begin
+        result := EncodeTime(0, mins, 0, 0);
+      end;
+    var
+      RC4 : TRC4;
+      dcypText : string;
+      dt : TDateTime;
+    begin
+      try
+        Lock;
+        RC4 := TRC4.Create;
+        try
+          KeepAlive;
+          RC4.Key := UNIV_KEY;
+          dcypText := RC4.Apply(RC4.toBin(id));
+          dt := StrToDateTime(dcypText);
+          result := Now - dt < Minutes(mins);
+        finally
+          RC4.Free;
+          UnLock;
+        end;
+      except
+        result := false;
+      end;
+    end;
+
+  procedure TDirectorySession.KeepAlive;
+    begin
+      Lock;
+      try
+        if fLastUpdate <> NoExpire
+          then fLastUpdate := Now;
+      finally
+        UnLock;
+      end;
+    end;
+
+  procedure TDirectorySession.RDOSetExpires(value : WordBool);
+    begin
+      Lock;
+      try
+      if value
+        then fLastUpdate := Now
+        else fLastUpdate := NoExpire;
+      finally
+        UnLock;
+      end;
+    end;
+
+  function TDirectorySession.GetCurrentKey : widestring;
+    begin
+      Lock;
+      try
+        result := fDirMng.GetCurrentKey;
+      finally
+        UnLock;
+      end;
+    end;
+
+  procedure TDirectorySession.SetCurrentKey( FullPathKey : widestring );
+    begin
+      Lock;
+      try
+        fDirMng.SetCurrentKey( FullPathKey );
+      finally
+        UnLock;
+      end;
+    end;
+
+  procedure TDirectorySession.Lock;
+    begin
+      inc(fRefCount);
+      if fLock <> nil
+        then fLock.Enter;
+    end;
+
+  procedure TDirectorySession.Unlock;
+    begin
+      if fLock <> nil
+        then fLock.Leave;
+      dec(fRefCount);
+    end;
+
+  {function TDirectorySession.RootExists(SerialNo : string) : boolean;
+    begin
+      // todo
+      result := false;
+    end;
+
+  procedure TDirectorySession.AddRoot(SerialNo : string);
+    begin
+      // todo
+    end;}
+
+
+  // TDirectoryServer
+
+  constructor TDirectoryServer.Create( Port : integer; aDBName : string; isSecure : boolean );
+    begin
+      inherited Create;
+      try
+        fAccountLock     := TCriticalSection.Create;
+        fSessions        := TLockableCollection.Create( 10, rkBelonguer );
+        fDBName          := aDBName;
+        fIsSecure        := isSecure;
+        fDAConn          := TWinSockRDOConnectionsServer.Create( Port );
+        fDAServ          := TRDOServer.Create( fDAConn as IRDOServerConnection, 10, nil );
+        fDAServ.RegisterObject( tidRDOHook_DirectoryServer, integer(self) );
+        fDAConn.StartListening;
+        GetGlobalFields;
+        MaxTrialBySerial := 1;
+      except
+        on e : Exception do
+          begin
+            LogThis( e.Message + ' @ TDirectoryServer.Create' );
+            raise e;
+          end;
+      end;
+    end;
+
+  destructor TDirectoryServer.Destroy;
+    begin
+      try
+        fDAServ.Free;
+        fAccountLock.Free;
+        fSessions.free;
+      except
+        on e : Exception do
+          begin
+            LogThis( e.Message + ' @ TDirectoryServer.Destroy' );
+          end;
+      end;
+      inherited;
+    end;
+
+  function TDirectoryServer.RDOOpenSession : olevariant;
+    var
+      session : TDirectorySession;
+    begin
+      try
+        session := TDirectorySession.Create( self, fDBName, fIsSecure );
+        fSessions.Insert( session );
+        result := integer(session);
+      except
+        on e : Exception do
+          begin
+            result := null;
+            LogThis( e.Message + ' @ TDirectoryServer.RDOOpenSession' );
+          end;
+      end;
+    end;
+
+  procedure TDirectoryServer.EndSession( aSession : TDirectorySession );
+    begin
+      try
+        fSessions.Delete( aSession );
+      except
+        on e : Exception do
+          begin
+            LogThis( e.Message + ' @ TDirectoryServer.EndSession' );
+          end;
+      end;
+    end;
+
+
+  function TDirectoryServer.GenAccountId( FamilyId : TSerialFamilyId ) : TAccountId;
+    var
+      session    : TDirectorySession;
+      LastIdSeed : integer;
+    begin
+      result := '';
+      if GenID
+        then
+          begin
+            fAccountLock.Enter;
+            try
+               session := TDirectorySession.Create( self, fDBName, fIsSecure );
+               try
+                 session.RDOSetCurrentKey( 'Root/System' );
+                 LastIdSeed := session.RDOReadInteger( 'LastIdSeed' );
+                 inc( LastIdSeed );
+                 result := GenUniqueIdd( LastIdSeed, SerialFamilies[FamilyId] );
+                 session.RDOWriteInteger( 'LastIdSeed', LastIdSeed );
+               finally
+                 session.Free;
+               end;
+            finally
+              fAccountLock.Leave;
+            end;
+          end
+    end;
+
+
+  function TDirectoryServer.NewAccount( AccountId : TAccountId; FamilyId : TSerialFamilyId ) : integer;
+
+    function SerialIsValid( session : TDirectorySession; key : string ) : boolean;
+      begin
+        if not session.RDOFullPathKeyExists( key )
+          then result := true
+          else
+            begin
+              session.RDOCurrentKey := key;
+              if session.RDOReadBoolean('blocked')
+                then result := false
+                else
+                  if session.RDOKeysCount < MaxSerialUses
+                    then result := true
+                    else result := session.RDOReadBoolean('shared')
+            end;
+      end;
+
+    var
+      session : TDirectorySession;
+      key     : string;
+    begin
+      if GenIdd.HeavyIddCheck( AccountId, SerialFamilies[FamilyId] ) and GenIdd.LighIddCheck(AccountId)
+        then
+          begin
+            fAccountLock.Enter;
+            try
+               session := TDirectorySession.Create( self, fDBName, fIsSecure );
+               try
+                 key := 'Root/Serials/_' + AccountId;
+                 if SerialIsValid( session, key )
+                   then
+                     begin
+                       session.RDOCreateFullPathKey( key, true );
+                       session.RDOSetCurrentKey( key );
+                       session.RDOWriteDate( 'Created', Now );
+                       session.RDOWriteInteger( 'SerialClass', integer(FamilyId) );
+                       result := DIR_NOERROR;
+                     end
+                   else result := DIR_ERROR_InvalidSerial;
+               finally
+                 session.Free;
+               end;
+            finally
+              fAccountLock.Leave;
+            end;
+          end
+        else result := DIR_ERROR_InvalidSerial;
+    end;
+
+
+  function TDirectoryServer.NewUserId( Alias, Password, AccountId : widestring; FamilyId : TSerialFamilyId ) : integer;
+
+//  const
+//    MaxSerialUses = 1;
+
+    {
+    function EndOfTrial : TDateTime;
+      var
+        d, m, y : word;
+      begin
+        DecodeDate( Now, y, m, d );
+        if m < 12
+          then m := m + 1
+          else
+            begin
+              y := y + 1;
+              m := 1;
+            end;
+        result := EncodeDate( y, m, d );
+      end;
+    }
+
+    function EndOfTrial(days : integer) : TDateTime;
+      begin
+        if days <= 0
+          then result := Now + End_Of_Trial
+          else result := Now + days;
+      end;
+
+    var
+      session   : TDirectorySession;
+      userkey   : string;
+      serialkey : string;
+      aliasId   : string;
+      timesused : integer;
+      trialdays : integer;
+      sharedSr  : boolean;
+    begin
+      Alias := Trim( Alias );
+      if GenIdd.HeavyIddCheck( AccountId, SerialFamilies[FamilyId] ) and GenIdd.LighIddCheck(AccountId)
+        then
+          if IsValidAlias( Alias )
+            then
+              begin
+                fAccountLock.Enter;
+                try
+                  session := TDirectorySession.Create( self, fDBName, fIsSecure );
+                  try
+                    aliasId   := GetAliasId(Alias);
+                    userkey   := GetUserPath(aliasId);
+                    serialkey := 'Root/Serials/_' + AccountId;
+                    if session.RDOFullPathKeyExists( serialkey )
+                      then
+                        begin
+                          if not session.RDOFullPathKeyExists( userkey )
+                            then
+                              begin
+                                if session.RDOCreateFullPathKey( userkey, true )
+                                  then
+                                    begin
+                                      // Update serialId data
+                                      session.RDOSetCurrentKey( serialkey );
+                                      timesused := session.RDOKeysCount;
+                                      trialdays := session.RDOReadInteger('trialdays');
+                                      if trialdays = 0
+                                        then trialdays := 30;
+                                      if timesused = 0
+                                        then session.RDOWriteDate( 'FirstUsed', Now );
+                                      session.RDOWriteDate( 'LastUsed', Now );
+                                      sharedSr := session.RDOReadBoolean('shared');
+                                      session.RDOCreateFullPathKey( serialkey + '/' + aliasId, true );
+                                      // Add userId parameters
+                                      session.RDOSetCurrentKey( userkey );
+                                      session.RDOWriteString( 'AccountId', AccountId );
+                                      session.RDOWriteString( 'Password', Password );
+                                      session.RDOWriteString( 'Alias', Alias );
+                                      session.RDOWriteInteger( 'AccountStatus', 1 );
+                                      session.RDOWriteDate( 'Created', Now );
+                                      if (timesused < MaxTrialBySerial) or sharedSr
+                                        then session.RDOWriteDate('TrialExpires', EndOfTrial(trialdays))
+                                        else session.RDOWriteDate( 'TrialExpires', Now );
+                                      result := DIR_NOERROR
+                                    end
+                                  else result := DIR_ERROR_Unknown
+                              end
+                            else result := DIR_ERROR_AccountAlreadyExists
+                        end
+                      else result := DIR_ERROR_InvalidSerial
+                  finally
+                    session.Free;
+                  end;
+                finally
+                  fAccountLock.Leave;
+                end;
+              end
+            else result := DIR_ERROR_InvalidAlias
+        else result := DIR_ERROR_InvalidSerial;
+    end;
+
+  function TDirectoryServer.LogonSegaUser(Alias, Password : widestring; useSWAN : boolean) : olevariant;
+    var
+      session   : TDirectorySession;
+      userkey   : string;
+      realpass  : string;
+      sdcname   : string;
+      compUser  : string;
+      aliasId   : string;
+      logpass   : string;
+      created   : TDateTime;
+      oldMask   : integer;
+      newMask   : integer;
+      days      : integer;
+      acstatus  : integer;
+      crtdate   : TDateTime;
+    begin
+      Alias := Trim(Alias);
+      if IsValidAlias(Alias) or not AuthenticAlias(Alias) // this allows the old account to log in e.g. OC_Support, GM_XXX
+        then
+          begin
+            session := TDirectorySession.Create( self, fDBName, true );
+            try
+              aliasId := GetAliasId ( Alias );
+              userkey := GetUserPath( aliasId );
+              if session.RDOFullPathKeyExists( userkey )
+                then
+                  begin
+                    session.RDOSetCurrentKey( userkey );
+
+                    realpass := session.RDOReadString('password');
+                    sdcname  := session.RDOReadString('sdcname');
+                    acstatus := session.RDOReadInteger('AccountStatus');
+
+                    if sdcname <> ''
+                      then compUser := sdcname + fDomain  //'@StarPeace'
+                      else compUser := Alias   + fDomain; //'@StarPeace'
+
+                    if UpperCase(realpass) = UpperCase(Password)
+                      then logpass := realpass
+                      else logpass := Password;
+
+                    if logpass <> ''
+                      then
+                        case acstatus of
+                          DIR_ACC_BlockedUser : // blocked users
+                            result := DIR_SEGA_ERROR_UserNotAuthorized;
+                          DIR_ACC_NoAuthUserA, DIR_ACC_NoAuthUserB : // pre authorized users
+                            if UpperCase(realpass) = UpperCase(Password)
+                              then result := 0
+                              else result := DIR_SEGA_ERROR_UserNotAuthorized;
+                          4 :
+                            begin
+                              if UpperCase(realpass) = UpperCase(Password)
+                                then
+                                  begin
+                                    crtdate := session.RDOReadDate('created');
+                                    if Now - crtdate < 15
+                                      then result := 0
+                                      else result := DIR_SEGA_ERROR_UserNotAuthorized;
+                                  end
+                                else result := DIR_SEGA_ERROR_UserNotAuthorized;
+                            end;
+                          else
+                            if useSWAN
+                              then result := authUser(pchar(compUser), pchar(logpass)) // check against SWAN
+                              else
+                                if (acstatus = DIR_ACC_RegUser) and (UpperCase(realpass) = UpperCase(Password))
+                                  then result := 0
+                                  else result := DIR_SEGA_ERROR_UserNotAuthorized;
+                        end
+                      else result := DIR_SEGA_ERROR_UserNotAuthorized;
+
+                    if result = 0
+                      then
+                        begin
+                          created := session.RDOReadDate('created');
+                          oldMask := session.RDOReadInteger('accmodifier');
+                          newMask := oldMask;
+                          days    := max(0, round(Now - created));
+
+                          // check newbie
+                          if days > 15
+                            then newMask := newMask and not AccMod_Newbie
+                            else newMask := newMask or AccMod_Newbie;
+
+                          // check veteran
+                          if days > 12*30
+                            then newMask := newMask or AccMod_Veteran;
+
+                          // save the mask
+                          if oldMask <> newMask
+                            then session.RDOWriteInteger('accmodifier', newMask);
+
+                          if CompareStr(realpass, logpass) <> 0
+                            then
+                              begin
+                                session.RDOWriteString('oldpassword', realpass);
+                                session.RDOWriteString('password', logpass);
+                              end;
+                          Logs.Log('login', TimeToStr(Now) + ' Successful login User: "' + Alias + '" SEGA User: "' + compUser + '" Password: "' + Password + '" SNAP Code: ' + IntToStr(result));
+                        end
+                      else
+                        if acstatus <> DIR_ACC_BlockedUser
+                          then
+                            begin
+                              Logs.Log('login', TimeToStr(Now) + ' Cannot log LO User: "' + Alias + '" SEGA User: "' + compUser + '" Password: "' + Password + '" SNAP Error: ' + IntToStr(result));
+                              result := MapSegaError(result);
+                            end
+                          else result := DIR_ERROR_AccountBlocked;
+                  end
+                else
+                  begin
+                    result := DIR_ERROR_InvalidAlias;
+                    Logs.Log('login', TimeToStr(Now) + ' Invalid or Empty LOL alias: ' + Alias);
+                  end;
+            finally
+              session.Free;
+            end;
+          end
+        else
+          begin
+            result := DIR_ERROR_InvalidAlias;
+            Logs.Log('login', TimeToStr(Now) + ' Invalid or Empty LOL alias: ' + Alias);
+          end;
+    end;
+
+  function TDirectoryServer.LogonRemoteUser(Alias, Password : widestring; useSWAN : boolean) : olevariant;
+    var
+      ISProxy : OleVariant;
+      session : TDirectorySession;
+      key     : string;
+    begin
+       try
+         result := LogonSegaUser(Alias, Password, useSWAN);
+         if result <> 0
+           then
+             begin
+               ISProxy := GetRemoteSession;
+               if not VarIsEmpty(ISProxy)
+                 then
+                   try
+                     result := ISProxy.RDOLogonUser(Alias, Password);
+                     if result = 0
+                       then
+                         begin
+                           session := TDirectorySession.Create(self, fDBName, true);
+                           key := GetUserPath(Alias);
+                           if not session.RDOSetCurrentKey(key)
+                             then session.RDOCreateFullPathKey(key, true);
+                           if session.RDOSetCurrentKey(key) and ISProxy.RDOSetCurrentKey(key)
+                             then
+                               begin
+                                 session.RDOWriteString ('Alias', Alias);
+                                 session.RDOWriteString ('Password', Password);
+                                 session.RDOWriteInteger('AccountStatus', 0);
+                                 session.RDOWriteString ('accountid', ISProxy.RDOReadString('accountid'));
+                                 session.RDOWriteString ('sdcname', ISProxy.RDOReadString('sdcname'));
+                                 session.RDOWriteInteger('nobpoints', ISProxy.RDOReadInteger('nobpoints'));
+                                 session.RDOWriteInteger('accmodifier', ISProxy.RDOReadInteger('accmodifier'));
+                                 session.RDOWriteDate   ('created', ISProxy.RDOReadDate('created'));
+                               end
+                             else result := DIR_ERROR_Unknown;
+                         end;
+                   finally
+                     ISProxy.RDOEndSession;
+                   end;
+             end;
+       except
+         result := DIR_ERROR_Unknown;
+       end;
+    end;
+
+  function TDirectoryServer.GetRemoteSession : olevariant;
+    var
+      session : integer;
+      ISCnx   : IRDOConnectionInit;
+      WSISCnx : TWinSockRDOConnection;
+      ISProxy : OleVariant;
+    begin
+       try
+         WSISCnx      := TWinSockRDOConnection.Create('Remote_Cnx');
+         ISCnx        := WSISCnx;
+         ISCnx.Server := DirectoryWin.edMasterIP.Text;
+         ISCnx.Port   := StrToInt(DirectoryWin.edMasterPort.Text);
+         if ISCnx.Connect(20000)
+           then
+             begin
+               ISProxy := TRDOObjectProxy.Create as IDispatch;
+               ISProxy.SetConnection( ISCnx );
+               ISProxy.BindTo('DirectoryServer');
+               ISProxy.TimeOut := 20000;
+               session := ISProxy.RDOOpenSession;
+               if (session <> 0) and ISProxy.BindTo(session)
+                 then result := ISProxy
+                 else result := Unassigned;
+             end
+           else result := Unassigned;
+       except
+         result := Unassigned;
+       end;
+    end;
+
+  function TDirectoryServer.MapSegaUser(Alias : widestring) : olevariant;
+    var
+      session : TDirectorySession;
+      userkey : string;
+      spAlias : string;
+      ISProxy : OleVariant;
+      resStr  : string;
+    begin
+      session := TDirectorySession.Create(self, fDBName, true);
+      try
+        userkey := GetUserMapPath(Alias);
+        if session.RDOSetCurrentKey(userkey)
+          then
+            begin
+              spAlias := session.RDOReadString('alias');
+              result  := spAlias;
+            end
+          else result := '';
+        // Map on Master
+        resStr := result;
+        if (resStr = '') and DirectoryWin.cbSlave.Checked
+          then
+            begin
+              ISProxy := GetRemoteSession;
+              if not VarIsEmpty(ISProxy)
+                then
+                  try
+                    resStr := ISProxy.RDOMapSegaUser(Alias);
+                    if (resStr <> '') and session.RDOCreateFullPathKey(userkey, true) and session.RDOSetCurrentKey(userkey)
+                      then session.RDOWriteString('alias', resStr);
+                    result := resStr;
+                  finally
+                    ISProxy.RDOEndSession;
+                  end;
+            end;
+      finally
+        session.Free;
+      end;
+    end;
+
+  function TDirectoryServer.CanJoinNewWorld( Alias : widestring ) : boolean;
+    var
+      session    : TDirectorySession;
+      userkey    : string;
+      NobPoints  : integer;
+      worldcount : integer;
+      allowed    : integer;
+    begin
+      session := TDirectorySession.Create( self, fDBName, fIsSecure );
+      try
+        userkey := GetUserPath( Alias );
+        if session.RDOFullPathKeyExists( userkey )
+          then
+            begin
+              session.SetCurrentKey( userkey );
+              try
+                NobPoints := session.RDOReadInteger( 'NobPoints' );
+                if NobPoints = 0
+                  then NobPoints := 2;
+              except
+                NobPoints := cNobPoints;
+              end;
+              userkey := GetUserPath( Alias ) + '/AccountInfo/Worlds';
+              if session.RDOFullPathKeyExists( userkey )
+                then
+                  begin
+                    session.SetCurrentKey( userkey );
+                    worldcount := session.RDOKeysCount;
+                    allowed    := NobilityToWorlds(NobPoints);
+                    result     := worldcount < allowed; //< NobPoints;
+                  end
+                else result := true;
+            end
+          else result := false;
+      finally
+        session.Free;
+      end;
+    end;
+
+  function TDirectoryServer.GenSubscriptionId( Alias : widestring ) : integer;
+    var
+      session : TDirectorySession;
+      LastId  : integer;
+      key     : string;
+    begin
+      try
+        fAccountLock.Enter;
+        try
+           session := TDirectorySession.Create( self, fDBName, fIsSecure );
+           try
+             // Generate the Id
+             session.RDOSetCurrentKey( 'Root/System' );
+             LastId := session.RDOReadInteger( 'LastSubscriptionId' );
+             inc( LastId );
+             result := LastId;
+             session.RDOWriteInteger( 'LastSubscriptionId', LastId );
+
+             // Assign the Id to the Alias
+             key := 'Root/Subcriptions/' + IntToStr(result);
+             if session.RDOCreateFullPathKey( key, true )
+               then
+                 begin
+                   session.RDOSetCurrentKey( key );
+                   session.RDOWriteString( 'Alias', Alias );
+                   key := session.RDOGetUserPath( Alias );
+                   if session.RDOSetCurrentKey( key )
+                     then session.RDOWriteInteger( 'SubscriptionId', result );
+                 end;
+           finally
+             session.Free;
+           end;
+        finally
+          fAccountLock.Leave;
+        end;
+      except
+        result := 0;
+      end;
+    end;
+
+  function TDirectoryServer.GenTransactionId( Alias : widestring ) : integer;
+    var
+      session : TDirectorySession;
+      LastId  : integer;
+      key     : string;
+    begin
+      try
+        fAccountLock.Enter;
+        try
+           session := TDirectorySession.Create( self, fDBName, fIsSecure );
+           try
+             // Generate the Id
+             session.RDOSetCurrentKey( 'Root/System' );
+             LastId := session.RDOReadInteger( 'LastTransactionId' );
+             inc( LastId );
+             result := LastId;
+             session.RDOWriteInteger( 'LastTransactionId', LastId );
+
+             // Assign the Id to the Alias
+             key := 'Root/Transactions/' + IntToStr(result);
+             if session.RDOCreateFullPathKey( key, true )
+               then
+                 begin
+                   session.RDOSetCurrentKey( key );
+                   session.RDOWriteString( 'Alias', Alias );
+                   key := session.RDOGetUserPath( Alias );
+                   if session.RDOSetCurrentKey( key )
+                     then session.RDOWriteInteger( 'TransactionId', result );
+                 end;
+           finally
+             session.Free;
+           end;
+        finally
+          fAccountLock.Leave;
+        end;
+      except
+        result := 0;
+      end;
+    end;
+
+  function GetProperties( data : string ) : TStringList;
+    begin
+      data := ReplaceStr( data, '&', #13#10 );
+      data := ReplaceStr( data, '?', #13#10 );
+      result := TStringList.Create;
+      result.Text := data;
+    end;
+
+
+  function TDirectoryServer.RecordSubscriptionInfo( SubscriptionId, Data : widestring ) : integer;
+
+    function UpdateSubscriptionInfo( alias, key : string; session : TDirectorySession ) : boolean;
+
+      const
+        SIPS_OK             = 0;  // OK
+        SIPS_CANCEL_BY_USER = 17; // CANCEL BY USER
+        SIPS_EXEEDED        = 75; // Allowable number of tries exceeded
+        SIPS_NONAVAIL       = 90; // SERVICE TEMPORARLY UNAVAILABLE
+        SIPS_DUPLICATED     = 94; // DUPLICATE REQUEST
+
+      var
+        props : TStringList;
+        i     : integer;
+        skey  : string;
+        name  : string;
+        code  : integer;
+      begin
+        skey := key + '/Subscription';
+        if session.RDOCreateFullPathKey( skey, true )
+          then
+            begin
+              session.RDOSetCurrentKey( skey );
+              session.RDOWriteString  ( 'Data', Data );
+              props := GetProperties  ( Data );
+              try
+                for i := 0 to pred(props.Count) do
+                  begin
+                    name := props.Names[i];
+                    if name <> ''
+                      then session.RDOWriteString( name, props.Values[name] );
+                  end;
+                try
+                  code := StrToInt( props.Values['response_code'] );
+                  session.RDOSetCurrentKey( key );
+                  case code of
+                    SIPS_OK :
+                      begin
+                        session.RDOWriteInteger( 'accountstatus', 0 );
+                        if session.RDOReadBoolean('demo')
+                          then session.RDOWriteBoolean('demo', false);
+                        if alias <> ''
+                          then session.RDOCreateFullPathKey('root/paying/' + alias, true);
+                      end;
+                    SIPS_CANCEL_BY_USER :
+                      begin
+                        session.RDOWriteInteger( 'accountstatus', 1 );
+                        if alias <> ''
+                          then session.RDODeleteFullPathNode('root/paying/' + alias);
+                      end;
+                  end;
+                  result := true;
+                except
+                  Logs.Log( 'Subscription', DateToStr(Now) + ': Invalid Code, key ' + skey + '. (' + Data + ')' );
+                  result := false;
+                end;
+              finally
+                props.Free;
+              end;
+            end
+          else
+            begin
+              result := false;
+              Logs.Log( 'Subscription', DateToStr(Now) + ': Key ' + key + ' could not be created. (' + Data + ')' );
+            end;
+      end;
+
+    var
+      session : TDirectorySession;
+      key     : string;
+      alias   : string;
+    begin
+      try
+        Logs.Log( 'Subscription', DateToStr(Now) + ': SubscriberId ' + SubscriptionId + ' was requested. (' + Data + ')' );
+        fAccountLock.Enter;
+        Logs.Log( 'Subscription', DateToStr(Now) + ': SubscriberId ' + SubscriptionId + ' started. (' + Data + ')' );
+        try
+           session := TDirectorySession.Create( self, fDBName, fIsSecure );
+           try
+             key := 'Root/Subcriptions/' + SubscriptionId;
+             if session.RDOSetCurrentKey( key )
+               then
+                 begin
+                   alias := session.RDOReadString( 'Alias' );
+                   if alias <> ''
+                     then
+                       begin
+                         key := session.RDOGetUserPath( alias );
+                         if session.RDOSetCurrentKey( key )
+                           then
+                             begin
+                               if UpdateSubscriptionInfo( alias, key, session )
+                                 then
+                                   begin
+                                     Logs.Log( 'Subscription', DateToStr(Now) + ': SUCCESS! SubscriberId ' + SubscriptionId + ' started. (' + Data + ')' );
+                                     result := DIR_NOERROR
+                                   end
+                                 else result := DIR_ERROR_Unknown;
+                             end
+                           else
+                             begin
+                               Logs.Log( 'Subscription', DateToStr(Now) + ': Alias ' + alias + ' not found. (' + Data + ')' );
+                               result := DIR_ERROR_InvalidAlias;
+                             end
+                       end
+                     else
+                       begin
+                         Logs.Log( 'Subscription', DateToStr(Now) + ': Alias ' + alias + ' missing in SubscriptionId. (' + Data + ')' );
+                         result := DIR_ERROR_InvalidAlias;
+                       end
+                 end
+               else
+                 begin
+                   Logs.Log( 'Subscription', DateToStr(Now) + ': SubscriberId ' + SubscriptionId + ' not found. (' + Data + ')' );
+                   result := DIR_ERROR_SubscriberIdNotFound;
+                 end;
+           finally
+             session.Free;
+           end;
+        finally
+          fAccountLock.Leave;
+        end;
+      except
+        Logs.Log( 'Subscription', DateToStr(Now) + ': Uknown error handing Id ' + SubscriptionId + '. (' + Data + ')' );
+        raise;
+      end;
+    end;
+
+  function TDirectoryServer.RecordExtraInfo( Alias, Data : widestring ) : integer;
+
+    function UpdateSubscriptionInfo( key : string; session : TDirectorySession ) : boolean;
+
+{
+      function unEscapeStr( escapeStr : string ) : string;
+        var
+          url    : array[0..2048] of char;
+          lenght : dword;
+          str    : string;
+        begin
+          lenght := 2048;
+          result := StringReplace( escapeStr, '+', ' ', [rfReplaceAll] );
+          escapeStr := StringReplace( escapeStr, '+', ' ', [rfReplaceAll] );
+          if InternetCanonicalizeUrl(PChar(escapeStr), @url, lenght, ICU_DECODE )
+             then result := url
+             else result := '';
+        end;
+}
+
+      const
+        SIPS_OK             = 0;  // OK
+        SIPS_CANCEL_BY_USER = 17; // CANCEL BY USER
+        SIPS_EXEEDED        = 75; // Allowable number of tries exceeded
+        SIPS_NONAVAIL       = 90; // SERVICE TEMPORARLY UNAVAILABLE
+        SIPS_DUPLICATED     = 94; // DUPLICATE REQUEST
+
+      var
+        props : TStringList;
+        i     : integer;
+        skey  : string;
+        name  : string;
+        value : string;
+      begin
+        skey := key + '/UserInfo';
+        if session.RDOCreateFullPathKey( skey, true )
+          then
+            begin
+              session.RDOSetCurrentKey( skey );
+              session.RDOWriteString( 'Data', Data );
+              props := GetProperties( Data );
+              try
+                for i := 0 to pred(props.Count) do
+                  begin
+                    name := props.Names[i];
+                    if name <> ''
+                      then
+                        begin
+                          value := props.Values[name];
+                          session.RDOWriteString( name, value );
+                        end;
+                  end;
+                result := true;
+              finally
+                props.Free;
+              end;
+            end
+          else result := false;
+      end;
+
+    var
+      session : TDirectorySession;
+      key     : string;
+    begin
+      fAccountLock.Enter;
+      try
+         session := TDirectorySession.Create( self, fDBName, fIsSecure );
+         try
+           if alias <> ''
+             then
+               begin
+                 key := session.RDOGetUserPath( alias );
+                 if session.RDOSetCurrentKey( key )
+                   then
+                     begin
+                       if UpdateSubscriptionInfo( key, session )
+                         then result := DIR_NOERROR
+                         else result := DIR_ERROR_Unknown;
+                     end
+                   else result := DIR_ERROR_InvalidAlias;
+               end
+             else result := DIR_ERROR_InvalidAlias;
+         finally
+           session.Free;
+         end;
+      finally
+        fAccountLock.Leave;
+      end;
+    end;
+
+
+  function TDirectoryServer.NotifyCharge(subsid, pnref, resp_code, resp_msg : widestring) : integer;
+    var
+      session : TDirectorySession;
+      key     : string;
+      alias   : string;
+      aux     : string;
+    begin
+      try
+        fAccountLock.Enter;
+        try
+          session := TDirectorySession.Create(self, fDBName, fIsSecure);
+          try
+            key := 'root/subcriptions/' + subsid;
+            if fIsSecure and session.RDOSetCurrentKey(key)
+              then
+                begin
+                  alias := session.RDOReadString('alias');
+                  if alias <> ''
+                    then
+                      begin
+                        key := session.RDOGetUserPath(alias);
+                        if session.RDOCreateFullPathKey(key + '/subscription', true) and session.RDOSetCurrentKey(key + '/subscription')
+                          then
+                            begin
+                              aux := session.RDOReadString('pnref_hist');
+                              if aux <> ''
+                                then aux := aux + ',' + pnref
+                                else aux := pnref;
+                              session.RDOWriteString('pnref_hist', aux);
+                              session.RDOWriteString('pnref', pnref);
+                              session.RDOWriteString('response_code', resp_code);
+                              session.RDOWriteString('response_msg', resp_msg);
+                              if session.RDOSetCurrentKey(key)
+                                then
+                                  begin
+                                    if resp_code <> '0'
+                                      then
+                                        begin
+                                          session.RDOWriteInteger('accountstatus', 1);
+                                          session.RDOWriteDate('trialexpires', Now);
+                                        end
+                                      else
+                                        begin
+                                          session.RDOWriteInteger('accountstatus', 0);
+                                          session.RDOWriteDate('chargedate', Now + 30); // Charge next month
+                                        end;
+                                    result := DIR_NOERROR;
+                                  end
+                                else result := DIR_ERROR_InvalidAlias;
+                            end
+                          else result := DIR_ERROR_InvalidAlias;
+                      end
+                    else result := DIR_ERROR_InvalidAlias;
+                end
+              else result := DIR_ERROR_SubscriberIdNotFound;
+          finally
+           session.Free;
+          end;
+        finally
+          fAccountLock.Leave;
+        end;
+      except
+        Logs.Log('Subscription', DateToStr(Now) + ': Uknown error in NotifyCharge ' + subsid);
+        raise;
+      end;
+    end;
+
+  function TDirectoryServer.NotifyMoneyTransfer(subsid, ttype, tinfo, months : widestring) : integer;
+    var
+      session : TDirectorySession;
+      key     : string;
+      alias   : string;
+      chgDate : TDateTime;
+      expDate : TDateTime;
+      aux     : string;
+    begin
+      try
+        fAccountLock.Enter;
+        try
+          session := TDirectorySession.Create(self, fDBName, fIsSecure);
+          try
+            key := 'root/subcriptions/' + subsid;
+            if fIsSecure and session.RDOSetCurrentKey(key)
+              then
+                begin
+                  alias := session.RDOReadString('alias');
+                  if alias <> ''
+                    then
+                      begin
+                        key := session.RDOGetUserPath(alias);
+                        if session.RDOSetCurrentKey(key)
+                          then
+                            begin
+                              chgDate := session.RDOReadDate('chargedate');
+                              expDate := session.RDOReadDate('trialexpires');
+                              if expDate < Now
+                                then expDate := Now;
+                              if chgDate < expDate
+                                then chgDate := expDate + 30*StrToInt(months)
+                                else chgDate := chgDate + 30*StrToInt(months);
+                              session.RDOWriteDate('chargedate', chgDate);
+                              session.RDOWriteInteger('accountstatus', 0);
+                              if session.RDOCreateFullPathKey(key + '/subscription', true) and session.RDOSetCurrentKey(key + '/subscription')
+                                then
+                                  begin
+                                    session.RDOWriteString('type', ttype);
+                                    aux := session.RDOReadString('info_hist');
+                                    if aux <> ''
+                                      then aux := aux + ',' + tinfo + '(' + months + ' d:' + DateToStr(Now) + ' v=?)'
+                                      else aux := tinfo + '(' + months + ' d:' + DateToStr(Now) + ' v=?)';
+                                    session.RDOWriteString('info_hist', aux);
+                                    session.RDOWriteString('info', tinfo);
+                                    session.RDOWriteString('verified', 'no');
+                                    session.RDOWriteDate('date', Now);
+                                    session.RDOWriteInteger('period', StrToInt(months));
+                                    result := DIR_NOERROR;
+                                  end
+                                else result := DIR_ERROR_InvalidAlias;
+                            end
+                          else result := DIR_ERROR_InvalidAlias;
+                      end
+                    else result := DIR_ERROR_InvalidAlias;
+                end
+              else result := DIR_ERROR_SubscriberIdNotFound;
+          finally
+           session.Free;
+          end;
+        finally
+          fAccountLock.Leave;
+        end;
+      except
+        Logs.Log('Subscription', DateToStr(Now) + ': Uknown error in NotifyCharge ' + subsid);
+        raise;
+      end;
+    end;
+
+  function TDirectoryServer.Unsubscribe(alias, subsid : widestring) : integer;
+    var
+      session : TDirectorySession;
+      key     : string;
+      DSAlias : string;
+      expDt   : TDateTime;
+      chgDt   : TDateTime;
+    begin
+      try
+        fAccountLock.Enter;
+        try
+           session := TDirectorySession.Create(self, fDBName, fIsSecure);
+           try
+             key := 'root/subcriptions/' + subsid;
+             if fIsSecure and session.RDOSetCurrentKey(key)
+               then
+                 begin
+                   DSAlias := session.RDOReadString('alias');
+                   if LowerCase(alias) = LowerCase(DSAlias)
+                     then
+                       begin
+                         key := GetUserPath(alias);
+                         if session.RDOSetCurrentKey(key)
+                           then
+                             begin
+                               session.RDOWriteInteger('AccountStatus', 1);
+                               expDt := session.RDOReadDate('trialexpires');
+                               chgDt := session.RDOReadDate('chargedate');
+                               if chgDt > expDt
+                                 then session.RDOWriteDate('trialexpires', chgDt);
+                               if session.RDOSetCurrentKey(key + '/Subscription')
+                                 then
+                                   begin
+                                     session.RDOWriteString('response_msg', 'unsubscribed');
+                                     //session.RDOWriteString('cc_no_crypt', '');
+                                     //session.RDOWriteString('cc_no_disp', '');
+                                   end;
+                               key := 'root/paying/' + GetAliasId(alias);
+                               session.RDODeleteFullPathNode(key);
+                               result := DIR_NOERROR;
+                               Logs.Log('Unsubscriptions', DateTimeToStr(Now) + #9 + alias);
+                             end
+                           else result := DIR_ERROR_SubscriberIdNotFound;
+                       end
+                     else result := DIR_ERROR_SubscriberIdNotFound;
+                 end
+               else result := DIR_ERROR_SubscriberIdNotFound;
+           finally
+             session.Free;
+           end;
+        finally
+          fAccountLock.Leave;
+        end;
+      except
+        Logs.Log('Subscription', DateToStr(Now) + ': Uknown error in Unsubscribe ' + subsid);
+        raise;
+      end;
+    end;
+
+  function TDirectoryServer.UpdateSubscription(alias : widestring; valid : wordbool) : integer;
+    var
+      session : TDirectorySession;
+      key     : string;
+    begin
+      try
+        session := TDirectorySession.Create(self, fDBName, fIsSecure);
+        try
+          key := GetUserPath(alias);
+          if fIsSecure and session.RDOSetCurrentKey(key)
+            then
+              begin
+                if valid
+                  then session.RDOWriteInteger('AccountStatus', 0)
+                  else
+                    begin
+                      session.RDOWriteInteger('AccountStatus', 1);
+                      session.RDOWriteDate('TrialExpires', Now);
+                    end;
+                result := 0;
+              end
+            else result := -1;
+        finally
+          session.Free;
+        end;
+      except
+        result := -1;
+        Logs.Log('survival', TimeToStr(Now) + ': Uknown error at UpdateSubscription.');
+      end;
+    end;
+
+  function TDirectoryServer.UpdateAccount(alias, expDate : widestring) : integer;
+    var
+      session    : TDirectorySession;
+      key        : string;
+      yy, mm, dd : word;
+      hh, mi     : word;
+      expiry     : TDateTime;
+      aux        : string;
+      p          : integer;
+    begin
+      try
+        session := TDirectorySession.Create(self, fDBName, fIsSecure);
+        try
+          key := GetUserPath(alias);
+          if fIsSecure and session.RDOSetCurrentKey(key)
+            then
+              try
+                {MM/dd/yyyy hh:mm}
+                aux := expDate;
+                p   := 1;
+
+                mm := StrToInt(GetNextStringUpTo(aux, p, '/'));
+                inc(p);
+                dd := StrToInt(GetNextStringUpTo(aux, p, '/'));
+                inc(p);
+                yy := StrToInt(GetNextStringUpTo(aux, p, ' '));
+                inc(p);
+                hh := StrToInt(GetNextStringUpTo(aux, p, ':'));
+                inc(p);
+                mi := StrToInt(GetNextStringUpTo(aux, p, ':'));
+
+                expiry := EncodeDate(yy, mm, dd) + EncodeTime(hh, mi, 0, 0);
+                session.RDOWriteDate('TrialExpires', expiry);
+
+                result := 0;
+              except
+                result := -1;
+              end
+            else result := -1;
+        finally
+          session.Free;
+        end;
+      except
+        result := -1;
+        Logs.Log('survival', TimeToStr(Now) + ': Uknown error at UpdateAccount.');
+      end;
+    end;
+
+  function TDirectoryServer.GetExpDays(alias : widestring) : integer;
+    var
+      session : TDirectorySession;
+      key     : string;
+      accStat : integer;
+      expDate : TDateTime;
+      days    : integer;
+      passwrd : string;
+    begin
+      try
+        session := TDirectorySession.Create(self, fDBName, fIsSecure);
+        try
+          key := GetUserPath(alias);
+          if fIsSecure and session.RDOSetCurrentKey(key)
+            then
+              begin
+                accStat := session.RDOReadInteger('AccountStatus');
+                case accStat of
+                  DIR_ACC_NoAuthUserA, DIR_ACC_NoAuthUserB :
+                    expDate := Now;
+                  else
+                    expDate := session.RDOReadDate('TrialExpires');
+                end;
+                days := max(0, round(Now - expDate));
+                if days > 0
+                  then
+                    begin
+                      passwrd := session.RDOReadString('password');
+                      case session.RDOLogonUser(alias, passwrd) of
+                        DIR_NOERROR, DIR_ERROR_Unknown :
+                          result := 0;
+                        DIR_ERROR_UnexistingAccount, DIR_ERROR_InvalidPassword : // >> 
+                          result := days;
+                        else
+                          result := 0;
+                      end;
+                    end
+                  else result := 0;
+              end
+            else result := -1;
+        finally
+          session.Free;
+        end;
+      except
+        result := -1;
+        Logs.Log('survival', TimeToStr(Now) + ': Uknown error at GetExpDays.');
+      end;
+    end;
+
+  function TDirectoryServer.StoreKey(key : string) : integer;
+    var
+      session : TDirectorySession;
+      last    : integer;
+    begin
+      try
+        fAccountLock.Enter;
+        try
+          session := TDirectorySession.Create(self, fDBName, fIsSecure);
+          try
+            if fIsSecure and session.RDOSetCurrentKey('root/globalvars/simkeys')
+              then
+                begin
+                  last := session.RDOReadInteger('count');
+                  session.RDOWriteInteger('count', last + 1);
+                  session.RDOWriteString('key' + IntToStr(last), key);
+                  result := last;
+                end
+              else result := -1;
+          finally
+            session.Free;
+          end;
+        finally
+          fAccountLock.Leave;
+        end;
+      except
+        result := -1;
+        Logs.Log('SimKeys', DateToStr(Now) + ': Uknown Storing Key' + key);
+      end;
+    end;
+
+  function TDirectoryServer.RetrieveKey(index : integer) : string;
+    var
+      session : TDirectorySession;
+    begin
+      try
+        fAccountLock.Enter;
+        try
+          session := TDirectorySession.Create(self, fDBName, fIsSecure);
+          try
+            if fIsSecure and session.RDOSetCurrentKey('root/globalvars/simkeys')
+              then result := session.RDOReadString('key' + IntToStr(index))
+              else result := '';
+          finally
+            session.Free;
+          end;
+        finally
+          fAccountLock.Leave;
+        end;
+      except
+        result := '';
+        Logs.Log('SimKeys', DateToStr(Now) + ': Uknown Retrieving Key' + IntToStr(index));
+      end;
+    end;
+
+  function TDirectoryServer.LastKey : integer;
+    var
+      session : TDirectorySession;
+    begin
+      try
+        fAccountLock.Enter;
+        try
+          session := TDirectorySession.Create(self, fDBName, fIsSecure);
+          try
+            if fIsSecure and session.RDOSetCurrentKey('root/globalvars/simkeys')
+              then result := session.RDOReadInteger('count')
+              else result := 0;
+          finally
+            session.Free;
+          end;
+        finally
+          fAccountLock.Leave;
+        end;
+      except
+        result := 0;
+        Logs.Log('SimKeys', DateToStr(Now) + ': Uknown LastKey');
+      end;
+    end;
+
+  procedure TDirectoryServer.LogThis( const Msg : string );
+    begin
+      Logs.Log('Survival', DateToStr(Now) + ': ' + Msg);
+    end;
+
+  procedure TDirectoryServer.CheckSessions(TTL : TDateTime);
+    var
+      i       : integer;
+      dt      : TDateTime;
+      Session : TDirectorySession;
+    begin
+      try
+        fSessions.Lock;
+        try
+          dt := Now;
+          for i := pred(fSessions.Count) downto 0 do
+            begin
+              Session := TDirectorySession(fSessions[i]);
+              if (Session.fLastUpdate <> NoExpire) and ((Session.fLastUpdate + TTL < dt) or (Session.fRefCount = 0))
+                then fSessions.Delete(Session);
+            end;
+        finally
+          fSessions.Unlock;
+        end;
+      except
+        // Log Error
+      end;
+    end;
+
+  function TDirectoryServer.MapSegaError(error : integer) : integer;
+    begin
+      case error of
+        DIR_SEGA_NOERROR :
+          result := DIR_NOERROR;
+        DIR_SEGA_ERROR_UserNotFound :
+          result := DIR_ERROR_UnexistingAccount;
+        DIR_SEGA_ERROR_BadUserIDFormat :
+          result := DIR_ERROR_Unknown;
+        DIR_SEGA_ERROR_UnknownDomain :
+          result := DIR_ERROR_Unknown;
+        DIR_SEGA_ERROR_InternalError :
+          result := DIR_ERROR_Unknown;
+        DIR_SEGA_ERROR_UserNotAuthorized :
+          result := DIR_ERROR_InvalidPassword;
+        DIR_SEGA_ERROR_SystemDown :
+          result := DIR_ERROR_Unknown;
+        DIR_SEGA_ERROR_NotInitialized :
+          result := DIR_ERROR_Unknown;
+        DIR_SEGA_ERROR_TimeOut :
+          result := DIR_ERROR_Unknown;
+        else
+          result := error;
+      end;
+    end;
+
+  function TDirectoryServer.GetSessionCount : integer;
+    begin
+     result := fSessions.Count;
+    end;
+
+  procedure TDirectoryServer.GetGlobalFields;
+    var
+      Session : TDirectorySession;
+      userkey : string;
+    begin
+      session := TDirectorySession.Create( self, fDBName, fIsSecure );
+      try
+        userkey := 'root/globalvars';
+        if session.RDOFullPathKeyExists( userkey )
+          then
+            begin
+              session.SetCurrentKey( userkey );
+              GenID         := session.RDOReadBoolean( 'GenID'        );
+              cNobPoints    := session.RDOReadInteger( 'NobPoints'    );
+              End_Of_Trial  := session.RDOReadInteger( 'EndOfTrial'   );
+              MaxSerialUses := session.RDOReadInteger( 'MaxSerialUses');
+              MaxTrialBySerial := 1;
+              SerialFamilies[ famRegular    ] := session.RDOReadFloat('sFamilyA');
+              SerialFamilies[ famTester     ] := session.RDOReadFloat('sFamilyB');
+              SerialFamilies[ famGameMaster ] := session.RDOReadFloat('sFamilyC');
+              SerialFamilies[ famTutor      ] := session.RDOReadFloat('sFamilyD');
+            end
+          else
+            begin
+              GenID         := true;
+              cNobPoints    := 2;
+              End_Of_Trial  := 30;
+              MaxSerialUses := 5;
+              MaxTrialBySerial := 1;
+              SerialFamilies[ famRegular    ] := 0.1233;
+              SerialFamilies[ famTester     ] := 0.1233;
+              SerialFamilies[ famGameMaster ] := 0.1233;
+              SerialFamilies[ famTutor      ] := 0.1233;
+              SetGlobalFields;
+            end;
+      finally
+        session.Free;
+      end;
+    end;
+
+  procedure TDirectoryServer.SetGlobalFields;
+    var
+      Session : TDirectorySession;
+      userkey : string;
+    begin
+      session := TDirectorySession.Create( self, fDBName, fIsSecure );
+      try
+        userkey := 'root/globalvars';
+        if session.RDOCreateFullPathKey( userkey, true )
+          then
+            begin
+              session.SetCurrentKey( userkey );
+              session.RDOWriteBoolean( 'GenID'        , GenID        );
+              session.RDOWriteInteger( 'NobPoints'    , cNobPoints   );
+              session.RDOWriteInteger( 'EndOfTrial'   , End_Of_Trial );
+              session.RDOWriteInteger( 'MaxSerialUses', MaxSerialUses);
+              session.RDOWriteFloat  ( 'sFamilyA', SerialFamilies[ famRegular   ] );
+              session.RDOWriteFloat  ( 'sFamilyB', SerialFamilies[ famTester    ]);
+              session.RDOWriteFloat  ( 'sFamilyC', SerialFamilies[ famGameMaster]);
+              session.RDOWriteFloat  ( 'sFamilyD', SerialFamilies[ famTutor     ]);
+            end
+      finally
+        session.Free;
+      end;
+    end;
+
+
+end.

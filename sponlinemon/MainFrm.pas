@@ -3,7 +3,7 @@ unit MainFrm;
 interface
 
 uses
-  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, ExtCtrls, Monitors, OleCtrls, Chartfx3, ComCtrls,
   TeeProcs, TeEngine, Chart;
 

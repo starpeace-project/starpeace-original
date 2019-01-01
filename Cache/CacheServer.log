@@ -1,0 +1,194 @@
+Query : 0 idof "WSObjectCacher";
+Result : 0 objid = "12810320";
+Query : 1 sel 12810320 call RegisterWorld "^" "$Tuguria×jill","#6001";
+Result : 1 res = "-1";
+Query : sel 12810320 call InitWorld "*" "$Tuguria","#13107400";
+Query : sel 12810320 call CacheObject "*" "$_Act=0
+_Pth=Worlds\Tuguria\Fluids\hiPeople.five
+_OID=10475172
+TTL=NEVER
+Id=hiPeople
+Family=Fluids
+Name=hiPeople
+TransCost=0
+MarketPrice=40
+Level=0
+Tradeable=0
+";
+Query : sel 12810320 call CacheObject "*" "$_Act=0
+_Pth=Worlds\Tuguria\Fluids\hiWorkForce.five
+_OID=10476820
+TTL=NEVER
+Id=hiWorkForce
+Family=Fluids
+Name=hiWorkForce
+TransCost=0
+MarketPrice=40
+Level=0
+Tradeable=0
+";
+Query : sel 12810320 call CacheObject "*" "$_Act=0
+_Pth=Worlds\Tuguria\Fluids\midPeople.five
+_OID=10478744
+TTL=NEVER
+Id=midPeople
+Family=Fluids
+Name=midPeople
+TransCost=0
+MarketPrice=20
+Level=0
+Tradeable=0
+";
+Query : sel 12810320 call CacheObject "*" "$_Act=0
+_Pth=Worlds\Tuguria\Fluids\midWorkForce.five
+_OID=10480544
+TTL=NEVER
+Id=midWorkForce
+Family=Fluids
+Name=midWorkForce
+TransCost=0
+MarketPrice=20
+Level=0
+Tradeable=0
+";
+Query : sel 12810320 call CacheObject "*" "$_Act=0
+_Pth=Worlds\Tuguria\Fluids\loPeople.five
+_OID=10482584
+TTL=NEVER
+Id=loPeople
+Family=Fluids
+Name=loPeople
+TransCost=0
+MarketPrice=10
+Level=0
+Tradeable=0
+";
+Query : sel 12810320 call CacheObject "*" "$_Act=0
+_Pth=Worlds\Tuguria\Fluids\loWorkForce.five
+_OID=10484268
+TTL=NEVER
+Id=loWorkForce
+Family=Fluids
+Name=loWorkForce
+TransCost=0
+MarketPrice=10
+Level=0
+Tradeable=0
+";
+Query : sel 12810320 call CacheObject "*" "$_Act=0
+_Pth=Worlds\Tuguria\Blocks\WorldPopulator.five
+_OID=10475056
+TTL=NEVER
+Id=WorldPopulator
+Family=Blocks
+XSize=0
+YSize=0
+";
+Query : sel 12810320 call CacheObject "*" "$_Act=0
+_Pth=Worlds\Tuguria\Clusters\General\Facilities\WorldPopulator.five\EvlStages\Normal.five
+_OID=10485660
+Id=Normal
+Name=Normal
+Description=The WorldPopulator is ready to work
+MetaBlock=WorldPopulator
+";
+Query : sel 12810320 call CacheObject "*" "$_Act=0
+_Pth=Worlds\Tuguria\Clusters\General\Facilities\WorldPopulator.five\
+_OID=10485548
+TTL=NEVER
+Id=WorldPopulator
+Family=Facilities
+Level=0
+XSize=0
+YSize=0
+InTown=0
+";
+Query : sel 12810320 call CacheObject "*" "$_Act=0
+_Pth=Worlds\Tuguria\Blocks\MicroxoftTownHall.five
+_OID=10477476
+TTL=NEVER
+Id=MicroxoftTownHall
+Family=Blocks
+XSize=3
+YSize=3
+";
+Query : sel 12810320 call CacheObject "*" "$_Act=0
+_Pth=Worlds\Tuguria\Clusters\Microxoft\Facilities\MicroxoftTownHall.five\EvlStages\Normal.five
+_OID=10479516
+Id=Normal
+Name=Normal
+Description=The Town Hall is ready to work
+MetaBlock=MicroxoftTownHall
+";
+Query : sel 12810320 call CacheObject "*" "$_Act=0
+_Pth=Worlds\Tuguria\Clusters\Microxoft\Facilities\MicroxoftTownHall.five\
+_OID=10479812
+TTL=NEVER
+Id=MicroxoftTownHall
+Family=Facilities
+Level=1
+XSize=3
+YSize=3
+InTown=0
+";
+Query : sel 12810320 call CacheObject "*" "$_Act=0
+_Pth=Worlds\Tuguria\Blocks\MicroxoftTradeCenter.five
+_OID=10479676
+TTL=NEVER
+Id=MicroxoftTradeCenter
+Family=Blocks
+XSize=2
+YSize=2
+";
+Query : sel 12810320 call CacheObject "*" "$_Act=0
+_Pth=Worlds\Tuguria\Clusters\Microxoft\Facilities\MicroxoftTradeCenter.five\EvlStages\.five
+_OID=10481980
+MetaBlock=MicroxoftTradeCenter
+";
+Query : sel 12810320 call CacheObject "*" "$_Act=0
+_Pth=Worlds\Tuguria\Clusters\Microxoft\Facilities\MicroxoftTradeCenter.five\
+_OID=10481824
+TTL=NEVER
+Id=MicroxoftTradeCenter
+Family=Facilities
+Level=0
+XSize=2
+YSize=2
+InTown=0
+";
+Query : sel 12810320 call CacheObject "*" "$_Act=0
+_Pth=Worlds\Tuguria\Blocks\1x1 construction.five
+_OID=10486312
+TTL=NEVER
+Id=1x1 construction
+Family=Blocks
+XSize=1
+YSize=1
+";
+Query : sel 12810320 call CacheObject "*" "$_Act=0
+_Pth=Worlds\Tuguria\Blocks\2x2 construction.five
+_OID=10487936
+TTL=NEVER
+Id=2x2 construction
+Family=Blocks
+XSize=2
+YSize=2
+";
+Query : sel 12810320 call CacheObject "*" "$_Act=0
+_Pth=Worlds\Tuguria\Blocks\3x3 construction.five
+_OID=10489576
+TTL=NEVER
+Id=3x3 construction
+Family=Blocks
+XSize=3
+YSize=3
+";
+Query : sel 12810320 call CacheObject "*" "$_Act=0
+_Pth=Worlds\Tuguria\Blocks\4x4 construction.five
+_OID=10491240
+TTL=NEVER
+Id=4x4 construction
+Family=Blocks
+XSize=4
+YSize=4
+";

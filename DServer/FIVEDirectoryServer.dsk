@@ -1,0 +1,196 @@
+[MainWindow]
+Create=1
+Visible=1
+State=2
+Left=0
+Top=0
+Width=800
+Height=107
+MaxLeft=-4
+MaxTop=-4
+MaxWidth=1032
+MaxHeight=107
+ClientWidth=1024
+ClientHeight=60
+
+[ProjectManager]
+LargeButtons=1
+Column0Width=75
+Column1Width=125
+Column2Width=125
+
+[PropertyInspector]
+Create=1
+Visible=1
+State=0
+Left=6
+Top=200
+Width=190
+Height=451
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=182
+ClientHeight=425
+SplitPos=84
+
+[HistoryLists\hiWatchExpression]
+Count=12
+H0=element
+H1=subElement
+H2=length(Value)
+H3=ReceivedText[length(ReceivedText) - 41]
+H4=ReceivedText[length(ReceivedText) - 40]
+H5=ReceivedText[length(ReceivedText) - 34]
+H6=ReceivedText[length(ReceivedText) - 35]
+H7=ReceivedText[length(ReceivedText)]
+H8=ReceivedText
+H9=elementNames.Text
+H10=elementName.Text
+H11=elemenName.Text
+
+[HistoryLists\hiEvalExpression]
+Count=32
+H0=subElement
+H1=subElement <> element
+H2=fquerysession.sql.text
+H3=valueNames.Text
+H4=result
+H5=userkey
+H6=query
+H7=aQuery
+H8=eXcelon
+H9=eXcelon._release
+H10=eXcelon._addref
+H11=Class_XlnProxyDispenser
+H12=widestring(re)
+H13=string(re)
+H14=re
+H15=re.toString
+H16=Value
+H17=userAlias
+H18=Alias
+H19=session
+H20=RankingName
+H21=self
+H22=fServer
+H23=fDirName
+H24=session.classname
+H25=classname
+H26=rankID
+H27=ranking
+H28=str
+H29=self.classname
+H30=aServer
+H31=fServer.classname
+
+[HistoryLists\hiOpenFile]
+Count=32
+H0=d:\work\sources\directory server\directorymanager.pas
+H1=c:\fivedebug\source\directory server\directorymanager.pas
+H2=c:\fivedebug\source\directory server\fivedirectoryserver.dpr
+H3=c:\fivedebug\source\directory server\directoryserver.pas
+H4=c:\fivedebug\source\logs\logs.pas
+H5=d:\work\sources\directory server\directoryserver.pas
+H6=d:\work\sources\tests\explorer\explorerprj.dpr
+H7=e:\prueba\explorerprj.dpr
+H8=d:\work\sources\directory server\fivedirectoryserver.dpr
+H9=d:\work\sources\directory server\copy of directoryserver.pas
+H10=d:\work\sources\tests\sql explorer single\sqlexplorer.dpr
+H11=d:\work\sources\tests\sql explorer single\directorymanager.pas
+H12=d:\work\sources\tests\sql explorer\sqlexplorer.dpr
+H13=d:\work\sources\tests\sql single test\project1.dpr
+H14=d:\work\sources\tests\rdo administrator\alsp.dpr
+H15=d:\work\sources\directory server\directoryserver2.pas
+H16=d:\work\sources\tests\dirtest\alsp.dpr
+H17=d:\work\sources\directory server\directorymanager2.pas
+H18=d:\work\utils\strutils.pas
+H19=d:\work\utils\serial\memmapfile.pas
+H20=d:\work\directory server\mainwindow.pas
+H21=d:\work\utils\serial\genidd.pas
+H22=d:\work\directory server\directoryserverprotocol.pas
+H23=d:\work\directory server\directoryserver.pas
+H24=d:\work\directory server\directoryregistry.pas
+H25=d:\work\utils\serial\crc32.pas
+H26=d:\work\utils\serial\autocheck.pas
+H27=c:\tmp\stringvalue.txt
+H28=e:\five\source\rdo\server\winsockrdoserverclientconnection.pas
+H29=e:\five\source\rdo\common\rdoutils.pas
+H30=e:\five\source\rdo\server\winsockrdoconnectionsserver.pas
+H31=e:\work\five\source\utils\serial\memmapfile.pas
+
+[HistoryLists\hiRunParams]
+Count=2
+H0=www.starpeace.net 8000
+H1=bean 8000
+
+[HistoryLists\hiUnitAlias]
+Count=1
+H0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+
+[HistoryLists\hiLibUnitAliases]
+Count=1
+H0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+
+[HistoryLists\hiSearchMasks]
+Count=4
+H0=D:\Work\Five\Source\RDO
+H1=D:\Work\Five\Source\
+H2=D:\Work\Five\Source\Mail Server
+H3=D:\Work\Five\Source\Mail
+
+[Closed Files]
+File_0=SourceModule,'D:\Work\Sources\Directory Server\DirectoryManager.pas',0,1,448,68,467,0,0
+File_1=SourceModule,'D:\Work\Sources\RDO\Server\RDOObjectServer.pas',0,1,55,45,58,0,0
+File_2=SourceModule,'C:\FiveDebug\Source\Directory Server\MainWindow.pas',0,1,44,1,77,1,0
+File_3=SourceModule,'C:\FiveDebug\Source\RDO\Server\RDOQueryServer.pas',0,1,458,1,475,0,0
+File_4=SourceModule,'C:\FiveDebug\Source\RDO\Server\RDOObjectServer.pas',0,1,311,10,313,0,0
+File_5=SourceModule,'C:\FiveDebug\Source\Kernel\Collection.pas',0,1,508,38,520,0,0
+File_6=SourceModule,'C:\FiveDebug\Source\Logs\Logs.pas',0,1,1,1,1,0,0
+File_7=SourceModule,'D:\Work\Sources\Directory Server\DirectoryServer.pas',0,1,133,37,156,0,0
+File_8=SourceModule,'D:\Work\Sources\Directory Server\Copy of DirectoryServer.pas',0,1,1,21,18,0,0
+
+[Modules]
+Module0=C:\FiveDebug\Source\Directory Server\FIVEDirectoryServer.dpr
+Module1=D:\Work\Sources\Directory Server\FIVEDirectoryServer.dpr
+Count=2
+EditWindowCount=0
+
+[C:\FiveDebug\Source\Directory Server\FIVEDirectoryServer.dpr]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[D:\Work\Sources\Directory Server\FIVEDirectoryServer.dpr]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[Watches]
+Count=3
+Watch0='length(Value)',256,0,18,1
+Watch1='subElement',256,0,18,1
+Watch2='element',256,0,18,1
+
+[Breakpoints]
+Count=0
+
+[PVCS Browser]
+Left=236
+Top=105
+Width=625
+Height=393
+State=0
+Visible=0
+[PVCS VDiff]
+Left=257
+Top=160
+Width=591
+Height=608
+Layout=1
+Orientation=1
+State=0
+Visible=0
+File1Color=16711680
+File2Color=255
+SpaceColor=16776960
+TextColor=0

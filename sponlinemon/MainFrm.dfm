@@ -1,6 +1,6 @@
 object MainForm: TMainForm
-  Left = 127
-  Top = 177
+  Left = 1113
+  Top = 444
   Width = 811
   Height = 453
   Caption = 'Online Players Monitor'
@@ -41,8 +41,8 @@ object MainForm: TMainForm
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 803
-    Height = 384
+    Width = 795
+    Height = 372
     Align = alClient
     BevelOuter = bvNone
     Caption = 'Panel1'
@@ -51,14 +51,14 @@ object MainForm: TMainForm
       Left = 153
       Top = 0
       Width = 5
-      Height = 384
+      Height = 372
       Cursor = crHSplit
     end
     object tvMonTree: TTreeView
       Left = 0
       Top = 0
       Width = 153
-      Height = 384
+      Height = 372
       Align = alLeft
       Indent = 19
       ReadOnly = True
@@ -68,8 +68,8 @@ object MainForm: TMainForm
     object Chart1: TChart
       Left = 158
       Top = 0
-      Width = 645
-      Height = 384
+      Width = 637
+      Height = 372
       AnimatedZoom = True
       BackWall.Brush.Color = clWhite
       BackWall.Brush.Style = bsClear
@@ -86,8 +86,8 @@ object MainForm: TMainForm
   end
   object Panel2: TPanel
     Left = 0
-    Top = 384
-    Width = 803
+    Top = 372
+    Width = 795
     Height = 42
     Align = alBottom
     BevelOuter = bvNone
@@ -121,7 +121,7 @@ object MainForm: TMainForm
       Width = 265
       Height = 21
       TabOrder = 1
-      Text = '10.10.15.101'
+      Text = '96.61.153.27'
     end
     object ePort: TEdit
       Left = 362

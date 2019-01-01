@@ -97,7 +97,7 @@ interface
 implementation
 
   uses
-    ComObj, Variants;
+    ComObj;
 
   // TMonitorObject
 
