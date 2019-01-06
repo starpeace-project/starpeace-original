@@ -33,14 +33,17 @@ MapFile=0
 OutputObjs=0
 ConsoleApp=1
 DebugInfo=0
+RemoteSymbols=0
 MinStackSize=16384
 MaxStackSize=1048576
 ImageBase=4194304
 ExeDescription=
 [Directories]
-OutputDir=..\..\release\servers
-UnitOutputDir=..\..\dcu
-SearchPath=..\Kernel;..\StdBlocks;..\Class Storage;..\Cache;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client\;..\Persistence;..\Utils\Misc;..\Surfaces;..\Mail;..\Tasks;..\logs;..\Inventions;..\utils\vcl
+OutputDir=\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original-compiled\Servers\Directory Server\release
+UnitOutputDir=\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original-compiled\Servers\Directory Server\dcu
+PackageDLLOutputDir=
+PackageDCPOutputDir=
+SearchPath=\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Kernel;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\StdBlocks;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Class Storage;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Cache;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Rdo\Common;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Rdo\Server;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Utils\Network;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Rdo\Client;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Persistence;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Utils\Misc;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Surfaces;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Mail;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Tasks;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Logs;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Inventions;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Utils\Vcl
 Packages=vclx30;VCL30;vcldb30;vcldbx30;inetdb30;inet30;VclSmp30;Qrpt30;teeui30;teedb30;tee30;dss30;IBEVNT30
 Conditionals=USELogs
 DebugSourceDirs=
@@ -48,6 +51,10 @@ UsePackages=0
 [Parameters]
 RunParams=
 HostApplication=
+[Language]
+ActiveLang=
+ProjectLang=$00000809
+RootDir=
 [Version Info]
 IncludeVerInfo=0
 AutoIncBuild=0
@@ -73,7 +80,18 @@ OriginalFilename=
 ProductName=
 ProductVersion=1.0.0.0
 Comments=
-[Excluded Packages]
-F:\Program Files\Borland\Delphi 3\BIN\DbX30.dpl=(untitled)
-F:\Program Files\Borland\Delphi 3\LIB\AxlDesgn.dpl=Merchise CodeLib - Designers
-F:\Program Files\Borland\Delphi 3\LIB\AxlGraph.dpl=Merchise CodeLib - Graphics
+[HistoryLists\hlConditionals]
+Count=1
+Item0=USELogs
+[HistoryLists\hlUnitAliases]
+Count=1
+Item0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+[HistoryLists\hlSearchPath]
+Count=1
+Item0=\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Kernel;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\StdBlocks;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Class Storage;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Cache;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Rdo\Common;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Rdo\Server;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Utils\Network;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Rdo\Client;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Persistence;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Utils\Misc;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Surfaces;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Mail;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Tasks;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Logs;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Inventions;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Utils\Vcl
+[HistoryLists\hlUnitOutputDirectory]
+Count=1
+Item0=\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original-compiled\Servers\Directory Server\dcu
+[HistoryLists\hlOutputDirectorry]
+Count=1
+Item0=\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original-compiled\Servers\Directory Server\release

@@ -39,11 +39,11 @@ MaxStackSize=1048576
 ImageBase=4194304
 ExeDescription=
 [Directories]
-OutputDir=..\..\release\servers
-UnitOutputDir=..\..\dcu
+OutputDir=\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original-compiled\Servers\News Server\release
+UnitOutputDir=\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original-compiled\Servers\News Server\dcu
 PackageDLLOutputDir=
 PackageDCPOutputDir=
-SearchPath=..\Kernel;..\StdBlocks;..\Class Storage;..\Cache;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client\;..\Persistence;..\Utils\Misc;..\Utils\Vcl;..\Surfaces;..\Mail
+SearchPath=\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Kernel;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\StdBlocks;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Class Storage;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Cache;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Rdo\Common;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Rdo\Server;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Utils\Network;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Rdo\Client;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Persistence;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Utils\Misc;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Utils\Vcl;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Surfaces;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Mail
 Packages=vclx30;VCL30;vcldb30;vcldbx30;dss30;Qrpt30;teeui30;teedb30;tee30;inetdb30;inet30;VclSmp30
 Conditionals=USELogs
 DebugSourceDirs=
@@ -86,15 +86,18 @@ Item1=CACHESERVER;USELogs
 Count=1
 Item0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
 [HistoryLists\hlSearchPath]
-Count=3
-Item0=..\Kernel;..\StdBlocks;..\Class Storage;..\Cache;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client\;..\Persistence;..\Utils\Misc;..\Utils\Vcl;..\Surfaces;..\Mail
-Item1=..\RDO\Server;..\RDO\Client;..\Kernel;..\RDO\Common;..\Cache;..\RDO\Server;..\Persistence;..\Utils\Network;..\logs;..\Utils\Vcl
-Item2=..\RDO\Server;..\RDO\Client;..\Kernel;..\RDO\Common;..\Cache;..\RDO\Server;..\Persistence;..\Utils\Network;..\logs;..\Utils\Vcl;..\Utils\Misc;..\Mail
+Count=4
+Item0=\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Kernel;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\StdBlocks;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Class Storage;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Cache;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Rdo\Common;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Rdo\Server;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Utils\Network;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Rdo\Client;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Persistence;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Utils\Misc;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Utils\Vcl;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Surfaces;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Mail
+Item1=..\Kernel;..\StdBlocks;..\Class Storage;..\Cache;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client\;..\Persistence;..\Utils\Misc;..\Utils\Vcl;..\Surfaces;..\Mail
+Item2=..\RDO\Server;..\RDO\Client;..\Kernel;..\RDO\Common;..\Cache;..\RDO\Server;..\Persistence;..\Utils\Network;..\logs;..\Utils\Vcl
+Item3=..\RDO\Server;..\RDO\Client;..\Kernel;..\RDO\Common;..\Cache;..\RDO\Server;..\Persistence;..\Utils\Network;..\logs;..\Utils\Vcl;..\Utils\Misc;..\Mail
 [HistoryLists\hlUnitOutputDirectory]
-Count=1
-Item0=..\..\dcu
+Count=2
+Item0=\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original-compiled\Servers\News Server\dcu
+Item1=..\..\dcu
 [HistoryLists\hlOutputDirectorry]
-Count=3
-Item0=..\..\release\servers
-Item1=s:\release\servers
-Item2=..\..\release\Servers\
+Count=4
+Item0=\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original-compiled\Servers\News Server\release
+Item1=..\..\release\servers
+Item2=s:\release\servers
+Item3=..\..\release\Servers\

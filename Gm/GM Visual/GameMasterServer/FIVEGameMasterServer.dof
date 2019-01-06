@@ -39,11 +39,11 @@ MaxStackSize=1048576
 ImageBase=4194304
 ExeDescription=
 [Directories]
-OutputDir=..\..\..\..\Release\Servers
-UnitOutputDir=..\..\..\..\Dcu
+OutputDir=\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original-compiled\Servers\Game Master Suite\Game Master Server\release
+UnitOutputDir=\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original-compiled\Servers\Game Master Suite\Game Master Server\dcu
 PackageDLLOutputDir=
 PackageDCPOutputDir=
-SearchPath=..\..\..\RDO\Client;..\..\..\RDO\Common;..\..\..\utils\winutils;..\..\..\utils\misc
+SearchPath=\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Rdo\Client;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Rdo\Common;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Utils\WinUtils;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Utils\Misc
 Packages=VCL50;VCLX50;VCLSMP50;QRPT50;VCLDB50;VCLBDE50;ibevnt50;VCLDBX50;TEEUI50;TEEDB50;TEE50;TEEQR50;VCLIB50;VCLIE50;INETDB50;INET50;NMFAST50;dclocx50;dclaxserver50
 Conditionals=USELogs
 DebugSourceDirs=
@@ -86,13 +86,16 @@ Item0=USELogs
 Count=1
 Item0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
 [HistoryLists\hlSearchPath]
-Count=1
-Item0=..\..\..\RDO\Client;..\..\..\RDO\Common;..\..\..\utils\winutils;..\..\..\utils\misc
+Count=2
+Item0=\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Rdo\Client;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Rdo\Common;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Utils\WinUtils;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Utils\Misc
+Item1=..\..\..\RDO\Client;..\..\..\RDO\Common;..\..\..\utils\winutils;..\..\..\utils\misc
 [HistoryLists\hlUnitOutputDirectory]
-Count=1
-Item0=..\..\..\..\Dcu
+Count=2
+Item0=\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original-compiled\Servers\Game Master Suite\Game Master Server\dcu
+Item1=..\..\..\..\Dcu
 [HistoryLists\hlOutputDirectorry]
-Count=3
-Item0=..\..\..\..\Release\Servers
-Item1=..\..\..\..\release
-Item2=..\..\..\..\Release\Gm
+Count=4
+Item0=\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original-compiled\Servers\Game Master Suite\Game Master Server\release
+Item1=..\..\..\..\Release\Servers
+Item2=..\..\..\..\release
+Item3=..\..\..\..\Release\Gm

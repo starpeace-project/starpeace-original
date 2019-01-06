@@ -39,11 +39,11 @@ MaxStackSize=1048576
 ImageBase=4194304
 ExeDescription=
 [Directories]
-OutputDir=..\..\..\..\Release\GM
-UnitOutputDir=..\..\..\..\Dcu
+OutputDir=\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original-compiled\Servers\Game Master Suite\Game Master Utility\release
+UnitOutputDir=\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original-compiled\Servers\Game Master Suite\Game Master Utility\dcu
 PackageDLLOutputDir=
 PackageDCPOutputDir=
-SearchPath=..\..\..\Logs;..\..\..\utils\winutils;..\..\..\utils\misc;..\..\..\voyager;..\..\..\protocol;..\..\..\kernel;..\..\..\Persistence;..\..\..\cache;..\InstallerSplash\
+SearchPath=\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Logs;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Utils\WinUtils;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Utils\Misc;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Voyager;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Protocol;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Kernel;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Cache;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\InstallerSplash;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Persistence
 Packages=VCL50;VCLX50;VCLSMP50;QRPT50;VCLDB50;VCLBDE50;ibevnt50;VCLDBX50;TEEUI50;TEEDB50;TEE50;TEEQR50;VCLIB50;VCLIE50;INETDB50;INET50;NMFAST50;dclocx50;dclaxserver50
 Conditionals=
 DebugSourceDirs=
@@ -77,32 +77,35 @@ ProductName=
 ProductVersion=1.0.0.0
 Comments=
 [Excluded Packages]
-$(DELPHI)\Bin\dclite50.bpl=Borland Integrated Translation Environment
 $(DELPHI)\Bin\dclmid50.bpl=Borland MIDAS Components
+$(DELPHI)\Bin\dclite50.bpl=Borland Integrated Translation Environment
 [HistoryLists\hlUnitAliases]
 Count=1
 Item0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
 [HistoryLists\hlSearchPath]
-Count=16
-Item0=..\..\..\Logs;..\..\..\utils\winutils;..\..\..\utils\misc;..\..\..\voyager;..\..\..\protocol;..\..\..\kernel;..\..\..\Persistence;..\..\..\cache;..\InstallerSplash\
-Item1=..\..\..\Logs;..\..\..\utils\winutils;..\..\..\utils\misc;..\..\..\voyager;..\..\..\protocol;..\..\..\kernel;..\..\..\Persistence;..\..\..\cache;S:\source\InstallerSplash\
-Item2=..\..\..\Logs;..\..\..\utils\winutils;..\..\..\utils\misc;..\..\..\voyager;..\..\..\protocol;..\..\..\kernel;..\..\..\Persistence;..\..\..\cache;S:\source\InstallerSplash
-Item3=s:\source\InstallerSplash;..\..\..\Logs;..\..\..\utils\winutils;..\..\..\utils\misc;..\..\..\voyager;..\..\..\protocol;..\..\..\kernel;..\..\..\Persistence;..\..\..\cache
-Item4=..\..\..\..\InstallerSplash;..\..\..\Logs;..\..\..\utils\winutils;..\..\..\utils\misc;..\..\..\voyager;..\..\..\protocol;..\..\..\kernel;..\..\..\Persistence;..\..\..\cache
-Item5=..\..\InstallerSplash;..\..\..\Logs;..\..\..\utils\winutils;..\..\..\utils\misc;..\..\..\voyager;..\..\..\protocol;..\..\..\kernel;..\..\..\Persistence;..\..\..\cache
-Item6=..\..\..\InstallerSplash;..\..\..\Logs;..\..\..\utils\winutils;..\..\..\utils\misc;..\..\..\voyager;..\..\..\protocol;..\..\..\kernel;..\..\..\Persistence;..\..\..\cache
-Item7=..\..\..\Logs;..\..\..\utils\winutils;..\..\..\utils\misc;..\..\..\voyager;..\..\..\protocol;..\..\..\kernel;..\..\..\Persistence;..\..\..\cache;..\..\..\InstallerSplash
-Item8=..\..\..\Logs;..\..\..\utils\winutils;..\..\..\utils\misc;..\..\..\voyager;..\..\..\protocol;..\..\..\kernel;..\..\..\Persistence;..\..\..\cache
-Item9=..\..\..\Logs;..\..\..\utils\winutils;..\..\..\utils\misc;..\..\..\voyager;..\..\..\protocol;..\..\..\kernel;..\..\..\Persistence
-Item10=..\..\..\Logs;..\..\..\utils\winutils;..\..\..\utils\misc;..\..\..\voyager;..\..\..\protocol;..\..\..\kernel
-Item11=..\..\..\Logs;..\..\..\utils\winutils;..\..\..\utils\misc;..\..\..\voyager;..\..\..\protocol
-Item12=..\..\..\Logs;..\..\..\utils\winutils;..\..\..\utils\misc;..\..\..\voyager
-Item13=..\..\..\Logs;..\..\..\utils\winutils;..\..\..\utils\misc
-Item14=..\..\..\Logs;..\..\..\utils\winutils
-Item15=..\..\..\Logs
+Count=17
+Item0=\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Logs;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Utils\WinUtils;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Utils\Misc;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Voyager;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Protocol;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Kernel;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Cache;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\InstallerSplash;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Persistence
+Item1=..\..\..\Logs;..\..\..\utils\winutils;..\..\..\utils\misc;..\..\..\voyager;..\..\..\protocol;..\..\..\kernel;..\..\..\Persistence;..\..\..\cache;..\InstallerSplash\
+Item2=..\..\..\Logs;..\..\..\utils\winutils;..\..\..\utils\misc;..\..\..\voyager;..\..\..\protocol;..\..\..\kernel;..\..\..\Persistence;..\..\..\cache;S:\source\InstallerSplash\
+Item3=..\..\..\Logs;..\..\..\utils\winutils;..\..\..\utils\misc;..\..\..\voyager;..\..\..\protocol;..\..\..\kernel;..\..\..\Persistence;..\..\..\cache;S:\source\InstallerSplash
+Item4=s:\source\InstallerSplash;..\..\..\Logs;..\..\..\utils\winutils;..\..\..\utils\misc;..\..\..\voyager;..\..\..\protocol;..\..\..\kernel;..\..\..\Persistence;..\..\..\cache
+Item5=..\..\..\..\InstallerSplash;..\..\..\Logs;..\..\..\utils\winutils;..\..\..\utils\misc;..\..\..\voyager;..\..\..\protocol;..\..\..\kernel;..\..\..\Persistence;..\..\..\cache
+Item6=..\..\InstallerSplash;..\..\..\Logs;..\..\..\utils\winutils;..\..\..\utils\misc;..\..\..\voyager;..\..\..\protocol;..\..\..\kernel;..\..\..\Persistence;..\..\..\cache
+Item7=..\..\..\InstallerSplash;..\..\..\Logs;..\..\..\utils\winutils;..\..\..\utils\misc;..\..\..\voyager;..\..\..\protocol;..\..\..\kernel;..\..\..\Persistence;..\..\..\cache
+Item8=..\..\..\Logs;..\..\..\utils\winutils;..\..\..\utils\misc;..\..\..\voyager;..\..\..\protocol;..\..\..\kernel;..\..\..\Persistence;..\..\..\cache;..\..\..\InstallerSplash
+Item9=..\..\..\Logs;..\..\..\utils\winutils;..\..\..\utils\misc;..\..\..\voyager;..\..\..\protocol;..\..\..\kernel;..\..\..\Persistence;..\..\..\cache
+Item10=..\..\..\Logs;..\..\..\utils\winutils;..\..\..\utils\misc;..\..\..\voyager;..\..\..\protocol;..\..\..\kernel;..\..\..\Persistence
+Item11=..\..\..\Logs;..\..\..\utils\winutils;..\..\..\utils\misc;..\..\..\voyager;..\..\..\protocol;..\..\..\kernel
+Item12=..\..\..\Logs;..\..\..\utils\winutils;..\..\..\utils\misc;..\..\..\voyager;..\..\..\protocol
+Item13=..\..\..\Logs;..\..\..\utils\winutils;..\..\..\utils\misc;..\..\..\voyager
+Item14=..\..\..\Logs;..\..\..\utils\winutils;..\..\..\utils\misc
+Item15=..\..\..\Logs;..\..\..\utils\winutils
+Item16=..\..\..\Logs
 [HistoryLists\hlUnitOutputDirectory]
-Count=1
-Item0=..\..\..\..\Dcu
+Count=2
+Item0=\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original-compiled\Servers\Game Master Suite\Game Master Utility\dcu
+Item1=..\..\..\..\Dcu
 [HistoryLists\hlOutputDirectorry]
-Count=1
-Item0=..\..\..\..\Release\GM
+Count=2
+Item0=\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original-compiled\Servers\Game Master Suite\Game Master Utility\release
+Item1=..\..\..\..\Release\GM

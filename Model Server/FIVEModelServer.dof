@@ -39,14 +39,14 @@ MaxStackSize=1048576
 ImageBase=4194304
 ExeDescription=
 [Directories]
-OutputDir=s:\release\servers
-UnitOutputDir=..\..\dcu
+OutputDir=\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original-compiled\Servers\Model Server\release
+UnitOutputDir=\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original-compiled\Servers\Model Server\dcu
 PackageDLLOutputDir=
 PackageDCPOutputDir=
-SearchPath=..\Kernel;..\StdBlocks;..\Class Storage;..\Cache;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client\;..\Persistence;..\Utils\Misc;..\Surfaces;..\Mail;..\Tasks;..\logs;..\Inventions;..\utils\vcl;..\Circuits
+SearchPath=\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Kernel;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\StdBlocks;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Class Storage;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Cache;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Rdo\Common;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Rdo\Server;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Utils\Network;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Rdo\Client;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Persistence;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Utils\Misc;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Surfaces;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Mail;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Tasks;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Logs;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Inventions;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Utils\Vcl;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Circuits
 Packages=vclx30;VCL30;vcldb30;vcldbx30;inetdb30;inet30;VclSmp30;Qrpt30;teeui30;teedb30;tee30;dss30;IBEVNT30;TabCtrl;GradBox;AxlMisc;AxlGraph;FingerTab;FiveComp;FrameButton;InfoBk;PercBar
 Conditionals=USELogs
-DebugSourceDirs=S:\Source\Utils\Misc\;C:\Work\Five\Source\Rdo\Client\;C:\Work\Five\Source\Rdo\Server\
+DebugSourceDirs=\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Utils\Misc;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Rdo\Client;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Rdo\Server
 UsePackages=0
 [Parameters]
 RunParams=
@@ -79,9 +79,10 @@ Comments=
 [Excluded Packages]
 $(DELPHI)\Bin\dclite50.bpl=Borland Integrated Translation Environment
 [HistoryLists\hlDebugSourcePath]
-Count=2
-Item0=S:\Source\Utils\Misc\
-Item1=$(DELPHI)\Source\Rtl;$(DELPHI)\Source\Vcl
+Count=3
+Item0=\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Utils\Misc;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Rdo\Client;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Rdo\Server
+Item1=S:\Source\Utils\Misc\
+Item2=$(DELPHI)\Source\Rtl;$(DELPHI)\Source\Vcl
 [HistoryLists\hlConditionals]
 Count=2
 Item0=USELogs
@@ -92,30 +93,33 @@ Item0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
 Item1=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE
 Item2=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;strutils=mr_strutils
 [HistoryLists\hlSearchPath]
-Count=13
-Item0=..\Kernel;..\StdBlocks;..\Class Storage;..\Cache;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client;..\Persistence;..\Utils\Misc;..\Logs;..\utils\vcl
-Item1=..\Kernel
-Item2=..\Kernel;..\StdBlocks;..\Class Storage;..\Cache;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client;..\Persistence;..\Utils\Misc;..\Logs
-Item3=..\Kernel;..\StdBlocks;..\Class Storage;..\Cache;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client\;..\Persistence;..\Utils\Misc;..\Utils\Vcl;..\Surfaces;..\Mail;..\Tasks
-Item4=..\Kernel;..\RDO\Common;..\Cache;..\RDO\Server;..\RDO\Client\Delphi;..\Utils\Network;..\Utils\Misc
-Item5=..\..\Circuits;..\..\Kernel;..\..\StdBlocks;..\..\Class Storage;..\..\Cache;..\..\RDO\Common;..\..\RDO\Server;..\..\Utils\Network;..\..\RDO\Client\;..\..\Persistence;..\..\Utils\Misc;..\..\Surfaces;..\..\Mail;..\..\Protocol;..\..\Tasks;..\..\Utils\Vcl;..\..\Logs
-Item6=..\..\Circuits;..\..\Kernel;..\..\StdBlocks;..\..\Class Storage;..\..\Cache;..\..\RDO\Common;..\..\RDO\Server;..\..\Utils\Network;..\..\RDO\Client\;..\..\Persistence;..\..\Utils\Misc;..\..\Utils\Vcl;..\..\Surfaces;..\..\Mail;..\..\Actors;..\..\Land;..\..\Logs;..\..\Tasks;..\..\DServer
-Item7=..\..\Circuits;..\..\Kernel;..\..\StdBlocks;..\..\Class Storage;..\..\Cache;..\..\RDO\Common;..\..\RDO\Server;..\..\Utils\Network;..\..\RDO\Client\;..\..\Persistence;..\..\Utils\Misc;..\..\Surfaces;..\..\Mail;..\..\Actors;..\..\Tasks;..\..\Utils\Vcl;..\..\Logs;..\..\DServer
-Item8=..\Kernel;..\StdBlocks;..\Class Storage;..\Cache;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client\;..\Persistence;..\Utils\Misc;..\Surfaces;..\Mail;..\Tasks;..\logs;..\Inventions;..\utils\vcl;..\Circuits
-Item9=..\..\Circuits;..\..\Kernel;..\..\StdBlocks;..\..\Class Storage;..\..\Cache;..\..\RDO\Common;..\..\RDO\Server;..\..\Utils\Network;..\..\RDO\Client\;..\..\Persistence;..\..\Utils\Misc;..\..\Surfaces;..\..\Mail;..\..\Actors;..\..\Tasks;..\..\Utils\Vcl;..\..\Logs;..\..\DServer\
-Item10=$(DELPHI)\Lib\Debug;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client\;..\Utils\Misc;..\Voyager;..\Voyager\URLHandlers;..\voyager\Components;..\Kernel;..\Utils\GameAPI;..\Utils\Graphics;..\Utils\Voice;..\DServer;$(DELPHI)\Source\Toolsapi;..\Utils\CodeLib;..\Utils\debug;..\Utils\WinUtils
-Item11=$(DELPHI)\Lib\Debug;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client\;..\Utils\Misc;..\Voyager;..\Voyager\URLHandlers;Components;..\Kernel;..\Utils\GameAPI;..\Utils\Graphics;..\Utils\Voice;..\DServer;$(DELPHI)\Source\Toolsapi;..\Utils\CodeLib;..\Utils\debug
-Item12=..\voyager\components;c:\program files\borland\delphi 3\source\vcl;..\rdo\client;..\rdo\common;..\utils\network\;..\utils\vcl
+Count=14
+Item0=\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Kernel;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\StdBlocks;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Class Storage;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Cache;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Rdo\Common;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Rdo\Server;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Utils\Network;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Rdo\Client;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Persistence;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Utils\Misc;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Surfaces;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Mail;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Tasks;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Logs;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Inventions;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Utils\Vcl;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Circuits
+Item1=..\Kernel;..\StdBlocks;..\Class Storage;..\Cache;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client;..\Persistence;..\Utils\Misc;..\Logs;..\utils\vcl
+Item2=..\Kernel
+Item3=..\Kernel;..\StdBlocks;..\Class Storage;..\Cache;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client;..\Persistence;..\Utils\Misc;..\Logs
+Item4=..\Kernel;..\StdBlocks;..\Class Storage;..\Cache;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client\;..\Persistence;..\Utils\Misc;..\Utils\Vcl;..\Surfaces;..\Mail;..\Tasks
+Item5=..\Kernel;..\RDO\Common;..\Cache;..\RDO\Server;..\RDO\Client\Delphi;..\Utils\Network;..\Utils\Misc
+Item6=..\..\Circuits;..\..\Kernel;..\..\StdBlocks;..\..\Class Storage;..\..\Cache;..\..\RDO\Common;..\..\RDO\Server;..\..\Utils\Network;..\..\RDO\Client\;..\..\Persistence;..\..\Utils\Misc;..\..\Surfaces;..\..\Mail;..\..\Protocol;..\..\Tasks;..\..\Utils\Vcl;..\..\Logs
+Item7=..\..\Circuits;..\..\Kernel;..\..\StdBlocks;..\..\Class Storage;..\..\Cache;..\..\RDO\Common;..\..\RDO\Server;..\..\Utils\Network;..\..\RDO\Client\;..\..\Persistence;..\..\Utils\Misc;..\..\Utils\Vcl;..\..\Surfaces;..\..\Mail;..\..\Actors;..\..\Land;..\..\Logs;..\..\Tasks;..\..\DServer
+Item8=..\..\Circuits;..\..\Kernel;..\..\StdBlocks;..\..\Class Storage;..\..\Cache;..\..\RDO\Common;..\..\RDO\Server;..\..\Utils\Network;..\..\RDO\Client\;..\..\Persistence;..\..\Utils\Misc;..\..\Surfaces;..\..\Mail;..\..\Actors;..\..\Tasks;..\..\Utils\Vcl;..\..\Logs;..\..\DServer
+Item9=..\Kernel;..\StdBlocks;..\Class Storage;..\Cache;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client\;..\Persistence;..\Utils\Misc;..\Surfaces;..\Mail;..\Tasks;..\logs;..\Inventions;..\utils\vcl;..\Circuits
+Item10=..\..\Circuits;..\..\Kernel;..\..\StdBlocks;..\..\Class Storage;..\..\Cache;..\..\RDO\Common;..\..\RDO\Server;..\..\Utils\Network;..\..\RDO\Client\;..\..\Persistence;..\..\Utils\Misc;..\..\Surfaces;..\..\Mail;..\..\Actors;..\..\Tasks;..\..\Utils\Vcl;..\..\Logs;..\..\DServer\
+Item11=$(DELPHI)\Lib\Debug;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client\;..\Utils\Misc;..\Voyager;..\Voyager\URLHandlers;..\voyager\Components;..\Kernel;..\Utils\GameAPI;..\Utils\Graphics;..\Utils\Voice;..\DServer;$(DELPHI)\Source\Toolsapi;..\Utils\CodeLib;..\Utils\debug;..\Utils\WinUtils
+Item12=$(DELPHI)\Lib\Debug;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client\;..\Utils\Misc;..\Voyager;..\Voyager\URLHandlers;Components;..\Kernel;..\Utils\GameAPI;..\Utils\Graphics;..\Utils\Voice;..\DServer;$(DELPHI)\Source\Toolsapi;..\Utils\CodeLib;..\Utils\debug
+Item13=..\voyager\components;c:\program files\borland\delphi 3\source\vcl;..\rdo\client;..\rdo\common;..\utils\network\;..\utils\vcl
 [HistoryLists\hlUnitOutputDirectory]
-Count=4
-Item0=..\..\dcu
-Item1=..\..\..\DCU
-Item2=S:\dcu
-Item3=s:\temp\dcu
+Count=5
+Item0=\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original-compiled\Servers\Model Server\dcu
+Item1=..\..\dcu
+Item2=..\..\..\DCU
+Item3=S:\dcu
+Item4=s:\temp\dcu
 [HistoryLists\hlOutputDirectorry]
-Count=2
-Item0=s:\release\servers
-Item1=s:\release
+Count=3
+Item0=\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original-compiled\Servers\Model Server\release
+Item1=s:\release\servers
+Item2=s:\release
 [HistoryLists\hlBPLOutput]
 Count=1
 Item0=s:\temp\Component

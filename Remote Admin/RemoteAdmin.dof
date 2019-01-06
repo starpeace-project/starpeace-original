@@ -28,30 +28,33 @@ Z=1
 ShowHints=1
 ShowWarnings=1
 UnitAliases=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
-
 [Linker]
 MapFile=0
 OutputObjs=0
 ConsoleApp=1
 DebugInfo=0
+RemoteSymbols=0
 MinStackSize=16384
 MaxStackSize=1048576
 ImageBase=4194304
 ExeDescription=
-
 [Directories]
-OutputDir=..\..\Five Web\ServerSync\TaskManager
-UnitOutputDir=..\..\Dcu
+OutputDir=\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original-compiled\Remote Admin\Remote Admin\release
+UnitOutputDir=\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original-compiled\Remote Admin\Remote Admin\dcu
+PackageDLLOutputDir=
+PackageDCPOutputDir=
 SearchPath=
 Packages=Qrpt30;teeui30;teedb30;tee30;vclx30;VCL30;vcldb30;vcldbx30;dss30;inetdb30;inet30;VclSmp30
 Conditionals=USELogs
 DebugSourceDirs=
 UsePackages=0
-
 [Parameters]
 RunParams=
 HostApplication=
-
+[Language]
+ActiveLang=
+ProjectLang=$00000809
+RootDir=
 [Version Info]
 IncludeVerInfo=0
 AutoIncBuild=0
@@ -66,7 +69,6 @@ Private=0
 DLL=0
 Locale=1033
 CodePage=1252
-
 [Version Info Keys]
 CompanyName=
 FileDescription=
@@ -78,3 +80,15 @@ OriginalFilename=
 ProductName=
 ProductVersion=1.0.0.0
 Comments=
+[HistoryLists\hlConditionals]
+Count=1
+Item0=USELogs
+[HistoryLists\hlUnitAliases]
+Count=1
+Item0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+[HistoryLists\hlUnitOutputDirectory]
+Count=1
+Item0=\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original-compiled\Remote Admin\Remote Admin\dcu
+[HistoryLists\hlOutputDirectorry]
+Count=1
+Item0=\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original-compiled\Remote Admin\Remote Admin\release

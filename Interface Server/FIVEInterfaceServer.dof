@@ -39,14 +39,14 @@ MaxStackSize=1048576
 ImageBase=4194304
 ExeDescription=
 [Directories]
-OutputDir=..\..\Release\Servers\
-UnitOutputDir=..\..\dcu
+OutputDir=\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original-compiled\Servers\Interface Server\release
+UnitOutputDir=\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original-compiled\Servers\Interface Server\dcu
 PackageDLLOutputDir=
 PackageDCPOutputDir=
-SearchPath=..\Kernel;..\StdBlocks;..\Class Storage;..\Cache;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client;..\Persistence;..\Utils\Vcl;..\Utils\Misc;..\Surfaces;..\Mail;..\Utils\Serial;..\DServer
+SearchPath=\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Kernel;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\StdBlocks;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Class Storage;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Cache;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Rdo\Common;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Rdo\Server;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Utils\Network;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Rdo\Client;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Persistence;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Utils\Vcl;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Utils\Misc;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Surfaces;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Mail;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Utils\Serial;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\DServer
 Packages=vclx30;VCL30;vcldb30;vcldbx30;inetdb30;inet30;VclSmp30;Qrpt30;teeui30;teedb30;tee30;dss30;IBEVNT30
 Conditionals=USELogs
-DebugSourceDirs=S:\Source\Utils\Network\;C:\Work\Five\Source\Rdo\Server\
+DebugSourceDirs=\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Utils\Network;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Rdo\Server
 UsePackages=0
 [Parameters]
 RunParams=
@@ -80,8 +80,9 @@ Comments=
 $(DELPHI)\Bin\dclmid50.bpl=Borland MIDAS Components
 $(DELPHI)\Bin\dclite50.bpl=Borland Integrated Translation Environment
 [HistoryLists\hlDebugSourcePath]
-Count=1
-Item0=S:\Source\Utils\Network\
+Count=2
+Item0=\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Utils\Network;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Rdo\Server
+Item1=S:\Source\Utils\Network\
 [HistoryLists\hlConditionals]
 Count=1
 Item0=USELogs
@@ -89,16 +90,19 @@ Item0=USELogs
 Count=1
 Item0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
 [HistoryLists\hlSearchPath]
-Count=5
-Item0=..\Kernel;..\StdBlocks;..\Class Storage;..\Cache;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client;..\Persistence;..\Utils\Vcl;..\Utils\Misc;..\Surfaces;..\Mail;..\Utils\Serial;..\DServer
-Item1=..\Kernel;..\StdBlocks;..\Class Storage;..\Cache;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client;..\Persistence;..\Utils\Vcl;..\Utils\Misc;..\Surfaces;..\Mail;..\Utils\Serials;..\DServer
-Item2=..\Kernel;..\StdBlocks;..\Class Storage;..\Cache;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client;..\Persistence;..\Utils\Vcl;..\Utils\Misc;..\Surfaces;..\Mail;..\Directory Server;..\Utils\Serials;..\DServer
-Item3=..\Kernel;..\StdBlocks;..\Class Storage;..\Cache;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client;..\Persistence;..\Utils\Vcl;..\Utils\Misc;..\Surfaces;..\Mail;..\Directory Server;..\Utils\Serials
-Item4=..\Kernel;..\StdBlocks;..\Class Storage;..\Cache;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client;..\Persistence;..\Utils\Vcl;..\Utils\Misc;..\Surfaces;..\Mail;..\Directory Server
+Count=6
+Item0=\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Kernel;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\StdBlocks;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Class Storage;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Cache;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Rdo\Common;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Rdo\Server;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Utils\Network;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Rdo\Client;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Persistence;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Utils\Vcl;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Utils\Misc;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Surfaces;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Mail;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Utils\Serial;\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\DServer
+Item1=..\Kernel;..\StdBlocks;..\Class Storage;..\Cache;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client;..\Persistence;..\Utils\Vcl;..\Utils\Misc;..\Surfaces;..\Mail;..\Utils\Serial;..\DServer
+Item2=..\Kernel;..\StdBlocks;..\Class Storage;..\Cache;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client;..\Persistence;..\Utils\Vcl;..\Utils\Misc;..\Surfaces;..\Mail;..\Utils\Serials;..\DServer
+Item3=..\Kernel;..\StdBlocks;..\Class Storage;..\Cache;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client;..\Persistence;..\Utils\Vcl;..\Utils\Misc;..\Surfaces;..\Mail;..\Directory Server;..\Utils\Serials;..\DServer
+Item4=..\Kernel;..\StdBlocks;..\Class Storage;..\Cache;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client;..\Persistence;..\Utils\Vcl;..\Utils\Misc;..\Surfaces;..\Mail;..\Directory Server;..\Utils\Serials
+Item5=..\Kernel;..\StdBlocks;..\Class Storage;..\Cache;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client;..\Persistence;..\Utils\Vcl;..\Utils\Misc;..\Surfaces;..\Mail;..\Directory Server
 [HistoryLists\hlUnitOutputDirectory]
-Count=1
-Item0=..\..\dcu
-[HistoryLists\hlOutputDirectorry]
 Count=2
-Item0=..\..\Release\Servers\
-Item1=C:\sp\bin\interface
+Item0=\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original-compiled\Servers\Interface Server\dcu
+Item1=..\..\dcu
+[HistoryLists\hlOutputDirectorry]
+Count=3
+Item0=\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original-compiled\Servers\Interface Server\release
+Item1=..\..\Release\Servers\
+Item2=C:\sp\bin\interface
