@@ -11,7 +11,7 @@ interface
     {$IFDEF AutoServer}
     RDOClient_TLB,
     {$ENDIF}
-    RDOInterfaces;
+    RDOInterfaces, Variants;
 
   type
     TRDOObjectProxy =

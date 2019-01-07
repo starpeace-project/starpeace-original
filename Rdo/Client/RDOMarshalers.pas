@@ -6,7 +6,7 @@ interface
     {$IFDEF AutoServer}
     RDOClient_TLB,
     {$ENDIF}
-    RDOInterfaces;
+    RDOInterfaces, Variants;
 
   function  MarshalPropertyGet( ObjectId : integer; const PropName : string; RDOConnection : IRDOConnection; TimeOut, Priority : integer; out ErrorCode : integer ) : variant;
   procedure MarshalPropertySet( ObjectId : integer; const PropName : string; const PropValue : variant; RDOConnection : IRDOConnection; TimeOut, Priority : integer; out ErrorCode : integer );

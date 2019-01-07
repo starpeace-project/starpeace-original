@@ -473,7 +473,8 @@ implementation
     begin
       ErrorCode := WSAStartup($0101, WSAData);
       if ErrorCode <> 0
-        then raise ESocketError.CreateFmt(sWindowsSocketError, [SysErrorMessage(ErrorCode), ErrorCode, 'WSAStartup']);
+        //then raise ESocketError.CreateFmt(sWindowsSocketError, [SysErrorMessage(ErrorCode), ErrorCode, 'WSAStartup']);
+        then raise EsocketError.CreateFmt ( 'Socket error =% d% s% s', [SysErrorMessage(ErrorCode), ErrorCode, 'WSAStartup']);
     end;
 
   procedure Cleanup;
@@ -482,7 +483,8 @@ implementation
     begin
       ErrorCode := WSACleanup;
       if ErrorCode <> 0
-        then raise ESocketError.CreateFmt(sWindowsSocketError, [SysErrorMessage(ErrorCode), ErrorCode, 'WSACleanup']);
+        //then raise ESocketError.CreateFmt(sWindowsSocketError, [SysErrorMessage(ErrorCode), ErrorCode, 'WSACleanup']);
+        then raise EsocketError.CreateFmt ( 'Socket error =% d% s% s', [SysErrorMessage(ErrorCode), ErrorCode, 'WSACleanup']);
     end;
 
 
@@ -1166,7 +1168,7 @@ function TCustomWinSocket.ResolveSock4: boolean;
             else
               if not Client
                 then result.sin_addr.s_addr := INADDR_ANY
-                else raise ESocketError.Create(sNoAddress); // >> Sospechoso //.Para Eso estan los assert"
+                else raise ESocketError.Create('No Address found'); // >> Sospechoso //.Para Eso estan los assert"
       if Service <> ''
         then result.sin_port := htons(LookupService(Service))
         else result.sin_port := htons(Port);
@@ -1177,10 +1179,10 @@ function TCustomWinSocket.ResolveSock4: boolean;
       SockAddrIn : TSockAddrIn;
     begin
       if fConnected
-        then raise ESocketError.Create(sCannotListenOnOpen);
+        then raise ESocketError.Create('Cannot Listen On Opening');
       fSocket := socket(PF_INET, SOCK_STREAM, IPPROTO_IP);
       if FSocket = INVALID_SOCKET
-        then raise ESocketError.Create(sCannotCreateSocket);
+        then raise ESocketError.Create('Cannot create socket');
       try
         SockAddrIn := InitSocket(Name, Address, Service, Port, false);
         CheckSocketResult(bind(fSocket, SockAddrIn, SizeOf(SockAddrIn)), 'bind');
@@ -1202,10 +1204,10 @@ function TCustomWinSocket.ResolveSock4: boolean;
       SockAddrIn : TSockAddrIn;
     begin
       if fConnected
-        then raise ESocketError.Create(sSocketAlreadyOpen);
+        then raise ESocketError.Create('Socket Already Open');
       fSocket := socket(PF_INET, SOCK_STREAM, IPPROTO_IP);
       if fSocket = INVALID_SOCKET
-        then raise ESocketError.Create(sCannotCreateSocket);
+        then raise ESocketError.Create('Cannot Create Socket');
       try
         Event(Self, seLookUp);
         with fSockInfo^ do
@@ -1762,7 +1764,7 @@ function TCustomWinSocket.ResolveSock4: boolean;
         then
           begin
             if not (csLoading in ComponentState) and fActive
-              then raise ESocketError.Create(sCantChangeWhileActive);
+              then raise ESocketError.Create('Cant change while active');
             fAddress := Value
           end
     end;

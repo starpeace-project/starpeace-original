@@ -1,5 +1,7 @@
+[FileVersion]
+Version=7.0
 [Compiler]
-A=1
+A=8
 B=0
 C=1
 D=1
@@ -28,6 +30,55 @@ Z=1
 ShowHints=0
 ShowWarnings=0
 UnitAliases=
+NamespacePrefix=
+SymbolDeprecated=1
+SymbolLibrary=1
+SymbolPlatform=1
+UnitLibrary=1
+UnitPlatform=1
+UnitDeprecated=1
+HResultCompat=1
+HidingMember=1
+HiddenVirtual=1
+Garbage=1
+BoundsError=1
+ZeroNilCompat=1
+StringConstTruncated=1
+ForLoopVarVarPar=1
+TypedConstVarPar=1
+AsgToTypedConst=1
+CaseLabelRange=1
+ForVariable=1
+ConstructingAbstract=1
+ComparisonFalse=1
+ComparisonTrue=1
+ComparingSignedUnsigned=1
+CombiningSignedUnsigned=1
+UnsupportedConstruct=1
+FileOpen=1
+FileOpenUnitSrc=1
+BadGlobalSymbol=1
+DuplicateConstructorDestructor=1
+InvalidDirective=1
+PackageNoLink=1
+PackageThreadVar=1
+ImplicitImport=1
+HPPEMITIgnored=1
+NoRetVal=1
+UseBeforeDef=1
+ForLoopVarUndef=1
+UnitNameMismatch=1
+NoCFGFileFound=1
+MessageDirective=1
+ImplicitVariants=1
+UnicodeToLocale=1
+LocaleToUnicode=1
+ImagebaseMultiple=1
+SuspiciousTypecast=1
+PrivatePropAccessor=1
+UnsafeType=1
+UnsafeCode=1
+UnsafeCast=1
 [Linker]
 MapFile=0
 OutputObjs=0
@@ -39,8 +90,8 @@ MaxStackSize=1048576
 ImageBase=4194304
 ExeDescription=
 [Directories]
-OutputDir=s:\release
-UnitOutputDir=..\..\DCU
+OutputDir=\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original-compiled-delphi7\dlls\release
+UnitOutputDir=\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original-compiled-delphi7\dlls\dcu
 PackageDLLOutputDir=
 PackageDCPOutputDir=
 SearchPath=..\Kernel;..\StdBlocks;..\Class Storage;..\Cache;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client;..\Persistence;..\Utils\Misc;..\Logs
@@ -51,6 +102,13 @@ UsePackages=0
 [Parameters]
 RunParams=
 HostApplication=d:\work\Five\Release\Servers\FIVEModelServer.exe
+Launcher=
+UseLauncher=0
+DebugCWD=
+[Language]
+ActiveLang=
+ProjectLang=
+RootDir=
 [Version Info]
 IncludeVerInfo=0
 AutoIncBuild=0
@@ -76,9 +134,6 @@ OriginalFilename=
 ProductName=
 ProductVersion=1.0.0.0
 Comments=
-[Excluded Packages]
-$(DELPHI)\Bin\dclite50.bpl=Borland Integrated Translation Environment
-$(DELPHI)\Bin\dclmid50.bpl=Borland MIDAS Components
 [HistoryLists\hlDebugSourcePath]
 Count=2
 Item0=S:\Source\Utils\Misc\
@@ -94,9 +149,9 @@ Item1=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE
 Item2=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;strutils=mr_strutils
 [HistoryLists\hlSearchPath]
 Count=13
-Item0=..\Kernel;..\StdBlocks;..\Class Storage;..\Cache;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client;..\Persistence;..\Utils\Misc;..\Logs;..\utils\vcl
-Item1=..\Kernel
-Item2=..\Kernel;..\StdBlocks;..\Class Storage;..\Cache;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client;..\Persistence;..\Utils\Misc;..\Logs
+Item0=..\Kernel;..\StdBlocks;..\Class Storage;..\Cache;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client;..\Persistence;..\Utils\Misc;..\Logs
+Item1=..\Kernel;..\StdBlocks;..\Class Storage;..\Cache;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client;..\Persistence;..\Utils\Misc;..\Logs;..\utils\vcl
+Item2=..\Kernel
 Item3=..\Kernel;..\StdBlocks;..\Class Storage;..\Cache;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client\;..\Persistence;..\Utils\Misc;..\Utils\Vcl;..\Surfaces;..\Mail;..\Tasks
 Item4=..\Kernel;..\RDO\Common;..\Cache;..\RDO\Server;..\RDO\Client\Delphi;..\Utils\Network;..\Utils\Misc
 Item5=..\..\Circuits;..\..\Kernel;..\..\StdBlocks;..\..\Class Storage;..\..\Cache;..\..\RDO\Common;..\..\RDO\Server;..\..\Utils\Network;..\..\RDO\Client\;..\..\Persistence;..\..\Utils\Misc;..\..\Surfaces;..\..\Mail;..\..\Protocol;..\..\Tasks;..\..\Utils\Vcl;..\..\Logs
@@ -108,15 +163,17 @@ Item10=$(DELPHI)\Lib\Debug;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\C
 Item11=$(DELPHI)\Lib\Debug;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client\;..\Utils\Misc;..\Voyager;..\Voyager\URLHandlers;Components;..\Kernel;..\Utils\GameAPI;..\Utils\Graphics;..\Utils\Voice;..\DServer;$(DELPHI)\Source\Toolsapi;..\Utils\CodeLib;..\Utils\debug
 Item12=..\voyager\components;c:\program files\borland\delphi 3\source\vcl;..\rdo\client;..\rdo\common;..\utils\network\;..\utils\vcl
 [HistoryLists\hlUnitOutputDirectory]
-Count=4
-Item0=..\..\dcu
-Item1=..\..\..\DCU
-Item2=S:\dcu
-Item3=s:\temp\dcu
+Count=5
+Item0=\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original-compiled-delphi7\dlls\dcu
+Item1=..\..\dcu
+Item2=..\..\..\DCU
+Item3=S:\dcu
+Item4=s:\temp\dcu
 [HistoryLists\hlOutputDirectorry]
-Count=2
-Item0=s:\release\servers
-Item1=s:\release
+Count=3
+Item0=\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original-compiled-delphi7\dlls\release
+Item1=s:\release\servers
+Item2=s:\release
 [HistoryLists\hlBPLOutput]
 Count=1
 Item0=s:\temp\Component
