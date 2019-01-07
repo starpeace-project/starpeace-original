@@ -3,7 +3,7 @@ unit InputSearchAuto;
 interface
 
 uses
-  ComObj, InputSrch_TLB, InputSearch, FluidLinks, CacheCommon;
+  ComObj, InputSrch_TLB, InputSearch, FluidLinks, CacheCommon, StdVcl;
 
 type
   TInputSearch = class(TAutoObject, IInputSearch)

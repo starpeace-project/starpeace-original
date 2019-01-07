@@ -12,7 +12,7 @@ unit InputSrch_TLB;
 // ************************************************************************ //
 
 // PASTLWTR : 1.2
-// File generated on 07/01/2019 02:01:05 from Type Library described below.
+// File generated on 07/01/2019 02:00:53 from Type Library described below.
 
 // ************************************************************************  //
 // Type Lib: \\vmware-host\Shared Folders\Documents\GitHub\starpeace-original\Cache\InputSrch.tlb (1)
@@ -22,6 +22,15 @@ unit InputSrch_TLB;
 // HelpString: InputSrch Library
 // DepndLst: 
 //   (1) v1.0 stdole, (C:\Windows\System32\stdole32.tlb)
+// Errors:
+//   Hint: Parameter 'row' of IInputSearch.X changed to 'row_'
+//   Hint: Parameter 'row' of IInputSearch.Y changed to 'row_'
+//   Hint: Parameter 'row' of IInputSearch.Capacity changed to 'row_'
+//   Hint: Parameter 'row' of IInputSearch.SupLevel changed to 'row_'
+//   Hint: Parameter 'row' of IInputSearch.Town changed to 'row_'
+//   Hint: Parameter 'row' of IInputSearch.Company changed to 'row_'
+//   Hint: Parameter 'row' of IInputSearch.Utility changed to 'row_'
+//   Hint: Parameter 'row' of IInputSearch.Connected changed to 'row_'
 // ************************************************************************ //
 {$TYPEDADDRESS OFF} // Unit must be compiled without type-checked pointers. 
 {$WARN SYMBOL_PLATFORM OFF}
