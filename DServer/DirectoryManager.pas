@@ -2,7 +2,7 @@ unit DirectoryManager;
 
 interface
 
-  uses ADOInt;
+  uses ADOInt, Variants;
 
   // Node Type
 

@@ -1,6 +1,6 @@
 program DServer;
 
-{%File 'debug.txt'}
+
 
 uses
   ShareMem,
