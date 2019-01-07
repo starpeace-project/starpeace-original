@@ -3,7 +3,7 @@ unit RDOQueryServer;
 interface
 
   uses
-    RDOInterfaces, RDOObjectServer, Logs, Variants;
+    RDOInterfaces, RDOObjectServer, Logs;
 
   const
     tidConnRequestName = 'RDOCnntId';

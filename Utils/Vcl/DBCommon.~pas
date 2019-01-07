@@ -1622,7 +1622,7 @@ begin
         end
       else if TokenSymbolIs('NULL') then
         begin
-          Result := FFilter.NewNode(enConst, coNOTDEFINED, Null, nil, nil);
+          Result := FFilter.NewNode(enConst, coNOTDEFINED, System.Null, nil, nil);
           Result.FScopeKind := skConst;
         end
       else if TokenSymbolIs(FStrTrue) then

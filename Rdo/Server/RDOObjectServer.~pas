@@ -3,7 +3,7 @@ unit RDOObjectServer;
 interface
 
   uses
-    SyncObjs, RDOObjectRegistry, Variants;
+    SyncObjs, RDOObjectRegistry;
 
   type
     TRDOObjectServer =

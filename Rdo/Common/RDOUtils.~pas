@@ -3,7 +3,7 @@ unit RDOUtils;
 interface
 
   uses
-    Windows, Variants;
+    Windows;
 
   const
     UnknownPriority = MAXLONG;

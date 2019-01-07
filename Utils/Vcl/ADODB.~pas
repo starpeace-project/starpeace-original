@@ -16,7 +16,7 @@ interface
 
 uses
   Windows, ActiveX, SysUtils, Classes, Graphics, TypInfo, DB,
-  OLEDB, ADOInt, Variants;
+  OLEDB, ADOInt;
 
 type
 

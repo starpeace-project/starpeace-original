@@ -6,7 +6,7 @@ interface
   {$IFDEF USELogs}
     ShareMem,
     {$endif}
-    SocketComp, SysUtils, Variants;
+    SocketComp, SysUtils;
 
   procedure Log( LogId, Info : string );
   procedure InitSocket(id : string; aSocket : TClientSocket);

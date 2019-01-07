@@ -14,7 +14,7 @@ unit Db;
 
 interface
 
-uses Windows, SysUtils, Classes, Graphics, Variants;
+uses Windows, SysUtils, Classes, Graphics;
 
 type
 

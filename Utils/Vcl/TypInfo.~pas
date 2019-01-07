@@ -13,7 +13,7 @@ unit TypInfo;
 
 interface
 
-uses SysUtils, Variants;
+uses SysUtils;
 
 type
   TTypeKind = (tkUnknown, tkInteger, tkChar, tkEnumeration, tkFloat,
