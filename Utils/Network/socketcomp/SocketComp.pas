@@ -1775,7 +1775,7 @@ function TCustomWinSocket.ResolveSock4: boolean;
         then
           begin
             if not (csLoading in ComponentState) and fActive
-              then raise ESocketError.Create(sCantChangeWhileActive);
+              then raise ESocketError.Create('sCantChangeWhileActive');
             fHost := Value;
           end;
     end;
@@ -1786,7 +1786,7 @@ function TCustomWinSocket.ResolveSock4: boolean;
         then
           begin
             if not (csLoading in ComponentState) and fActive
-              then raise ESocketError.Create(sCantChangeWhileActive);
+              then raise ESocketError.Create('sCantChangeWhileActive');
             fPort := Value;
           end
     end;
@@ -1797,7 +1797,7 @@ function TCustomWinSocket.ResolveSock4: boolean;
         then
           begin
             if not (csLoading in ComponentState) and fActive
-              then raise ESocketError.Create(sCantChangeWhileActive);
+              then raise ESocketError.Create('sCantChangeWhileActive');
             fService := Value;
           end
     end;

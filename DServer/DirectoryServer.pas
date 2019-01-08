@@ -3,7 +3,14 @@ unit DirectoryServer;
 interface
 
   uses
-    Classes, Collection, RDOServer, RDOInterfaces, SyncObjs, DirectoryManager, DirectoryServerProtocol;
+    Classes,
+    Collection,
+    RDOServer,
+    RDOInterfaces,
+    SyncObjs,
+    DirectoryManager,
+    DirectoryServerProtocol,
+    Variants;
 
   const
     NoExpire = 0;
@@ -2020,8 +2027,8 @@ implementation
 
   function GetProperties( data : string ) : TStringList;
     begin
-      data := ReplaceStr( data, '&', #13#10 );
-      data := ReplaceStr( data, '?', #13#10 );
+      data := AnsiReplaceStr( data, '&', #13#10 );
+      data := AnsiReplaceStr( data, '?', #13#10 );
       result := TStringList.Create;
       result.Text := data;
     end;
