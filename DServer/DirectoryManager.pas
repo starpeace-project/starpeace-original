@@ -114,7 +114,7 @@ interface
 implementation
 
   uses
-    Classes, SysUtils, MainWindow, ComObj, logs;
+    Classes, SysUtils, MainWindow, ComObj, logs, FileLogger;
 
   const
     MaxVarCharLength = 7800;

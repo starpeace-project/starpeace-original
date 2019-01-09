@@ -1,6 +1,6 @@
 program DServer;
 
-{%File 'debug.txt'}
+
 
 uses
   ShareMem,
@@ -15,8 +15,7 @@ uses
   Logs in '..\Logs\Logs.pas',
   DirectoryServer in 'DirectoryServer.pas',
   rc4 in '..\Kernel\rc4.pas',
-  DirectoryServerProtocol in 'DirectoryServerProtocol.pas',
-  FileLogger in 'FileLogger.pas';
+  DirectoryServerProtocol in 'DirectoryServerProtocol.pas';
 
 {$R *.RES}
 

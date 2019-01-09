@@ -89,9 +89,7 @@ interface
           function RDOGenTransactionId( Alias : widestring ) : olevariant;
           function RDONewAccount( AccountId : widestring; FamilyId : integer ) : olevariant;
           function RDONewUserId( Alias, Password, AccountId : widestring; FamilyId : integer ) : olevariant;
-          function RDOLogonUser( Alias, Password : widestring ) : olevariant;
           function RDOMapSegaUser(Alias : widestring ) : olevariant;
-          //function RDOSNAPLogonUser( Alias, Password : widestring ) : olevariant;
           function RDOExtendTrial(Alias : widestring; days : integer) : OleVariant;
           function RDOIsOnTrial(Alias : widestring) : OleVariant;
           function RDONextChargeDate(Alias : widestring) : OleVariant;
@@ -103,7 +101,6 @@ interface
           function RDOUnsubscribe(alias, subsid : widestring) : olevariant;
           function RDOUpdateSubs(alias : widestring; valid : wordbool) : olevariant;
           function RDOUpdateAccount(alias, expDate : widestring) : olevariant;
-          function RDOGetExpDays(alias : widestring) : olevariant;
 
           function RDOStoreKey(key : widestring) : olevariant;
           function RDORetrieveKey(index : integer) : olevariant;
@@ -183,7 +180,6 @@ interface
           function Unsubscribe(alias, subsid : widestring) : integer;
           function UpdateSubscription(alias : widestring; valid : wordbool) : integer;
           function UpdateAccount(alias, expDate : widestring) : integer;
-          function GetExpDays(alias : widestring) : integer;
 
           function StoreKey(key : string) : integer;
           function RetrieveKey(index : integer) : string;
@@ -228,7 +224,7 @@ implementation
   uses
     Windows, SysUtils, WinSockRDOConnectionsServer, GenIdd, Logs, StrUtils, wininet, MainWindow,
     WinSockRDOConnection, RDOObjectProxy, rc4, MathUtils, Protocol,
-    CompStringsParser;
+    CompStringsParser, FileLogger;
 
   const
     SOFT_KEY = 'starpeace';
@@ -1019,25 +1015,6 @@ implementation
       end;
     end;
 
-  function TDirectorySession.RDOGetExpDays(alias : widestring) : olevariant;
-    begin
-      Lock;
-      try
-        KeepAlive;
-        try
-          result := fServer.GetExpDays(alias);
-        except
-          on e : Exception do
-            begin
-              fServer.LogThis(e.Message + ' @ TDirectorySession.RDOGetExpDays: ' + alias);
-              result := DIR_ERROR_Unknown;
-            end;
-        end;
-      finally
-        UnLock;
-      end;
-    end;
-
   function TDirectorySession.RDOStoreKey(key : widestring) : olevariant;
     begin
       Lock;
@@ -1133,29 +1110,6 @@ implementation
         UnLock;
       end;
     end;
-
-
-  function TDirectorySession.RDOLogonUser( Alias, Password : widestring ) : olevariant; //RDOSNAPLogonUser
-    begin
-      Lock;
-      try
-        KeepAlive;
-        try
-          if not DirectoryWin.cbSlave.Checked
-            then result := fServer.LogonSegaUser(Alias, Password, DirectoryWin.cbSegaAuth.Checked)
-            else result := fServer.LogonRemoteUser(Alias, Password, DirectoryWin.cbSegaAuth.Checked);
-        except
-          on e : Exception do
-            begin
-              fServer.LogThis( e.Message + ' @ TDirectorySession.RDOLogonUser' );
-              result := DIR_ERROR_Unknown;
-            end;
-        end;
-      finally
-        UnLock;
-      end;
-    end;
-
 
   function TDirectorySession.RDOIsValidAlias( Alias : widestring ) : olevariant;
     begin
@@ -2517,55 +2471,6 @@ implementation
       except
         result := -1;
         Logs.Log('survival', TimeToStr(Now) + ': Uknown error at UpdateAccount.');
-      end;
-    end;
-
-  function TDirectoryServer.GetExpDays(alias : widestring) : integer;
-    var
-      session : TDirectorySession;
-      key     : string;
-      accStat : integer;
-      expDate : TDateTime;
-      days    : integer;
-      passwrd : string;
-    begin
-      try
-        session := TDirectorySession.Create(self, fDBName, fIsSecure);
-        try
-          key := GetUserPath(alias);
-          if fIsSecure and session.RDOSetCurrentKey(key)
-            then
-              begin
-                accStat := session.RDOReadInteger('AccountStatus');
-                case accStat of
-                  DIR_ACC_NoAuthUserA, DIR_ACC_NoAuthUserB :
-                    expDate := Now;
-                  else
-                    expDate := session.RDOReadDate('TrialExpires');
-                end;
-                days := max(0, round(Now - expDate));
-                if days > 0
-                  then
-                    begin
-                      passwrd := session.RDOReadString('password');
-                      case session.RDOLogonUser(alias, passwrd) of
-                        DIR_NOERROR, DIR_ERROR_Unknown :
-                          result := 0;
-                        DIR_ERROR_UnexistingAccount, DIR_ERROR_InvalidPassword : // >> 
-                          result := days;
-                        else
-                          result := 0;
-                      end;
-                    end
-                  else result := 0;
-              end
-            else result := -1;
-        finally
-          session.Free;
-        end;
-      except
-        result := -1;
-        Logs.Log('survival', TimeToStr(Now) + ': Uknown error at GetExpDays.');
       end;
     end;
 
