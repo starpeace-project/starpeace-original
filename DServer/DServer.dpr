@@ -15,7 +15,8 @@ uses
   Logs in '..\Logs\Logs.pas',
   DirectoryServer in 'DirectoryServer.pas',
   rc4 in '..\Kernel\rc4.pas',
-  DirectoryServerProtocol in 'DirectoryServerProtocol.pas';
+  DirectoryServerProtocol in 'DirectoryServerProtocol.pas',
+  FileLogger in '..\Logging\FileLogger.pas';
 
 {$R *.RES}
 

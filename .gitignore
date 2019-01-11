@@ -4,3 +4,4 @@
 *.~pas
 /.idea/
 *.xml
+.idea/workspace.xml

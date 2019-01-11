@@ -1662,16 +1662,7 @@ implementation
       session   : TDirectorySession;
       userkey   : string;
       realpass  : string;
-      sdcname   : string;
-      compUser  : string;
       aliasId   : string;
-      logpass   : string;
-      created   : TDateTime;
-      oldMask   : integer;
-      newMask   : integer;
-      days      : integer;
-      acstatus  : integer;
-      crtdate   : TDateTime;
       log       : boolean;
       baseLog   : string;
     begin
@@ -1713,8 +1704,13 @@ implementation
                         LogString(baseLog + 'Password fetched: ' + realpass);
 
                     if realpass = Password
-                      then result := DIR_NOERROR
-                      else result := DIR_ERROR_InvalidPassword;
+                      then
+                        begin
+                          LogString(baseLog + 'LOGIN SUCCESSFUL');
+                          result := DIR_NOERROR
+                        end
+                      else
+                        result := DIR_ERROR_InvalidPassword;
                   end;
             finally
               session.Free;
