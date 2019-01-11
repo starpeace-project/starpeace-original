@@ -114,7 +114,7 @@ interface
 implementation
 
   uses
-    Classes, SysUtils, MainWindow, ComObj, logs, FileLogger;
+    Classes, SysUtils, MainWindow, ComObj, logs;
 
   const
     MaxVarCharLength = 7800;
@@ -1854,12 +1854,8 @@ implementation
         Conn.Set_CommandTimeout(0);
         result := true;
       except
-        on e : Exception do
-        begin
-        LogString('Database Connection Exception: ' + e.Message);
         raise;
         result := false;
-        end;
       end;
     end;{ TDirectoryManager.QueryFind }
 
