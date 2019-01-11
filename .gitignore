@@ -3,3 +3,4 @@
 *.~tlb
 *.~pas
 /.idea/
+*.xml
