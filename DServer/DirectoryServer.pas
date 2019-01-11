@@ -1891,11 +1891,11 @@ var
   log : Boolean;
   baseLog : string;
 begin
-  log := DirectoryWin.chkLogMapSegaUser.Checked
+  log := DirectoryWin.chkLogMapSegaUser.Checked;
   if log
   then
   begin
-    baseLog = 'MapSegaUser: ';
+    baseLog := 'MapSegaUser: ';
     LogString(baseLog + 'Beginning MapSegaUser Logging');
   end;
   session := TDirectorySession.Create(self, fDBName, true);
