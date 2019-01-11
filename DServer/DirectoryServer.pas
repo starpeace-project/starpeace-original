@@ -103,6 +103,7 @@ interface
           function RDOUnsubscribe(alias, subsid : widestring) : olevariant;
           function RDOUpdateSubs(alias : widestring; valid : wordbool) : olevariant;
           function RDOUpdateAccount(alias, expDate : widestring) : olevariant;
+          function RDOGetExpDays(alias : widestring) : olevariant;
 
           function RDOStoreKey(key : widestring) : olevariant;
           function RDORetrieveKey(index : integer) : olevariant;
@@ -182,6 +183,7 @@ interface
           function Unsubscribe(alias, subsid : widestring) : integer;
           function UpdateSubscription(alias : widestring; valid : wordbool) : integer;
           function UpdateAccount(alias, expDate : widestring) : integer;
+          function GetExpDays(alias : widestring) : integer;
 
           function StoreKey(key : string) : integer;
           function RetrieveKey(index : integer) : string;
@@ -219,8 +221,6 @@ interface
 
     function authUser(usr, psw : pchar) : integer; cdecl; external 'sega_snap.dll'
     function getInitResult : integer;              cdecl; external 'sega_snap.dll'
-    //function authUser(usr, psw : pchar) : integer; cdecl; external 'sega_snap.dll'
-    //function getInitResult : integer;              cdecl; external 'sega_snap.dll'
     //function initAuthFunc : integer;              cdecl; external 'sega_snap.dll'
 
 implementation
@@ -1019,6 +1019,25 @@ implementation
       end;
     end;
 
+  function TDirectorySession.RDOGetExpDays(alias : widestring) : olevariant;
+    begin
+      Lock;
+      try
+        KeepAlive;
+        try
+          result := fServer.GetExpDays(alias);
+        except
+          on e : Exception do
+            begin
+              fServer.LogThis(e.Message + ' @ TDirectorySession.RDOGetExpDays: ' + alias);
+              result := DIR_ERROR_Unknown;
+            end;
+        end;
+      finally
+        UnLock;
+      end;
+    end;
+
   function TDirectorySession.RDOStoreKey(key : widestring) : olevariant;
     begin
       Lock;
@@ -1122,7 +1141,9 @@ implementation
       try
         KeepAlive;
         try
-          result := fServer.LogonSpoUser(Alias, Password);
+          if not DirectoryWin.cbSlave.Checked
+            then result := fServer.LogonSegaUser(Alias, Password, DirectoryWin.cbSegaAuth.Checked)
+            else result := fServer.LogonRemoteUser(Alias, Password, DirectoryWin.cbSegaAuth.Checked);
         except
           on e : Exception do
             begin
@@ -1376,6 +1397,17 @@ implementation
       dec(fRefCount);
     end;
 
+  {function TDirectorySession.RootExists(SerialNo : string) : boolean;
+    begin
+      // todo
+      result := false;
+    end;
+
+  procedure TDirectorySession.AddRoot(SerialNo : string);
+    begin
+      // todo
+    end;}
+
 
   // TDirectoryServer
 
@@ -1528,6 +1560,25 @@ implementation
 
   function TDirectoryServer.NewUserId( Alias, Password, AccountId : widestring; FamilyId : TSerialFamilyId ) : integer;
 
+//  const
+//    MaxSerialUses = 1;
+
+    {
+    function EndOfTrial : TDateTime;
+      var
+        d, m, y : word;
+      begin
+        DecodeDate( Now, y, m, d );
+        if m < 12
+          then m := m + 1
+          else
+            begin
+              y := y + 1;
+              m := 1;
+            end;
+        result := EncodeDate( y, m, d );
+      end;
+    }
 
     function EndOfTrial(days : integer) : TDateTime;
       begin
@@ -1679,38 +1730,6 @@ implementation
                       else result := DIR_SEGA_ERROR_UserNotAuthorized;
 
                     if result = 0
-        LogString('Result: ' + inttostr(result));
-    end;
-
-  function TDirectoryServer.LogonSpoUser(Alias, Password : widestring) : olevariant;
-   var
-    session : TDirectorySession;
-    userKey : string;
-    realPass : string;
-    aliasId : string;
-    logPass : string;
-    acstatus : integer;
-   begin
-   try
-    Alias := Trim(Alias);
-    if IsValidAlias(Alias)
-      then
-        begin
-          session := TDirectorySession.Create(self, fDBName, true);
-          try
-            aliasId := GetAliasId(Alias);
-            userKey := GetUserPath(aliasId);
-            if session.RDOFullPathKeyExists(userKey)
-              then
-                begin
-                  session.RDOSetCurrentKey( userkey );
-                  realpass := session.RDOReadString('password');
-                  //acstatus := session.RDOReadInteger('AccountStatus');
-                  if realPass = Password
-                    then logPass := Password
-                    else logPass := '';
-
-                    if logPass <> ''
                       then
                         begin
                           created := session.RDOReadDate('created');
@@ -1738,8 +1757,6 @@ implementation
                                 session.RDOWriteString('password', logpass);
                               end;
                           Logs.Log('login', TimeToStr(Now) + ' Successful login User: "' + Alias + '" SEGA User: "' + compUser + '" Password: "' + Password + '" SNAP Code: ' + IntToStr(result));
-                          result := DIR_NOERROR;
-                          LogString('LOGIN SUCCESSFULL');
                         end
                       else
                         if acstatus <> DIR_ACC_BlockedUser
@@ -1758,10 +1775,6 @@ implementation
             finally
               session.Free;
             end;
-                        result := DIR_ERROR_InvalidPassword
-              end
-          finally
-           session.Free
           end
         else
           begin
@@ -1815,13 +1828,6 @@ implementation
          result := DIR_ERROR_Unknown;
        end;
     end;
-      end
-    else
-     result := DIR_ERROR_InvalidAlias
-    except
-     result := DIR_ERROR_Unknown
-    end
-  end;
 
   function TDirectoryServer.GetRemoteSession : olevariant;
     var
@@ -2668,6 +2674,32 @@ implementation
         end;
       except
         // Log Error
+      end;
+    end;
+
+  function TDirectoryServer.MapSegaError(error : integer) : integer;
+    begin
+      case error of
+        DIR_SEGA_NOERROR :
+          result := DIR_NOERROR;
+        DIR_SEGA_ERROR_UserNotFound :
+          result := DIR_ERROR_UnexistingAccount;
+        DIR_SEGA_ERROR_BadUserIDFormat :
+          result := DIR_ERROR_Unknown;
+        DIR_SEGA_ERROR_UnknownDomain :
+          result := DIR_ERROR_Unknown;
+        DIR_SEGA_ERROR_InternalError :
+          result := DIR_ERROR_Unknown;
+        DIR_SEGA_ERROR_UserNotAuthorized :
+          result := DIR_ERROR_InvalidPassword;
+        DIR_SEGA_ERROR_SystemDown :
+          result := DIR_ERROR_Unknown;
+        DIR_SEGA_ERROR_NotInitialized :
+          result := DIR_ERROR_Unknown;
+        DIR_SEGA_ERROR_TimeOut :
+          result := DIR_ERROR_Unknown;
+        else
+          result := error;
       end;
     end;
 
