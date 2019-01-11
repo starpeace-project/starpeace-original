@@ -1891,6 +1891,7 @@ var
   log : Boolean;
   baseLog : string;
 begin
+  log := DirectoryWin.chkLogMapSegaUser.Checked
   if log
   then
   begin
