@@ -2,3 +2,4 @@
 *.~dpr
 *.~tlb
 *.~pas
+.idea/workspace.xml
