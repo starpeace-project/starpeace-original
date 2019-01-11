@@ -38,11 +38,13 @@ type
     cbJoinAllWorlds: TCheckBox;
     cbSegaAuth: TCheckBox;
     Label8: TLabel;
-    Image1: TImage;
     TabSheet4: TTabSheet;
     eSegaDomain: TEdit;
     Label11: TLabel;
     btnSet: TButton;
+    TabSheet5: TTabSheet;
+    chkLogonSpoUser: TCheckBox;
+    chkMapSegaUser: TCheckBox;
     procedure FormCreate(Sender: TObject);
     procedure StartClick(Sender: TObject);
     procedure FormShow(Sender: TObject);

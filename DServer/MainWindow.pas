@@ -43,8 +43,8 @@ type
     Label11: TLabel;
     btnSet: TButton;
     TabSheet5: TTabSheet;
-    chkLogonSpoUser: TCheckBox;
-    chkMapSegaUser: TCheckBox;
+    chkLogLogonSpoUser: TCheckBox;
+    chkLogMapSegaUser: TCheckBox;
     procedure FormCreate(Sender: TObject);
     procedure StartClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
