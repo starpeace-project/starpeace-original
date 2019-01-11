@@ -57,14 +57,13 @@ interface
 implementation
 
   uses
-    SysUtils, GenIdd, FileLogger;
+    SysUtils, GenIdd;
 
   function GetFamily( AccountId : TAccountId; out FamilyId : TSerialFamilyId ) : boolean;
     var
       EndOfArray : boolean;
     begin
       FamilyId := low(FamilyId);
-      LogString('DirectoryServerProtocol GetFamily Called');
       repeat
         result := HeavyIddCheck( AccountId, SerialFamilies[FamilyId] );
         EndOfArray := FamilyId = high(FamilyId);
@@ -79,7 +78,6 @@ implementation
     var
       i : integer;
     begin
-      LogString('DirectoryServerProtocol AuthenticateAlias Called');
       result := true;
       Alias  := LowerCase(Alias);
       i      := low(reserved);
@@ -98,7 +96,6 @@ implementation
     var
       i : integer;
     begin
-      LogString('DirectoryServerProtocol IsValidAlias Called');
       Alias := Trim( Alias );
       if (Length( Alias ) > 0) and (Pos( UpCase( Alias[1] ), Alphabet ) > 0) and AuthenticAlias(Alias)
         then
@@ -112,34 +109,30 @@ implementation
     end;
 
   function GetAliasId( Alias : string ) : string;
-    //var
-      //i : integer;
+    var
+      i : integer;
     begin
-      LogString('DirectoryServerProtocol GetAliasId Called with alias: ' + alias);
       result := Trim( Alias );
-      LogString('DirectoryServerProtocol GetAliasId After trim: ' + result);
-     { for i := 1 to Length( result ) do
+      for i := 1 to Length( result ) do
         if result[i] = ' '
           then result[i] := '.'
-          else result[i] := UpCase( result[i] );    }
+          else result[i] := UpCase( result[i] );
     end;
 
   function GetUserPath( Alias : string ) : string;
     var
       aID : string;
     begin
-      LogString('DirectoryServerProtocol GetUserPath Called');
       aID    := GetAliasID( Alias );
-      result := 'root/users/' + aID[1] + '/' + aID
+      result := 'Root/Users/' + aID[1] + '/' + aID
     end;
 
   function GetUserMapPath(Alias : string) : string;
     var
       aID : string;
     begin
-      LogString('DirectoryServerProtocol GetUserMapPath Called');
       aID    := GetAliasID( Alias );
-      result := 'root/segausers/' + aID[1] + '/' + aID
+      result := 'Root/SegaUsers/' + aID[1] + '/' + aID
     end;
 
 

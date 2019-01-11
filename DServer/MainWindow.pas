@@ -34,9 +34,13 @@ type
     Label10: TLabel;
     edMasterPort: TEdit;
     cbAccExpire: TCheckBox;
+    cbSlave: TCheckBox;
     cbJoinAllWorlds: TCheckBox;
+    cbSegaAuth: TCheckBox;
     Label8: TLabel;
+    Image1: TImage;
     TabSheet4: TTabSheet;
+    eSegaDomain: TEdit;
     Label11: TLabel;
     btnSet: TButton;
     procedure FormCreate(Sender: TObject);
@@ -47,6 +51,7 @@ type
     procedure ePasswordChange(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure Timer1Timer(Sender: TObject);
+    procedure btnSetClick(Sender: TObject);
   private
     fSecureDirServer    : TDirectoryServer;
     fUnsecuredDirServer : TDirectoryServer;
@@ -61,7 +66,7 @@ var
 implementation
 
   uses
-    Registry, DirectoryRegistry, DirectoryManager, sharemem, FileLogger;
+    Registry, DirectoryRegistry, DirectoryManager, sharemem;
 
   {$R *.DFM}
 
@@ -142,6 +147,19 @@ implementation
                 aux := Reg.ReadString('MasterPort');
                 if aux <> ''
                   then edMasterPort.Text := aux;
+                aux := Reg.ReadString('SegaDomain');
+                if aux <> ''
+                  then eSegaDomain.Text := aux;
+                try
+                  cbSlave.Checked := Reg.ReadBool('Slave');
+                except
+                  cbSlave.Checked := false;
+                end;
+                try
+                  cbSegaAuth.Checked := Reg.ReadBool('SNAP');
+                except
+                  cbSegaAuth.Checked := true;
+                end;
               end;
         finally
           Reg.Free;
@@ -154,14 +172,23 @@ implementation
     var
       Reg : TRegistry;
       ret : integer;
+    begin
+      ret := getInitResult;
+      //ret := initAuthFunc;
+      if ret = 0
+        then
           begin
             dbUser := eUser.Text;
             dbPassword := ePassword.Text;
             fSecureDirServer    := TDirectoryServer.Create( StrToInt( SecurePort.Text )   , DBName.Text, false );
             fSecureDirServer.AccountsExpire := cbAccExpire.Checked;
+            fSecureDirServer.Domain := eSegaDomain.Text;
             fUnsecuredDirServer := TDirectoryServer.Create( StrToInt( UnsecuredPort.Text ), DBName.Text, true );
             fUnsecuredDirServer.AccountsExpire := cbAccExpire.Checked;
+            fUnsecuredDirServer.Domain := eSegaDomain.Text;
             Start.Enabled := false;
+            if Sender <> self
+              then Application.Minimize;
             SessionTimer.Enabled := true;
             try
               Reg := TRegistry.Create;
@@ -178,13 +205,22 @@ implementation
                       Reg.WriteString('IPAddress', IPAddress.Text);
                       Reg.WriteString('MasterAddr', edMasterIP.Text);
                       Reg.WriteString('MasterPort', edMasterPort.Text);
+                      Reg.WriteBool  ('Slave', cbSlave.Checked);
+                      Reg.WriteBool  ('SNAP', cbSegaAuth.Checked);
+                      Reg.WriteString('SegaDomain', eSegaDomain.Text);
                     end;
               finally
                 Reg.Free;
               end;
             except
             end;
+          end
+        else
+          begin
+            ShowMessage('Error Initializing SNAP: ' + IntToStr(ret));
+            Start.Enabled := false;
           end;
+    end;
 
   procedure TDirectoryWin.FormShow( Sender : TObject );
     begin
@@ -229,6 +265,14 @@ implementation
   procedure TDirectoryWin.Timer1Timer(Sender: TObject);
     begin
       Label8.caption := Format('Mem Used: %.0n bytes', [int(GetHeapStatus.TotalAllocated)]);
+    end;
+
+  procedure TDirectoryWin.btnSetClick(Sender: TObject);
+    begin
+      if fSecureDirServer <> nil
+        then fSecureDirServer.Domain := eSegaDomain.Text;
+      if fUnsecuredDirServer <> nil
+        then fUnsecuredDirServer.Domain := eSegaDomain.Text;
     end;
 
 end.
