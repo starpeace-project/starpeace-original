@@ -167,7 +167,7 @@ interface
           function NewAccount( AccountId : TAccountId; FamilyId : TSerialFamilyId ) : integer;
           function NewUserId( Alias, Password, AccountId : widestring; FamilyId : TSerialFamilyId ) : integer;
 
-          function LogonSegaUser(Alias, Password : widestring; useSWAN : boolean) : olevariant;
+          function LogonSpoUser(Alias, Password : widestring; useSWAN : boolean) : olevariant;
           function LogonRemoteUser(Alias, Password : widestring; useSWAN : boolean) : olevariant;
           function GetRemoteSession : olevariant;
 
@@ -228,7 +228,7 @@ implementation
   uses
     Windows, SysUtils, WinSockRDOConnectionsServer, GenIdd, Logs, StrUtils, wininet, MainWindow,
     WinSockRDOConnection, RDOObjectProxy, rc4, MathUtils, Protocol,
-    CompStringsParser;
+    CompStringsParser, FileLogger;
 
   const
     SOFT_KEY = 'starpeace';
@@ -1142,7 +1142,7 @@ implementation
         KeepAlive;
         try
           if not DirectoryWin.cbSlave.Checked
-            then result := fServer.LogonSegaUser(Alias, Password, DirectoryWin.cbSegaAuth.Checked)
+            then result := fServer.LogonSpoUser(Alias, Password, DirectoryWin.cbSegaAuth.Checked)
             else result := fServer.LogonRemoteUser(Alias, Password, DirectoryWin.cbSegaAuth.Checked);
         except
           on e : Exception do
@@ -1657,7 +1657,7 @@ implementation
         else result := DIR_ERROR_InvalidSerial;
     end;
 
-  function TDirectoryServer.LogonSegaUser(Alias, Password : widestring; useSWAN : boolean) : olevariant;
+  function TDirectoryServer.LogonSpoUser(Alias, Password : widestring; useSWAN : boolean) : olevariant;
     var
       session   : TDirectorySession;
       userkey   : string;
@@ -1672,115 +1672,59 @@ implementation
       days      : integer;
       acstatus  : integer;
       crtdate   : TDateTime;
+      log       : boolean;
+      baseLog   : string;
     begin
+      log := DirectoryWin.chkLogLogonSpoUser.Checked;
+      if log
+        then
+          baseLog := 'LogonSpoUser: ';
+          LogString(baseLog + 'Beginning LogonSpoUser Logging');
+          LogString(baseLog + 'Alias given: ' + Alias);
+          LogString(baseLog + 'Password given: ' + Password);
       Alias := Trim(Alias);
+      if log
+        then
+          LogString(baseLog + 'Alias trimmed, result: ' + Alias);
       if IsValidAlias(Alias) or not AuthenticAlias(Alias) // this allows the old account to log in e.g. OC_Support, GM_XXX
         then
           begin
+            if log
+              then
+                LogString(baseLog + 'Alias valid, now creating session');
             session := TDirectorySession.Create( self, fDBName, true );
             try
               aliasId := GetAliasId ( Alias );
               userkey := GetUserPath( aliasId );
+              if log
+                then
+                  LogString(baseLog + 'aliasId: ' + aliasId);
+                  LogString(baseLog + 'userkey: ' + userkey);
               if session.RDOFullPathKeyExists( userkey )
                 then
+                  if log
+                    then
+                      LogString(baseLog + 'Full path key exists for alias');
                   begin
                     session.RDOSetCurrentKey( userkey );
-
                     realpass := session.RDOReadString('password');
-                    sdcname  := session.RDOReadString('sdcname');
-                    acstatus := session.RDOReadInteger('AccountStatus');
-
-                    if sdcname <> ''
-                      then compUser := sdcname + fDomain  //'@StarPeace'
-                      else compUser := Alias   + fDomain; //'@StarPeace'
-
-                    if UpperCase(realpass) = UpperCase(Password)
-                      then logpass := realpass
-                      else logpass := Password;
-
-                    if logpass <> ''
+                    if log
                       then
-                        case acstatus of
-                          DIR_ACC_BlockedUser : // blocked users
-                            result := DIR_SEGA_ERROR_UserNotAuthorized;
-                          DIR_ACC_NoAuthUserA, DIR_ACC_NoAuthUserB : // pre authorized users
-                            if UpperCase(realpass) = UpperCase(Password)
-                              then result := 0
-                              else result := DIR_SEGA_ERROR_UserNotAuthorized;
-                          4 :
-                            begin
-                              if UpperCase(realpass) = UpperCase(Password)
-                                then
-                                  begin
-                                    crtdate := session.RDOReadDate('created');
-                                    if Now - crtdate < 15
-                                      then result := 0
-                                      else result := DIR_SEGA_ERROR_UserNotAuthorized;
-                                  end
-                                else result := DIR_SEGA_ERROR_UserNotAuthorized;
-                            end;
-                          else
-                            if useSWAN
-                              then result := authUser(pchar(compUser), pchar(logpass)) // check against SWAN
-                              else
-                                if (acstatus = DIR_ACC_RegUser) and (UpperCase(realpass) = UpperCase(Password))
-                                  then result := 0
-                                  else result := DIR_SEGA_ERROR_UserNotAuthorized;
-                        end
-                      else result := DIR_SEGA_ERROR_UserNotAuthorized;
+                        LogString(baseLog + 'Password fetched: ' + realpass);
 
-                    if result = 0
-                      then
-                        begin
-                          created := session.RDOReadDate('created');
-                          oldMask := session.RDOReadInteger('accmodifier');
-                          newMask := oldMask;
-                          days    := max(0, round(Now - created));
-
-                          // check newbie
-                          if days > 15
-                            then newMask := newMask and not AccMod_Newbie
-                            else newMask := newMask or AccMod_Newbie;
-
-                          // check veteran
-                          if days > 12*30
-                            then newMask := newMask or AccMod_Veteran;
-
-                          // save the mask
-                          if oldMask <> newMask
-                            then session.RDOWriteInteger('accmodifier', newMask);
-
-                          if CompareStr(realpass, logpass) <> 0
-                            then
-                              begin
-                                session.RDOWriteString('oldpassword', realpass);
-                                session.RDOWriteString('password', logpass);
-                              end;
-                          Logs.Log('login', TimeToStr(Now) + ' Successful login User: "' + Alias + '" SEGA User: "' + compUser + '" Password: "' + Password + '" SNAP Code: ' + IntToStr(result));
-                        end
-                      else
-                        if acstatus <> DIR_ACC_BlockedUser
-                          then
-                            begin
-                              Logs.Log('login', TimeToStr(Now) + ' Cannot log LO User: "' + Alias + '" SEGA User: "' + compUser + '" Password: "' + Password + '" SNAP Error: ' + IntToStr(result));
-                              result := MapSegaError(result);
-                            end
-                          else result := DIR_ERROR_AccountBlocked;
-                  end
-                else
-                  begin
-                    result := DIR_ERROR_InvalidAlias;
-                    Logs.Log('login', TimeToStr(Now) + ' Invalid or Empty LOL alias: ' + Alias);
+                    if realpass = Password
+                      then result := DIR_NOERROR
+                      else result := DIR_ERROR_InvalidPassword;
                   end;
             finally
               session.Free;
             end;
           end
-        else
-          begin
-            result := DIR_ERROR_InvalidAlias;
-            Logs.Log('login', TimeToStr(Now) + ' Invalid or Empty LOL alias: ' + Alias);
-          end;
+      else
+         begin
+           LogString(baseLog + 'Alias is invalid');
+           result := DIR_ERROR_InvalidAlias;
+           end;
     end;
 
   function TDirectoryServer.LogonRemoteUser(Alias, Password : widestring; useSWAN : boolean) : olevariant;
@@ -1790,7 +1734,7 @@ implementation
       key     : string;
     begin
        try
-         result := LogonSegaUser(Alias, Password, useSWAN);
+         result := LogonSpoUser(Alias, Password, useSWAN);
          if result <> 0
            then
              begin
