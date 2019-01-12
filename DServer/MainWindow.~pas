@@ -34,17 +34,9 @@ type
     Label10: TLabel;
     edMasterPort: TEdit;
     cbAccExpire: TCheckBox;
-    cbSlave: TCheckBox;
-    cbJoinAllWorlds: TCheckBox;
-    cbSegaAuth: TCheckBox;
     Label8: TLabel;
-    TabSheet4: TTabSheet;
-    eSegaDomain: TEdit;
-    Label11: TLabel;
-    btnSet: TButton;
     TabSheet5: TTabSheet;
-    chkLogonSpoUser: TCheckBox;
-    chkMapSegaUser: TCheckBox;
+    chkLogLogonSpoUser: TCheckBox;
     procedure FormCreate(Sender: TObject);
     procedure StartClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -149,19 +141,6 @@ implementation
                 aux := Reg.ReadString('MasterPort');
                 if aux <> ''
                   then edMasterPort.Text := aux;
-                aux := Reg.ReadString('SegaDomain');
-                if aux <> ''
-                  then eSegaDomain.Text := aux;
-                try
-                  cbSlave.Checked := Reg.ReadBool('Slave');
-                except
-                  cbSlave.Checked := false;
-                end;
-                try
-                  cbSegaAuth.Checked := Reg.ReadBool('SNAP');
-                except
-                  cbSegaAuth.Checked := true;
-                end;
               end;
         finally
           Reg.Free;
@@ -170,59 +149,41 @@ implementation
       end
     end;
 
-  procedure TDirectoryWin.StartClick( Sender : TObject );
-    var
-      Reg : TRegistry;
-      ret : integer;
-    begin
-      ret := getInitResult;
-      //ret := initAuthFunc;
-      if ret = 0
+  procedure TDirectoryWin.StartClick(Sender : TObject);
+  var
+    Reg : TRegistry;
+  begin
+    dbUser := eUser.Text;
+    dbPassword := ePassword.Text;
+    fSecureDirServer := TDirectoryServer.Create(StrToInt(SecurePort.Text), DBName.Text, false);
+    fSecureDirServer.AccountsExpire := cbAccExpire.Checked;
+    fUnsecuredDirServer := TDirectoryServer.Create(StrToInt(UnsecuredPort.Text), DBName.Text, true);
+    fUnsecuredDirServer.AccountsExpire := cbAccExpire.Checked;
+    Start.Enabled := false;
+    SessionTimer.Enabled := true;
+    try
+      Reg := TRegistry.Create;
+      try
+        Reg.RootKey := HKEY_LOCAL_MACHINE;
+        if Reg.OpenKey(tidRegKey_Directory, true)
         then
-          begin
-            dbUser := eUser.Text;
-            dbPassword := ePassword.Text;
-            fSecureDirServer    := TDirectoryServer.Create( StrToInt( SecurePort.Text )   , DBName.Text, false );
-            fSecureDirServer.AccountsExpire := cbAccExpire.Checked;
-            fSecureDirServer.Domain := eSegaDomain.Text;
-            fUnsecuredDirServer := TDirectoryServer.Create( StrToInt( UnsecuredPort.Text ), DBName.Text, true );
-            fUnsecuredDirServer.AccountsExpire := cbAccExpire.Checked;
-            fUnsecuredDirServer.Domain := eSegaDomain.Text;
-            Start.Enabled := false;
-            if Sender <> self
-              then Application.Minimize;
-            SessionTimer.Enabled := true;
-            try
-              Reg := TRegistry.Create;
-              try
-                Reg.RootKey := HKEY_LOCAL_MACHINE;
-                if Reg.OpenKey(tidRegKey_Directory, true)
-                  then
-                    begin
-                      Reg.WriteString('FullName', DBName.Text);
-                      Reg.WriteString('DBUser', DirectoryManager.dbUser);
-                      Reg.WriteString('DBPassword', scramble(DirectoryManager.dbPassword));
-                      Reg.WriteString('SecurePort', SecurePort.Text);
-                      Reg.WriteString('UnsecuredPort', UnsecuredPort.Text);
-                      Reg.WriteString('IPAddress', IPAddress.Text);
-                      Reg.WriteString('MasterAddr', edMasterIP.Text);
-                      Reg.WriteString('MasterPort', edMasterPort.Text);
-                      Reg.WriteBool  ('Slave', cbSlave.Checked);
-                      Reg.WriteBool  ('SNAP', cbSegaAuth.Checked);
-                      Reg.WriteString('SegaDomain', eSegaDomain.Text);
-                    end;
-              finally
-                Reg.Free;
-              end;
-            except
-            end;
-          end
-        else
-          begin
-            ShowMessage('Error Initializing SNAP: ' + IntToStr(ret));
-            Start.Enabled := false;
-          end;
+        begin
+          Reg.WriteString('FullName', DBName.Text);
+          Reg.WriteString('DBUser', DirectoryManager.dbUser);
+          Reg.WriteString('DBPassword', scramble(DirectoryManager.dbPassword));
+          Reg.WriteString('SecurePort', SecurePort.Text);
+          Reg.WriteString('UnsecuredPort', UnsecuredPort.Text);
+          Reg.WriteString('IPAddress', IPAddress.Text);
+          Reg.WriteString('MasterAddr', edMasterIP.Text);
+          Reg.WriteString('MasterPort', edMasterPort.Text);
+        end;
+      finally
+        Reg.Free;
+      end;
+    except
+      Start.Enabled := false;
     end;
+  end;
 
   procedure TDirectoryWin.FormShow( Sender : TObject );
     begin
@@ -267,14 +228,6 @@ implementation
   procedure TDirectoryWin.Timer1Timer(Sender: TObject);
     begin
       Label8.caption := Format('Mem Used: %.0n bytes', [int(GetHeapStatus.TotalAllocated)]);
-    end;
-
-  procedure TDirectoryWin.btnSetClick(Sender: TObject);
-    begin
-      if fSecureDirServer <> nil
-        then fSecureDirServer.Domain := eSegaDomain.Text;
-      if fUnsecuredDirServer <> nil
-        then fUnsecuredDirServer.Domain := eSegaDomain.Text;
     end;
 
 end.
