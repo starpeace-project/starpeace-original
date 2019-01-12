@@ -1,5 +1,8 @@
 program DServer;
 
+{
+SPO Directory Server Build v1.0
+}
 
 
 uses

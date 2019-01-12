@@ -11,8 +11,7 @@ uses
   Logs in '..\Logs\Logs.pas',
   DirectoryServer in 'DirectoryServer.pas',
   rc4 in '..\Kernel\rc4.pas',
-  DirectoryServerProtocol in 'DirectoryServerProtocol.pas',
-  GenIdd in '..\Utils\Serial\GenIdd.pas';
+  DirectoryServerProtocol in 'DirectoryServerProtocol.pas';
 
 {$R *.RES}
 
