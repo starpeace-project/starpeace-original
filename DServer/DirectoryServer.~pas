@@ -213,9 +213,9 @@ const
 implementation
 
 uses
-  Windows, SysUtils, WinSockRDOConnectionsServer, GenIdd, Logs, StrUtils, wininet, MainWindow,
+  Windows, SysUtils, WinSockRDOConnectionsServer, Logs, StrUtils, wininet, MainWindow,
   WinSockRDOConnection, RDOObjectProxy, rc4, MathUtils, Protocol,
-  CompStringsParser, FileLogger;
+  CompStringsParser;
 
 const
   SOFT_KEY = 'starpeace';
@@ -1003,19 +1003,7 @@ begin
   dec(fRefCount);
 end;
 
-    {function TDirectorySession.RootExists(SerialNo : string) : boolean;
-    begin
-      // todo
-      result := false;
-    end;
-
-  procedure TDirectorySession.AddRoot(SerialNo : string);
-    begin
-      // todo
-    end;}
-
-
-    // TDirectoryServer
+// TDirectoryServer
 
 constructor TDirectoryServer.Create(Port : integer; aDBName : string; isSecure : boolean);
 begin
@@ -1087,54 +1075,25 @@ var
   userkey : string;
   realpass : string;
   aliasId : string;
-  log : boolean;
-  baseLog : string;
 begin
-  log := DirectoryWin.chkLogLogonSpoUser.Checked;
-  if log
-  then
-    baseLog := 'LogonSpoUser: ';
-  LogString(baseLog + 'Beginning LogonSpoUser Logging');
-  LogString(baseLog + 'Alias given: ' + Alias);
-  LogString(baseLog + 'Password given: ' + Password);
   Alias := Trim(Alias);
-  if log
-  then
-    LogString(baseLog + 'Alias trimmed, result: ' + Alias);
-  if IsValidAlias(Alias) or not AuthenticAlias(Alias) // this allows the old account to log in e.g. OC_Support, GM_XXX
+  if IsValidAlias(Alias)
   then
   begin
-    if log
-    then
-      LogString(baseLog + 'Alias valid, now creating session');
     session := TDirectorySession.Create(self, fDBName, true);
     try
       aliasId := GetAliasId (Alias);
       userkey := GetUserPath(aliasId);
-      if log
-      then
-        LogString(baseLog + 'aliasId: ' + aliasId);
-      LogString(baseLog + 'userkey: ' + userkey);
       if session.RDOFullPathKeyExists(userkey)
       then
-        if log
-        then
-          LogString(baseLog + 'Full path key exists for alias');
     begin
       session.RDOSetCurrentKey(userkey);
       realpass := session.RDOReadString('password');
-      if log
-      then
-        LogString(baseLog + 'Password fetched: ' + realpass);
 
       if realpass = Password
-      then
-      begin
-        LogString(baseLog + 'LOGIN SUCCESSFUL');
-        result := DIR_NOERROR
-      end
-      else
-        result := DIR_ERROR_InvalidPassword;
+      then result := DIR_NOERROR
+      else result := DIR_ERROR_InvalidPassword;
+
     end;
     finally
       session.Free;
@@ -1142,7 +1101,6 @@ begin
   end
   else
   begin
-    LogString(baseLog + 'Alias is invalid');
     result := DIR_ERROR_InvalidAlias;
   end;
 end;

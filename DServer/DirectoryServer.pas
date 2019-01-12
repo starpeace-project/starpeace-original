@@ -213,9 +213,9 @@ const
 implementation
 
 uses
-  Windows, SysUtils, WinSockRDOConnectionsServer, GenIdd, Logs, StrUtils, wininet, MainWindow,
+  Windows, SysUtils, WinSockRDOConnectionsServer, Logs, StrUtils, wininet, MainWindow,
   WinSockRDOConnection, RDOObjectProxy, rc4, MathUtils, Protocol,
-  CompStringsParser, FileLogger;
+  CompStringsParser;
 
 const
   SOFT_KEY = 'starpeace';
@@ -1075,54 +1075,25 @@ var
   userkey : string;
   realpass : string;
   aliasId : string;
-  log : boolean;
-  baseLog : string;
 begin
-  log := DirectoryWin.chkLogLogonSpoUser.Checked;
-  if log
-  then
-    baseLog := 'LogonSpoUser: ';
-  LogString(baseLog + 'Beginning LogonSpoUser Logging');
-  LogString(baseLog + 'Alias given: ' + Alias);
-  LogString(baseLog + 'Password given: ' + Password);
   Alias := Trim(Alias);
-  if log
-  then
-    LogString(baseLog + 'Alias trimmed, result: ' + Alias);
-  if IsValidAlias(Alias) or not AuthenticAlias(Alias) // this allows the old account to log in e.g. OC_Support, GM_XXX
+  if IsValidAlias(Alias)
   then
   begin
-    if log
-    then
-      LogString(baseLog + 'Alias valid, now creating session');
     session := TDirectorySession.Create(self, fDBName, true);
     try
       aliasId := GetAliasId (Alias);
       userkey := GetUserPath(aliasId);
-      if log
-      then
-        LogString(baseLog + 'aliasId: ' + aliasId);
-      LogString(baseLog + 'userkey: ' + userkey);
       if session.RDOFullPathKeyExists(userkey)
       then
-        if log
-        then
-          LogString(baseLog + 'Full path key exists for alias');
     begin
       session.RDOSetCurrentKey(userkey);
       realpass := session.RDOReadString('password');
-      if log
-      then
-        LogString(baseLog + 'Password fetched: ' + realpass);
 
       if realpass = Password
-      then
-      begin
-        LogString(baseLog + 'LOGIN SUCCESSFUL');
-        result := DIR_NOERROR
-      end
-      else
-        result := DIR_ERROR_InvalidPassword;
+      then result := DIR_NOERROR
+      else result := DIR_ERROR_InvalidPassword;
+
     end;
     finally
       session.Free;
@@ -1130,7 +1101,6 @@ begin
   end
   else
   begin
-    LogString(baseLog + 'Alias is invalid');
     result := DIR_ERROR_InvalidAlias;
   end;
 end;
@@ -1295,19 +1265,11 @@ begin
       session.SetCurrentKey(userkey);
       GenID := session.RDOReadBoolean('GenID');
       cNobPoints := session.RDOReadInteger('NobPoints');
-      SerialFamilies[famRegular] := session.RDOReadFloat('sFamilyA');
-      SerialFamilies[famTester] := session.RDOReadFloat('sFamilyB');
-      SerialFamilies[famGameMaster] := session.RDOReadFloat('sFamilyC');
-      SerialFamilies[famTutor] := session.RDOReadFloat('sFamilyD');
     end
     else
     begin
       GenID := true;
       cNobPoints := 2;
-      SerialFamilies[famRegular] := 0.1233;
-      SerialFamilies[famTester] := 0.1233;
-      SerialFamilies[famGameMaster] := 0.1233;
-      SerialFamilies[famTutor] := 0.1233;
       SetGlobalFields;
     end;
   finally
@@ -1329,10 +1291,6 @@ begin
       session.SetCurrentKey(userkey);
       session.RDOWriteBoolean('GenID', GenID);
       session.RDOWriteInteger('NobPoints', cNobPoints);
-      session.RDOWriteFloat  ('sFamilyA', SerialFamilies[famRegular]);
-      session.RDOWriteFloat  ('sFamilyB', SerialFamilies[famTester]);
-      session.RDOWriteFloat  ('sFamilyC', SerialFamilies[famGameMaster]);
-      session.RDOWriteFloat  ('sFamilyD', SerialFamilies[famTutor]);
     end
   finally
     session.Free;

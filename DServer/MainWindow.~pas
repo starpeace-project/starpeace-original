@@ -8,35 +8,29 @@ uses
 
 type
   TDirectoryWin = class(TForm)
-    pcSega: TPageControl;
-    TabSheet1: TTabSheet;
+    SessionTimer: TTimer;
+    Timer1: TTimer;
+    Panel1: TPanel;
+    Label8: TLabel;
     Label3: TLabel;
     DBName: TEdit;
-    Label1: TLabel;
-    SecurePort: TEdit;
-    Start: TButton;
-    UnsecuredPort: TEdit;
     Label2: TLabel;
-    SessionTimer: TTimer;
-    Label4: TLabel;
-    lbSections: TLabel;
+    SecurePort: TEdit;
+    Label1: TLabel;
+    UnsecuredPort: TEdit;
     Label5: TLabel;
     IPAddress: TEdit;
-    TabSheet2: TTabSheet;
-    Label6: TLabel;
+    Label4: TLabel;
+    lbSections: TLabel;
+    Start: TButton;
     eUser: TEdit;
+    Label6: TLabel;
     Label7: TLabel;
     ePassword: TEdit;
-    Timer1: TTimer;
-    TabSheet3: TTabSheet;
     edMasterIP: TEdit;
     Label9: TLabel;
     Label10: TLabel;
     edMasterPort: TEdit;
-    cbAccExpire: TCheckBox;
-    Label8: TLabel;
-    TabSheet5: TTabSheet;
-    chkLogLogonSpoUser: TCheckBox;
     procedure FormCreate(Sender: TObject);
     procedure StartClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -155,9 +149,7 @@ implementation
     dbUser := eUser.Text;
     dbPassword := ePassword.Text;
     fSecureDirServer := TDirectoryServer.Create(StrToInt(SecurePort.Text), DBName.Text, false);
-    fSecureDirServer.AccountsExpire := cbAccExpire.Checked;
     fUnsecuredDirServer := TDirectoryServer.Create(StrToInt(UnsecuredPort.Text), DBName.Text, true);
-    fUnsecuredDirServer.AccountsExpire := cbAccExpire.Checked;
     Start.Enabled := false;
     SessionTimer.Enabled := true;
     try
