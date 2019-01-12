@@ -140,13 +140,7 @@ type
 
           function RDOEncryptText(text : widestring) : olevariant;
 
-          function RDOGetSecureTransId : olevariant;
-
-          function RDOValidateTransId(id : widestring; mins : integer) : olevariant;
-
           procedure KeepAlive;
-
-          procedure RDOSetExpires(value : WordBool);
 
         private
           fServer : TDirectoryServer;
@@ -154,9 +148,6 @@ type
           fSessionKey : string;
         private
           fLastUpdate : TDateTime;
-          {private
-          function  RootExists(SerialNo : string) : boolean;
-          procedure AddRoot(SerialNo : string);}
         end;
 
   TDirectoryServer =
@@ -180,13 +171,7 @@ type
           fSessions : TLockableCollection;
           fDomain : string;
 
-          // Account system
-        private
-          fAccountLock : TCriticalSection;
-          fAccountsExpire : boolean;
-
         public
-          property AccountsExpire : boolean read fAccountsExpire write fAccountsExpire;
           property Domain : string read fDomain write fDomain;
 
         private
@@ -219,9 +204,6 @@ type
         private  // Global Fields
           GenID : boolean;
           cNobPoints : integer;
-          End_Of_Trial : integer;
-          MaxSerialUses : integer;
-          MaxTrialBySerial : integer;
         end;
   {$M-}
 
@@ -400,7 +382,6 @@ end;
 
 function TDirectorySession.RDOGetKeyNames : olevariant;
 begin
-  //fServer.LogThis(DateTimeToStr(Now) + 'Enter Get Key Names');
   Lock;
   try
     KeepAlive;
@@ -977,75 +958,12 @@ begin
   end;
 end;
 
-function TDirectorySession.RDOGetSecureTransId : olevariant;
-var
-  RC4 : TRC4;
-  cypText : string;
-begin
-  try
-    Lock;
-    RC4 := TRC4.Create;
-    try
-      KeepAlive;
-      RC4.Key := UNIV_KEY;
-      cypText := DateTimeToStr(Now);
-      result := RC4.toHex(RC4.Apply(cypText));
-    finally
-      RC4.Free;
-      UnLock;
-    end;
-  except
-    result := '';
-  end;
-end;
-
-function TDirectorySession.RDOValidateTransId(id : widestring; mins : integer) : olevariant;
-function Minutes(m : word) : TDateTime;
-begin
-  result := EncodeTime(0, mins, 0, 0);
-end;
-
-var
-  RC4 : TRC4;
-  dcypText : string;
-  dt : TDateTime;
-begin
-  try
-    Lock;
-    RC4 := TRC4.Create;
-    try
-      KeepAlive;
-      RC4.Key := UNIV_KEY;
-      dcypText := RC4.Apply(RC4.toBin(id));
-      dt := StrToDateTime(dcypText);
-      result := Now - dt < Minutes(mins);
-    finally
-      RC4.Free;
-      UnLock;
-    end;
-  except
-    result := false;
-  end;
-end;
-
 procedure TDirectorySession.KeepAlive;
 begin
   Lock;
   try
     if fLastUpdate <> NoExpire
     then fLastUpdate := Now;
-  finally
-    UnLock;
-  end;
-end;
-
-procedure TDirectorySession.RDOSetExpires(value : WordBool);
-begin
-  Lock;
-  try
-    if value
-    then fLastUpdate := Now
-    else fLastUpdate := NoExpire;
   finally
     UnLock;
   end;
@@ -1103,7 +1021,6 @@ constructor TDirectoryServer.Create(Port : integer; aDBName : string; isSecure :
 begin
   inherited Create;
   try
-    fAccountLock := TCriticalSection.Create;
     fSessions := TLockableCollection.Create(10, rkBelonguer);
     fDBName := aDBName;
     fIsSecure := isSecure;
@@ -1112,7 +1029,6 @@ begin
     fDAServ.RegisterObject(tidRDOHook_DirectoryServer, integer(self));
     fDAConn.StartListening;
     GetGlobalFields;
-    MaxTrialBySerial := 1;
   except
     on e : Exception do
     begin
@@ -1126,7 +1042,6 @@ destructor TDirectoryServer.Destroy;
 begin
   try
     fDAServ.Free;
-    fAccountLock.Free;
     fSessions.free;
   except
     on e : Exception do
@@ -1277,7 +1192,6 @@ var
   last : integer;
 begin
   try
-    fAccountLock.Enter;
     try
       session := TDirectorySession.Create(self, fDBName, fIsSecure);
       try
@@ -1294,7 +1208,6 @@ begin
         session.Free;
       end;
     finally
-      fAccountLock.Leave;
     end;
   except
     result := -1;
@@ -1307,7 +1220,6 @@ var
   session : TDirectorySession;
 begin
   try
-    fAccountLock.Enter;
     try
       session := TDirectorySession.Create(self, fDBName, fIsSecure);
       try
@@ -1318,7 +1230,6 @@ begin
         session.Free;
       end;
     finally
-      fAccountLock.Leave;
     end;
   except
     result := '';
@@ -1331,7 +1242,6 @@ var
   session : TDirectorySession;
 begin
   try
-    fAccountLock.Enter;
     try
       session := TDirectorySession.Create(self, fDBName, fIsSecure);
       try
@@ -1342,7 +1252,6 @@ begin
         session.Free;
       end;
     finally
-      fAccountLock.Leave;
     end;
   except
     result := 0;
@@ -1398,9 +1307,6 @@ begin
       session.SetCurrentKey(userkey);
       GenID := session.RDOReadBoolean('GenID');
       cNobPoints := session.RDOReadInteger('NobPoints');
-      End_Of_Trial := session.RDOReadInteger('EndOfTrial');
-      MaxSerialUses := session.RDOReadInteger('MaxSerialUses');
-      MaxTrialBySerial := 1;
       SerialFamilies[famRegular] := session.RDOReadFloat('sFamilyA');
       SerialFamilies[famTester] := session.RDOReadFloat('sFamilyB');
       SerialFamilies[famGameMaster] := session.RDOReadFloat('sFamilyC');
@@ -1410,9 +1316,6 @@ begin
     begin
       GenID := true;
       cNobPoints := 2;
-      End_Of_Trial := 30;
-      MaxSerialUses := 5;
-      MaxTrialBySerial := 1;
       SerialFamilies[famRegular] := 0.1233;
       SerialFamilies[famTester] := 0.1233;
       SerialFamilies[famGameMaster] := 0.1233;
@@ -1438,8 +1341,6 @@ begin
       session.SetCurrentKey(userkey);
       session.RDOWriteBoolean('GenID', GenID);
       session.RDOWriteInteger('NobPoints', cNobPoints);
-      session.RDOWriteInteger('EndOfTrial', End_Of_Trial);
-      session.RDOWriteInteger('MaxSerialUses', MaxSerialUses);
       session.RDOWriteFloat  ('sFamilyA', SerialFamilies[famRegular]);
       session.RDOWriteFloat  ('sFamilyB', SerialFamilies[famTester]);
       session.RDOWriteFloat  ('sFamilyC', SerialFamilies[famGameMaster]);

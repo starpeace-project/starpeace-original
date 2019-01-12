@@ -155,9 +155,7 @@ implementation
     dbUser := eUser.Text;
     dbPassword := ePassword.Text;
     fSecureDirServer := TDirectoryServer.Create(StrToInt(SecurePort.Text), DBName.Text, false);
-    fSecureDirServer.AccountsExpire := cbAccExpire.Checked;
     fUnsecuredDirServer := TDirectoryServer.Create(StrToInt(UnsecuredPort.Text), DBName.Text, true);
-    fUnsecuredDirServer.AccountsExpire := cbAccExpire.Checked;
     Start.Enabled := false;
     SessionTimer.Enabled := true;
     try

@@ -45,7 +45,6 @@ type
     procedure ePasswordChange(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure Timer1Timer(Sender: TObject);
-    procedure btnSetClick(Sender: TObject);
   private
     fSecureDirServer    : TDirectoryServer;
     fUnsecuredDirServer : TDirectoryServer;
