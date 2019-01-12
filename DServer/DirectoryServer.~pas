@@ -127,8 +127,10 @@ type
 
           function RDOLogonUser(Alias, Password : widestring) : olevariant;
 
+          // Cannot be deleted without call being removed from client first.
+          // dodgerid
           function RDOMapSegaUser(Alias : widestring) : olevariant;
-          //function RDOSNAPLogonUser( Alias, Password : widestring ) : olevariant;
+
           function RDOExtendTrial(Alias : widestring; days : integer) : OleVariant;
 
           function RDOIsOnTrial(Alias : widestring) : OleVariant;
@@ -231,8 +233,6 @@ type
 
           function GetRemoteSession : olevariant;
 
-          function MapSegaUser(Alias : widestring) : olevariant;
-
           function CanJoinNewWorld(Alias : widestring) : boolean;
 
           function GenSubscriptionId(Alias : widestring) : integer;
@@ -288,8 +288,6 @@ type
           End_Of_Trial : integer;
           MaxSerialUses : integer;
           MaxTrialBySerial : integer;
-        private
-          function MapSegaError(error : integer) : integer;
         end;
   {$M-}
 
@@ -915,17 +913,11 @@ begin
   end;
 end;
 
+// RDOMapSegaUser is called from the client so cannot be removed until it is
+// removed from the client first, or it will prevent login.
 function TDirectorySession.RDOMapSegaUser(Alias : widestring) : olevariant;
 begin
-  try
-    result := fServer.MapSegaUser(Alias);
-  except
-    on e : Exception do
-    begin
-      fServer.LogThis(e.Message + ' @ TDirectorySession.RDOMapSegaUser');
-      result := '';
-    end;
-  end;
+  result := Alias;
 end;
 
 function TDirectorySession.RDOExtendTrial(Alias : widestring; days : integer) : OleVariant;
@@ -1881,80 +1873,6 @@ begin
   end;
 end;
 
-function TDirectoryServer.MapSegaUser(Alias : widestring) : olevariant;
-var
-  session : TDirectorySession;
-  userkey : string;
-  spAlias : string;
-  ISProxy : OleVariant;
-  resStr : string;
-  log : Boolean;
-  baseLog : string;
-begin
-  log := DirectoryWin.chkLogMapSegaUser.Checked
-  if log
-  then
-  begin
-    baseLog = 'MapSegaUser: ';
-    LogString(baseLog + 'Beginning MapSegaUser Logging');
-  end;
-  session := TDirectorySession.Create(self, fDBName, true);
-  if log
-  then
-  begin
-    LogString(baseLog + 'Session created');
-  end;
-  try
-    userkey := GetUserMapPath(Alias);
-    if session.RDOSetCurrentKey(userkey)
-    then
-    begin
-      if log
-      then
-      begin
-        LogString('Current key set (' + userkey + ')');
-      end;
-      spAlias := session.RDOReadString('alias');
-      if log
-      then
-      begin
-        LogString(baseLog + 'Alias fetched: ' + spAlias);
-      end;
-      result := spAlias;
-    end
-    else result := '';
-      // Map on Master
-    resStr := result;
-    if (resStr = '')
-    then
-    begin
-      if log
-      then
-      begin
-        LogString(baseLog + 'Unable to find alias at SP (local db) so looking at SEGA');
-      end;
-      ISProxy := GetRemoteSession;
-      if not VarIsEmpty(ISProxy)
-      then
-        try
-          resStr := ISProxy.RDOMapSegaUser(Alias);
-          if (resStr <> '') and session.RDOCreateFullPathKey(userkey, true) and session.RDOSetCurrentKey(userkey)
-          then session.RDOWriteString('alias', resStr);
-          result := resStr;
-          if log
-          then
-          begin
-            LogString(baseLog + ' So alias found at sega so has been stored locally');
-          end;
-        finally
-          ISProxy.RDOEndSession;
-        end;
-    end;
-  finally
-    session.Free;
-  end;
-end;
-
 function TDirectoryServer.CanJoinNewWorld(Alias : widestring) : boolean;
 var
   session : TDirectorySession;
@@ -2728,23 +2646,6 @@ begin
     end;
   except
       // Log Error
-  end;
-end;
-
-function TDirectoryServer.MapSegaError(error : integer) : integer;
-begin
-  case error of
-    DIR_SEGA_NOERROR : result := DIR_NOERROR;
-    DIR_SEGA_ERROR_UserNotFound : result := DIR_ERROR_UnexistingAccount;
-    DIR_SEGA_ERROR_BadUserIDFormat : result := DIR_ERROR_Unknown;
-    DIR_SEGA_ERROR_UnknownDomain : result := DIR_ERROR_Unknown;
-    DIR_SEGA_ERROR_InternalError : result := DIR_ERROR_Unknown;
-    DIR_SEGA_ERROR_UserNotAuthorized : result := DIR_ERROR_InvalidPassword;
-    DIR_SEGA_ERROR_SystemDown : result := DIR_ERROR_Unknown;
-    DIR_SEGA_ERROR_NotInitialized : result := DIR_ERROR_Unknown;
-    DIR_SEGA_ERROR_TimeOut : result := DIR_ERROR_Unknown;
-  else
-    result := error;
   end;
 end;
 
