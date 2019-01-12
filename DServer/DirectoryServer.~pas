@@ -1341,8 +1341,6 @@ begin
       session.SetCurrentKey(userkey);
       session.RDOWriteBoolean('GenID', GenID);
       session.RDOWriteInteger('NobPoints', cNobPoints);
-      session.RDOWriteInteger('EndOfTrial', End_Of_Trial);
-      session.RDOWriteInteger('MaxSerialUses', MaxSerialUses);
       session.RDOWriteFloat  ('sFamilyA', SerialFamilies[famRegular]);
       session.RDOWriteFloat  ('sFamilyB', SerialFamilies[famTester]);
       session.RDOWriteFloat  ('sFamilyC', SerialFamilies[famGameMaster]);

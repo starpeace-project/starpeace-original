@@ -1003,19 +1003,7 @@ begin
   dec(fRefCount);
 end;
 
-    {function TDirectorySession.RootExists(SerialNo : string) : boolean;
-    begin
-      // todo
-      result := false;
-    end;
-
-  procedure TDirectorySession.AddRoot(SerialNo : string);
-    begin
-      // todo
-    end;}
-
-
-    // TDirectoryServer
+// TDirectoryServer
 
 constructor TDirectoryServer.Create(Port : integer; aDBName : string; isSecure : boolean);
 begin
