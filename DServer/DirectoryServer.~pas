@@ -1265,19 +1265,11 @@ begin
       session.SetCurrentKey(userkey);
       GenID := session.RDOReadBoolean('GenID');
       cNobPoints := session.RDOReadInteger('NobPoints');
-      SerialFamilies[famRegular] := session.RDOReadFloat('sFamilyA');
-      SerialFamilies[famTester] := session.RDOReadFloat('sFamilyB');
-      SerialFamilies[famGameMaster] := session.RDOReadFloat('sFamilyC');
-      SerialFamilies[famTutor] := session.RDOReadFloat('sFamilyD');
     end
     else
     begin
       GenID := true;
       cNobPoints := 2;
-      SerialFamilies[famRegular] := 0.1233;
-      SerialFamilies[famTester] := 0.1233;
-      SerialFamilies[famGameMaster] := 0.1233;
-      SerialFamilies[famTutor] := 0.1233;
       SetGlobalFields;
     end;
   finally
@@ -1299,10 +1291,6 @@ begin
       session.SetCurrentKey(userkey);
       session.RDOWriteBoolean('GenID', GenID);
       session.RDOWriteInteger('NobPoints', cNobPoints);
-      session.RDOWriteFloat  ('sFamilyA', SerialFamilies[famRegular]);
-      session.RDOWriteFloat  ('sFamilyB', SerialFamilies[famTester]);
-      session.RDOWriteFloat  ('sFamilyC', SerialFamilies[famGameMaster]);
-      session.RDOWriteFloat  ('sFamilyD', SerialFamilies[famTutor]);
     end
   finally
     session.Free;
