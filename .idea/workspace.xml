@@ -10,7 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e0e8891c-5754-494c-b468-4fdaebbab70a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/DServer/DirectoryServer.pas" beforeDir="false" afterPath="$PROJECT_DIR$/DServer/DirectoryServer.pas" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,10 +23,21 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/DServer/DirectoryServer.pas">
           <provider selected="true" editor-type-id="text-editor">
-              <caret line="1721" column="13" lean-forward="true" selection-start-line="1721" selection-start-column="13" selection-end-line="1721" selection-end-column="13" />
+            <state relative-caret-position="102">
+              <caret line="1068" column="6" lean-forward="true" selection-start-line="1068" selection-start-column="6" selection-end-line="1068" selection-end-column="6" />
               <folding>
-                <element signature="e#47890#49101#2" />
+                <element signature="e#34#140#0" expanded="true" />
+                <element signature="e#6297#6475#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DServer/MainWindow.pas">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="48">
+              <caret line="147" column="7" lean-forward="true" selection-start-line="147" selection-start-column="7" selection-end-line="147" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -39,6 +50,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/DServer/MainWindow.pas" />
         <option value="$PROJECT_DIR$/DServer/DirectoryServer.pas" />
       </list>
     </option>
@@ -108,17 +121,16 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="978000" />
+    <option name="totallyTimeSpent" value="7329000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="648" y="-1057" width="1912" height="1035" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4994698" visible="true" weight="0.18395722" />
-      <window_info active="true" id="Structure" order="1" sideWeight="0.50053024" side_tool="true" visible="true" weight="0.18395722" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4994698" visible="true" weight="0.18395722" />
+      <window_info id="Structure" order="1" sideWeight="0.50053024" side_tool="true" visible="true" weight="0.18395722" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32979852" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -138,12 +150,23 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DServer/MainWindow.pas">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="147" column="7" lean-forward="true" selection-start-line="147" selection-start-column="7" selection-end-line="147" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/DServer/DirectoryServer.pas">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="479">
-          <caret line="1721" column="13" lean-forward="true" selection-start-line="1721" selection-start-column="13" selection-end-line="1721" selection-end-column="13" />
+        <state relative-caret-position="102">
+          <caret line="1068" column="6" lean-forward="true" selection-start-line="1068" selection-start-column="6" selection-end-line="1068" selection-end-column="6" />
           <folding>
-            <element signature="e#47890#49101#2" />
+            <element signature="e#34#140#0" expanded="true" />
+            <element signature="e#6297#6475#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -21,14 +21,7 @@ interface
 
 uses
   Windows, Messages, ActiveX, SysUtils, ComObj, Classes, Graphics,
-  Controls, Forms, ExtCtrls,
-  {$IFDEF VER140} // delphi 6
-     Variants,
-    {$ENDIF}
-    {$IFDEF VER150} // delphi 7
-     Variants,
-    {$ENDIF}
-    StdVcl;
+  Controls, Forms, ExtCtrls, StdVcl;
 
 const
   { Delphi property page CLSIDs }

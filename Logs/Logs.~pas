@@ -21,10 +21,6 @@ implementation
   uses
     Variants;
 {$ENDIF}
-{$IFDEF VER150}           { Delphi 7.0 } //.rag
-  uses
-    Variants;
-{$ENDIF}
 
   {$IFDEF USELogs}
 
