@@ -14,14 +14,7 @@ unit DBCommon;
 
 interface
 
-uses Windows, Classes,
-{$IFDEF VER140} // delphi 6
-     Variants,
-    {$ENDIF}
-    {$IFDEF VER150} // delphi 7
-     Variants,
-    {$ENDIF}
-    DB;
+uses Windows, Classes, DB;
 
 type
   TCANOperator = (
@@ -1629,7 +1622,7 @@ begin
         end
       else if TokenSymbolIs('NULL') then
         begin
-          Result := FFilter.NewNode(enConst, coNOTDEFINED, Null, nil, nil);
+          Result := FFilter.NewNode(enConst, coNOTDEFINED, System.Null, nil, nil);
           Result.FScopeKind := skConst;
         end
       else if TokenSymbolIs(FStrTrue) then

@@ -6,6 +6,12 @@ interface
     {$IFDEF AutoServer}
     RDOClient_TLB,
     {$ENDIF}
+    {$IFDEF VER140} // delphi 6
+    Variants,
+    {$ENDIF}
+    {$IFDEF VER150} // delphi 7
+    Variants,
+    {$ENDIF}
     RDOInterfaces;
 
   function  MarshalPropertyGet( ObjectId : integer; const PropName : string; RDOConnection : IRDOConnection; TimeOut, Priority : integer; out ErrorCode : integer ) : variant;

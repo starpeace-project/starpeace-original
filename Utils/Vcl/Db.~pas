@@ -14,14 +14,7 @@ unit Db;
 
 interface
 
-uses Windows, SysUtils, Classes,
-{$IFDEF VER140} // delphi 6
-     Variants,
-    {$ENDIF}
-{$IFDEF VER150} // delphi 7
-     Variants,
-    {$ENDIF}
-Graphics;
+uses Windows, SysUtils, Classes, Graphics;
 
 type
 

@@ -45,10 +45,7 @@ implementation
 
   uses
     SysUtils, RDOProtocol
-    {$IFDEF VER140} //delphi 6
-      ,Variants
-    {$ENDIF}
-    {$IFDEF VER150} //delphi 7
+    {$IFDEF VER140}
       ,Variants
     {$ENDIF}
     ;

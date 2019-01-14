@@ -3,7 +3,7 @@ unit DirectoryServer;
 interface
 
 uses
-  Classes, Collection, RDOServer, RDOInterfaces, SyncObjs, DirectoryManager, DirectoryServerProtocol;
+  Classes, Collection, RDOServer, RDOInterfaces, SyncObjs, DirectoryManager, DirectoryServerProtocol, Variants;
 
 const
   NoExpire = 0;

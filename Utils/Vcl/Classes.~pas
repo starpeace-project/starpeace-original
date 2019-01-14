@@ -17,7 +17,7 @@ unit Classes;
 
 interface
 
-uses SysUtils, Windows, ActiveX, Variants;
+uses SysUtils, Windows, ActiveX;
 
 const
 

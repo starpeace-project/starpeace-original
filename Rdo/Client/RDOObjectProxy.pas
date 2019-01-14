@@ -11,6 +11,12 @@ interface
     {$IFDEF AutoServer}
     RDOClient_TLB,
     {$ENDIF}
+    {$IFDEF VER140} // delphi 6
+    Variants,
+    {$ENDIF}
+    {$IFDEF VER150}
+    Variants,
+    {$ENDIF}
     RDOInterfaces;
 
   type

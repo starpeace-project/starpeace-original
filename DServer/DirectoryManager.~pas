@@ -114,7 +114,7 @@ interface
 implementation
 
   uses
-    Classes, SysUtils, MainWindow, ComObj, logs, FileLogger;
+    Classes, SysUtils, MainWindow, ComObj, logs;
 
   const
     MaxVarCharLength = 7800;
@@ -1849,21 +1849,13 @@ implementation
       Conn_Str : string;
     begin
       try
-        LogString('Trying to connect to database: ' + fDBName);
         Conn_Str := 'Provider=SQLOLEDB.1; Initial Catalog=' + fDBName + '; Data Source=' + DirectoryWin.IPAddress.Text;
-        LogString('Using connection string: ' + Conn_Str);
-        LogString('Using Username: ' + dbUser + ' and Password: ' + dbPassword);
         Conn.Open(Conn_Str, dbUser, dbPassword, 0);
         Conn.Set_CommandTimeout(0);
         result := true;
-        LogString('Connection Successful');
       except
-        on e : Exception do
-        begin
-        LogString('Database Connection Exception: ' + e.Message);
         raise;
         result := false;
-        end;
       end;
     end;{ TDirectoryManager.QueryFind }
 

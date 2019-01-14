@@ -1071,11 +1071,15 @@ end;
 
 function TDirectoryServer.LogonSpoUser(Alias, Password : widestring) : olevariant;
 var
-  session : TDirectorySession;
-  userkey : string;
+  session  : TDirectorySession;
+  userkey  : string;
   realpass : string;
-  aliasId : string;
+  aliasId  : string;
+  now      : TDateTime;
+  lastlogon : string;
 begin
+  now := Date;
+  lastlogon := DateTimeToStr(now);
   Alias := Trim(Alias);
   if IsValidAlias(Alias)
   then
@@ -1091,7 +1095,11 @@ begin
       realpass := session.RDOReadString('password');
 
       if realpass = Password
-      then result := DIR_NOERROR
+      then
+        begin
+          session.RDOWriteString('lastlogon', lastlogon);
+          result := DIR_NOERROR;
+        end
       else result := DIR_ERROR_InvalidPassword;
 
     end;

@@ -14,14 +14,7 @@ unit OleCtrls;
 interface
 
 uses Windows, Messages, ActiveX, SysUtils, Classes, Controls, Forms,
-  Menus, Graphics, ComObj,
-  {$IFDEF VER140} // delphi 6
-     Variants,
-    {$ENDIF}
-    {$IFDEF VER150} // delphi 7
-     Variants,
-    {$ENDIF}
-    AxCtrls;
+  Menus, Graphics, ComObj, AxCtrls;
 
 type
 
