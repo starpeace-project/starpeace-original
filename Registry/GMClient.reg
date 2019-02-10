@@ -1,0 +1,12 @@
+[HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Starpeace\Five\GMClient]
+"UseDS"=dword:00000000
+"DSAddr"="dir.starpeace.co.uk"
+"GMSName"="GMS1"
+"User"="Loophole"
+"GMAddr"="chipango.starpeace.co.uk"
+"GMPort"="12000"
+"DSPort"=dword:000008ae
+"GMSId"="GMS1"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Starpeace\Five\Logs]
+"path"="C:\\Program Files (x86)\\Starpeace\\Retail\\Logs"

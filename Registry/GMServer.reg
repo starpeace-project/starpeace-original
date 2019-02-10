@@ -1,0 +1,8 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Starpeace\FIVE\GMServer]
+"UseDS"=dword:00000001
+"DSAddr"="dir.starpeace.co.uk"
+"DSPort"="2222"
+"GMSName"="GMS1"
+"GMSPort"="12000"

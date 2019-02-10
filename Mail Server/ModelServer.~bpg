@@ -1,0 +1,42 @@
+#------------------------------------------------------------------------------
+VERSION = BWS.01
+#------------------------------------------------------------------------------
+!ifndef ROOT
+ROOT = $(MAKEDIR)\..
+!endif
+#------------------------------------------------------------------------------
+MAKE = $(ROOT)\bin\make.exe -$(MAKEFLAGS) -f$**
+DCC = $(ROOT)\bin\dcc32.exe $**
+BRCC = $(ROOT)\bin\brcc32.exe $**
+#------------------------------------------------------------------------------
+PROJECTS = FIVEModelServer.exe DissidentPack1.mdx GeneralPack1.mdx \
+  MarikoPack1.mdx MoabPack1.mdx PGIPack1.mdx UWPack1.mdx BackupRegistry.dll
+#------------------------------------------------------------------------------
+default: $(PROJECTS)
+#------------------------------------------------------------------------------
+
+FIVEModelServer.exe: FIVEModelServer.dpr
+  $(DCC)
+
+DissidentPack1.mdx: ..\Model Extensions\Dissidents\DissidentPack1.dpr
+  $(DCC)
+
+GeneralPack1.mdx: ..\Model Extensions\General\GeneralPack1.dpr
+  $(DCC)
+
+MarikoPack1.mdx: ..\Model Extensions\Mariko\MarikoPack1.dpr
+  $(DCC)
+
+MoabPack1.mdx: ..\Model Extensions\Moab\MoabPack1.dpr
+  $(DCC)
+
+PGIPack1.mdx: ..\Model Extensions\PGI\PGIPack1.dpr
+  $(DCC)
+
+UWPack1.mdx: ..\Model Extensions\UW\UWPack1.dpr
+  $(DCC)
+
+BackupRegistry.dll: ..\Persistence\BackupRegistry.dpr
+  $(DCC)
+
+
