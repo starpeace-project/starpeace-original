@@ -225,7 +225,8 @@ uses
   FavView in 'FavView.pas' {FavViewer},
   MoveFav in 'MoveFav.pas' {MoveFavDlg},
   WHGeneralSheet in 'WHGeneralSheet.pas' {WHGeneralSheetViewer},
-  HqMainSheet in 'HqMainSheet.pas' {HqSheetViewer};
+  HqMainSheet in 'HqMainSheet.pas' {HqSheetViewer},
+  UnitComp_TALogger in '\\DEV05-PC\Starpeace Orginal\starpeace-original\log2\UnitComp_TALogger.pas';
 
 {$R *.RES}
 begin

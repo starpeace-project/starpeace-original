@@ -3,7 +3,7 @@ unit MailData;
 interface
 
   const
-    MailKey = '\Software\Oceanus\Five\Mail\';
+    MailKey = '\Software\Wow6432Node\Starpeace\Five\Mail\';
 
   procedure SaveMailRoot(aRoot : string);
   procedure ReadMailRoot;

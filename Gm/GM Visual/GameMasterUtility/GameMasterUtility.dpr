@@ -36,12 +36,11 @@ uses
   EditShortcut in 'EditShortcut.pas' {EditShortcutForm},
   TypInfo in 'TypInfo.pas';
 
-
 {$R *.RES}
 
 begin
   Application.Initialize;
-  Application.CreateForm(TGMView, GMView);//TForm1, Form1);
+  Application.CreateForm(TGMView, GMView);
   Application.CreateForm(TShortcutCenter, ShortcutCenter);
   Application.CreateForm(TEditShortcutForm, EditShortcutForm);
   Application.Run;

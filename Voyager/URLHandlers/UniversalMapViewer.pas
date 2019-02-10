@@ -123,13 +123,13 @@ implementation
       ConfigHolder : IConfigHolder;
     begin
       fMasterURLHandler.HandleEvent( evnAnswerConfigHolder, ConfigHolder );
-      DSAddr := ConfigHolder.ReadString( true, '', 'DSAddr', 'dir.legacyonline.net' );
+      DSAddr := ConfigHolder.ReadString( true, '', 'DSAddr', 'dir.starpeace.co.uk' );
 
       // Patch Exodus
-      if (DSAddr = '') or (DSAddr = '64.69.182.122')
+      if (DSAddr = '') or (DSAddr = 'dir.starpeace.co.uk')
         then
           begin
-            DSAddr := 'dir.legacyonline.net';
+            DSAddr := 'dir.starpeace.co.uk';
             ConfigHolder.WriteString(true, '', 'DSAddr', DSAddr);
           end;
 

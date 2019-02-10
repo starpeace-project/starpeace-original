@@ -39,7 +39,7 @@ MaxStackSize=1048576
 ImageBase=4194304
 ExeDescription=
 [Directories]
-OutputDir=s:\release
+OutputDir=..\..\release\Servers\
 UnitOutputDir=..\..\DCU
 PackageDLLOutputDir=
 PackageDCPOutputDir=
@@ -77,8 +77,8 @@ ProductName=
 ProductVersion=1.0.0.0
 Comments=
 [Excluded Packages]
-$(DELPHI)\Bin\dclite50.bpl=Borland Integrated Translation Environment
 $(DELPHI)\Bin\dclmid50.bpl=Borland MIDAS Components
+$(DELPHI)\Bin\dclite50.bpl=Borland Integrated Translation Environment
 [HistoryLists\hlDebugSourcePath]
 Count=2
 Item0=S:\Source\Utils\Misc\
@@ -94,9 +94,9 @@ Item1=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE
 Item2=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;strutils=mr_strutils
 [HistoryLists\hlSearchPath]
 Count=13
-Item0=..\Kernel;..\StdBlocks;..\Class Storage;..\Cache;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client;..\Persistence;..\Utils\Misc;..\Logs;..\utils\vcl
-Item1=..\Kernel
-Item2=..\Kernel;..\StdBlocks;..\Class Storage;..\Cache;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client;..\Persistence;..\Utils\Misc;..\Logs
+Item0=..\Kernel;..\StdBlocks;..\Class Storage;..\Cache;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client;..\Persistence;..\Utils\Misc;..\Logs
+Item1=..\Kernel;..\StdBlocks;..\Class Storage;..\Cache;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client;..\Persistence;..\Utils\Misc;..\Logs;..\utils\vcl
+Item2=..\Kernel
 Item3=..\Kernel;..\StdBlocks;..\Class Storage;..\Cache;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client\;..\Persistence;..\Utils\Misc;..\Utils\Vcl;..\Surfaces;..\Mail;..\Tasks
 Item4=..\Kernel;..\RDO\Common;..\Cache;..\RDO\Server;..\RDO\Client\Delphi;..\Utils\Network;..\Utils\Misc
 Item5=..\..\Circuits;..\..\Kernel;..\..\StdBlocks;..\..\Class Storage;..\..\Cache;..\..\RDO\Common;..\..\RDO\Server;..\..\Utils\Network;..\..\RDO\Client\;..\..\Persistence;..\..\Utils\Misc;..\..\Surfaces;..\..\Mail;..\..\Protocol;..\..\Tasks;..\..\Utils\Vcl;..\..\Logs
@@ -114,9 +114,10 @@ Item1=..\..\..\DCU
 Item2=S:\dcu
 Item3=s:\temp\dcu
 [HistoryLists\hlOutputDirectorry]
-Count=2
-Item0=s:\release\servers
-Item1=s:\release
+Count=3
+Item0=..\..\release\Servers\
+Item1=s:\release\servers
+Item2=s:\release
 [HistoryLists\hlBPLOutput]
 Count=1
 Item0=s:\temp\Component

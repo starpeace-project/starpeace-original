@@ -39,7 +39,7 @@ MaxStackSize=1048576
 ImageBase=4194304
 ExeDescription=
 [Directories]
-OutputDir=s:\release\servers
+OutputDir=..\..\release\Servers\
 UnitOutputDir=..\..\dcu
 PackageDLLOutputDir=
 PackageDCPOutputDir=
@@ -52,12 +52,12 @@ UsePackages=0
 RunParams=
 HostApplication=
 [Version Info]
-IncludeVerInfo=0
-AutoIncBuild=0
-MajorVer=1
+IncludeVerInfo=1
+AutoIncBuild=1
+MajorVer=3
 MinorVer=0
 Release=0
-Build=0
+Build=2
 Debug=0
 PreRelease=0
 Special=0
@@ -66,16 +66,16 @@ DLL=0
 Locale=1033
 CodePage=1252
 [Version Info Keys]
-CompanyName=
+CompanyName=Starpeace
 FileDescription=
-FileVersion=1.0.0.0
+FileVersion=3.0.0.2
 InternalName=
 LegalCopyright=
 LegalTrademarks=
 OriginalFilename=
 ProductName=
 ProductVersion=1.0.0.0
-Comments=
+Comments=Nick
 [Excluded Packages]
 $(DELPHI)\Bin\dclite50.bpl=Borland Integrated Translation Environment
 [HistoryLists\hlConditionals]
@@ -95,6 +95,6 @@ Count=1
 Item0=..\..\dcu
 [HistoryLists\hlOutputDirectorry]
 Count=3
-Item0=s:\release\servers
-Item1=..\..\release\Servers\
+Item0=..\..\release\Servers\
+Item1=s:\release\servers
 Item2=..\..\release\servers

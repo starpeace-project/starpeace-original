@@ -12,7 +12,7 @@ interface
     tidRDOHook_World = 'World';
 
   const
-    tidRegKey_ModelServer     = '\SOFTWARE\Oceanus\FIVE\ModelServer';
+    tidRegKey_ModelServer     = '\SOFTWARE\Wow6432Node\Starpeace\FIVE\ModelServer';
     tidRegKey_ModelExtensions = tidRegKey_ModelServer + '\Extensions';
 
   const
@@ -671,6 +671,7 @@ implementation
         ySize   : integer;
       begin
         IniFile := TIniFile.Create( fBaseDir + aName + '.ini'  );
+        Logs.Log( tidLog_Survival, DateTimeToStr(Now) + fBaseDir + aName + '.ini' );
         try
           Name   := IniFile.ReadString( tidIniSection_General, tidIniValue_Name, '' );
           xSize  := IniFile.ReadInteger( tidIniSection_General, tidIniValue_xSize, 0 );
@@ -820,7 +821,7 @@ implementation
           idx      : integer;
           j        : integer;
         begin
-          Stream := TFileStream.Create( 's:\temp\language\research.' + LangId + '.dat', fmCreate );
+          Stream := TFileStream.Create( 'd:\tmp\language\research.' + LangId + '.dat', fmCreate );
           Cats   := TStringList.Create;
           try
             count := TheClassStorage.ClassCount[tidClassFamily_Inventions];
@@ -854,7 +855,7 @@ implementation
       begin
         SimDict := Languages.CreateDictionary;
         try
-          SimDict.Store( 'S:\Temp\Language\sim.lang' );
+          SimDict.Store( 'd:\Tmp\Language\sim.lang' );
         finally
           SimDict.Free;
         end;

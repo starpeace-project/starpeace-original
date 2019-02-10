@@ -39,29 +39,25 @@ MaxStackSize=1048576
 ImageBase=4194304
 ExeDescription=
 [Directories]
-OutputDir=S:\Release\Servers\Web Objects
-UnitOutputDir=C:\Work\Five\Dcu
+OutputDir=..\..\release\Servers\Web Objects
+UnitOutputDir=..\..\dcu\
 PackageDLLOutputDir=
 PackageDCPOutputDir=
-SearchPath=C:\Work\Five\Source\Utils\Misc
+SearchPath=Z:\starpeace-original\Utils\Misc
 Packages=Vcl50;Vclx50;VclSmp50;Vcldb50;vclado50;ibevnt50;Vclbde50;vcldbx50;Qrpt50;TeeUI50;TeeDB50;Tee50;Dss50;TeeQR50;VCLIB50;Vclmid50;vclie50;Inetdb50;Inet50;NMFast50;webmid50;dclocx50;dclaxserver50
 Conditionals=
-DebugSourceDirs=C:\Work\Five\Source\Utils\Misc
+DebugSourceDirs=Z:\starpeace-original\Utils\Misc
 UsePackages=0
 [Parameters]
 RunParams=/ProcessID:{CE8029B1-F44D-475E-B850-6A2E365C346B}
 HostApplication=C:\WINNT\system32\DLLHOST.EXE
-[Language]
-ActiveLang=
-ProjectLang=$00000409
-RootDir=
 [Version Info]
-IncludeVerInfo=0
-AutoIncBuild=0
-MajorVer=1
+IncludeVerInfo=1
+AutoIncBuild=1
+MajorVer=3
 MinorVer=0
 Release=0
-Build=0
+Build=2
 Debug=0
 PreRelease=0
 Special=0
@@ -70,9 +66,9 @@ DLL=0
 Locale=1033
 CodePage=1252
 [Version Info Keys]
-CompanyName=
+CompanyName=Starpeace
 FileDescription=
-FileVersion=1.0.0.0
+FileVersion=3.0.0.2
 InternalName=
 LegalCopyright=
 LegalTrademarks=
@@ -80,9 +76,12 @@ OriginalFilename=
 ProductName=
 ProductVersion=1.0.0.0
 Comments=
+[Excluded Packages]
+$(DELPHI)\Bin\dclite50.bpl=Borland Integrated Translation Environment
 [HistoryLists\hlDebugSourcePath]
-Count=1
-Item0=C:\Work\Five\Source\Utils\Misc
+Count=2
+Item0=Z:\starpeace-original\Utils\Misc
+Item1=C:\Work\Five\Source\Utils\Misc
 [HistoryLists\hlConditionals]
 Count=1
 Item0=TEST
@@ -90,14 +89,17 @@ Item0=TEST
 Count=1
 Item0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
 [HistoryLists\hlSearchPath]
-Count=1
-Item0=C:\Work\Five\Source\Utils\Misc
-[HistoryLists\hlUnitOutputDirectory]
 Count=2
-Item0=C:\Work\Five\Dcu
-Item1=S:\Dcu
-[HistoryLists\hlOutputDirectorry]
+Item0=Z:\starpeace-original\Utils\Misc
+Item1=C:\Work\Five\Source\Utils\Misc
+[HistoryLists\hlUnitOutputDirectory]
 Count=3
-Item0=S:\Release\Servers\Web Objects
-Item1=C:\Work\Five\Release\Utils
-Item2=S:\Release\Utils
+Item0=..\..\dcu\
+Item1=C:\Work\Five\Dcu
+Item2=S:\Dcu
+[HistoryLists\hlOutputDirectorry]
+Count=4
+Item0=..\..\release\Servers\Web Objects
+Item1=S:\Release\Servers\Web Objects
+Item2=C:\Work\Five\Release\Utils
+Item3=S:\Release\Utils

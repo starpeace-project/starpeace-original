@@ -33,6 +33,7 @@ MapFile=0
 OutputObjs=0
 ConsoleApp=1
 DebugInfo=0
+RemoteSymbols=0
 MinStackSize=16384
 MaxStackSize=1048576
 ImageBase=4194304
@@ -40,6 +41,8 @@ ExeDescription=
 [Directories]
 OutputDir=..\..\release
 UnitOutputDir=..\..\dcu
+PackageDLLOutputDir=
+PackageDCPOutputDir=
 SearchPath=..\Kernel;..\StdBlocks;..\Class Storage;..\Cache;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client\;..\Persistence;..\Utils\Misc
 Packages=vclx30;VCL30;vcldb30;vcldbx30;inetdb30;inet30;VclSmp30;Qrpt30;teeui30;teedb30;tee30;dss30;IBEVNT30
 Conditionals=
@@ -49,12 +52,12 @@ UsePackages=0
 RunParams=
 HostApplication=
 [Version Info]
-IncludeVerInfo=0
-AutoIncBuild=0
-MajorVer=1
+IncludeVerInfo=1
+AutoIncBuild=1
+MajorVer=3
 MinorVer=0
 Release=0
-Build=0
+Build=2
 Debug=0
 PreRelease=0
 Special=0
@@ -65,7 +68,7 @@ CodePage=1252
 [Version Info Keys]
 CompanyName=
 FileDescription=
-FileVersion=1.0.0.0
+FileVersion=3.0.0.2
 InternalName=
 LegalCopyright=
 LegalTrademarks=
@@ -74,8 +77,16 @@ ProductName=
 ProductVersion=1.0.0.0
 Comments=
 [Excluded Packages]
-C:\Program Files\Borland\Delphi 3\Bin\DCLOCX30.dpl=Delphi Sample Imported ActiveX Controls
-C:\Program Files\Borland\Delphi 3\Bin\dclqrt30.dpl=Delphi QuickReport Components
-C:\Program Files\Borland\Delphi 3\Bin\DCLTEE30.dpl=Delphi TeeChart Components
-C:\Program Files\Borland\Delphi 3\Bin\DCLDSS30.dpl=Delphi Decision Cube Components
-C:\WINDOWS\SYSTEM\IBEVNT30.dpl=Delphi Interbase Event Alerter Component
+$(DELPHI)\Bin\dclite50.bpl=Borland Integrated Translation Environment
+[HistoryLists\hlUnitAliases]
+Count=1
+Item0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+[HistoryLists\hlSearchPath]
+Count=1
+Item0=..\Kernel;..\StdBlocks;..\Class Storage;..\Cache;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client\;..\Persistence;..\Utils\Misc
+[HistoryLists\hlUnitOutputDirectory]
+Count=1
+Item0=..\..\dcu
+[HistoryLists\hlOutputDirectorry]
+Count=1
+Item0=..\..\release

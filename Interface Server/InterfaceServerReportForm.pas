@@ -87,7 +87,7 @@ implementation
     RDOObjectProxy, ISMLS, Logs, WinSock;
 
   const
-    ISKey  = '\Software\Oceanus\Five\InterfaceServer\';
+    ISKey  = '\Software\Wow6432Node\Starpeace\Five\InterfaceServer\';
     WorldNameS : string = '';
 {
   procedure TInterfaceServerReport.SaveRegistryData;

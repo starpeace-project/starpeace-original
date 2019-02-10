@@ -46,18 +46,18 @@ PackageDCPOutputDir=
 SearchPath=..\Kernel;..\StdBlocks;..\Class Storage;..\Cache;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client;..\Persistence;..\Utils\Vcl;..\Utils\Misc;..\Surfaces;..\Mail;..\Utils\Serial;..\DServer
 Packages=vclx30;VCL30;vcldb30;vcldbx30;inetdb30;inet30;VclSmp30;Qrpt30;teeui30;teedb30;tee30;dss30;IBEVNT30
 Conditionals=USELogs
-DebugSourceDirs=S:\Source\Utils\Network\;C:\Work\Five\Source\Rdo\Server\
+DebugSourceDirs=..\Utils\Network\;..\Rdo\Server\
 UsePackages=0
 [Parameters]
 RunParams=
 HostApplication=
 [Version Info]
-IncludeVerInfo=0
-AutoIncBuild=0
-MajorVer=1
+IncludeVerInfo=1
+AutoIncBuild=1
+MajorVer=3
 MinorVer=0
 Release=0
-Build=0
+Build=3
 Debug=0
 PreRelease=0
 Special=0
@@ -66,22 +66,23 @@ DLL=0
 Locale=1033
 CodePage=1252
 [Version Info Keys]
-CompanyName=
+CompanyName=Starpeace
 FileDescription=
-FileVersion=1.0.0.0
+FileVersion=3.0.0.3
 InternalName=
 LegalCopyright=
 LegalTrademarks=
 OriginalFilename=
 ProductName=
 ProductVersion=1.0.0.0
-Comments=
+Comments=Nick
 [Excluded Packages]
 $(DELPHI)\Bin\dclmid50.bpl=Borland MIDAS Components
 $(DELPHI)\Bin\dclite50.bpl=Borland Integrated Translation Environment
 [HistoryLists\hlDebugSourcePath]
-Count=1
-Item0=S:\Source\Utils\Network\
+Count=2
+Item0=..\Utils\Network\;..\Rdo\Server\
+Item1=S:\Source\Utils\Network\
 [HistoryLists\hlConditionals]
 Count=1
 Item0=USELogs

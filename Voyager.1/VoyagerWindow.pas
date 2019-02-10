@@ -634,7 +634,7 @@ implementation
       // FASTEN YOUR SEAT BELT: Jump to Master Site URL!
       MasterSiteURL := paramstr(1);
       if (MasterSiteURL = '') or (MasterSiteURL = '-')
-        then MasterSiteURL := 'http://www.starpeace.net/five/';
+        then MasterSiteURL := 'http://www.starpeace.co.uk/five/';
       //fFrameSet.HandleURL( MasterSiteURL + 'visual/voyager/newlogon/splash.asp?Splash=yes&frame_Id=LogonView&xSize=' + IntToStr(min(1024, Screen.Width)) + '&ySize=' + IntToStr(min(768, Screen.Height)) + '&Cache=' + ExtractFilePath( paramstr(0) ) + 'Cache\' );
       fFrameSet.HandleURL( '?frame_Action=Show&frame_Id=LogonHandler&frame_Class=LogonHandler&frame_Align=client&frame_NoBorder=True&frame_NoScrollBars=false' );
 

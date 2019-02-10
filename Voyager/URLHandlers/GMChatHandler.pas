@@ -3,7 +3,7 @@ unit GMChatHandler;
 interface
 
   uses
-    Classes, VoyagerInterfaces, VoyagerServerInterfaces, Controls, GMChatViewer, VCLUtils,
+    Classes, VoyagerInterfaces, VoyagerServerInterfaces, Controls, GMChatViewer, UnitComp_TALogger, VCLUtils,
     Protocol, GMKernel;
 
   type
@@ -239,6 +239,7 @@ implementation
         ErrorCode := GM_ERR_UNEXPECTED;
       end;
       try
+        LogToFile.WriteToLogFile('syn cConnect ToGM '+ DateTimeToStr(Now) + '  1: ' + GMName + '  2:  ' + inttostr(PendingRequest) + '  3: ' + inttostr(GMId) + '  4:' + inttostr(ErrorCode));
         Join( syncConnectToGM, [string(GMName), integer(PendingRequest), integer(GMId), ErrorCode] );
       except
       end;

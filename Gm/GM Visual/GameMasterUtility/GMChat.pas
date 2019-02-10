@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
-  ComCtrls, TextShortcuts, ToolWin, StdCtrls, GameMaster, Collection, Menus,
+  ComCtrls, TextShortcuts, ToolWin, StdCtrls, GameMaster, UnitComp_TALogger, Collection, Menus, logs,
   ExtCtrls, VoyagerServerInterfaces, VoyagerInterfaces, BlockTicker,
   MarqueeCtrl, InternationalizerComponent, RDOInterfaces, ImgList;
 
@@ -159,7 +159,7 @@ implementation
     IMAGEIDX_QUEUED2 = 11;
 
   const
-    DATA_KEYNAME = '\SOFTWARE\Oceanus\Star Peace\Client\System';
+    DATA_KEYNAME = '\SOFTWARE\Wow6432Node\Starpeace\FIVE\GMClient';
 
 {$R *.DFM}
 
@@ -478,20 +478,25 @@ implementation
     begin
       result := false;
       Reg := TRegistry.Create;
+      Logs.Log( 'Survival', DateTimeToStr(Now) + ' Loading Registry' );
       try
         Reg.RootKey := HKEY_LOCAL_MACHINE;
-        if Reg.OpenKey( DATA_KEYNAME, false )
+        if Reg.OpenKey( DATA_KEYNAME, true )
           then
             begin
               dsaddr := Reg.ReadString(  'DSAddr' );
+              //LogToFile.WriteToLogFile( 'Survival ' + DateTimeToStr(Now) + ' Address : ' + DSAddr );
               dsport := Reg.ReadInteger( 'DSPort' );
+              //LogToFile.WriteToLogFile( 'Survival ' + DateTimeToStr(Now) + ' Port : ' + inttostr(DSPort) );
               gmId := Reg.ReadString( 'GMSId' );
+              Logs.Log( 'Survival', DateTimeToStr(Now) + ' Registry read connected to :' + DSAddr );
+             // LogToFile.WriteToLogFile( 'Survival ' + DateTimeToStr(Now) + ' GMSid : ' + GMId );
             end
           else
             begin
-              dsaddr := '';
-              dsport := 0;
-              gmId   := '';
+              dsaddr := 'dir.starpeace.co.uk';
+              dsport := 2222;
+              gmId   := 'GM1';
             end;
       finally
         Reg.Free;
@@ -637,7 +642,7 @@ implementation
                         begin
                           if TheGMURDOMger.SetupRDO(SAddr, SPort, fUser, fPassword)
                             then SetGameMaster(TheGMURDOMger.GameMaster)
-                            else ShowMessage( 'Cannot connect to the game master server' );
+                            else ShowMessage( ' Cannot connect to the game master server' );
                         end
                       else ShowMessage('Cannot get GameMaster server address and port in Directory Server.');
                     TheGMURDOMger.OnDisconnect := OnServerDisconnected;

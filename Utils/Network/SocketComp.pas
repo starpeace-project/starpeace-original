@@ -385,7 +385,7 @@ implementation
   {$ELSE}
    Consts,
   {$ENDIF}
-    Forms, WebConst;
+    Forms, Logs, WebConst;
 
 
   type
@@ -1157,6 +1157,7 @@ function TCustomWinSocket.ResolveSock4: boolean;
 
   function TCustomWinSocket.InitSocket(var Name, Address, Service : string; Port : Word; Client : boolean) : TSockAddrIn;
     begin
+      //Logs.Log( 'Survival', DateTimeToStr(Now) + 'Name' + 'service'  );
       result.sin_family := PF_INET;
       if Name <> ''
         then result.sin_addr := LookupName(Name)

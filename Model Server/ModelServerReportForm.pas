@@ -8,7 +8,7 @@ uses
   ShareMem;
 
 const
-  ModelServerKey = '\Software\Oceanus\Five\ModelServer\'; 
+  ModelServerKey = '\Software\Wow6432Node\Starpeace\Five\ModelServer\'; 
 
 type
   TModelServerReport = class(TForm)

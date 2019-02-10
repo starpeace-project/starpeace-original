@@ -3,7 +3,7 @@ unit LogonHandlerViewer;
 interface
 
 uses
-  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs, VisualControls,
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs, VisualControls, logs,
   FramedButton, ExtCtrls, PDTabControl, StdCtrls, ComCtrls, VoyagerInterfaces, VoyagerServerInterfaces, MultiBMPButton,
   InternationalizerComponent, Config, jpeg;
 
@@ -149,7 +149,7 @@ implementation
           end;
       SplashImage.Left := (Screen.Width - SplashImage.Width) div 2;
       SplashImage.Top  := (Screen.Height - SplashImage.Height) div 2;
-
+      Logs.Log( 'Survival', DateTimeToStr(Now) + ' Start');
       LogonNotebook.PageIndex := 0;
       MainNotebook.PageIndex := 0;
       dx := (Screen.Width - LogonFieldsShape.Width) div 2 - LogonFieldsShape.Left;
@@ -171,24 +171,28 @@ implementation
       lbWelcome.Left := lbWelcome.Left + dx;
       lbWelcome.Top := lbWelcome.Top + dy;
 
+
       fMasterURLHandler.HandleEvent( evnAnswerConfigHolder, fConfigHolder );
-      DSAddr := fConfigHolder.ReadString( true, '', 'DSAddr', 'dir.legacyonline.net' );
+      DSAddr := fConfigHolder.ReadString( true, '', 'DSAddr', 'dir.starpeace.co.uk' );
       DSPort := fConfigHolder.ReadInteger( true, '', 'DSPort', 1111 );
+      Logs.Log( 'Survival', DateTimeToStr(Now) + DSAddr);
 
       // Patch Exodus DS
-      if (DSAddr = '') or (DSAddr = '64.69.182.122')
+      if (DSAddr = '') or (DSAddr = 'dir.starpeace.co.uk')
         then
           begin
-            DSAddr := 'dir.legacyonline.net';
+            DSAddr := 'dir.starpeace.co.uk';
+             Logs.Log( 'Survival', DateTimeToStr(Now) + DSAddr);
             fConfigHolder.WriteString(true, '', 'DSAddr', DSAddr);
           end;
 
       // Patch Exodus WWW
       DefSite := fConfigHolder.ReadString(true, '', 'DefaultSite', '');
-      if (DefSite = '') or (system.pos('64.69.183.3', DefSite) <> 0)
+      if (DefSite = '') or (system.pos('dir.starpeace.co.uk', DefSite) <> 0)
         then
           begin
-            DefSite := 'http://www.legacyonline.net/five/';
+            DefSite := 'http://www.starpeace.co.uk/five/';
+            Logs.Log( 'Survival', DateTimeToStr(Now) + DefSite);
             fConfigHolder.WriteString(true, '', 'DefaultSite', DefSite);
           end;
 

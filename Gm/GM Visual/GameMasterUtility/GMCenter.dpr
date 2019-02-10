@@ -44,7 +44,8 @@ uses
   GMList in '..\GMList.pas',
   ShortcutForm in 'ShortcutForm.pas' {ShortcutCenter},
   EditShortcut in 'EditShortcut.pas' {EditShortcutForm},
-  GameMasterLogon in 'GameMasterLogon.pas' {Logon};
+  GameMasterLogon in 'GameMasterLogon.pas' {Logon},
+  UnitComp_TALogger in '\\DEV05-PC\Starpeace Orginal\starpeace-original\log2\UnitComp_TALogger.pas';
 
 {$R *.RES}
 

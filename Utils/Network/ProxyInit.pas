@@ -10,7 +10,7 @@ uses
   Registry, SocketComp, windows, winsock;
 
 resourcestring
-  KeyProxy = 'Software\Oceanus\Star Peace\Client\Proxy';
+  KeyProxy = 'Software\Wow6432Node\Starpeace\Client\Proxy';
 
 const 
   CKeyAuthentication: array[boolean] of TSocksAuthentication = (saNoAuthentication, saUsernamePassword);  

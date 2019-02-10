@@ -3,7 +3,7 @@ unit GMChatViewer;
 interface
 
 uses
-  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs, UnitComp_TALogger,
   StdCtrls, ComCtrls, ExtCtrls, FramedButton, VoyagerInterfaces, VoyagerServerInterfaces,
   VisualControls, GMList, InternationalizerComponent;
 

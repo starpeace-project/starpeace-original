@@ -7,7 +7,8 @@ uses
   ExtCtrls, StdCtrls, PDTabControl, GradientBox, BlockTicker, ComCtrls,
   FramedButton, VisualControls,
   RDOInterfaces, WinSockRDOConnection, RDOServer, RDOObjectProxy,
-  VoyagerInterfaces, VoyagerServerInterfaces, InternationalizerComponent;
+  VoyagerInterfaces, VoyagerServerInterfaces, InternationalizerComponent,
+  ImgList;
 
 type
   TUniversalMapView = class(TVisualControl)
@@ -97,7 +98,7 @@ implementation
       ConfigHolder : IConfigHolder;
     begin
       fMasterURLHandler.HandleEvent( evnAnswerConfigHolder, ConfigHolder );
-      DSAddr := ConfigHolder.ReadString( true, '', 'DSAddr', 'dir.starpeace.net' );
+      DSAddr := ConfigHolder.ReadString( true, '', 'DSAddr', 'dir.starpeace.co.uk' );
       DSPort := ConfigHolder.ReadInteger( true, '', 'DSPort', 1111 );
       WorldList.Items.Clear;
       WorldList.ViewStyle := vsList;

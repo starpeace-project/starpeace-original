@@ -9,14 +9,11 @@ MAKE = $(ROOT)\bin\make.exe -$(MAKEFLAGS) -f$**
 DCC = $(ROOT)\bin\dcc32.exe $**
 BRCC = $(ROOT)\bin\brcc32.exe $**
 #------------------------------------------------------------------------------
-PROJECTS = FIVEModelServer.exe DissidentPack1.mdx GeneralPack1.mdx \
-  MarikoPack1.mdx MoabPack1.mdx PGIPack1.mdx UWPack1.mdx BackupRegistry.dll
+PROJECTS = DissidentPack1.mdx GeneralPack1.mdx MarikoPack1.mdx MoabPack1.mdx \
+  PGIPack1.mdx UWPack1.mdx BackupRegistry.dll
 #------------------------------------------------------------------------------
 default: $(PROJECTS)
 #------------------------------------------------------------------------------
-
-FIVEModelServer.exe: FIVEModelServer.dpr
-  $(DCC)
 
 DissidentPack1.mdx: ..\Model Extensions\Dissidents\DissidentPack1.dpr
   $(DCC)

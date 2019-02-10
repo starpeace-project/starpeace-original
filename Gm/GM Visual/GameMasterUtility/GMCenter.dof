@@ -39,25 +39,25 @@ MaxStackSize=1048576
 ImageBase=4194304
 ExeDescription=
 [Directories]
-OutputDir=..\..\..\..\release\gm
-UnitOutputDir=..\..\..\..\DCU3
+OutputDir=Z:\Release\Servers
+UnitOutputDir=Z:\dcu
 PackageDLLOutputDir=
 PackageDCPOutputDir=
-SearchPath=..\..\..\RDO\Client;..\..\..\RDO\Common;..\..\..\utils\winutils;..\..\..\utils\misc
+SearchPath=..\..\..\RDO\Client;..\..\..\RDO\Common;..\..\..\utils\winutils;..\..\..\utils\misc;Z:\starpeace-original\Voyager\Components
 Packages=vclx30;VCL30;vcldb30;vcldbx30;inetdb30;inet30;VclSmp30;Qrpt30;teeui30;teedb30;tee30;dss30;IBEVNT30;FingerTab;GradBox;FiveComp;FrameButton;InfoBk;PercBar;TabCtrl
-Conditionals=
+Conditionals=REPORTMEM;LIBRARY;USELogs
 DebugSourceDirs=
 UsePackages=0
 [Parameters]
 RunParams=
 HostApplication=
 [Version Info]
-IncludeVerInfo=0
-AutoIncBuild=0
-MajorVer=1
+IncludeVerInfo=1
+AutoIncBuild=1
+MajorVer=3
 MinorVer=0
 Release=0
-Build=0
+Build=5
 Debug=0
 PreRelease=0
 Special=0
@@ -66,9 +66,9 @@ DLL=0
 Locale=1033
 CodePage=1252
 [Version Info Keys]
-CompanyName=
+CompanyName=Starpeace
 FileDescription=
-FileVersion=1.0.0.0
+FileVersion=3.0.0.5
 InternalName=
 LegalCopyright=
 LegalTrademarks=
@@ -77,22 +77,30 @@ ProductName=
 ProductVersion=1.0.0.0
 Comments=
 [Excluded Packages]
-$(DELPHI)\Bin\dclite50.bpl=Borland Integrated Translation Environment
 $(DELPHI)\Bin\dclmid50.bpl=Borland MIDAS Components
+$(DELPHI)\Bin\dclite50.bpl=Borland Integrated Translation Environment
 [HistoryLists\hlDebugSourcePath]
 Count=1
 Item0=$(DELPHI)\Lib\Debug;..\..\..\RDO\Client;..\..\..\RDO\Common;..\..\..\utils\winutils;..\..\..\utils\misc
+[HistoryLists\hlConditionals]
+Count=1
+Item0=REPORTMEM;LIBRARY;USELogs
 [HistoryLists\hlUnitAliases]
 Count=1
 Item0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
 [HistoryLists\hlSearchPath]
-Count=2
-Item0=..\..\..\RDO\Client;..\..\..\RDO\Common;..\..\..\utils\winutils;..\..\..\utils\misc
-Item1=$(DELPHI)\Lib\Debug;..\..\..\RDO\Client;..\..\..\RDO\Common;..\..\..\utils\winutils;..\..\..\utils\misc
+Count=3
+Item0=..\..\..\RDO\Client;..\..\..\RDO\Common;..\..\..\utils\winutils;..\..\..\utils\misc;Z:\starpeace-original\Voyager\Components
+Item1=..\..\..\RDO\Client;..\..\..\RDO\Common;..\..\..\utils\winutils;..\..\..\utils\misc
+Item2=$(DELPHI)\Lib\Debug;..\..\..\RDO\Client;..\..\..\RDO\Common;..\..\..\utils\winutils;..\..\..\utils\misc
 [HistoryLists\hlUnitOutputDirectory]
-Count=2
-Item0=..\..\..\..\Dcu
-Item1=..\..\..\..\DCU3
+Count=4
+Item0=Z:\dcu
+Item1=..\..\dcu\
+Item2=..\..\..\..\Dcu
+Item3=..\..\..\..\DCU3
 [HistoryLists\hlOutputDirectorry]
-Count=1
-Item0=..\..\..\..\release\gm
+Count=3
+Item0=Z:\Release\Servers
+Item1=..\..\release\Servers\
+Item2=..\..\..\..\release\gm

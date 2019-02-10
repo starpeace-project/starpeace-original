@@ -75,7 +75,7 @@ implementation
         Reg := TRegistry.Create;
         try
           Reg.RootKey := HKEY_LOCAL_MACHINE;
-          if Reg.OpenKey('\Software\Oceanus\Common', false)
+          if Reg.OpenKey('\Software\Wow6432Node\Starpeace\Five\Common', false)
             then
               begin
                 pth := Reg.ReadString('PBK_CERT');
@@ -115,7 +115,7 @@ implementation
           Reg := TRegistry.Create;
           try
             Reg.RootKey := HKEY_LOCAL_MACHINE;
-            if Reg.OpenKey('\Software\Oceanus\Common', false)
+            if Reg.OpenKey('\Software\Wow6432Node\Starpeace\Five\Common', false)
               then
                 begin
                   addr := Reg.ReadString('DSAddr');

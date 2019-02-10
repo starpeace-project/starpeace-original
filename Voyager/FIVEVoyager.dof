@@ -25,8 +25,8 @@ W=0
 X=1
 Y=0
 Z=1
-ShowHints=1
-ShowWarnings=1
+ShowHints=0
+ShowWarnings=0
 UnitAliases=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;Events=VoyagerEvents
 [Linker]
 MapFile=0
@@ -39,11 +39,11 @@ MaxStackSize=1048576
 ImageBase=4194304
 ExeDescription=
 [Directories]
-OutputDir=C:\Program Files\Oceanus Communications\Legacy Online\retail
-UnitOutputDir=S:\dcu
+OutputDir=..\..\release\client
+UnitOutputDir=..\..\dcu
 PackageDLLOutputDir=
 PackageDCPOutputDir=
-SearchPath=..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client\;..\Utils\Misc;..\Voyager;..\Voyager\URLHandlers;..\voyager\Components;..\Utils\GameAPI;..\Utils\Graphics;..\Utils\Voice;..\DServer;$(DELPHI)\Source\Toolsapi;..\Utils\CodeLib;..\Utils\debug;..\Utils\WinUtils;..\Utils\DirectX;..\Class Storage;..\Kernel
+SearchPath=..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client\;..\Utils\Misc;..\Voyager;..\Voyager\URLHandlers;..\voyager\Components;..\Utils\GameAPI;..\Utils\Graphics;..\Utils\Voice;..\DServer;$(DELPHI)\Source\Toolsapi;..\Utils\CodeLib;..\Utils\debug;..\Utils\WinUtils;..\Utils\DirectX;..\Class Storage;..\Kernel;..\Logs
 Packages=Vcl50;Vclx50;fiveD5cpm;vcl;rtl
 Conditionals=USECARGODATA;EXCMAGIC_GUI;LIBRARY;QuickOut;NotStorageDll;USE_CABSDLL;train;NotChangeDisplay
 DebugSourceDirs=$(DELPHI)\Source\Rtl;$(DELPHI)\Source\Vcl;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client\;..\Utils\Misc;..\Voyager;..\Voyager\URLHandlers;..\voyager\Components;..\Kernel;..\Utils\GameAPI;..\Utils\Graphics;..\Utils\Voice;..\DServer;$(DELPHI)\Source\Toolsapi;..\Utils\CodeLib;..\Utils\debug;..\Utils\WinUtils;..\Utils\DirectX;..\Class Storage
@@ -54,10 +54,10 @@ HostApplication=
 [Version Info]
 IncludeVerInfo=1
 AutoIncBuild=1
-MajorVer=2
-MinorVer=1
-Release=1
-Build=136
+MajorVer=3
+MinorVer=0
+Release=0
+Build=7
 Debug=0
 PreRelease=0
 Special=0
@@ -66,9 +66,9 @@ DLL=0
 Locale=1033
 CodePage=1252
 [Version Info Keys]
-CompanyName=Oceanus Communications
+CompanyName=Starpeace
 FileDescription=Legacy Online
-FileVersion=2.1.1.136
+FileVersion=3.0.0.7
 InternalName=
 LegalCopyright=
 LegalTrademarks=
@@ -92,17 +92,19 @@ Item0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;Ev
 Item1=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
 Item2=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;strutils=mr_strutils
 [HistoryLists\hlSearchPath]
-Count=4
-Item0=..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client\;..\Utils\Misc;..\Voyager;..\Voyager\URLHandlers;..\voyager\Components;..\Utils\GameAPI;..\Utils\Graphics;..\Utils\Voice;..\DServer;$(DELPHI)\Source\Toolsapi;..\Utils\CodeLib;..\Utils\debug;..\Utils\WinUtils;..\Utils\DirectX;..\Class Storage;..\Kernel
-Item1=$(DELPHI)\Lib\Debug;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client\;..\Utils\Misc;..\Voyager;..\Voyager\URLHandlers;..\voyager\Components;..\Utils\GameAPI;..\Utils\Graphics;..\Utils\Voice;..\DServer;$(DELPHI)\Source\Toolsapi;..\Utils\CodeLib;..\Utils\debug;..\Utils\WinUtils;..\Utils\DirectX;..\Class Storage;..\Kernel
-Item2=$(DELPHI)\Lib\Debug
-Item3=$(DELPHI)\Lib\Debug;..\voyager\components;..\rdo\client;..\rdo\common;..\utils\network\;..\utils\Synchro;..\Kernel;..\Voyager\Components\WebBrowser;..\utils\misc;..\utils\debug;..\Utils\WinUtils;..\Utils\DirectX;..\Utils\DXMedia;..\Utils\DirectX;..\Utils\Voice\Utils
+Count=5
+Item0=..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client\;..\Utils\Misc;..\Voyager;..\Voyager\URLHandlers;..\voyager\Components;..\Utils\GameAPI;..\Utils\Graphics;..\Utils\Voice;..\DServer;$(DELPHI)\Source\Toolsapi;..\Utils\CodeLib;..\Utils\debug;..\Utils\WinUtils;..\Utils\DirectX;..\Class Storage;..\Kernel;..\Logs
+Item1=..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client\;..\Utils\Misc;..\Voyager;..\Voyager\URLHandlers;..\voyager\Components;..\Utils\GameAPI;..\Utils\Graphics;..\Utils\Voice;..\DServer;$(DELPHI)\Source\Toolsapi;..\Utils\CodeLib;..\Utils\debug;..\Utils\WinUtils;..\Utils\DirectX;..\Class Storage;..\Kernel
+Item2=$(DELPHI)\Lib\Debug;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client\;..\Utils\Misc;..\Voyager;..\Voyager\URLHandlers;..\voyager\Components;..\Utils\GameAPI;..\Utils\Graphics;..\Utils\Voice;..\DServer;$(DELPHI)\Source\Toolsapi;..\Utils\CodeLib;..\Utils\debug;..\Utils\WinUtils;..\Utils\DirectX;..\Class Storage;..\Kernel
+Item3=$(DELPHI)\Lib\Debug
+Item4=$(DELPHI)\Lib\Debug;..\voyager\components;..\rdo\client;..\rdo\common;..\utils\network\;..\utils\Synchro;..\Kernel;..\Voyager\Components\WebBrowser;..\utils\misc;..\utils\debug;..\Utils\WinUtils;..\Utils\DirectX;..\Utils\DXMedia;..\Utils\DirectX;..\Utils\Voice\Utils
 [HistoryLists\hlUnitOutputDirectory]
 Count=2
-Item0=S:\dcu
-Item1=..\..\dcu
+Item0=..\..\dcu
+Item1=S:\dcu
 [HistoryLists\hlOutputDirectorry]
-Count=3
-Item0=C:\Program Files\Oceanus Communications\Legacy Online\Retail
-Item1=C:\Program Files\Oceanus\Starpeace
-Item2=S:\Release\Installer
+Count=4
+Item0=..\..\release\client
+Item1=C:\Program Files\Oceanus Communications\Legacy Online\Retail
+Item2=C:\Program Files\Oceanus\Starpeace
+Item3=S:\Release\Installer

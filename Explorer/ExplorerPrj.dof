@@ -51,17 +51,13 @@ UsePackages=0
 [Parameters]
 RunParams=
 HostApplication=
-[Language]
-ActiveLang=
-ProjectLang=$00000409
-RootDir=
 [Version Info]
-IncludeVerInfo=0
-AutoIncBuild=0
-MajorVer=1
+IncludeVerInfo=1
+AutoIncBuild=1
+MajorVer=3
 MinorVer=0
 Release=0
-Build=0
+Build=1
 Debug=0
 PreRelease=0
 Special=0
@@ -70,28 +66,32 @@ DLL=0
 Locale=1033
 CodePage=1252
 [Version Info Keys]
-CompanyName=
+CompanyName=Starpeace
 FileDescription=
-FileVersion=1.0.0.0
+FileVersion=3.0.0.1
 InternalName=
 LegalCopyright=
 LegalTrademarks=
 OriginalFilename=
 ProductName=
 ProductVersion=1.0.0.0
-Comments=
+Comments=Nick
 [Excluded Packages]
 $(DELPHI)\Bin\dclmid50.bpl=Borland MIDAS Components
+$(DELPHI)\Bin\dclite50.bpl=Borland Integrated Translation Environment
 [HistoryLists\hlUnitAliases]
 Count=1
 Item0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
 [HistoryLists\hlSearchPath]
-Count=1
-Item0=S:\Dcu
-[HistoryLists\hlUnitOutputDirectory]
-Count=1
-Item0=S:\Dcu
-[HistoryLists\hlOutputDirectorry]
 Count=2
-Item0=S:\Release\Servers
-Item1=S:\Release\Utils
+Item0=..\Kernel;..\RDO\Client;..\RDO\Common;..\Utils\Network;..\Logs;..\DServer;..\RDO\Server;..\Utils\Misc
+Item1=S:\Dcu
+[HistoryLists\hlUnitOutputDirectory]
+Count=2
+Item0=..\..\dcu
+Item1=S:\Dcu
+[HistoryLists\hlOutputDirectorry]
+Count=3
+Item0=..\..\release\servers
+Item1=S:\Release\Servers
+Item2=S:\Release\Utils

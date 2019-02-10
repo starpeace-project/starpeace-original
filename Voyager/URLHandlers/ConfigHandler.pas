@@ -43,8 +43,8 @@ interface
     tidMetaHandler_ConfigHandler = 'ConfigHandler';
 
   const
-    VOYAGER_ROOT = '\SOFTWARE\Oceanus Communications\Legacy Online\Client\';
-    TEST_VOYAGER_ROOT = '\SOFTWARE\Oceanus Communications\Legacy Online Test\Client\';
+    VOYAGER_ROOT = '\SOFTWARE\Wow6432Node\Starpeace\Client\';
+    TEST_VOYAGER_ROOT = '\SOFTWARE\Wow6432Node\Starpeace Test\Client\';
 
 implementation
 

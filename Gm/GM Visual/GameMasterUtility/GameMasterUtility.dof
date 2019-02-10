@@ -39,11 +39,11 @@ MaxStackSize=1048576
 ImageBase=4194304
 ExeDescription=
 [Directories]
-OutputDir=..\..\..\..\Release\GM
-UnitOutputDir=..\..\..\..\Dcu
+OutputDir=Z:\Release\GM
+UnitOutputDir=Z:\dcu
 PackageDLLOutputDir=
 PackageDCPOutputDir=
-SearchPath=..\..\..\Logs;..\..\..\utils\winutils;..\..\..\utils\misc;..\..\..\voyager;..\..\..\protocol;..\..\..\kernel;..\..\..\Persistence;..\..\..\cache;..\InstallerSplash\
+SearchPath=Z:\starpeace-original\Logs;Z:\starpeace-original\utils\winutils;Z:\starpeace-original\utils\misc;Z:\starpeace-original\voyager;Z:\starpeace-original\protocol;Z:\starpeace-original\kernel;Z:\starpeace-original\Persistence;Z:\starpeace-original\cache;Z:\starpeace-original\InstallerSplash\;Z:\starpeace-original\Voyager\Components
 Packages=VCL50;VCLX50;VCLSMP50;QRPT50;VCLDB50;VCLBDE50;ibevnt50;VCLDBX50;TEEUI50;TEEDB50;TEE50;TEEQR50;VCLIB50;VCLIE50;INETDB50;INET50;NMFAST50;dclocx50;dclaxserver50
 Conditionals=
 DebugSourceDirs=
@@ -52,12 +52,12 @@ UsePackages=0
 RunParams=
 HostApplication=
 [Version Info]
-IncludeVerInfo=0
+IncludeVerInfo=1
 AutoIncBuild=0
-MajorVer=1
+MajorVer=3
 MinorVer=0
 Release=0
-Build=0
+Build=1
 Debug=0
 PreRelease=0
 Special=0
@@ -66,9 +66,9 @@ DLL=0
 Locale=1033
 CodePage=1252
 [Version Info Keys]
-CompanyName=
+CompanyName=Starpeace
 FileDescription=
-FileVersion=1.0.0.0
+FileVersion=3.0.0.1
 InternalName=
 LegalCopyright=
 LegalTrademarks=
@@ -78,31 +78,15 @@ ProductVersion=1.0.0.0
 Comments=
 [Excluded Packages]
 $(DELPHI)\Bin\dclite50.bpl=Borland Integrated Translation Environment
-$(DELPHI)\Bin\dclmid50.bpl=Borland MIDAS Components
 [HistoryLists\hlUnitAliases]
 Count=1
 Item0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
 [HistoryLists\hlSearchPath]
-Count=16
-Item0=..\..\..\Logs;..\..\..\utils\winutils;..\..\..\utils\misc;..\..\..\voyager;..\..\..\protocol;..\..\..\kernel;..\..\..\Persistence;..\..\..\cache;..\InstallerSplash\
-Item1=..\..\..\Logs;..\..\..\utils\winutils;..\..\..\utils\misc;..\..\..\voyager;..\..\..\protocol;..\..\..\kernel;..\..\..\Persistence;..\..\..\cache;S:\source\InstallerSplash\
-Item2=..\..\..\Logs;..\..\..\utils\winutils;..\..\..\utils\misc;..\..\..\voyager;..\..\..\protocol;..\..\..\kernel;..\..\..\Persistence;..\..\..\cache;S:\source\InstallerSplash
-Item3=s:\source\InstallerSplash;..\..\..\Logs;..\..\..\utils\winutils;..\..\..\utils\misc;..\..\..\voyager;..\..\..\protocol;..\..\..\kernel;..\..\..\Persistence;..\..\..\cache
-Item4=..\..\..\..\InstallerSplash;..\..\..\Logs;..\..\..\utils\winutils;..\..\..\utils\misc;..\..\..\voyager;..\..\..\protocol;..\..\..\kernel;..\..\..\Persistence;..\..\..\cache
-Item5=..\..\InstallerSplash;..\..\..\Logs;..\..\..\utils\winutils;..\..\..\utils\misc;..\..\..\voyager;..\..\..\protocol;..\..\..\kernel;..\..\..\Persistence;..\..\..\cache
-Item6=..\..\..\InstallerSplash;..\..\..\Logs;..\..\..\utils\winutils;..\..\..\utils\misc;..\..\..\voyager;..\..\..\protocol;..\..\..\kernel;..\..\..\Persistence;..\..\..\cache
-Item7=..\..\..\Logs;..\..\..\utils\winutils;..\..\..\utils\misc;..\..\..\voyager;..\..\..\protocol;..\..\..\kernel;..\..\..\Persistence;..\..\..\cache;..\..\..\InstallerSplash
-Item8=..\..\..\Logs;..\..\..\utils\winutils;..\..\..\utils\misc;..\..\..\voyager;..\..\..\protocol;..\..\..\kernel;..\..\..\Persistence;..\..\..\cache
-Item9=..\..\..\Logs;..\..\..\utils\winutils;..\..\..\utils\misc;..\..\..\voyager;..\..\..\protocol;..\..\..\kernel;..\..\..\Persistence
-Item10=..\..\..\Logs;..\..\..\utils\winutils;..\..\..\utils\misc;..\..\..\voyager;..\..\..\protocol;..\..\..\kernel
-Item11=..\..\..\Logs;..\..\..\utils\winutils;..\..\..\utils\misc;..\..\..\voyager;..\..\..\protocol
-Item12=..\..\..\Logs;..\..\..\utils\winutils;..\..\..\utils\misc;..\..\..\voyager
-Item13=..\..\..\Logs;..\..\..\utils\winutils;..\..\..\utils\misc
-Item14=..\..\..\Logs;..\..\..\utils\winutils
-Item15=..\..\..\Logs
+Count=1
+Item0=Z:\starpeace-original\Logs;Z:\starpeace-original\utils\winutils;Z:\starpeace-original\utils\misc;Z:\starpeace-original\voyager;Z:\starpeace-original\protocol;Z:\starpeace-original\kernel;Z:\starpeace-original\Persistence;Z:\starpeace-original\cache;Z:\starpeace-original\InstallerSplash\;Z:\starpeace-original\Voyager\Components
 [HistoryLists\hlUnitOutputDirectory]
 Count=1
-Item0=..\..\..\..\Dcu
+Item0=Z:\dcu
 [HistoryLists\hlOutputDirectorry]
 Count=1
-Item0=..\..\..\..\Release\GM
+Item0=Z:\Release\GM

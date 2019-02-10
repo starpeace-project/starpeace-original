@@ -3,7 +3,7 @@ unit GameMasterLogon;
 interface
 
 uses
-  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Logs, Dialogs,
   StdCtrls, GMChat, RDOInterfaces, ComCtrls, ExtCtrls;
 
 type
@@ -35,7 +35,9 @@ begin
         GMView.User     := GMUsername.Text;
         GMView.password := GMPassword.Text;
         ModalResult     := mrOK;
+        //Logs.Log( 'Survival', DateTimeToStr(Now) + GMUsername.Text );
       end;
+
 end;
 
 procedure TLogon.Button1Click(Sender: TObject);

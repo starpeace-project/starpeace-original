@@ -94,8 +94,7 @@ var
 implementation
 
 uses
-  Configuration, NewKeyFrm, EditValueFrm, ComObj, FMsgBx, SubsExplorerFrm,
-  StatsExplorerPlotter, BlockUnBlock;
+  Configuration, NewKeyFrm, EditValueFrm, ComObj, BlockUnBlock;
   //StatsExplorerPlotter;
 
 // RDOIsSecureValue

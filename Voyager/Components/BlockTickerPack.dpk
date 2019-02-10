@@ -21,14 +21,14 @@ package BlockTickerPack;
 {$VARSTRINGCHECKS ON}
 {$WRITEABLECONST ON}
 {$MINENUMSIZE 1}
-{$IMAGEBASE $00400000}
+{$IMAGEBASE $400000}
 {$DESIGNONLY}
 {$IMPLICITBUILD ON}
 
 requires
-  vcl30;
+  vcl50;
 
 contains
-  BlockTicker;
+  BlockTicker in 'BlockTicker.pas';
 
 end.

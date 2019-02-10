@@ -40,7 +40,7 @@ ImageBase=4194304
 ExeDescription=
 [Directories]
 OutputDir=..\..\Release\Servers
-UnitOutputDir=S:\dcu
+UnitOutputDir=..\..\dcu
 PackageDLLOutputDir=
 PackageDCPOutputDir=
 SearchPath=..\utils\misc
@@ -68,8 +68,8 @@ CodePage=1252
 [Version Info Keys]
 FileVersion=1.0.0.0
 [Excluded Packages]
-$(DELPHI)\Bin\dclite50.bpl=Borland Integrated Translation Environment
 $(DELPHI)\Bin\dclmid50.bpl=Borland MIDAS Components
+$(DELPHI)\Bin\dclite50.bpl=Borland Integrated Translation Environment
 [HistoryLists\hlDebugSourcePath]
 Count=2
 Item0=S:\Source\Utils\Network\;C:\Work\Five\Source\Rdo\Server\
@@ -91,8 +91,8 @@ Item5=..\Kernel;..\StdBlocks;..\Class Storage;..\Cache;..\RDO\Common;..\RDO\Serv
 Item6=..\Kernel;..\StdBlocks;..\Class Storage;..\Cache;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client;..\Persistence;..\Utils\Vcl;..\Utils\Misc;..\Surfaces;..\Mail;..\Directory Server
 [HistoryLists\hlUnitOutputDirectory]
 Count=2
-Item0=s:\dcu
-Item1=..\..\dcu
+Item0=..\..\dcu
+Item1=s:\dcu
 [HistoryLists\hlOutputDirectorry]
 Count=6
 Item0=..\..\Release\Servers

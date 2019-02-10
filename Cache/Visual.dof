@@ -39,7 +39,7 @@ MaxStackSize=1048576
 ImageBase=4194304
 ExeDescription=
 [Directories]
-OutputDir=C:\sp\bin\common
+OutputDir=..\..\release\Servers\
 UnitOutputDir=..\..\DCU
 PackageDLLOutputDir=
 PackageDCPOutputDir=
@@ -52,12 +52,12 @@ UsePackages=0
 RunParams=/ProcessID:{D76E8FD5-5268-4558-B269-287DD7ED5CB9}
 HostApplication=C:\WINNT\system32\DLLHOST.EXE
 [Version Info]
-IncludeVerInfo=0
-AutoIncBuild=0
-MajorVer=1
+IncludeVerInfo=1
+AutoIncBuild=1
+MajorVer=3
 MinorVer=0
 Release=0
-Build=0
+Build=4
 Debug=0
 PreRelease=0
 Special=0
@@ -66,19 +66,19 @@ DLL=0
 Locale=1033
 CodePage=1252
 [Version Info Keys]
-CompanyName=
+CompanyName=Starpeace
 FileDescription=
-FileVersion=1.0.0.0
+FileVersion=3.0.0.4
 InternalName=
 LegalCopyright=
 LegalTrademarks=
 OriginalFilename=
 ProductName=
 ProductVersion=1.0.0.0
-Comments=
+Comments=Nick
 [Excluded Packages]
-$(DELPHI)\Bin\dclite50.bpl=Borland Integrated Translation Environment
 $(DELPHI)\Bin\dclmid50.bpl=Borland MIDAS Components
+$(DELPHI)\Bin\dclite50.bpl=Borland Integrated Translation Environment
 [HistoryLists\hlDebugSourcePath]
 Count=1
 Item0=$(DELPHI)\Source\Rtl;$(DELPHI)\Source\Vcl
@@ -105,8 +105,8 @@ Count=1
 Item0=..\..\dcu
 [HistoryLists\hlOutputDirectorry]
 Count=5
-Item0=C:\sp\bin\common
-Item1=C:\sp\bin\cache
-Item2=s:\release\servers
-Item3=..\..\release\Servers\
+Item0=..\..\release\Servers\
+Item1=C:\sp\bin\common
+Item2=C:\sp\bin\cache
+Item3=s:\release\servers
 Item4=..\..\release\servers

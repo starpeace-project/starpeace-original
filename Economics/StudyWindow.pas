@@ -4,7 +4,8 @@ interface
 
 uses
   Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
-  ExtCtrls, ComCtrls, Buttons, StdCtrls, BlockStudies, DepWindow, Spin, CloneBlockForm;
+  ExtCtrls, ComCtrls, Buttons, StdCtrls, BlockStudies, DepWindow, Spin, CloneBlockForm,
+  ImgList;
 
 type
   TStudyWin = class(TForm)

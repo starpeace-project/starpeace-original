@@ -39,7 +39,7 @@ MaxStackSize=1048576
 ImageBase=4194304
 ExeDescription=
 [Directories]
-OutputDir=s:\release\servers
+OutputDir=Z:\Release\Servers
 UnitOutputDir=..\..\..\dcu
 PackageDLLOutputDir=
 PackageDCPOutputDir=
@@ -78,11 +78,12 @@ ProductVersion=1.0.0.0
 Comments=
 [Excluded Packages]
 $(DELPHI)\Bin\dclite50.bpl=Borland Integrated Translation Environment
-$(DELPHI)\Bin\dclmid50.bpl=Borland MIDAS Components
 [HistoryLists\hlDebugSourcePath]
-Count=2
-Item0=S:\Source\Utils\Misc\
-Item1=$(DELPHI)\Source\Rtl;$(DELPHI)\Source\Vcl
+Count=4
+Item0=..\Utils\Misc\
+Item1=..\\Utils\Misc\;..\Rdo\Client\;..\Rdo\Server\
+Item2=S:\Source\Utils\Misc\
+Item3=$(DELPHI)\Source\Rtl;$(DELPHI)\Source\Vcl
 [HistoryLists\hlConditionals]
 Count=2
 Item0=USELogs
@@ -93,30 +94,33 @@ Item0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
 Item1=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE
 Item2=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;strutils=mr_strutils
 [HistoryLists\hlSearchPath]
-Count=13
-Item0=..\Kernel;..\StdBlocks;..\Class Storage;..\Cache;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client;..\Persistence;..\Utils\Misc;..\Logs;..\utils\vcl
-Item1=..\Kernel
-Item2=..\Kernel;..\StdBlocks;..\Class Storage;..\Cache;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client;..\Persistence;..\Utils\Misc;..\Logs
-Item3=..\Kernel;..\StdBlocks;..\Class Storage;..\Cache;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client\;..\Persistence;..\Utils\Misc;..\Utils\Vcl;..\Surfaces;..\Mail;..\Tasks
-Item4=..\Kernel;..\RDO\Common;..\Cache;..\RDO\Server;..\RDO\Client\Delphi;..\Utils\Network;..\Utils\Misc
-Item5=..\..\Circuits;..\..\Kernel;..\..\StdBlocks;..\..\Class Storage;..\..\Cache;..\..\RDO\Common;..\..\RDO\Server;..\..\Utils\Network;..\..\RDO\Client\;..\..\Persistence;..\..\Utils\Misc;..\..\Surfaces;..\..\Mail;..\..\Protocol;..\..\Tasks;..\..\Utils\Vcl;..\..\Logs
-Item6=..\..\Circuits;..\..\Kernel;..\..\StdBlocks;..\..\Class Storage;..\..\Cache;..\..\RDO\Common;..\..\RDO\Server;..\..\Utils\Network;..\..\RDO\Client\;..\..\Persistence;..\..\Utils\Misc;..\..\Utils\Vcl;..\..\Surfaces;..\..\Mail;..\..\Actors;..\..\Land;..\..\Logs;..\..\Tasks;..\..\DServer
-Item7=..\..\Circuits;..\..\Kernel;..\..\StdBlocks;..\..\Class Storage;..\..\Cache;..\..\RDO\Common;..\..\RDO\Server;..\..\Utils\Network;..\..\RDO\Client\;..\..\Persistence;..\..\Utils\Misc;..\..\Surfaces;..\..\Mail;..\..\Actors;..\..\Tasks;..\..\Utils\Vcl;..\..\Logs;..\..\DServer
-Item8=..\Kernel;..\StdBlocks;..\Class Storage;..\Cache;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client\;..\Persistence;..\Utils\Misc;..\Surfaces;..\Mail;..\Tasks;..\logs;..\Inventions;..\utils\vcl;..\Circuits
-Item9=..\..\Circuits;..\..\Kernel;..\..\StdBlocks;..\..\Class Storage;..\..\Cache;..\..\RDO\Common;..\..\RDO\Server;..\..\Utils\Network;..\..\RDO\Client\;..\..\Persistence;..\..\Utils\Misc;..\..\Surfaces;..\..\Mail;..\..\Actors;..\..\Tasks;..\..\Utils\Vcl;..\..\Logs;..\..\DServer\
-Item10=$(DELPHI)\Lib\Debug;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client\;..\Utils\Misc;..\Voyager;..\Voyager\URLHandlers;..\voyager\Components;..\Kernel;..\Utils\GameAPI;..\Utils\Graphics;..\Utils\Voice;..\DServer;$(DELPHI)\Source\Toolsapi;..\Utils\CodeLib;..\Utils\debug;..\Utils\WinUtils
-Item11=$(DELPHI)\Lib\Debug;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client\;..\Utils\Misc;..\Voyager;..\Voyager\URLHandlers;Components;..\Kernel;..\Utils\GameAPI;..\Utils\Graphics;..\Utils\Voice;..\DServer;$(DELPHI)\Source\Toolsapi;..\Utils\CodeLib;..\Utils\debug
-Item12=..\voyager\components;c:\program files\borland\delphi 3\source\vcl;..\rdo\client;..\rdo\common;..\utils\network\;..\utils\vcl
+Count=14
+Item0=..\..\Circuits;..\..\Kernel;..\..\StdBlocks;..\..\Class Storage;..\..\Cache;..\..\RDO\Common;..\..\RDO\Server;..\..\Utils\Network;..\..\RDO\Client\;..\..\Persistence;..\..\Utils\Misc;..\..\Surfaces;..\..\Mail;..\..\Protocol;..\..\Tasks;..\..\Utils\Vcl;..\..\Logs
+Item1=..\..\Circuits;..\..\Kernel;..\..\StdBlocks;..\..\Class Storage;..\..\Cache;..\..\RDO\Common;..\..\RDO\Server;..\..\Utils\Network;..\..\RDO\Client\;..\..\Persistence;..\..\Utils\Misc;..\..\Utils\Vcl;..\..\Surfaces;..\..\Mail;..\..\Actors;..\..\Land;..\..\Logs;..\..\Tasks;..\..\DServer
+Item2=..\..\Circuits;..\..\Kernel;..\..\StdBlocks;..\..\Class Storage;..\..\Cache;..\..\RDO\Common;..\..\RDO\Server;..\..\Utils\Network;..\..\RDO\Client\;..\..\Persistence;..\..\Utils\Misc;..\..\Surfaces;..\..\Mail;..\..\Actors;..\..\Tasks;..\..\Utils\Vcl;..\..\Logs;..\..\DServer
+Item3=..\..\Circuits;..\..\Kernel;..\..\StdBlocks;..\..\Class Storage;..\..\Cache;..\..\RDO\Common;..\..\RDO\Server;..\..\Utils\Network;..\..\RDO\Client\;..\..\Persistence;..\..\Utils\Misc;..\..\Surfaces;..\..\Mail;..\..\Actors;..\..\Land;..\..\Utils\Vcl;..\..\Transport;..\..\DServer\;..\..\Utils\Serial\;..\..\Tasks;..\..\Logs
+Item4=..\Kernel;..\StdBlocks;..\Class Storage;..\Cache;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client\;..\Persistence;..\Utils\Misc;..\Surfaces;..\Mail;..\Tasks;..\logs;..\Inventions;..\utils\vcl;..\Circuits
+Item5=..\Kernel;..\StdBlocks;..\Class Storage;..\Cache;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client;..\Persistence;..\Utils\Misc;..\Logs;..\utils\vcl
+Item6=..\Kernel
+Item7=..\Kernel;..\StdBlocks;..\Class Storage;..\Cache;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client;..\Persistence;..\Utils\Misc;..\Logs
+Item8=..\Kernel;..\StdBlocks;..\Class Storage;..\Cache;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client\;..\Persistence;..\Utils\Misc;..\Utils\Vcl;..\Surfaces;..\Mail;..\Tasks
+Item9=..\Kernel;..\RDO\Common;..\Cache;..\RDO\Server;..\RDO\Client\Delphi;..\Utils\Network;..\Utils\Misc
+Item10=..\..\Circuits;..\..\Kernel;..\..\StdBlocks;..\..\Class Storage;..\..\Cache;..\..\RDO\Common;..\..\RDO\Server;..\..\Utils\Network;..\..\RDO\Client\;..\..\Persistence;..\..\Utils\Misc;..\..\Surfaces;..\..\Mail;..\..\Actors;..\..\Tasks;..\..\Utils\Vcl;..\..\Logs;..\..\DServer\
+Item11=$(DELPHI)\Lib\Debug;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client\;..\Utils\Misc;..\Voyager;..\Voyager\URLHandlers;..\voyager\Components;..\Kernel;..\Utils\GameAPI;..\Utils\Graphics;..\Utils\Voice;..\DServer;$(DELPHI)\Source\Toolsapi;..\Utils\CodeLib;..\Utils\debug;..\Utils\WinUtils
+Item12=$(DELPHI)\Lib\Debug;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client\;..\Utils\Misc;..\Voyager;..\Voyager\URLHandlers;Components;..\Kernel;..\Utils\GameAPI;..\Utils\Graphics;..\Utils\Voice;..\DServer;$(DELPHI)\Source\Toolsapi;..\Utils\CodeLib;..\Utils\debug
+Item13=..\voyager\components;c:\program files\borland\delphi 3\source\vcl;..\rdo\client;..\rdo\common;..\utils\network\;..\utils\vcl
 [HistoryLists\hlUnitOutputDirectory]
 Count=4
-Item0=..\..\dcu
-Item1=..\..\..\DCU
+Item0=..\..\..\DCU
+Item1=..\..\dcu
 Item2=S:\dcu
 Item3=s:\temp\dcu
 [HistoryLists\hlOutputDirectorry]
-Count=2
-Item0=s:\release\servers
-Item1=s:\release
+Count=4
+Item0=Z:\Release\Servers
+Item1=..\..\release\Servers\
+Item2=s:\release\servers
+Item3=s:\release
 [HistoryLists\hlBPLOutput]
 Count=1
 Item0=s:\temp\Component

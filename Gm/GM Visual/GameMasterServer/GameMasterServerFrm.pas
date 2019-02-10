@@ -123,7 +123,7 @@ implementation
     end;
 
   const
-    ISKey  = '\Software\Oceanus\Five\GMServer\';
+    ISKey  = '\Software\Wow6432Node\Starpeace\Five\GMServer\';
 
   procedure TMainForm.SaveRegistryData;
     var

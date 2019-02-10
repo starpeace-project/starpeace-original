@@ -3,7 +3,7 @@ unit GMURDOMger;
 interface
 
   uses
-    RDOInterfaces, WinSockRDOConnection, RDOServer, RDOObjectProxy, GameMaster, GMKernel;
+    RDOInterfaces, WinSockRDOConnection, RDOServer, RDOObjectProxy, GameMaster, Logs, GMKernel;
 
   const
     GMUT_TIME_OUT = 3*60*1000;
@@ -139,6 +139,7 @@ implementation
             end;
           end
         else raise Exception.Create( 'Cannot connect to GM Server!' );
+        //Logs.Log( 'Survival', DateTimeToStr(Now) + ' Cannot connect to GM Server!'+ ' : '+ ServerAddr + ' : ' + inttostr(ServerPort) );
     end;
 
   procedure TGMUtRDOMger.DoneRDO;

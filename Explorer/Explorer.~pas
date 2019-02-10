@@ -45,6 +45,7 @@ type
     Stats: TMenuItem;
     FindUserWorlds1: TMenuItem;
     BlockUnblockUser: TMenuItem;
+    FindSegaUser: TMenuItem;
     procedure FormDestroy(Sender: TObject);
     procedure FiveListViewDblClick(Sender: TObject);
     procedure FormResize(Sender: TObject);
@@ -73,6 +74,7 @@ type
     procedure FindUserWorlds1Click(Sender: TObject);
     procedure BlockUnblockUserClick(Sender: TObject);
     procedure cbCurrKeyChange(Sender: TObject);
+    procedure FindSegaUserClick(Sender: TObject);
   private
     function InitConnection : boolean;
     procedure LoadFirstKeys;
@@ -92,8 +94,7 @@ var
 implementation
 
 uses
-  Configuration, NewKeyFrm, EditValueFrm, ComObj, FMsgBx, SubsExplorerFrm,
-  StatsExplorerPlotter, BlockUnBlock;
+  Configuration, NewKeyFrm, EditValueFrm, ComObj, BlockUnBlock;
   //StatsExplorerPlotter;
 
 // RDOIsSecureValue
@@ -535,6 +536,7 @@ begin
               Refresh1.Enabled := true;
               spUpKey.Enabled := true ;
               FindUser.Enabled := true ;
+              FindSegaUser.Enabled := true;
               FindSubscriptionID.Enabled := true ;
               FindTransaction.Enabled := true ;
               FindSerialNumber.Enabled := true ;
@@ -559,6 +561,7 @@ begin
   Refresh1.Enabled := false;
   spUpKey.Enabled := false ;
   FindUser.Enabled := false ;
+  FindSegaUser.Enabled := false;
   FindSubscriptionID.Enabled := false ;
   FindTransaction.Enabled := false ;
   FindSerialNumber.Enabled := false ;
@@ -994,8 +997,31 @@ begin
         SpeedButton2.Enabled := false;
         SpeedButton3.Enabled := false;
         SpeedButton4.Enabled := false;
-        FiveListView.PopupMenu := nil;        
+        FiveListView.PopupMenu := nil;
       end;
+end;
+
+procedure TSQLExplorer.FindSegaUserClick(Sender: TObject);
+var
+  w : word ;
+  username : string;
+  SegaUserName : string;
+begin
+ MsgBx.Edit1.Text := '' ;
+ MsgBx.Caption := 'Find Sega User' ;
+ MsgBx.Label1.Caption := 'User Name:';
+ if MsgBx.ShowModal = mrOk
+   then
+     begin
+       SegaUserName := MsgBx.Edit1.Text;
+       SegaUserName := StringReplace( SegaUserName, ' ', '.', [rfReplaceAll] );
+       username := ISProxy.RDOMapSegaUser(SegaUserName);
+       username := StringReplace( username, ' ', '.', [rfReplaceAll] );
+       cbCurrKey.Text := 'root/users/'+copy(username,1,1)+'/'+
+                         username ;
+       w := 13 ;
+       cbCurrKeyKeyDown(cbCurrKey, w, []);
+     end ;
 end;
 
 end.

@@ -3,7 +3,7 @@ unit DirectoryRegistry;
 interface
 
   const
-    tidRegKey_Directory = '\Software\Oceanus\Five\Directory\';
+    tidRegKey_Directory = '\Software\Wow6432Node\Starpeace\Five\Directory\';
 
 implementation
 

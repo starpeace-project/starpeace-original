@@ -39,8 +39,8 @@ MaxStackSize=1048576
 ImageBase=4194304
 ExeDescription=
 [Directories]
-OutputDir=s:\Release\Servers
-UnitOutputDir=s:\dcu
+OutputDir=..\..\Release\Servers
+UnitOutputDir=..\..\dcu
 PackageDLLOutputDir=
 PackageDCPOutputDir=
 SearchPath=
@@ -91,12 +91,12 @@ Item5=..\Kernel;..\StdBlocks;..\Class Storage;..\Cache;..\RDO\Common;..\RDO\Serv
 Item6=..\Kernel;..\StdBlocks;..\Class Storage;..\Cache;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client;..\Persistence;..\Utils\Vcl;..\Utils\Misc;..\Surfaces;..\Mail;..\Directory Server
 [HistoryLists\hlUnitOutputDirectory]
 Count=2
-Item0=s:\dcu
-Item1=..\..\dcu
+Item0=..\..\dcu
+Item1=s:\dcu
 [HistoryLists\hlOutputDirectorry]
 Count=7
-Item0=s:\Release\Servers
-Item1=..\..\Release\Servers
+Item0=..\..\Release\Servers
+Item1=s:\Release\Servers
 Item2=..\Release\Servers
 Item3=S:\source\Daemon email Iroel
 Item4=S:\release

@@ -164,7 +164,7 @@ implementation
       lbWelcome.Top := lbWelcome.Top + dy;
 
       fMasterURLHandler.HandleEvent( evnAnswerConfigHolder, ConfigHolder );
-      DSAddr := ConfigHolder.ReadString( true, '', 'DSAddr', 'www.starpeace.net' );
+      DSAddr := ConfigHolder.ReadString( true, '', 'DSAddr', 'dir.starpeace.co.uk' );
       DSPort := ConfigHolder.ReadInteger( true, '', 'DSPort', 1111 );
       if ConfigHolder.ReadBoolean( false, '', 'AutoLogon', false )
         then

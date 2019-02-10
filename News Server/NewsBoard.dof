@@ -33,6 +33,7 @@ MapFile=0
 OutputObjs=0
 ConsoleApp=1
 DebugInfo=0
+RemoteSymbols=0
 MinStackSize=16384
 MaxStackSize=1048576
 ImageBase=4194304
@@ -40,6 +41,8 @@ ExeDescription=
 [Directories]
 OutputDir=..\..\Release\Servers\
 UnitOutputDir=..\..\dcu
+PackageDLLOutputDir=
+PackageDCPOutputDir=
 SearchPath=
 Packages=vclx30;VCL30;inetdb30;inet30;vcldb30;VclSmp30;Qrpt30;teeui30;teedb30;tee30;vcldbx30;FrameButton;FiveComp;FingerTab;GradBox;TabCtrl;InfoBk;AxlMisc;AxlGraph;PercBar
 Conditionals=
@@ -49,12 +52,12 @@ UsePackages=0
 RunParams=
 HostApplication=
 [Version Info]
-IncludeVerInfo=0
-AutoIncBuild=0
-MajorVer=1
+IncludeVerInfo=1
+AutoIncBuild=1
+MajorVer=3
 MinorVer=0
 Release=0
-Build=0
+Build=2
 Debug=0
 PreRelease=0
 Special=0
@@ -63,9 +66,9 @@ DLL=0
 Locale=1033
 CodePage=1252
 [Version Info Keys]
-CompanyName=
+CompanyName=Starpeace
 FileDescription=
-FileVersion=1.0.0.0
+FileVersion=3.0.0.2
 InternalName=
 LegalCopyright=
 LegalTrademarks=
@@ -74,6 +77,13 @@ ProductName=
 ProductVersion=1.0.0.0
 Comments=
 [Excluded Packages]
-F:\Program Files\Borland\Delphi 3\BIN\DbX30.dpl=(untitled)
-F:\Program Files\Borland\Delphi 3\LIB\AxlDesgn.dpl=Merchise CodeLib - Designers
-F:\Program Files\Borland\Delphi 3\LIB\AxlGraph.dpl=Merchise CodeLib - Graphics
+$(DELPHI)\Bin\dclite50.bpl=Borland Integrated Translation Environment
+[HistoryLists\hlUnitAliases]
+Count=1
+Item0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+[HistoryLists\hlUnitOutputDirectory]
+Count=1
+Item0=..\..\dcu
+[HistoryLists\hlOutputDirectorry]
+Count=1
+Item0=..\..\Release\Servers\
