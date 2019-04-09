@@ -3,7 +3,7 @@ unit SimHints;
 interface
 
   uses
-    Languages;
+    Languages, Variants;
 
   const                              
     mtidHintsDenied            : TRegMultiString = nil;  //  'This facility belongs to %s. There are no hints for you.';

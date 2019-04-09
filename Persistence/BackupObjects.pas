@@ -6,7 +6,7 @@ interface
 
   uses
     SysUtils, Classes, SyncObjs, BackupInterfaces, ObjectIndex, BackupConsts,
-    BlockLevels;
+    BlockLevels, Variants;
 
   const
     LineBreak = #13#10;

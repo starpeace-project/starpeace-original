@@ -3,7 +3,7 @@ unit ConnectedBlock;
 interface
 
   uses
-    Kernel, Protocol, Circuits, Collection, BackupInterfaces, TransportInterfaces;
+    Kernel, Protocol, Circuits, Collection, BackupInterfaces, TransportInterfaces, Variants;
 
   type
     TCargoArray = array[TCargoKind] of ICargoPoint;

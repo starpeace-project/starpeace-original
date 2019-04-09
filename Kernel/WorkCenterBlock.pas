@@ -4,7 +4,7 @@ interface
 
   uses
     ClassStorageInt, Kernel, Population, CacheAgent, BackupInterfaces, ConnectedBlock,
-    Surfaces, Accounts, Inventions, Languages;
+    Surfaces, Accounts, Inventions, Languages, Variants;
 
   const
     MinWorkForcePerc = 5;

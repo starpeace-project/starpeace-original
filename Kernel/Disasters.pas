@@ -3,7 +3,7 @@ unit Disasters;
 interface
 
   uses
-    MetaInstances, BackupInterfaces, Kernel, Population, Persistent;
+    MetaInstances, BackupInterfaces, Kernel, Population, Persistent, Variants;
 
   const
     tidClassFamily_Disasters = 'Disasters';

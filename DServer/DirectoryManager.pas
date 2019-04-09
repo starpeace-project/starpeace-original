@@ -2,7 +2,7 @@ unit DirectoryManager;
 
 interface
 
-  uses ADOInt;
+  uses ADOInt, Variants;
 
   // Node Type
 
@@ -1849,7 +1849,7 @@ implementation
       Conn_Str : string;
     begin
       try
-        Conn_Str := 'Provider=SQLOLEDB.1; Initial Catalog=' + fDBName + '; Data Source=' + DirectoryWin.IPAddress.Text;
+        Conn_Str := 'Provider=SQLOLEDB.1; Initial Catalog=' + fDBName + '; Data Source=' + MainWindow.SPODServerForm.dbip.Text;
         Conn.Open(Conn_Str, dbUser, dbPassword, 0);
         Conn.Set_CommandTimeout(0);
         result := true;

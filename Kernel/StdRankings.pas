@@ -7,7 +7,7 @@ interface
 implementation
 
   uses
-    SysUtils, ClassStorage, Accounts, Rankings, BasicRankings, Languages;
+    SysUtils, ClassStorage, Accounts, Rankings, BasicRankings, Languages, Variants;
 
   const
     mtidNTARanking        : TRegMultiString = nil;

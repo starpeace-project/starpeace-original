@@ -3,7 +3,7 @@ unit EconomyRelay;
 interface
 
   uses
-    Persistent, Collection, Kernel, BackupInterfaces, Accounts;
+    Persistent, Collection, Kernel, BackupInterfaces, Accounts, Variants;
 
   const
     MinRecessionFact = 0.1/(2*24*365);

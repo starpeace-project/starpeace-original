@@ -4,7 +4,7 @@ interface
 
   uses
     Classes, Windows, Collection, SysUtils, BackupInterfaces, SyncObjs,
-    Matrix, LargeMatrix;
+    Matrix, LargeMatrix, Variants;
 
   const
     tidClassFamily_SurfacePools = 'SurfacePools';

@@ -1,0 +1,261 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{10355BAB-8C85-4023-BC44-11F79D72AAE0}</ProjectGuid>
+        <MainSource>FIVEModelServer.dpr</MainSource>
+        <Base>True</Base>
+        <Config Condition="'$(Config)'==''">Debug</Config>
+        <TargetedPlatforms>1</TargetedPlatforms>
+        <AppType>Application</AppType>
+        <FrameworkType>VCL</FrameworkType>
+        <ProjectVersion>18.5</ProjectVersion>
+        <Platform Condition="'$(Platform)'==''">Win32</Platform>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Base)'=='true') or '$(Base_Win32)'!=''">
+        <Base_Win32>true</Base_Win32>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win64' and '$(Base)'=='true') or '$(Base_Win64)'!=''">
+        <Base_Win64>true</Base_Win64>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_1)'!=''">
+        <Cfg_1>true</Cfg_1>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_1)'=='true') or '$(Cfg_1_Win32)'!=''">
+        <Cfg_1_Win32>true</Cfg_1_Win32>
+        <CfgParent>Cfg_1</CfgParent>
+        <Cfg_1>true</Cfg_1>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Debug' or '$(Cfg_2)'!=''">
+        <Cfg_2>true</Cfg_2>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_2)'=='true') or '$(Cfg_2_Win32)'!=''">
+        <Cfg_2_Win32>true</Cfg_2_Win32>
+        <CfgParent>Cfg_2</CfgParent>
+        <Cfg_2>true</Cfg_2>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base)'!=''">
+        <DCC_E>false</DCC_E>
+        <DCC_F>false</DCC_F>
+        <DCC_K>false</DCC_K>
+        <DCC_N>true</DCC_N>
+        <DCC_S>false</DCC_S>
+        <DCC_ImageBase>00400000</DCC_ImageBase>
+        <DCC_DebugInformation>1</DCC_DebugInformation>
+        <DCC_WriteableConstants>true</DCC_WriteableConstants>
+        <DCC_TypedAtParameter>true</DCC_TypedAtParameter>
+        <DCC_StrictVarStrings>false</DCC_StrictVarStrings>
+        <DCC_SymbolReferenceInfo>1</DCC_SymbolReferenceInfo>
+        <DCC_ExeOutput>Z:\Documents\GitHub\starpeace-original-compiled-delphi7\Servers\Model</DCC_ExeOutput>
+        <DCC_DcuOutput>Z:\Documents\GitHub\starpeace-original-compiled-delphi7\Servers\dcu</DCC_DcuOutput>
+        <DCC_UnitSearchPath>\\vmware-host\Shared Folders\Documents\GitHub\starpeace-original-compiled-delphi7\Servers\dcu;..\Kernel;..\StdBlocks;..\Class Storage;..\Cache;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client\;..\Persistence;..\Utils\Misc;..\Surfaces;..\Mail;..\Tasks;..\logs;..\Inventions;..\utils\vcl;..\Circuits;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+        <DebugSourcePath>Z:\Documents\GitHub\starpeace-original\Utils\Misc;Z:\Documents\GitHub\starpeace-original\Rdo\Client;Z:\Documents\GitHub\starpeace-original\Rdo\Server;$(DebugSourcePath)</DebugSourcePath>
+        <DCC_UsePackage>vclx30;VCL30;vcldb30;vcldbx30;inetdb30;inet30;VclSmp30;Qrpt30;teeui30;teedb30;tee30;dss30;IBEVNT30;TabCtrl;GradBox;AxlMisc;AxlGraph;FingerTab;FiveComp;FrameButton;InfoBk;PercBar;$(DCC_UsePackage)</DCC_UsePackage>
+        <DCC_Define>USELogs;$(DCC_Define)</DCC_Define>
+        <DCC_UNSAFE_TYPE>true</DCC_UNSAFE_TYPE>
+        <DCC_UNSAFE_CODE>true</DCC_UNSAFE_CODE>
+        <DCC_UNSAFE_CAST>true</DCC_UNSAFE_CAST>
+        <SanitizedProjectName>FIVEModelServer</SanitizedProjectName>
+        <DCC_Namespace>Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;System;Xml;Data;Datasnap;Web;Soap;Winapi;System.Win;FMX;$(DCC_Namespace)</DCC_Namespace>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_MajorVer>2</VerInfo_MajorVer>
+        <VerInfo_MinorVer>1</VerInfo_MinorVer>
+        <VerInfo_Release>1</VerInfo_Release>
+        <VerInfo_Build>1</VerInfo_Build>
+        <VerInfo_Debug>true</VerInfo_Debug>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=2.1.1.1;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_Win32)'!=''">
+        <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
+        <BT_BuildType>Debug</BT_BuildType>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=;ProgramID=com.embarcadero.$(MSBuildProjectName)</VerInfo_Keys>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
+        <Icon_MainIcon>FIVEModelServer_Icon.ico</Icon_MainIcon>
+        <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
+        <UWP_DelphiLogo44>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_44.png</UWP_DelphiLogo44>
+        <UWP_DelphiLogo150>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_150.png</UWP_DelphiLogo150>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_Win64)'!=''">
+        <Icon_MainIcon>FIVEModelServer_Icon.ico</Icon_MainIcon>
+        <UWP_DelphiLogo44>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_44.png</UWP_DelphiLogo44>
+        <UWP_DelphiLogo150>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_150.png</UWP_DelphiLogo150>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_1)'!=''">
+        <DCC_Define>RELEASE;$(DCC_Define)</DCC_Define>
+        <DCC_DebugInformation>0</DCC_DebugInformation>
+        <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
+        <DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
+        <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
+        <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2)'!=''">
+        <DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
+        <DCC_Optimize>false</DCC_Optimize>
+        <DCC_GenerateStackFrames>true</DCC_GenerateStackFrames>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
+        <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
+        <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
+    </PropertyGroup>
+    <ItemGroup>
+        <DelphiCompile Include="$(MainSource)">
+            <MainSource>MainSource</MainSource>
+        </DelphiCompile>
+        <DCCReference Include="ModelServerReportForm.pas">
+            <Form>ModelServerReport</Form>
+        </DCCReference>
+        <DCCReference Include="ModelServer.pas"/>
+        <DCCReference Include="..\Kernel\Population.pas"/>
+        <DCCReference Include="..\Kernel\World.pas"/>
+        <DCCReference Include="..\Kernel\Kernel.pas"/>
+        <DCCReference Include="..\Kernel\Collection.pas"/>
+        <DCCReference Include="..\Class Storage\ClassStorageInt.pas"/>
+        <DCCReference Include="..\Kernel\ClassStorage.pas"/>
+        <DCCReference Include="..\StdBlocks\Construction.pas"/>
+        <DCCReference Include="..\Kernel\AsxCriticalSections.pas"/>
+        <DCCReference Include="..\StdBlocks\OfficeBlock.pas"/>
+        <DCCReference Include="..\Kernel\Trade.pas"/>
+        <DCCReference Include="..\Cache\ModelServerCache.pas"/>
+        <DCCReference Include="..\Cache\CacheCommon.pas"/>
+        <DCCReference Include="..\Kernel\KernelCache.pas"/>
+        <DCCReference Include="..\Cache\SpecialChars.pas"/>
+        <DCCReference Include="..\Cache\CacheAgent.pas"/>
+        <DCCReference Include="..\Kernel\Plotter.pas"/>
+        <DCCReference Include="..\Surfaces\Surfaces.pas"/>
+        <DCCReference Include="..\Surfaces\PyramidalModifier.pas"/>
+        <DCCReference Include="..\Protocol\Protocol.pas"/>
+        <DCCReference Include="..\StdBlocks\StdFluids.pas"/>
+        <DCCReference Include="..\Kernel\Persistent.pas"/>
+        <DCCReference Include="..\Mail\MailServerInterfaces.pas"/>
+        <DCCReference Include="..\Kernel\Headquarters.pas"/>
+        <DCCReference Include="..\Kernel\ResearchCenter.pas"/>
+        <DCCReference Include="..\Kernel\WorkCenterBlock.pas"/>
+        <DCCReference Include="..\Kernel\SimHints.pas"/>
+        <DCCReference Include="..\Circuits\Circuits.pas"/>
+        <DCCReference Include="..\Kernel\PublicFacility.pas"/>
+        <DCCReference Include="..\StdBlocks\Environmental.pas"/>
+        <DCCReference Include="..\Model Extensions\Standards.pas"/>
+        <DCCReference Include="..\Kernel\ConnectedBlock.pas"/>
+        <DCCReference Include="..\Land\Land.pas"/>
+        <DCCReference Include="..\Kernel\SpontaneousBuildings.pas"/>
+        <DCCReference Include="..\Utils\Misc\LargeMatrix.pas"/>
+        <DCCReference Include="..\Kernel\LandSurfaces.pas"/>
+        <DCCReference Include="..\Kernel\MapCompress.pas"/>
+        <DCCReference Include="..\Utils\Misc\Matrix.pas"/>
+        <DCCReference Include="..\Utils\Misc\CompStringsParser.pas"/>
+        <DCCReference Include="..\Kernel\PopulatedBlock.pas"/>
+        <DCCReference Include="..\Kernel\Accounts.pas"/>
+        <DCCReference Include="..\Kernel\MetaInstances.pas"/>
+        <DCCReference Include="..\Kernel\BasicAccounts.pas"/>
+        <DCCReference Include="..\StdBlocks\EvaluatedBlock.pas"/>
+        <DCCReference Include="..\Kernel\Newspapers.pas"/>
+        <DCCReference Include="..\News Server\NewsServerInterfaces.pas"/>
+        <DCCReference Include="..\Kernel\Disasters.pas"/>
+        <DCCReference Include="..\StdBlocks\Banks.pas"/>
+        <DCCReference Include="..\StdBlocks\Broadcast.pas"/>
+        <DCCReference Include="..\StdBlocks\StdBroadcast.pas"/>
+        <DCCReference Include="..\Transport\Transport.pas"/>
+        <DCCReference Include="..\Transport\TransportInterfaces.pas"/>
+        <DCCReference Include="..\Transport\MatrixLayer.pas"/>
+        <DCCReference Include="..\Class Packer\VisualClassManager.pas"/>
+        <DCCReference Include="..\Kernel\Taxes.pas"/>
+        <DCCReference Include="..\Kernel\BasicTaxes.pas"/>
+        <DCCReference Include="..\StdBlocks\StdTaxes.pas"/>
+        <DCCReference Include="..\Utils\Misc\MapStringToObject.pas"/>
+        <DCCReference Include="..\Kernel\Politics.pas"/>
+        <DCCReference Include="..\Kernel\PoliticsCache.pas"/>
+        <DCCReference Include="..\Kernel\BasicPolitics.pas"/>
+        <DCCReference Include="..\Actors\ActorTypes.pas"/>
+        <DCCReference Include="..\Actors\DistributedStates.pas"/>
+        <DCCReference Include="..\Actors\StateEngine.pas"/>
+        <DCCReference Include="..\Actors\ActorPool.pas"/>
+        <DCCReference Include="..\Kernel\BasicCurriculum.pas"/>
+        <DCCReference Include="..\Actors\Automaton.pas"/>
+        <DCCReference Include="..\Model Extensions\FacIds.pas"/>
+        <DCCReference Include="..\Kernel\TownPolitics.pas"/>
+        <DCCReference Include="..\Kernel\WorldPolitics.pas"/>
+        <DCCReference Include="..\Kernel\RDOLogAgents.pas"/>
+        <DCCReference Include="..\Logs\Logs.pas"/>
+        <DCCReference Include="..\Kernel\Rankings.pas"/>
+        <DCCReference Include="..\Kernel\BasicRankings.pas"/>
+        <DCCReference Include="..\Kernel\StdRankings.pas"/>
+        <DCCReference Include="..\Inventions\Inventions.pas"/>
+        <DCCReference Include="..\Kernel\Seasons.pas"/>
+        <DCCReference Include="..\Kernel\Profiler.pas"/>
+        <DCCReference Include="..\Utils\VCL\graphics.pas"/>
+        <DCCReference Include="..\Kernel\Events.pas"/>
+        <DCCReference Include="..\Kernel\BasicEvents.pas"/>
+        <DCCReference Include="..\Utils\Network\HostNames.pas"/>
+        <DCCReference Include="..\Utils\Serial\GenIdd.pas"/>
+        <DCCReference Include="..\Protocol\RankProtocol.pas"/>
+        <DCCReference Include="..\Kernel\Languages.pas"/>
+        <DCCReference Include="..\Kernel\SimMLS.pas"/>
+        <DCCReference Include="..\Persistence\BackupObjects.pas"/>
+        <DCCReference Include="..\Kernel\TycoonLevels.pas"/>
+        <DCCReference Include="..\StdBlocks\TranscendBlock.pas"/>
+        <DCCReference Include="..\Circuits\CircuitEquivalences.pas"/>
+        <DCCReference Include="..\Kernel\BackupThread.pas"/>
+        <DCCReference Include="..\Kernel\LoggedUserData.pas"/>
+        <DCCReference Include="..\Kernel\MediaGates.pas"/>
+        <DCCReference Include="..\Kernel\MediaNameHistory.pas"/>
+        <DCCReference Include="..\Kernel\EconomyRelay.pas"/>
+        <DCCReference Include="..\Kernel\TycoonVotes.pas"/>
+        <DCCReference Include="..\Tasks\ClusterTask.pas"/>
+        <DCCReference Include="..\Tasks\CommonTasks.pas"/>
+        <DCCReference Include="..\Tasks\MakeProfitTask.pas"/>
+        <DCCReference Include="..\Tasks\ResearchTask.pas"/>
+        <DCCReference Include="..\Tasks\DissidentTutorial.pas"/>
+        <DCCReference Include="..\Tasks\MoabTutorial.pas"/>
+        <DCCReference Include="..\Tasks\MarikoTutorial.pas"/>
+        <DCCReference Include="..\Circuits\ReachMatrix.pas"/>
+        <DCCReference Include="..\Tasks\LoanMoneyTask.pas"/>
+        <DCCReference Include="..\DServer\DirectoryServerProtocol.pas"/>
+        <DCCReference Include="..\Kernel\CloneOptions.pas"/>
+        <DCCReference Include="Spin.pas"/>
+        <BuildConfiguration Include="Debug">
+            <Key>Cfg_2</Key>
+            <CfgParent>Base</CfgParent>
+        </BuildConfiguration>
+        <BuildConfiguration Include="Base">
+            <Key>Base</Key>
+        </BuildConfiguration>
+        <BuildConfiguration Include="Release">
+            <Key>Cfg_1</Key>
+            <CfgParent>Base</CfgParent>
+        </BuildConfiguration>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Delphi.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Delphi.Personality>
+                <Source>
+                    <Source Name="MainSource">FIVEModelServer.dpr</Source>
+                </Source>
+            </Delphi.Personality>
+            <Platforms>
+                <Platform value="Win32">True</Platform>
+                <Platform value="Win64">False</Platform>
+            </Platforms>
+        </BorlandProject>
+        <ProjectFileVersion>12</ProjectFileVersion>
+    </ProjectExtensions>
+    <Import Project="$(BDS)\Bin\CodeGear.Delphi.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Delphi.Targets')"/>
+    <Import Project="$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj" Condition="Exists('$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj')"/>
+</Project>

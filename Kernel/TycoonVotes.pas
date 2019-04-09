@@ -3,7 +3,7 @@ unit TycoonVotes;
 interface
 
   uses
-    SysUtils, Collection, Persistent, BackupInterfaces;
+    SysUtils, Collection, Persistent, BackupInterfaces, Variants;
 
   type
     TVoteInfo =

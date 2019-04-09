@@ -3,7 +3,7 @@ unit TycoonLevels;
 interface
 
   uses
-    MetaInstances, Kernel, Languages;
+    MetaInstances, Kernel, Languages, Variants;
 
   const
     tidTycoonLevel_Apprentice   = 'Apprentice';

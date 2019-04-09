@@ -4,7 +4,7 @@ interface
 
   uses
     Protocol, WorkCenterBlock, Kernel, Collection, Classes, CacheAgent,
-    BackupInterfaces, Accounts, Inventions;
+    BackupInterfaces, Accounts, Inventions, Variants;
 
   type
     TCollection = Collection.TCollection;

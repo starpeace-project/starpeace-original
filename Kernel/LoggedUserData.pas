@@ -10,7 +10,7 @@ interface
 implementation
 
   uses
-    Windows, Classes, Messages, RDOInterfaces, SmartThreads;
+    Windows, Classes, Messages, RDOInterfaces, SmartThreads, Variants;
 
   const
     SYSTEM_SIM : pointer = pointer($FFFFFFF0);

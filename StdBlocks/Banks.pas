@@ -4,7 +4,7 @@ unit Banks;
 interface
 
   uses
-    ClassStorageInt, Kernel, WorkCenterBlock, CacheAgent, BackupInterfaces;
+    ClassStorageInt, Kernel, WorkCenterBlock, CacheAgent, BackupInterfaces, Variants;
 
   const
     tidCachePath_Banks = 'Banks\';

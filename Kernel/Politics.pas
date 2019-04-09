@@ -4,7 +4,7 @@ interface
 
   uses
     MetaInstances, Kernel, Collection, Population, BackupInterfaces, Persistent,
-    SyncObjs, CacheAgent, Languages;
+    SyncObjs, CacheAgent, Languages, Variants;
 
   const
     tidClassFamily_Ratings  = 'Ratings';

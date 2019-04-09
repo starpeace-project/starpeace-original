@@ -4,7 +4,7 @@ interface
 
   uses
     ClassStorageInt, Kernel, Population, Surfaces, BackupInterfaces, Protocol, CacheAgent,
-    Accounts, ConnectedBlock, Inventions, Languages;
+    Accounts, ConnectedBlock, Inventions, Languages, Variants;
 
   const
     modStrengthOfCrime     = 10;

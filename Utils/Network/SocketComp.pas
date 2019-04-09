@@ -11,7 +11,7 @@ unit SocketComp;
 interface
 
   uses
-    Windows, WinSock, SysUtils, Messages, Classes, SyncObjs, SpoolPackets;
+    Windows, WinSock, SysUtils, Messages, Classes, SyncObjs, SpoolPackets, System.Types, Logs;
 
   const
     CM_SOCKETMESSAGE = WM_USER + $0001;
@@ -34,7 +34,13 @@ interface
     ESocksServerTTLExpiredError        = 99014;      // TTL expired.
     ESocksServerCommandError           = 99015;      // Command not supported.
     ESocksServerAddressError           = 99016;      // Address type not supported.
-                                            
+    sWindowsSocketError                = 'A socket error occured';
+    sNoAddress                         = 'Opps, no address given';
+    sCannotListenOnOpen                = 'Cannot listen on opening socket';
+    sCannotCreateSocket                = 'Cannot create socket';
+    sSocketAlreadyOpen                 = 'Socket is already open';
+    sCantChangeWhileActive             = 'Socket cannot be changed while active';
+
   type                                      
     ESocketError = class(Exception);
 
@@ -184,6 +190,7 @@ interface
           procedure ResolveSock5;
           procedure ResolveSock5_A(Authen: boolean);
           function  ResolveSock5_B: boolean;
+          function LogThis(msg: string);
       end;
 
     TClientWinSocket =
@@ -524,6 +531,11 @@ implementation
       inherited Destroy
     end;
 
+    procedure LogThis(msg: string);
+    begin
+      Logs.Log('TQueryThread', msg);
+    end;
+
   procedure TCustomWinSocket.Accept(Socket : TSocket);
     begin
     end;
@@ -673,7 +685,7 @@ implementation
             then IpAddr.S_addr := inet_addr('0.0.0.1')
             else 
               begin
-                IpAddr.S_addr := inet_addr(pchar(fProxyInfo.fAddr));
+                IpAddr.S_addr := inet_addr(pansichar(fProxyInfo.fAddr));
                 if IpAddr.S_addr=-1
                   then IpAddr := LookupName(fProxyInfo.fAddr);
               end;
@@ -929,7 +941,7 @@ function TCustomWinSocket.ResolveSock4: boolean;
 
   function TCustomWinSocket.GetLocalHost : string;
     var
-      LocalName : array[0 .. 255] of char;
+      LocalName : array[0 .. 255] of ansichar;
     begin
       Lock;
       try
@@ -1127,7 +1139,7 @@ function TCustomWinSocket.ResolveSock4: boolean;
       HostEnt : PHostEnt;
       InAddr  : TInAddr;
     begin
-      HostEnt := gethostbyname(PChar(Name));
+      HostEnt := gethostbyname(PAnsiChar(Name));
       FillChar(InAddr, SizeOf(InAddr), 0);
       if HostEnt <> nil
         then
@@ -1147,7 +1159,7 @@ function TCustomWinSocket.ResolveSock4: boolean;
     var
       ServEnt : PServEnt;
     begin
-      ServEnt := getservbyname(PChar(Service), 'tcp');
+      ServEnt := getservbyname(PAnsiChar(Service), 'tcp');
       if ServEnt <> nil
         then
           result := ntohs(ServEnt.s_port)
@@ -1162,7 +1174,7 @@ function TCustomWinSocket.ResolveSock4: boolean;
         then result.sin_addr := LookupName(Name)
         else
           if Address <> ''
-            then result.sin_addr.s_addr := inet_addr(PChar(Address))
+            then result.sin_addr.s_addr := inet_addr(PAnsiChar(Address))
             else
               if not Client
                 then result.sin_addr.s_addr := INADDR_ANY
@@ -1362,6 +1374,7 @@ function TCustomWinSocket.ResolveSock4: boolean;
           then
             begin
               result := recv(FSocket, Buf, Count, 0);
+              LogThis(result);
               if result = SOCKET_ERROR
                 then
                   begin

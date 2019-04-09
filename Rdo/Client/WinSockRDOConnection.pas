@@ -16,7 +16,8 @@ interface
     {$ENDIF}
     RDOInterfaces,
     SocketComp,
-    SyncObjs;
+    SyncObjs,
+    System.Types;
 
   {$IFDEF AutoServer}
   type
@@ -526,7 +527,7 @@ implementation
             then
               begin
                 //ClientType := ctNonBlocking;
-                if inet_addr( PChar( fServer ) ) = u_long(INADDR_NONE) // >> Delphi 4
+                if inet_addr( PAnsiChar( fServer ) ) = u_long(INADDR_NONE) // >> Delphi 4
                   then
                     Host := fServer
                   else

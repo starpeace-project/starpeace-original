@@ -6,7 +6,7 @@ interface
 
   uses
     Kernel, ConnectedBlock, Surfaces, BackupInterfaces, Protocol, Collection,
-    StdFluids, Accounts, CacheCommon;
+    StdFluids, Accounts, CacheCommon, Variants;
 
   const
     modConstructionBeauty         = -5;

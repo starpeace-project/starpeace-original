@@ -3,7 +3,7 @@ unit LargeMatrix;
 interface
 
   uses
-    Persistent, BackupInterfaces, SyncObjs, Matrix, Windows;
+    Persistent, BackupInterfaces, SyncObjs, Matrix, Windows, Variants;
 
   type
     any = 0..0;

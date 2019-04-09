@@ -3,7 +3,7 @@ unit MediaGates;
 interface
 
   uses
-    Classes, SysUtils, Kernel, Accounts, BackupInterfaces, CacheAgent;
+    Classes, SysUtils, Kernel, Accounts, BackupInterfaces, CacheAgent, Variants;
 
   const
     smPrice   = 0;

@@ -3,7 +3,7 @@ unit Events;
 interface
 
   uses
-    Classes, Persistent, BackupInterfaces, Languages;
+    Classes, Persistent, BackupInterfaces, Languages, Variants;
 
   type
     TEventKind = integer;

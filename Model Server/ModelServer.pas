@@ -6,7 +6,7 @@ interface
   uses
     Windows, Events, Classes, Collection, Protocol, Kernel, World, Population, RDOServer, ExtCtrls,
     BackupObjects, SyncObjs, RDOInterfaces, MailServerInterfaces, NewsServerInterfaces, Accounts,
-    ActorTypes, ActorPool, Seasons, ClassStorageInt, CacheAgent;
+    ActorTypes, ActorPool, Seasons, ClassStorageInt, CacheAgent, Variants;
 
   const
     tidRDOHook_World = 'World';

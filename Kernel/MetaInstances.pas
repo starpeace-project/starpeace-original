@@ -3,7 +3,7 @@ unit MetaInstances;
 interface
 
   uses
-    ClassStorageInt, Classes, Languages
+    ClassStorageInt, Classes, Languages, Variants
     {$IFNDEF CLIENT}
     , CacheAgent;
     {$ELSE}

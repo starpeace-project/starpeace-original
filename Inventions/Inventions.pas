@@ -3,7 +3,7 @@ unit Inventions;
 interface
 
   uses
-    Collection, Classes, MetaInstances, Accounts, CacheAgent, Languages;
+    Collection, Classes, MetaInstances, Accounts, CacheAgent, Languages, Variants;
 
   // Inventions are developed by companies to improve production in general.
   // Each invention has an identifier (byte) that is unique within a

@@ -3,7 +3,7 @@ unit StateEngine;
 interface
 
   uses
-    Classes;
+    Classes, Variants;
 
   const
     cplNormal = 0; //Normal privilege level

@@ -3,7 +3,7 @@ unit BasicTaxes;
 interface
 
   uses
-    Taxes, Kernel, Accounts, CacheAgent, BackupInterfaces, Languages;
+    Taxes, Kernel, Accounts, CacheAgent, BackupInterfaces, Languages, Variants;
 
   const
     taxKind_Percent      = 0;

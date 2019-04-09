@@ -3,7 +3,7 @@ unit BasicPolitics;
 interface
 
   uses
-    Kernel, Politics, Population, BackupInterfaces, CacheAgent, Languages;
+    Kernel, Politics, Population, BackupInterfaces, CacheAgent, Languages, Variants;
 
   const
     tidRating_CampaignAccuracy = 'CampaignAccuracy';

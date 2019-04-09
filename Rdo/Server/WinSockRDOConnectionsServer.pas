@@ -8,6 +8,7 @@ interface
     SyncObjs,
     SmartThreads,
     SocketComp,
+    //System.Win.ScktComp,
     RDOInterfaces;
 
   type
@@ -46,6 +47,7 @@ interface
           fTerminateEvent  : THandle;
           fLabel           : string;
           fThreadPriority  : TThreadPriority;
+          procedure LogThis(msg: string);
         public
           property  theLabel : string read fLabel write fLabel;
       end;
@@ -67,9 +69,7 @@ implementation
     WinSock,
     RDOProtocol,
     RDOUtils,
-    {$IFDEF LogsEnabled}
     LogFile,
-    {$ENDIF}
     Logs,
     ErrorCodes,
     RDOQueryServer,
@@ -131,6 +131,7 @@ implementation
           fQueryStatus       : integer;
           fRDOCallCnt        : integer;
           fExecClientSocket  : IWinSocketWrap;
+          procedure LogThis(msg: string);
         public
           constructor Create( theConnServer : TWinSockRDOConnectionsServer; Prior : TThreadPriority);
           destructor  Destroy; override;
@@ -265,6 +266,11 @@ implementation
       inherited;
     end;
 
+  procedure TQueryThread.LogThis(msg: string);
+  begin
+    Logs.Log('TQueryThread', msg);
+  end;
+
   procedure TQueryThread.Execute;
     var
       QueryResult       : string;
@@ -274,6 +280,7 @@ implementation
       WaitRes           : integer;
       WinSock           : TCustomWinSocket;
     begin
+      LogThis('Execute');
       CoInitialize(nil);
       try
         with fConnectionsServer do
@@ -296,6 +303,7 @@ implementation
                         if fQueryQueue.Count <> 0
                           then
                             begin
+                              LogThis('Adding to Query Queue: ' + PChar(fQueryQueue[0]));
                               fQueryToService := fQueryQueue[ 0 ];
                               fQueryQueue.Delete( 0 );
                             end
@@ -316,12 +324,14 @@ implementation
                         if (fQueryToService <> nil) and fQueryToService.Valid
                           then
                             begin
+                              LogThis('Query to service valid');
                               QueryText := fQueryToService.Text;
                               Sckt := integer(fQueryToService.Socket.getSocket);
                               fExecClientSocket := fQueryToService.Socket;
                             end
                           else
                             begin
+                              LogThis('Query to service INVALID');
                               QueryText := '';
                               Sckt := 0;
                               fExecClientSocket := nil;
@@ -332,6 +342,7 @@ implementation
 
                       fStatus := 6; {6}
                       // Check if there is something to excecute
+                      LogThis('QueryText: ' + QueryText);
                       if QueryText <> ''
                         then
                           begin
@@ -549,6 +560,10 @@ implementation
       inherited Destroy
     end;
 
+    procedure TWinSockRDOConnectionsServer.LogThis(msg: string);
+    begin
+      Logs.Log('TQueryThread', msg);
+    end;
   procedure TWinSockRDOConnectionsServer.SetQueryServer( const QueryServer : IRDOQueryServer );
     begin
       fQueryServer := QueryServer
@@ -617,7 +632,7 @@ implementation
           try
             ConnCount := Socket.ActiveConnections;
             FoundConn := nil;
-            if inet_addr( PChar( ClientAddress ) ) = u_long(INADDR_NONE)
+            if inet_addr( PAnsiChar( ClientAddress ) ) = u_long(INADDR_NONE)   //changed from PChar to PAnsiChar
               then UseIPAddr := false
               else UseIPAddr := true;
             while ( ConnIdx < ConnCount ) and ( FoundConn = nil ) do
@@ -757,10 +772,8 @@ implementation
         ReadError := false;
         try
           ReceivedText := Socket.ReceiveText;
-          {$IFDEF LogsEnabled}
           if ReceivedText <> ''
             then LogThis( 'Read : ' + ReceivedText )
-          {$ENDIF}
         except
           on E : Exception do
             begin
@@ -790,9 +803,7 @@ implementation
                         then
                           begin
                             Delete( QueryText, NonWSPCharIdx, 1 );
-                            {$IFDEF LogsEnabled}
                             LogThis( 'Query : ' + QueryText );
-                            {$ENDIF}
                             New( QueryToService );
                             QueryToService.Text   := QueryText;
                             QueryToService.Socket := PSocketData(Socket.Data).Owner;
@@ -843,17 +854,14 @@ implementation
                     end;
             end;
       except
-        {$IFDEF USELogs}
         on E : Exception do
           Logs.Log('Survival', 'Error in DoClientRead ' + E.Message)
-        {$ENDIF}
       end;
     end;
 
   procedure TWinSockRDOConnectionsServer.HandleError( Sender : TObject; Socket : TCustomWinSocket; ErrorEvent : TErrorEvent; var ErrorCode : Integer );
     begin
       ErrorCode := 0;
-      {$IFDEF USELogs}
       case ErrorEvent of
         eeGeneral:
           Logs.Log('Survival', 'General socket error' );
@@ -868,7 +876,6 @@ implementation
         eeAccept:
           Logs.Log('Survival', 'Error accepting connection' )
       end
-      {$ENDIF}
     end;
 
   procedure TWinSockRDOConnectionsServer.RemoveQuery(Socket : TCustomWinSocket);

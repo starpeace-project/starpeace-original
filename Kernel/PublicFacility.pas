@@ -4,7 +4,7 @@ interface
 
   uses
     Protocol, Kernel, Population, Classes, Collection, BackupInterfaces, Accounts,
-    WorkCenterBlock;
+    WorkCenterBlock, Variants;
 
   type
     TPFInfoDef =

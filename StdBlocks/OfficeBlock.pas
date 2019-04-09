@@ -4,7 +4,7 @@ interface
 
   uses
     ClassStorageInt, Kernel, Population, Surfaces, BackupInterfaces, Protocol, CacheAgent,
-    WorkCenterBlock, Accounts;
+    WorkCenterBlock, Accounts, Variants;
 
   const
     modBeautyRatio    = 10;

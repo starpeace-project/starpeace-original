@@ -3,7 +3,7 @@ unit PoliticsCache;
 interface
 
   uses
-    Politics, CacheAgent, KernelCache;
+    Politics, CacheAgent, KernelCache, Variants;
 
   const
     tidCachePath_Surveys        = 'Surveys\';

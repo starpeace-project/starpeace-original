@@ -10,7 +10,7 @@ interface
     Surfaces, BackupInterfaces, Protocol, SyncObjs, Persistent, MailServerInterfaces,
     Circuits, CacheCommon, Accounts, TransportInterfaces, VisualClassManager, Taxes,
     MapStringToObject, Rankings, Inventions, Seasons, Events, Languages, LoggedUserData,
-    Tasks, Tutorial, TycoonVotes, Favorites, CloneOptions;
+    Tasks, Tutorial, TycoonVotes, Favorites, CloneOptions, Variants;
 
   const
     NoPos = -1;

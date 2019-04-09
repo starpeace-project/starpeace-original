@@ -17,15 +17,13 @@ interface
 
 implementation
 
-{$IFDEF VER140}           { Delphi 6.0 } //.rag
   uses
     Variants;
-{$ENDIF}
 
   {$IFDEF USELogs}
 
-  procedure Log( LogId, Info : string ); external 'FIVELogs.dll';
-  procedure InitSocket(id : string; aSocket : TClientSocket); external 'FIVELogs.dll';
+  procedure Log( LogId, Info : string ); external 'SPLogs.dll';
+  procedure InitSocket(id : string; aSocket : TClientSocket); external 'SPLogs.dll';
 
   procedure LogMemReport;
     begin

@@ -3,7 +3,7 @@ unit Automaton;
 interface
 
   uses
-    Classes, ActorTypes, ActorPool, StateEngine, DistributedStates;
+    Classes, ActorTypes, ActorPool, StateEngine, DistributedStates, Variants;
 
   type
     IAutomationEngine =

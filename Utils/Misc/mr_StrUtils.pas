@@ -225,13 +225,13 @@ implementation
   function AnsiToAscii( const Str : string ) : string;
     begin
       SetLength( Result, length( Str ) );
-      CharToOemA( pchar( Str ), pchar( Result ) );
+      CharToOemA( pansichar( Str ), pansichar( Result ) );
     end;
 
   function AsciiToAnsi( const Str : string ) : string;
     begin
       SetLength( Result, length( Str ) );
-      OemToCharA( pchar( Str ), pchar( Result ) );
+      OemToCharA( pansichar( Str ), pansichar( Result ) );
     end;
 
   function CapitalizeStr( const Str : string ) : string;
@@ -526,7 +526,7 @@ implementation
     begin
       Result := Str;
       for i := 0 to length( Result ) - 1 do
-        byte( pchar( Result )[i] ) := byte( pchar( Result )[i] ) and 127;
+        byte( pansichar( Result )[i] ) := byte( pansichar( Result )[i] ) and 127;
     end;
 
   function RightAlign( const Str : string; Width : integer ) : string;

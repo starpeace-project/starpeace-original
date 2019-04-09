@@ -3,7 +3,7 @@ unit TranscendBlock;
 interface
 
   uses
-    Collection, Kernel, Environmental, BackupInterfaces, Accounts, Surfaces, Protocol, CacheAgent;
+    Collection, Kernel, Environmental, BackupInterfaces, Accounts, Surfaces, Protocol, CacheAgent, Variants;
 
   type
     TMetaTranscendBlock =

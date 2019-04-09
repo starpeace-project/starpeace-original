@@ -4,7 +4,7 @@ interface
 
   uses
     SysUtils, SyncObjs, CacheAgent, CacheCommon, RDOInterfaces, RDORootServer,
-    Collection;
+    Collection, Variants;
 
   procedure RegisterCacher(const ClassName : string; Agent : CCacheAgent);
   function  GetObjectPath(Obj : TObject; kind, info : integer) : string;

@@ -3,7 +3,7 @@ unit DistributedStates;
 interface
 
   uses
-    StateEngine, Classes;
+    StateEngine, Classes, Variants;
 
   type
     TDataType = cardinal;

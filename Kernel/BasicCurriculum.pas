@@ -3,7 +3,7 @@ unit BasicCurriculum;
 interface
 
   uses
-    Kernel, BackupInterfaces, Languages;
+    Kernel, BackupInterfaces, Languages, Variants;
 
   type
     TOpenItem =

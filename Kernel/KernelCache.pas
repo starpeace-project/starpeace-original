@@ -150,7 +150,7 @@ implementation
   uses
     SysUtils, SpecialChars, CacheCommon, MathUtils, CacheNameUtils, Plotter,
     ClassStorage, Trade, Collection, Protocol, MetaInstances, Inventions,
-    Languages, Logs, BasicAccounts, BasicTaxes, TycoonLevels;
+    Languages, Logs, BasicAccounts, BasicTaxes, TycoonLevels, Variants;
 
 
   function RenderCircuitStr( Circuits : TCollection ) : string;

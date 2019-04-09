@@ -1,7 +1,9 @@
 unit FacIds;
 
 interface
-
+  uses
+    Variants;
+    
   type
     TFacId      = integer;
     PFacIdArray = ^TFacIdArray;

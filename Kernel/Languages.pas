@@ -3,7 +3,7 @@ unit Languages;
 interface
 
   uses
-    Classes, CacheAgent, MapStringToObject;
+    Classes, CacheAgent, MapStringToObject, Variants;
 
   type
     TLanguageId = string;

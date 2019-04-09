@@ -21,10 +21,10 @@
 		</PropertyGroup>
 		<PropertyGroup Condition="'$(Base)'!=''">
 			<DCC_UnitSearchPath>..\Kernel;..\StdBlocks;..\Class Storage;..\Cache;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client\;..\Persistence;..\Utils\Misc;..\Surfaces;..\Mail;..\Utils\Vcl;$(DELPHI)\Source\Property Editors;..\Protocol;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
-			<DCC_ExeOutput>..\..\release\servers</DCC_ExeOutput>
+			<DCC_ExeOutput>..\..\..\2010 Rebuild\Binaries\</DCC_ExeOutput>
 			<DCC_ImageBase>00400000</DCC_ImageBase>
-			<DCC_DependencyCheckOutputName>..\..\release\servers\DServer.exe</DCC_DependencyCheckOutputName>
-			<DCC_UnitAlias>WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;$(DCC_UnitAlias)</DCC_UnitAlias>
+			<DCC_DependencyCheckOutputName>..\..\..\2010 Rebuild\Binaries\DServer.exe</DCC_DependencyCheckOutputName>
+			<DCC_UnitAlias>WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;WinTypes=Windows;WinProcs=Windows;$(DCC_UnitAlias)</DCC_UnitAlias>
 			<DCC_Alignment>0</DCC_Alignment>
 			<DCC_Define>REPORTMEM;LIBRARY;USELogs;$(DCC_Define)</DCC_Define>
 			<DCC_Platform>x86</DCC_Platform>
@@ -36,7 +36,7 @@
 			<DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
 			<DCC_WriteableConstants>true</DCC_WriteableConstants>
 			<DCC_E>false</DCC_E>
-			<DCC_DcuOutput>..\..\dcu</DCC_DcuOutput>
+			<DCC_DcuOutput>..\..\..\2010 Rebuild\DCU\</DCC_DcuOutput>
 		</PropertyGroup>
 		<PropertyGroup Condition="'$(Cfg_1)'!=''">
 			<DCC_Define>RELEASE;$(DCC_Define)</DCC_Define>
@@ -50,9 +50,6 @@
 			<DelphiCompile Include="DServer.dpr">
 				<MainSource>MainSource</MainSource>
 			</DelphiCompile>
-			<None Include="debug.txt">
-				<ContainerId>File</ContainerId>
-			</None>
 			<DCCReference Include="MainWindow.pas">
 				<Form>DirectoryWin</Form>
 			</DCCReference>

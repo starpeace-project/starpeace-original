@@ -3,7 +3,7 @@ unit SpontaneousBuildings;
 interface
 
   uses
-    Protocol, Kernel, PopulatedBlock, Surfaces, BackupInterfaces;
+    Protocol, Kernel, PopulatedBlock, Surfaces, BackupInterfaces, Variants;
 
   type
     TGrowthDir = (dirN, dirE, dirS, dirW);

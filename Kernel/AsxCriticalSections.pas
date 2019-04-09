@@ -3,7 +3,7 @@ unit AsxCriticalSections;
 interface
 
   uses
-    Windows, SyncObjs;
+    Windows, SyncObjs, Variants;
 
   type
     TAsymetrixCriticalSection =

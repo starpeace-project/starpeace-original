@@ -3,7 +3,7 @@ unit Newspapers;
 interface
 
   uses
-    ModelServerCache, CacheAgent, Kernel;
+    ModelServerCache, CacheAgent, Kernel, Variants;
 
   const
     tidCachePath_Newspapers = 'Newspapers\';

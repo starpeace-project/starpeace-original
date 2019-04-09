@@ -3,7 +3,7 @@ unit VisualClassManager;
 interface
 
   uses
-    IniClasses, Collection, Classes, SysUtils;
+    IniClasses, Collection, Classes, SysUtils, Variants;
 
   type
     TCollection = Collection.TCollection;

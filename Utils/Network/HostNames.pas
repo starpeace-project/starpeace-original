@@ -10,7 +10,7 @@ uses classes ;
 implementation
 
   uses
-    Windows, SysUtils, WinSock, IniFiles, Registry ;
+    Windows, SysUtils, WinSock, IniFiles, Registry;
 
   var
     fHostIp : string = '';

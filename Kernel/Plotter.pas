@@ -3,7 +3,7 @@ unit Plotter;
 interface
 
   uses
-    Persistent, BackupInterfaces;
+    Persistent, BackupInterfaces, Variants;
 
   const
     PlotterPointCount = 12;

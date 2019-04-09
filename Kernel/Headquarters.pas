@@ -3,7 +3,7 @@ unit Headquarters;
 interface
 
   uses
-    Protocol, Kernel, ResearchCenter;                   
+    Protocol, Kernel, ResearchCenter, Variants;                   
 
   type
     TMetaHeadquarterBlock =

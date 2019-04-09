@@ -5,7 +5,7 @@ unit TownPolitics;
 interface
 
   uses
-    Kernel, Politics, Population, CacheAgent, Windows, BackupInterfaces, Languages;
+    Kernel, Politics, Population, CacheAgent, Windows, BackupInterfaces, Languages, Variants;
 
   const
     currId_Mayor = 10;

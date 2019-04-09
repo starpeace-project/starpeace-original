@@ -4,7 +4,7 @@ interface
 
   uses
     Protocol, Kernel, WorkCenterBlock, Classes, Collection, BackupInterfaces, Surfaces,
-    Accounts, StdFluids, Languages, CacheAgent, Inventions;
+    Accounts, StdFluids, Languages, CacheAgent, Inventions, Variants;
 
   const
     tidTownParameter_Broadcast  = 'Broadcast';

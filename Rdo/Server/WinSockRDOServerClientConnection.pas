@@ -9,7 +9,8 @@ interface
     Windows,
     RDOInterfaces,
     SocketComp,
-    SyncObjs;
+    SyncObjs,
+    System.Types;
 
   type
     TWinSockRDOServerClientConnection =

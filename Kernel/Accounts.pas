@@ -3,7 +3,7 @@ unit Accounts;
 interface
 
   uses
-    MetaInstances, Classes, Collection, Persistent, BackupInterfaces, CacheAgent, Plotter, Languages;
+    MetaInstances, Classes, Collection, Persistent, BackupInterfaces, CacheAgent, Plotter, Languages, Variants;
 
   const                                            
     tidClassFamily_Accounts = 'Accounts';

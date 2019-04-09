@@ -3,7 +3,7 @@ unit CircuitEquivalences;
 interface
 
   uses
-    Collection, Circuits;
+    Collection, Circuits, Variants;
 
   type
     TEquivalence  = class;

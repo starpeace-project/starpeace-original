@@ -3,7 +3,7 @@ unit LandSurfaces;
 interface
 
   uses
-    Land, Surfaces;
+    Land, Surfaces, Variants;
 
   type
     TLandValueArray = array[TLandClass] of single;

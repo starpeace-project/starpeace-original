@@ -3,7 +3,7 @@ unit LoanMoneyTask;
 interface
 
   uses
-    Tasks, Kernel, Accounts, CacheAgent, BackupInterfaces, MathUtils;
+    Tasks, Kernel, Accounts, CacheAgent, BackupInterfaces, MathUtils, Variants;
 
   type
     TMetaLoanMoneyTask =

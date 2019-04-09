@@ -3,7 +3,7 @@ unit Trade;
 interface
 
   uses
-    Protocol, Kernel, Standards, CacheCommon;
+    Protocol, Kernel, Standards, CacheCommon, Variants;
 
   const
     TradeCenterPrice   = 200;

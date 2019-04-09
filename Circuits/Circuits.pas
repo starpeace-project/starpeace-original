@@ -3,7 +3,7 @@ unit Circuits;
 interface
 
   uses
-    Classes, Windows, Collection, BackupInterfaces, SyncObjs, ReachMatrix;
+    Classes, Windows, Collection, BackupInterfaces, SyncObjs, ReachMatrix, Variants;
 
   const
     CIRCUIT_NOERROR              = 0;

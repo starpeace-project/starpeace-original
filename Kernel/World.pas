@@ -10,7 +10,7 @@ interface
     Surfaces, Protocol, SyncObjs, MailServerInterfaces, NewsServerInterfaces, LargeMatrix,
     Circuits, MatrixCircuits, Land, TransportInterfaces, Transport, BackupObjects, ActorPool, ActorTypes,
     CacheAgent, Seasons, Graphics, Events, Languages, Persistent, Inventions,
-    MediaNameHistory, EconomyRelay, Matrix;
+    MediaNameHistory, EconomyRelay, Matrix, Variants;
 
   type
     TObjectReport = WideString;

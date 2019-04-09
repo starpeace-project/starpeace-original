@@ -4,8 +4,8 @@ interface
 
 uses
   Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
-  ComCtrls, ExtCtrls, StdCtrls, Buttons, Spin, SocketComp, MemoryManager,
-  ShareMem;
+  ComCtrls, ExtCtrls, StdCtrls, Buttons, SocketComp, MemoryManager,
+  ShareMem, Spin, Variants;
 
 const
   ModelServerKey = '\Software\Oceanus\Five\ModelServer\'; 

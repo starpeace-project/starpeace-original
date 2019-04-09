@@ -4,7 +4,7 @@ interface
 
   uses
     ClassStorageInt, Protocol, Kernel, WorkCenterBlock, Surfaces, OutputEvaluators, Accounts,
-    BackupInterfaces, Inventions, Languages;
+    BackupInterfaces, Inventions, Languages, Variants;
 
   const
     msgBlockOverloaded     = 10000;

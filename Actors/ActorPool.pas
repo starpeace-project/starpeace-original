@@ -3,7 +3,7 @@ unit ActorPool;
 interface
 
   uses
-    StateEngine, DistributedStates, ActorTypes, Classes, Collection, SyncObjs, Windows;
+    StateEngine, DistributedStates, ActorTypes, Classes, Collection, SyncObjs, Windows, Variants;
 
   type
     TActorPoolId = integer;

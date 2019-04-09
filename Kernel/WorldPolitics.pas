@@ -6,7 +6,7 @@ interface
 
   uses
     MetaInstances, BackupInterfaces, Persistent, Kernel, Population, Politics, World, Collection,
-    Accounts, CacheAgent, BackupObjects, Protocol, Languages, ConnectedBlock;
+    Accounts, CacheAgent, BackupObjects, Protocol, Languages, ConnectedBlock, Variants;
 
   const
     PresidentInitialBudget = 1000*1000*1000;

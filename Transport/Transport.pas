@@ -3,7 +3,7 @@ unit Transport;
 interface
 
   uses
-    Classes, Collection, TransportInterfaces, Matrix, Windows;
+    Classes, Collection, TransportInterfaces, Matrix, Windows, Variants;
 
   type
     TRenderQuality = (rqLow, rqHigh);

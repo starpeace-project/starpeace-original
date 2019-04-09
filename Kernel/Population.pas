@@ -4,7 +4,7 @@ interface
 
   uses
     Classes, Kernel, World, Collection, Surfaces, BackupInterfaces, Newspapers,
-    CacheAgent, Protocol, MetaInstances, Accounts, ConnectedBlock, Languages;
+    CacheAgent, Protocol, MetaInstances, Accounts, ConnectedBlock, Languages, Variants;
 
   const
     idWorldPopulator = 0;

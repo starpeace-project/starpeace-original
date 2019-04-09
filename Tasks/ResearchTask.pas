@@ -3,7 +3,7 @@ unit ResearchTask;
 interface
 
   uses
-    Tasks, Kernel, Accounts, CacheAgent, BackupInterfaces, Inventions, FacIds;
+    Tasks, Kernel, Accounts, CacheAgent, BackupInterfaces, Inventions, FacIds, Variants;
 
   type
     TMetaResearchTask =

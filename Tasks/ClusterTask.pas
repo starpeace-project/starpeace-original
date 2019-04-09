@@ -3,7 +3,7 @@ unit ClusterTask;
 interface
 
   uses
-    Tasks;
+    Tasks, Variants;
 
   type
     TMetaClusterTask =

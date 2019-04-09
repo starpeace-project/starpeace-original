@@ -3,7 +3,7 @@ unit ClassStorage;
 interface
 
   uses
-    ClassStorageInt;
+    ClassStorageInt, Variants;
 
 {$ifdef NotStorageDll}
   function  TheClassStorage : TClassStorage;
