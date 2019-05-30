@@ -28,30 +28,29 @@ Z=1
 ShowHints=1
 ShowWarnings=1
 UnitAliases=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
-
 [Linker]
 MapFile=0
 OutputObjs=0
 ConsoleApp=1
 DebugInfo=0
+RemoteSymbols=0
 MinStackSize=16384
 MaxStackSize=1048576
 ImageBase=4194304
 ExeDescription=
-
 [Directories]
-OutputDir=..\..\..\..\Release\GM
-UnitOutputDir=..\..\..\..\Dcu
+OutputDir=Z:\Release\GM
+UnitOutputDir=Z:\dcu
+PackageDLLOutputDir=
+PackageDCPOutputDir=
 SearchPath=
 Packages=VCL50;VCLX50;VCLSMP50;QRPT50;VCLDB50;VCLBDE50;ibevnt50;VCLDBX50;TEEUI50;TEEDB50;TEE50;TEEQR50;VCLIB50;VCLIE50;INETDB50;INET50;NMFAST50;dclocx50;dclaxserver50
 Conditionals=
 DebugSourceDirs=
 UsePackages=0
-
 [Parameters]
 RunParams=
 HostApplication=
-
 [Version Info]
 IncludeVerInfo=0
 AutoIncBuild=0
@@ -66,7 +65,6 @@ Private=0
 DLL=0
 Locale=1033
 CodePage=1252
-
 [Version Info Keys]
 CompanyName=
 FileDescription=
@@ -78,3 +76,14 @@ OriginalFilename=
 ProductName=
 ProductVersion=1.0.0.0
 Comments=
+[Excluded Packages]
+$(DELPHI)\Bin\dclite50.bpl=Borland Integrated Translation Environment
+[HistoryLists\hlUnitAliases]
+Count=1
+Item0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+[HistoryLists\hlUnitOutputDirectory]
+Count=1
+Item0=Z:\dcu
+[HistoryLists\hlOutputDirectorry]
+Count=1
+Item0=Z:\Release\GM
