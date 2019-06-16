@@ -377,7 +377,7 @@ implementation
             // Empty message queue...
           until not PeekMessage( Msg, WndHandle, WM_INTERNALTIMER, WM_INTERNALTIMER, PM_REMOVE );
       if Enabled and Assigned( fOnTimer ) and ( fInterval <> 0 )
-        then TimerId  := timeSetEvent( fInterval, fResolution, TimerEvent, Uint( Self ), TIME_PERIODIC )
+        then TimerId  := timeSetEvent( fInterval, fResolution, TimerEvent, Integer( Self ), TIME_PERIODIC )
         else TimerId := 0;
     end;
 

@@ -3,7 +3,7 @@ unit URLParser;
 interface
 
   uses
-    VoyagerInterfaces, Controls, IdURI;
+    VoyagerInterfaces, Controls;
 
   type
     TFramePositioning = (posRelative, posAbsolute);
@@ -198,13 +198,13 @@ implementation
       URL := DecodeEscSequences( URL );
       UpperURL := uppercase( URL );
       ParmName := uppercase( ParmName );
-      p := Pos( '&' + ParmName, UpperURL, 1 );
+      p := mr_strutils.pos( '&' + ParmName, UpperURL, 1 );
       if p = 0
-        then p := Pos( '?' + ParmName, UpperURL, 1 );
+        then p := mr_strutils.pos( '?' + ParmName, UpperURL, 1 );
       if p > 0
         then
           begin
-            p := Pos( '=', UpperURL, p );
+            p := mr_strutils.pos( '=', UpperURL, p );
             if p > 0
               then
                 begin
@@ -252,13 +252,29 @@ implementation
     end;
 
   function EncodeEscSequences( URL : string ) : string;
-begin
-  Result :=  TIdURI.URLEncode(URL);
-end;
+    var
+      buffer    : pansichar;
+      bufferlen : dword;
+    begin
+      bufferlen := 2*length(URL);
+      buffer    := StrAlloc( bufferlen );
+      if InternetCanonicalizeUrlA( pansichar(URL), buffer, bufferlen, ICU_ENCODE_SPACES_ONLY  )
+        then result := buffer
+        else result := URL;
+      StrDispose(buffer);
+    end;
 
   function DecodeEscSequences( URL : string ) : string;
+    var
+      buffer    : pansichar;
+      bufferlen : dword;
     begin
-      Result := TIdURI.URLDecode(URL);
+      bufferlen := 2*length(URL);
+      buffer    := StrAlloc( bufferlen );
+      if InternetCanonicalizeUrlA( pansichar(URL), buffer, bufferlen, ICU_DECODE or ICU_NO_ENCODE )
+        then result := buffer
+        else result := URL;
+      StrDispose(buffer);
     end;
 
   procedure DeleteParameter( var url : string; parm : string );

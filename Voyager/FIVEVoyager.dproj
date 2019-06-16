@@ -1,0 +1,521 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{EE78D7F9-8081-45FE-8218-AB5CEE10AB8F}</ProjectGuid>
+        <MainSource>FIVEVoyager.dpr</MainSource>
+        <Base>True</Base>
+        <Config Condition="'$(Config)'==''">Debug</Config>
+        <TargetedPlatforms>1025</TargetedPlatforms>
+        <AppType>Application</AppType>
+        <FrameworkType>VCL</FrameworkType>
+        <ProjectVersion>18.6</ProjectVersion>
+        <Platform Condition="'$(Platform)'==''">Win32</Platform>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Base)'=='true') or '$(Base_Win32)'!=''">
+        <Base_Win32>true</Base_Win32>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win64' and '$(Base)'=='true') or '$(Base_Win64)'!=''">
+        <Base_Win64>true</Base_Win64>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_1)'!=''">
+        <Cfg_1>true</Cfg_1>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_1)'=='true') or '$(Cfg_1_Win32)'!=''">
+        <Cfg_1_Win32>true</Cfg_1_Win32>
+        <CfgParent>Cfg_1</CfgParent>
+        <Cfg_1>true</Cfg_1>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Debug' or '$(Cfg_2)'!=''">
+        <Cfg_2>true</Cfg_2>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='iOSDevice64' and '$(Cfg_2)'=='true') or '$(Cfg_2_iOSDevice64)'!=''">
+        <Cfg_2_iOSDevice64>true</Cfg_2_iOSDevice64>
+        <CfgParent>Cfg_2</CfgParent>
+        <Cfg_2>true</Cfg_2>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_2)'=='true') or '$(Cfg_2_Win32)'!=''">
+        <Cfg_2_Win32>true</Cfg_2_Win32>
+        <CfgParent>Cfg_2</CfgParent>
+        <Cfg_2>true</Cfg_2>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base)'!=''">
+        <DCC_E>false</DCC_E>
+        <DCC_F>false</DCC_F>
+        <DCC_K>false</DCC_K>
+        <DCC_N>true</DCC_N>
+        <DCC_S>false</DCC_S>
+        <DCC_ImageBase>00400000</DCC_ImageBase>
+        <DCC_Alignment>1</DCC_Alignment>
+        <DCC_AssertionsAtRuntime>false</DCC_AssertionsAtRuntime>
+        <DCC_DebugInformation>0</DCC_DebugInformation>
+        <DCC_WriteableConstants>true</DCC_WriteableConstants>
+        <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
+        <DCC_PentiumSafeDivide>true</DCC_PentiumSafeDivide>
+        <DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+        <DCC_ExeOutput>C:\Program Files\Oceanus Communications\Legacy Online\retail</DCC_ExeOutput>
+        <DCC_DcuOutput>S:\dcu</DCC_DcuOutput>
+        <DCC_UnitSearchPath>..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client\;..\Utils\Misc;..\Voyager;..\Voyager\URLHandlers;..\voyager\Components;..\Utils\GameAPI;..\Utils\Graphics;..\Utils\Voice;..\DServer;$(DELPHI)\Source\Toolsapi;..\Utils\CodeLib;..\Utils\debug;..\Utils\WinUtils;..\Utils\DirectX;..\Class Storage;..\Kernel;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+        <DebugSourcePath>$(DELPHI)\Source\Rtl;$(DELPHI)\Source\Vcl;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client\;..\Utils\Misc;..\Voyager;..\Voyager\URLHandlers;..\voyager\Components;..\Kernel;..\Utils\GameAPI;..\Utils\Graphics;..\Utils\Voice;..\DServer;$(DELPHI)\Source\Toolsapi;..\Utils\CodeLib;..\Utils\debug;..\Utils\WinUtils;..\Utils\DirectX;..\Class Storage;$(DebugSourcePath)</DebugSourcePath>
+        <DCC_UsePackage>Vcl50;Vclx50;fiveD5cpm;vcl;rtl;$(DCC_UsePackage)</DCC_UsePackage>
+        <DCC_Define>USECARGODATA;EXCMAGIC_GUI;LIBRARY;QuickOut;NotStorageDll;USE_CABSDLL;train;NotChangeDisplay;$(DCC_Define)</DCC_Define>
+        <SanitizedProjectName>FIVEVoyager</SanitizedProjectName>
+        <DCC_Namespace>Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;System;Xml;Data;Datasnap;Web;Soap;Winapi;DUnitX;System.Win;$(DCC_Namespace)</DCC_Namespace>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_AutoGenVersion>true</VerInfo_AutoGenVersion>
+        <VerInfo_MajorVer>2</VerInfo_MajorVer>
+        <VerInfo_MinorVer>1</VerInfo_MinorVer>
+        <VerInfo_Release>1</VerInfo_Release>
+        <VerInfo_Build>136</VerInfo_Build>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <VerInfo_Keys>CompanyName=Oceanus Communications;FileDescription=Legacy Online;FileVersion=2.1.1.136;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=2.1.0.0</VerInfo_Keys>
+        <DCC_UnitAlias>Events=VoyagerEvents;$(DCC_UnitAlias)</DCC_UnitAlias>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_Win32)'!=''">
+        <DCC_Namespace>Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
+        <BT_BuildType>Debug</BT_BuildType>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=;ProgramID=com.embarcadero.$(MSBuildProjectName)</VerInfo_Keys>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
+        <Icon_MainIcon>FIVEVoyager_Icon.ico</Icon_MainIcon>
+        <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
+        <UWP_DelphiLogo44>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_44.png</UWP_DelphiLogo44>
+        <UWP_DelphiLogo150>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_150.png</UWP_DelphiLogo150>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_Win64)'!=''">
+        <Icon_MainIcon>FIVEVoyager_Icon.ico</Icon_MainIcon>
+        <UWP_DelphiLogo44>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_44.png</UWP_DelphiLogo44>
+        <UWP_DelphiLogo150>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_150.png</UWP_DelphiLogo150>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_1)'!=''">
+        <DCC_Define>RELEASE;$(DCC_Define)</DCC_Define>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
+        <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
+        <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2)'!=''">
+        <DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
+        <DCC_Optimize>false</DCC_Optimize>
+        <DCC_GenerateStackFrames>true</DCC_GenerateStackFrames>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2_iOSDevice64)'!=''">
+        <BT_BuildType>Debug</BT_BuildType>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
+        <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
+        <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
+        <DCC_ExeOutput>C:\Users\SDIG\Documents\GitHub\starpeace-original\RonD103\Binaries\Voyager\</DCC_ExeOutput>
+        <DCC_DcpOutput>C:\Users\SDIG\Documents\GitHub\starpeace-original\RonD103\DCP\Voyager\</DCC_DcpOutput>
+        <DCC_BplOutput>C:\Users\SDIG\Documents\GitHub\starpeace-original\RonD103\Package\Voyager\</DCC_BplOutput>
+        <DCC_DcuOutput>C:\Users\SDIG\Documents\GitHub\starpeace-original\RonD103\DCU\Voyager\</DCC_DcuOutput>
+        <VerInfo_MajorVer>1</VerInfo_MajorVer>
+        <VerInfo_MinorVer>0</VerInfo_MinorVer>
+        <VerInfo_Release>0</VerInfo_Release>
+        <VerInfo_Build>0</VerInfo_Build>
+        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=;ProgramID=com.embarcadero.$(MSBuildProjectName)</VerInfo_Keys>
+    </PropertyGroup>
+    <ItemGroup>
+        <DelphiCompile Include="$(MainSource)">
+            <MainSource>MainSource</MainSource>
+        </DelphiCompile>
+        <DCCReference Include="VoyagerWindow.pas">
+            <Form>VoyagerWin</Form>
+        </DCCReference>
+        <DCCReference Include="VoyagerInterfaces.pas"/>
+        <DCCReference Include="URLParser.pas"/>
+        <DCCReference Include="Frames.pas"/>
+        <DCCReference Include="URLHandlers\HTMLHandler.pas"/>
+        <DCCReference Include="URLHandlers\ServerCnxHandler.pas"/>
+        <DCCReference Include="VoyagerServerInterfaces.pas"/>
+        <DCCReference Include="..\Protocol\Protocol.pas"/>
+        <DCCReference Include="VoyagerEvents.pas"/>
+        <DCCReference Include="URLHandlers\LandClassesHandler.pas"/>
+        <DCCReference Include="..\Land\LandInfo.pas"/>
+        <DCCReference Include="URLHandlers\ChatListHandlerViewer.pas">
+            <Form>ChatListHandlerView</Form>
+        </DCCReference>
+        <DCCReference Include="URLHandlers\ChatHandlerViewer.pas">
+            <Form>ChatHandlerView</Form>
+        </DCCReference>
+        <DCCReference Include="URLHandlers\ChatHandler.pas"/>
+        <DCCReference Include="Components\VisualControls.pas"/>
+        <DCCReference Include="..\Land\Land.pas"/>
+        <DCCReference Include="URLHandlers\MsgComposerHandlerViewer.pas">
+            <Form>MsgComposerHandlerView</Form>
+        </DCCReference>
+        <DCCReference Include="URLHandlers\MsgComposerHandler.pas"/>
+        <DCCReference Include="..\Mail\MailProtocol.pas"/>
+        <DCCReference Include="..\Mail\MailConsts.pas"/>
+        <DCCReference Include="URLHandlers\ConfirmPasswordDialog.pas">
+            <Form>ConfirmPasswordDlg</Form>
+        </DCCReference>
+        <DCCReference Include="VoyagerUIEvents.pas"/>
+        <DCCReference Include="Components\MapIsoView\FiveControl.pas"/>
+        <DCCReference Include="Components\MapIsoView\GameControl.pas"/>
+        <DCCReference Include="Components\MapIsoView\GameTypes.pas"/>
+        <DCCReference Include="..\Utils\CodeLib\AxlDebug.pas"/>
+        <DCCReference Include="Components\MapIsoView\MapTypes.pas"/>
+        <DCCReference Include="Components\MapIsoView\Lander.pas"/>
+        <DCCReference Include="Components\MapIsoView\LanderTypes.pas"/>
+        <DCCReference Include="Components\MapIsoView\Map.pas"/>
+        <DCCReference Include="Components\MapIsoView\ImageCache.pas"/>
+        <DCCReference Include="..\Cache\IniClasses.pas"/>
+        <DCCReference Include="Components\MapIsoView\MapIsoView.pas">
+            <Form>MapIsoViewer</Form>
+        </DCCReference>
+        <DCCReference Include="URLHandlers\MapIsoHandler.pas"/>
+        <DCCReference Include="URLHandlers\UniversalMapHandler.pas"/>
+        <DCCReference Include="URLHandlers\ConfigHandler.pas"/>
+        <DCCReference Include="URLHandlers\VisualClassesHandler.pas"/>
+        <DCCReference Include="URLHandlers\ToolbarHandlerViewer.pas">
+            <Form>ToolbarHandlerView</Form>
+        </DCCReference>
+        <DCCReference Include="URLHandlers\ToolbarHandler.pas"/>
+        <DCCReference Include="..\Utils\CodeLib\ScrollRegions.pas"/>
+        <DCCReference Include="..\Utils\CodeLib\CoreTypes.pas"/>
+        <DCCReference Include="..\Utils\CodeLib\Threads.pas"/>
+        <DCCReference Include="Components\MapIsoView\Circuits.pas"/>
+        <DCCReference Include="Components\MapIsoView\BuildClasses.pas"/>
+        <DCCReference Include="..\Utils\CodeLib\TimerTypes.pas"/>
+        <DCCReference Include="Components\MapIsoView\Concrete.pas"/>
+        <DCCReference Include="..\Utils\WinUtils\TimerUtils.pas"/>
+        <DCCReference Include="Components\MapIsoView\Car.pas"/>
+        <DCCReference Include="..\Utils\WinUtils\WinUtils.pas"/>
+        <DCCReference Include="..\Utils\CodeLib\Warnings.pas"/>
+        <DCCReference Include="..\Utils\CodeLib\ShutDown.pas"/>
+        <DCCReference Include="Components\MapIsoView\FiveTypes.pas"/>
+        <DCCReference Include="..\Utils\CodeLib\Animations.pas"/>
+        <DCCReference Include="Components\MapIsoView\CircuitsHandler.pas"/>
+        <DCCReference Include="ServerCnxEvents.pas"/>
+        <DCCReference Include="..\Persistence\BackupInterfaces.pas"/>
+        <DCCReference Include="Config.pas"/>
+        <DCCReference Include="URLHandlers\HintBox.pas">
+            <Form>HintBoxWindow</Form>
+        </DCCReference>
+        <DCCReference Include="..\Class Packer\VisualClassManager.pas"/>
+        <DCCReference Include="URLHandlers\ObjectInspectorHandleViewer.pas">
+            <Form>ObjectInspectorHandlerViewer</Form>
+        </DCCReference>
+        <DCCReference Include="URLHandlers\ObjectInspectorHandler.pas"/>
+        <DCCReference Include="URLHandlers\SheetHandlerRegistry.pas"/>
+        <DCCReference Include="..\Cache\CacheCommon.pas"/>
+        <DCCReference Include="..\Cache\SpecialChars.pas"/>
+        <DCCReference Include="IndustryGeneralSheet.pas">
+            <Form>IndustryGeneralSheetViewer</Form>
+        </DCCReference>
+        <DCCReference Include="SupplySheetForm.pas">
+            <Form>SupplySheetViewer</Form>
+        </DCCReference>
+        <DCCReference Include="URLHandlers\ObjectInspectorInterfaces.pas"/>
+        <DCCReference Include="SheetHandlers.pas"/>
+        <DCCReference Include="GateInfo.pas"/>
+        <DCCReference Include="ProdSheetForm.pas">
+            <Form>ProdSheetViewer</Form>
+        </DCCReference>
+        <DCCReference Include="ResidentialSheet.pas">
+            <Form>ResidentialSheetViewer</Form>
+        </DCCReference>
+        <DCCReference Include="SrvGeneralSheetForm.pas">
+            <Form>ServiceGeneralSheetViewer</Form>
+        </DCCReference>
+        <DCCReference Include="TownHallSheet.pas">
+            <Form>PoliticSheetViewer</Form>
+        </DCCReference>
+        <DCCReference Include="TownParamSheet.pas">
+            <Form>TownParamSheetViewer</Form>
+        </DCCReference>
+        <DCCReference Include="Components\MapIsoView\CacheBackup.pas"/>
+        <DCCReference Include="..\Utils\CodeLib\ThreadTimer.pas"/>
+        <DCCReference Include="Components\MapIsoView\ImageLoader.pas"/>
+        <DCCReference Include="..\Utils\Synchro\Synchro.pas"/>
+        <DCCReference Include="..\Utils\Synchro\CabUtils.pas"/>
+        <DCCReference Include="..\Utils\Synchro\SyncIndex.pas"/>
+        <DCCReference Include="UnkFacilitySheet.pas">
+            <Form>UnknowFacilitySheetViewer</Form>
+        </DCCReference>
+        <DCCReference Include="PicShopForm.pas">
+            <Form>PictureShopViewer</Form>
+        </DCCReference>
+        <DCCReference Include="..\Utils\Misc\Matrix.pas"/>
+        <DCCReference Include="Components\MapIsoView\MapSprites.pas"/>
+        <DCCReference Include="Components\MapIsoView\SoundCache.pas"/>
+        <DCCReference Include="Components\MapIsoView\SoundMixer.pas"/>
+        <DCCReference Include="Components\MapIsoView\Sounds.pas"/>
+        <DCCReference Include="Components\MapIsoView\SoundTypes.pas"/>
+        <DCCReference Include="Components\MapIsoView\LocalCacheManager.pas"/>
+        <DCCReference Include="Components\MapIsoView\GlassedBuffers.pas"/>
+        <DCCReference Include="Components\MapIsoView\LocalCacheTypes.pas"/>
+        <DCCReference Include="..\Utils\SoundLib\SoundLib.pas"/>
+        <DCCReference Include="..\Utils\SoundLib\WaveLow.pas"/>
+        <DCCReference Include="InventionsSheet.pas">
+            <Form>InventionsSheetViewer</Form>
+        </DCCReference>
+        <DCCReference Include="BankGeneralSheet.pas">
+            <Form>BankGeneralSheetViewer</Form>
+        </DCCReference>
+        <DCCReference Include="WinBtns.pas">
+            <Form>WinBtnsView</Form>
+        </DCCReference>
+        <DCCReference Include="AntennasSheet.pas">
+            <Form>AntennasSheetViewer</Form>
+        </DCCReference>
+        <DCCReference Include="TVGeneralSheet.pas">
+            <Form>TVGeneralSheetViewer</Form>
+        </DCCReference>
+        <DCCReference Include="AdvSheetForm.pas">
+            <Form>AdvertismentSheetViewer</Form>
+        </DCCReference>
+        <DCCReference Include="TownTaxesSheet.pas">
+            <Form>TownTaxesSheetViewer</Form>
+        </DCCReference>
+        <DCCReference Include="Cover.pas">
+            <Form>CoverForm</Form>
+        </DCCReference>
+        <DCCReference Include="URLHandlers\OptionsHandlerViewer.pas">
+            <Form>OptionsHandlerView</Form>
+        </DCCReference>
+        <DCCReference Include="URLHandlers\OptionsHandler.pas"/>
+        <DCCReference Include="..\Actors\Automaton.pas"/>
+        <DCCReference Include="..\Actors\ActorPool.pas"/>
+        <DCCReference Include="..\Actors\ActorTypes.pas"/>
+        <DCCReference Include="..\Actors\DistributedStates.pas"/>
+        <DCCReference Include="..\Actors\StateEngine.pas"/>
+        <DCCReference Include="URLHandlers\TransportHandler.pas"/>
+        <DCCReference Include="Vehicles.pas"/>
+        <DCCReference Include="..\Class Storage\ClassStorageInt.pas"/>
+        <DCCReference Include="..\Utils\Misc\StreamToStr.pas"/>
+        <DCCReference Include="URLHandlers\voyagertrains.pas"/>
+        <DCCReference Include="..\Model Extensions\Trains\Train.pas"/>
+        <DCCReference Include="..\Model Extensions\Trains\TrainConst.pas"/>
+        <DCCReference Include="..\Model Extensions\Trains\ClientTrain.pas"/>
+        <DCCReference Include="Notification.pas"/>
+        <DCCReference Include="URLNotification.pas">
+            <Form>URLFrameNotification</Form>
+        </DCCReference>
+        <DCCReference Include="Components\MapIsoView\Roads.pas"/>
+        <DCCReference Include="Components\MapIsoView\Railroads.pas"/>
+        <DCCReference Include="WorkforceSheet.pas">
+            <Form>WorkforceSheetViewer</Form>
+        </DCCReference>
+        <DCCReference Include="TownHallJobsSheet.pas">
+            <Form>TownHallJobsSheetViewer</Form>
+        </DCCReference>
+        <DCCReference Include="TownHallResSheet.pas">
+            <Form>TownHallResSheetViewer</Form>
+        </DCCReference>
+        <DCCReference Include="URLHandlers\JukeBox.pas"/>
+        <DCCReference Include="..\Utils\Misc\CompStringsParser.pas"/>
+        <DCCReference Include="..\RDO\Common\LogFile.pas"/>
+        <DCCReference Include="ManagementSheet.pas">
+            <Form>ManagementSheetViewer</Form>
+        </DCCReference>
+        <DCCReference Include="CapitolSheet.pas">
+            <Form>CapitolSheetViewer</Form>
+        </DCCReference>
+        <DCCReference Include="MinisteriesSheet.pas">
+            <Form>MinisteriesSheetViewer</Form>
+        </DCCReference>
+        <DCCReference Include="URLHandlers\NewChannelForm.pas">
+            <Form>NewChannelFrm</Form>
+        </DCCReference>
+        <DCCReference Include="URLHandlers\PasswordVerifyForm.pas">
+            <Form>PasswordVerifyFrm</Form>
+        </DCCReference>
+        <DCCReference Include="Components\WebBrowser\InternetSecurityManager.pas"/>
+        <DCCReference Include="Components\WebBrowser\Mshtmhst.pas"/>
+        <DCCReference Include="Components\WebBrowser\URLMon2.pas"/>
+        <DCCReference Include="..\Utils\Voice\StarVoice\StarVoice.pas"/>
+        <DCCReference Include="..\Utils\Voice\Interfaces\CompressIntf.pas"/>
+        <DCCReference Include="..\Utils\Voice\Interfaces\FIFOIntf.pas"/>
+        <DCCReference Include="..\Utils\Voice\StarVoice\VoiceTx\VoiceTx.pas"/>
+        <DCCReference Include="..\Utils\Voice\StarVoice\WaveInOut\WaveIn.pas"/>
+        <DCCReference Include="..\Utils\Voice\StarVoice\WaveInOut\WaveHdrs.pas"/>
+        <DCCReference Include="..\Utils\Voice\StarVoice\WaveInOut\MMCheck.pas"/>
+        <DCCReference Include="..\Utils\Voice\Utils\WaveConvert.pas"/>
+        <DCCReference Include="..\Utils\Voice\Utils\ACM.pas"/>
+        <DCCReference Include="..\Utils\Voice\StarVoice\WaveInOut\DSoundUtils.pas"/>
+        <DCCReference Include="..\Utils\Voice\StarVoice\VoiceRx\VoiceRx.pas"/>
+        <DCCReference Include="..\Utils\Voice\StarVoice\WaveInOut\DSoundOut.pas"/>
+        <DCCReference Include="..\Utils\Voice\StarVoice\WaveInOut\ExtTimer.pas"/>
+        <DCCReference Include="..\Utils\Voice\Utils\FIFOUtils.pas"/>
+        <DCCReference Include="..\Utils\Voice\Utils\FIFO.pas"/>
+        <DCCReference Include="..\Utils\Voice\Interfaces\CodecIntf.pas"/>
+        <DCCReference Include="URLHandlers\VoiceHandler.pas"/>
+        <DCCReference Include="URLHandlers\VoicePanelViewer.pas">
+            <Form>VoicePanel</Form>
+        </DCCReference>
+        <DCCReference Include="CompanyServicesSheetForm.pas">
+            <Form>CompanyInputsSheetViewer</Form>
+        </DCCReference>
+        <DCCReference Include="TownProdSheet.pas">
+            <Form>TownProdSheetViewer</Form>
+        </DCCReference>
+        <DCCReference Include="..\Utils\CodeLib\TimerTicker.pas"/>
+        <DCCReference Include="Components\IsometricMap\FiveIsometricMap.pas"/>
+        <DCCReference Include="Components\IsometricMap\IsometricMap.pas"/>
+        <DCCReference Include="Components\IsometricMap\IsometricMapTypes.pas"/>
+        <DCCReference Include="URLHandlers\ChatListHandler.pas"/>
+        <DCCReference Include="Components\JPGtoBMP.pas"/>
+        <DCCReference Include="HistoryDialog.pas">
+            <Form>HistoryDlg</Form>
+        </DCCReference>
+        <DCCReference Include="Components\MapIsoView\FocusTypes.pas"/>
+        <DCCReference Include="Components\MapIsoView\IsoProfile.pas"/>
+        <DCCReference Include="Components\WebBrowser\CustomWebBrowser.pas"/>
+        <DCCReference Include="URLHandlers\LogonHandlerViewer.pas">
+            <Form>LogonHandlerView</Form>
+        </DCCReference>
+        <DCCReference Include="URLHandlers\UniversalMapViewer.pas">
+            <Form>UniversalMapView</Form>
+        </DCCReference>
+        <DCCReference Include="ConnectingWindow.pas">
+            <Form>ConnectingWin</Form>
+        </DCCReference>
+        <DCCReference Include="URLHandlers\BackgroundHandler.pas"/>
+        <DCCReference Include="URLHandlers\BackgroundHandlerViewer.pas">
+            <Form>BackgroundHandlerView</Form>
+        </DCCReference>
+        <DCCReference Include="..\Utils\Serial\GenIdd.pas"/>
+        <DCCReference Include="CapitolTownsSheet.pas">
+            <Form>CapitolTownsSheetViewer</Form>
+        </DCCReference>
+        <DCCReference Include="Components\PlotterGrid.pas">
+            <Form>Plotter</Form>
+        </DCCReference>
+        <DCCReference Include="ChartSheet.pas">
+            <Form>ChartSheetViewer</Form>
+        </DCCReference>
+        <DCCReference Include="ChartWindow.pas">
+            <Form>ChartWin</Form>
+        </DCCReference>
+        <DCCReference Include="..\GM\GMKernel.pas"/>
+        <DCCReference Include="ChatUtils.pas"/>
+        <DCCReference Include="URLHandlers\GMChatViewer.pas">
+            <Form>GMChatView</Form>
+        </DCCReference>
+        <DCCReference Include="URLHandlers\GMChatHandler.pas"/>
+        <DCCReference Include="..\Gm\GM Visual\ClientTest\ConnectOptionsFrm.pas">
+            <Form>GMConnOptions</Form>
+        </DCCReference>
+        <DCCReference Include="..\Gm\GM Visual\GMList.pas"/>
+        <DCCReference Include="MessageBox.pas">
+            <Form>MsgBoxFrm</Form>
+        </DCCReference>
+        <DCCReference Include="..\Utils\MP3Play\MP3Player.pas"/>
+        <DCCReference Include="..\Utils\MP3Play\MP3Reader.pas"/>
+        <DCCReference Include="..\Utils\DXMedia\DShow.pas"/>
+        <DCCReference Include="..\Logs\Logs.pas"/>
+        <DCCReference Include="Literals.pas"/>
+        <DCCReference Include="Components\InternationalizerComponent.pas"/>
+        <DCCReference Include="ClientMLS.pas"/>
+        <DCCReference Include="tabNamesMLS.pas"/>
+        <DCCReference Include="URLHandlers\SimpleTrainView.pas">
+            <Form>SimpleTrains</Form>
+        </DCCReference>
+        <DCCReference Include="URLHandlers\OutputSearchHandler.pas"/>
+        <DCCReference Include="URLHandlers\OutputSearchHandlerViewer.pas">
+            <Form>OutputSearchViewer</Form>
+        </DCCReference>
+        <DCCReference Include="URLHandlers\InputSearchHandler.pas"/>
+        <DCCReference Include="URLHandlers\InputSearchHandlerViewer.pas">
+            <Form>InputSearchViewer</Form>
+        </DCCReference>
+        <DCCReference Include="Components\MapIsoView\Aircraft.pas"/>
+        <DCCReference Include="MausoleumSheet.pas">
+            <Form>MausoleumSheetViewer</Form>
+        </DCCReference>
+        <DCCReference Include="ChangeLog.pas">
+            <Form>ChangeLogView</Form>
+        </DCCReference>
+        <DCCReference Include="..\Utils\Serial\CRC32.pas"/>
+        <DCCReference Include="..\Utils\Serial\MemMapFile.pas"/>
+        <DCCReference Include="Privacy.pas"/>
+        <DCCReference Include="Components\ChatRenderer.pas"/>
+        <DCCReference Include="ChatLogWin.pas">
+            <Form>ChatLogWindow</Form>
+        </DCCReference>
+        <DCCReference Include="FilmsSheet.pas">
+            <Form>FilmsSheetViewer</Form>
+        </DCCReference>
+        <DCCReference Include="BankLoansSheet.pas">
+            <Form>BankLoansSheetViewer</Form>
+        </DCCReference>
+        <DCCReference Include="VotesSheet.pas">
+            <Form>VotesSheetViewer</Form>
+        </DCCReference>
+        <DCCReference Include="..\Utils\SoundLib\LowStuff.pas"/>
+        <DCCReference Include="..\Utils\Debug\ExceptHandle.pas"/>
+        <DCCReference Include="Components\WebBrowser\SHDocVw_TLB.pas"/>
+        <DCCReference Include="..\Utils\Network\ProxyInit.pas"/>
+        <DCCReference Include="Components\MapIsoView\Pedestrian.pas"/>
+        <DCCReference Include="..\Utils\Graphics\Display.pas"/>
+        <DCCReference Include="DisplayControl.pas"/>
+        <DCCReference Include="..\Cache\CacheAgent.pas"/>
+        <DCCReference Include="..\Persistence\VCLBackup.pas"/>
+        <DCCReference Include="..\Kernel\Collection.pas"/>
+        <DCCReference Include="..\Kernel\SmartThreads.pas"/>
+        <DCCReference Include="..\Kernel\SmartThreadRegistry.pas"/>
+        <DCCReference Include="..\Kernel\MapCompress.pas"/>
+        <DCCReference Include="Components\CoolSB.pas"/>
+        <DCCReference Include="FavView.pas">
+            <Form>FavViewer</Form>
+        </DCCReference>
+        <DCCReference Include="MoveFav.pas">
+            <Form>MoveFavDlg</Form>
+        </DCCReference>
+        <DCCReference Include="WHGeneralSheet.pas">
+            <Form>WHGeneralSheetViewer</Form>
+        </DCCReference>
+        <DCCReference Include="HqMainSheet.pas">
+            <Form>HqSheetViewer</Form>
+        </DCCReference>
+        <BuildConfiguration Include="Debug">
+            <Key>Cfg_2</Key>
+            <CfgParent>Base</CfgParent>
+        </BuildConfiguration>
+        <BuildConfiguration Include="Base">
+            <Key>Base</Key>
+        </BuildConfiguration>
+        <BuildConfiguration Include="Release">
+            <Key>Cfg_1</Key>
+            <CfgParent>Base</CfgParent>
+        </BuildConfiguration>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Delphi.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Delphi.Personality>
+                <Source>
+                    <Source Name="MainSource">FIVEVoyager.dpr</Source>
+                </Source>
+                <Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dcloffice2k260.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclofficexp260.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
+                </Excluded_Packages>
+            </Delphi.Personality>
+            <Platforms>
+                <Platform value="iOSDevice64">True</Platform>
+                <Platform value="Win32">True</Platform>
+                <Platform value="Win64">False</Platform>
+            </Platforms>
+        </BorlandProject>
+        <ProjectFileVersion>12</ProjectFileVersion>
+    </ProjectExtensions>
+    <Import Project="$(BDS)\Bin\CodeGear.Delphi.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Delphi.Targets')"/>
+    <Import Project="$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj" Condition="Exists('$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj')"/>
+</Project>

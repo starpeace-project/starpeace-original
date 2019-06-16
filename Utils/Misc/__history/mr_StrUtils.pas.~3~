@@ -52,7 +52,7 @@ interface
   function ReplaceStr(  const Str : string; const Old, New : string ) : string; // Replaces all "Old" substrings by "New"
 
   function Spaces( Count : integer ) : string;                                  // Returns "Count" spaces
-  function Dupchar( Ch : ansichar; Count : integer ) : string;                      // ( "a",   3 ) => "aaa"
+  function Dupansichar( Ch : ansichar; Count : integer ) : string;                      // ( "a",   3 ) => "aaa"
   function DupStr( const Str : string; Count : integer ) : string;              // ( "abc", 3 ) => "abcabcabc"
 
   function StrEqual( Str1, Str2 : pansichar; Len : integer ) : boolean;             // Check for equality between "Str1" & "Str2", ignores #0
@@ -61,7 +61,8 @@ interface
   function RightStr( const Str : string; Count : integer ) : string;            // Get last "Count" characters
   function LeftStr( const Str : string; Count : integer ) : string;             // Get first "Count" characters
 
-  function FirstNot( const Str : string; Ch : char; At : integer ) : integer;   // First character that is not "Ch", starting at "At"           // Same as System cousin
+  function FirstNot( const Str : string; Ch : char; At : integer ) : integer;   // First character that is not "Ch", starting at "At"
+  function Pos( const SubStr, Str : string; At : integer ) : integer;           // Same as System cousin
   function BackPos( const SubStr, Str : string; At : integer ) : integer;       // Backwards version
 
   function EndsWith( const SubStr, Str : string ) : boolean;
@@ -394,17 +395,48 @@ implementation
 
   function FirstNot( const Str : string; Ch : char; At : integer ) : integer;
     begin
-      Result := LastDelimiter(Ch, Str) + 1;
+      Result := LastDelimiter(Ch) + 1;
     end;
 
   function BackPos( const SubStr, Str : string; At : integer ) : integer;
-    var
-      StartPos: integer;
+    var                           // This was coded by Meddy
+      MaxPos : integer;
       Len    : integer;
+      i, j   : integer;
+      Aux    : pansichar;
     begin
-      StartPos := AnsiPos(SubStr, Str);
-      Len := Length(SubStr);
-      Result := (StartPos + Len) - 1
+      Len := length( SubStr );
+
+      assert( ( Len > 0 ) and ( length( Str ) > 0 ), 'Empty string passed in StrUtils.BackPos' );
+
+      if Len = 1
+        then      // [JRG opt]
+          begin
+            if At > 0
+              then Result := At
+              else Result := Length( Str );
+            while ( Str[Result] <> SubStr[1] ) and ( Result > 0 ) do
+              dec( Result );
+          end
+        else      // [Med's stuff]
+          begin
+            if At = 0
+              then MaxPos := length( Str ) - Len
+              else MaxPos := At - Len;
+            i := 0;
+            j := -1;
+            Result := -1;
+            repeat
+              Aux := AnsiPos( Concat(pansichar( Str ),i), pansichar( SubStr ) ); // Should be opt'zd [JRG note]
+              if ( Aux <> nil ) and ( Aux - pansichar( Str ) <= MaxPos )
+                then
+                  begin
+                    j := Aux - pansichar( Str );
+                    i := j + Len;
+                  end
+                else Result := j + 1;
+            until Result >= 0;
+          end
     end;
 
   function StripHiBit( const Str : string ) : string;
@@ -452,7 +484,7 @@ implementation
 
   function StrEqual( Str1, Str2 : pansichar; Len : integer ) : boolean;
   begin
-     Result := SameText(Str1, Str2);
+     Result := ansicomparestr(Str1, Str2);
   end;
 
   function StartsWith( const SubStr, Str : string ) : boolean;

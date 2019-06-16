@@ -52,7 +52,7 @@ interface
   function ReplaceStr(  const Str : string; const Old, New : string ) : string; // Replaces all "Old" substrings by "New"
 
   function Spaces( Count : integer ) : string;                                  // Returns "Count" spaces
-  function Dupchar( Ch : ansichar; Count : integer ) : string;                      // ( "a",   3 ) => "aaa"
+  function Dupansichar( Ch : ansichar; Count : integer ) : string;                      // ( "a",   3 ) => "aaa"
   function DupStr( const Str : string; Count : integer ) : string;              // ( "abc", 3 ) => "abcabcabc"
 
   function StrEqual( Str1, Str2 : pansichar; Len : integer ) : boolean;             // Check for equality between "Str1" & "Str2", ignores #0
@@ -61,7 +61,8 @@ interface
   function RightStr( const Str : string; Count : integer ) : string;            // Get last "Count" characters
   function LeftStr( const Str : string; Count : integer ) : string;             // Get first "Count" characters
 
-  function FirstNot( const Str : string; Ch : char; At : integer ) : integer;   // First character that is not "Ch", starting at "At"           // Same as System cousin
+  function FirstNot( const Str : string; Ch : ansichar; At : integer ) : integer;   // First character that is not "Ch", starting at "At"
+  function Pos( const SubStr, Str : string; At : integer ) : integer;           // Same as System cousin
   function BackPos( const SubStr, Str : string; At : integer ) : integer;       // Backwards version
 
   function EndsWith( const SubStr, Str : string ) : boolean;
@@ -72,7 +73,7 @@ interface
 
   function JoinStrings( Strings : array of string ) : pansichar;                    // Return a NUL terminated list of ASCIIZ strings from an array of strings
   function JoinStringList( List : TStrings ) : pansichar;                           // Same, but from a string list
-  function SplitStringList( StringList : pchar ) : TStrings;                    // Obtain a list of strings from a NUL terminated list
+  function SplitStringList( StringList : pansichar ) : TStrings;                    // Obtain a list of strings from a NUL terminated list
 
   function SplitStrings( const Strings, Separator : string ) : TStrings;
 
@@ -156,14 +157,12 @@ implementation
       until ChPos = 0;
     end;
 
-  function SplitStringList( StringList : pchar ) : TStrings;
+  function SplitStringList( StringList : pansichar ) : TStrings;
     var
       s : string;
-      len: integer;
     begin
       Result := TStringList.Create;
-      len := StrLen(StringList);
-      while len <> 0 do
+      while StrLen( StringList ) <> 0 do
         begin
           s := StringList;
           Result.Add( s );
@@ -393,18 +392,132 @@ implementation
     end;
 
   function FirstNot( const Str : string; Ch : char; At : integer ) : integer;
+    var
+      Len : integer;
     begin
-      Result := LastDelimiter(Ch, Str) + 1;
+      Len    := Length( Str );
+      Result := At;
+      while ( Str[Result] = Ch ) and ( Result <= Len ) do
+        Inc( Result );
+      if Result > Len
+        then Result := 0;
+    end;
+
+  function Pos( const SubStr, Str : string; At : integer ) : integer;
+    asm
+      test    eax, eax
+      je      @@noWork
+
+      test    edx, edx
+      je      @@stringEmpty
+
+      push    ebx
+      push    esi
+      push    edi
+
+      mov     esi, eax                                       // Point ESI to substr
+      mov     edi, edx                                       // Point EDI to s
+      dec     ecx
+      jns     @@offsetOK
+      xor     ecx, ecx
+
+    @@offsetOK:
+      mov     eax, [edi - StrSkew].StrInternalStruct.Length  // ECX = Length( s )
+
+      push    edi                                            // remember s position to calculate index
+
+      add     edi, ecx
+      sub     eax, ecx
+      js      @@fail
+      mov     ecx, eax
+
+      mov     edx, [esi - StrSkew].StrInternalStruct.Length  // EDX = Length( substr )
+
+      dec     edx                                            // EDX = Length( substr ) - 1
+      js      @@fail                                         // < 0 ? return 0
+      mov     al, [esi]                                      // AL = first char of substr
+      inc     esi                                            // Point ESI to 2'nd char of substr
+
+      sub     ecx, edx                                       // #positions in s to look at
+                                                             // = Length( s ) - Length( substr ) + 1
+      jle     @@fail
+
+    @@loop:
+      repne   scasb
+      jne     @@fail
+      mov     ebx, ecx                                       // save outer loop counter
+      push    esi                                            // save outer loop substr pointer
+      push    edi                                            // save outer loop s pointer
+
+      mov     ecx, edx
+      repe    cmpsb
+      pop     edi                                            // restore outer loop s pointer
+      pop     esi                                            // restore outer loop substr pointer
+      je      @@found
+      mov     ecx, ebx                                       // restore outer loop counter
+      jmp     @@loop
+
+    @@fail:
+      pop     edx                                            // get rid of saved s pointer
+      xor     eax, eax
+      jmp     @@exit
+
+    @@stringEmpty:
+      xor     eax, eax
+      jmp     @@noWork
+
+    @@found:
+      pop     edx                                            // restore pointer to first char of s
+      mov     eax, edi                                       // EDI points of char after match
+      sub     eax, edx                                       // the difference is the correct index
+
+    @@exit:
+      pop     edi
+      pop     esi
+      pop     ebx
+
+    @@noWork:
     end;
 
   function BackPos( const SubStr, Str : string; At : integer ) : integer;
-    var
-      StartPos: integer;
+    var                           // This was coded by Meddy
+      MaxPos : integer;
       Len    : integer;
+      i, j   : integer;
+      Aux    : pansichar;
     begin
-      StartPos := AnsiPos(SubStr, Str);
-      Len := Length(SubStr);
-      Result := (StartPos + Len) - 1
+      Len := length( SubStr );
+
+      assert( ( Len > 0 ) and ( length( Str ) > 0 ), 'Empty string passed in StrUtils.BackPos' );
+
+      if Len = 1
+        then      // [JRG opt]
+          begin
+            if At > 0
+              then Result := At
+              else Result := Length( Str );
+            while ( Str[Result] <> SubStr[1] ) and ( Result > 0 ) do
+              dec( Result );
+          end
+        else      // [Med's stuff]
+          begin
+            if At = 0
+              then MaxPos := length( Str ) - Len
+              else MaxPos := At - Len;
+            i := 0;
+            j := -1;
+            Result := -1;
+            repeat
+              Aux := StrPos( pansichar( Str ) + i, pansichar( SubStr ) ); // Should be opt'zd [JRG note]
+              if ( Aux <> nil ) and ( Aux - pansichar( Str ) <= MaxPos )
+                then
+                  begin
+                    j := Aux - pansichar( Str );
+                    i := j + Len;
+                  end
+                else Result := j + 1;
+            until Result >= 0;
+          end
     end;
 
   function StripHiBit( const Str : string ) : string;
@@ -446,13 +559,37 @@ implementation
     end;
 
   function CharPos( Str : pansichar; Ch : ansichar; Len : integer ) : integer;
-    begin
-      Result := ansipos(Ch, Str);
+    // EAX = Str
+    // EDX = Ch
+    // ECX = Len
+    asm
+      push ebx
+      mov  ebx, eax              // Str
+      mov  eax, ecx              // Backup Len
+
+      or   ecx, ecx
+      jz   @@NotFound
+      or   ebx, ebx
+      jz   @@NotFound
+
+    @@Loop:
+      cmp  [ebx], dl
+      je   @@Exit
+      inc  ebx
+      dec  ecx
+      jnz  @@Loop
+
+    @@NotFound:
+      lea  ecx, [eax + 1] // Not found, make EAX = -1
+
+    @@Exit:
+      sub  eax, ecx
+      pop  ebx
     end;
 
   function StrEqual( Str1, Str2 : pansichar; Len : integer ) : boolean;
   begin
-     Result := SameText(Str1, Str2);
+     Result := ansicomparestr(Str1, Str2);
   end;
 
   function StartsWith( const SubStr, Str : string ) : boolean;

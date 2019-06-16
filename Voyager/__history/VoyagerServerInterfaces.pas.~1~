@@ -350,12 +350,12 @@ implementation
         if text[1] = '['
           then
             begin
-              p1 := Pos( ',', text, 1 );
+              p1 := mr_strutils.pos( ',', text, 1 );
               if p1 > 0
                 then
                   begin
                     name := copy( text, 2, p1 - 2 );
-                    p2 := Pos( ']', text, p1 );
+                    p2 := mr_strutils.pos( ']', text, p1 );
                     if p2 > 0
                       then
                         begin
