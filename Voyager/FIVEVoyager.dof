@@ -39,8 +39,8 @@ MaxStackSize=1048576
 ImageBase=4194304
 ExeDescription=
 [Directories]
-OutputDir=C:\Program Files\Oceanus Communications\Legacy Online\retail
-UnitOutputDir=S:\dcu
+OutputDir=C:\Users\SDIG\Documents\GitHub\starpeace-original\AARonsD5\Binaries
+UnitOutputDir=C:\Users\SDIG\Documents\GitHub\starpeace-original\AARonsD5\Dcu
 PackageDLLOutputDir=
 PackageDCPOutputDir=
 SearchPath=..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client\;..\Utils\Misc;..\Voyager;..\Voyager\URLHandlers;..\voyager\Components;..\Utils\GameAPI;..\Utils\Graphics;..\Utils\Voice;..\DServer;$(DELPHI)\Source\Toolsapi;..\Utils\CodeLib;..\Utils\debug;..\Utils\WinUtils;..\Utils\DirectX;..\Class Storage;..\Kernel
@@ -98,11 +98,13 @@ Item1=$(DELPHI)\Lib\Debug;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Cl
 Item2=$(DELPHI)\Lib\Debug
 Item3=$(DELPHI)\Lib\Debug;..\voyager\components;..\rdo\client;..\rdo\common;..\utils\network\;..\utils\Synchro;..\Kernel;..\Voyager\Components\WebBrowser;..\utils\misc;..\utils\debug;..\Utils\WinUtils;..\Utils\DirectX;..\Utils\DXMedia;..\Utils\DirectX;..\Utils\Voice\Utils
 [HistoryLists\hlUnitOutputDirectory]
-Count=2
-Item0=S:\dcu
-Item1=..\..\dcu
-[HistoryLists\hlOutputDirectorry]
 Count=3
-Item0=C:\Program Files\Oceanus Communications\Legacy Online\Retail
-Item1=C:\Program Files\Oceanus\Starpeace
-Item2=S:\Release\Installer
+Item0=C:\Users\SDIG\Documents\GitHub\starpeace-original\AARonsD5\Dcu
+Item1=S:\dcu
+Item2=..\..\dcu
+[HistoryLists\hlOutputDirectorry]
+Count=4
+Item0=C:\Users\SDIG\Documents\GitHub\starpeace-original\AARonsD5\Binaries
+Item1=C:\Program Files\Oceanus Communications\Legacy Online\Retail
+Item2=C:\Program Files\Oceanus\Starpeace
+Item3=S:\Release\Installer

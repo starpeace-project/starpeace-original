@@ -118,6 +118,7 @@ type
         fLatency          : integer;
         fSyncTask         : TThreadedTask;
         fLangList         : TStringList;
+        fLocaleList       : TStringList;
         fConfigHolder     : IConfigHolder;
         fLoadConfig       : boolean;
         fLastMode         : integer;
@@ -575,8 +576,10 @@ implementation
       fMasterURLHandler.HandleEvent( evnAnswerConfigHolder, fConfigHolder );
       fMasterURLHandler.HandleEvent( evnAnswerPrivateCache, CachePath );
       fLangList := TStringList.Create;
+      fLocaleList := TStringList.Create;
       try
         fLangList.LoadFromFile( CachePath + 'lang.dat' );
+        fLocaleList.LoadFromFile( CachePath + 'locale.dat );
       except
       end;
     end;
