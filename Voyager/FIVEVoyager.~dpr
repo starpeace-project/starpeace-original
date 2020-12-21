@@ -233,7 +233,7 @@ begin
   LogFile.SetLogFile(ParamStr(0) + '.log');
   {$ENDIF}
   Application.Initialize;
-  Application.Title := 'Starpeace';
+  Application.Title := 'Legacy Online';
   Application.CreateForm(TVoyagerWin, VoyagerWin);
   Application.CreateForm(THintBoxWindow, HintBoxWindow);
   Application.CreateForm(TURLFrameNotification, URLFrameNotification);

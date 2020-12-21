@@ -172,14 +172,14 @@ implementation
       lbWelcome.Top := lbWelcome.Top + dy;
 
       fMasterURLHandler.HandleEvent( evnAnswerConfigHolder, fConfigHolder );
-      DSAddr := fConfigHolder.ReadString( true, '', 'DSAddr', 'ifel.space' );
+      DSAddr := fConfigHolder.ReadString( true, '', 'DSAddr', 'dir.legacyonline.net' );
       DSPort := fConfigHolder.ReadInteger( true, '', 'DSPort', 1111 );
 
       // Patch Exodus DS
       if (DSAddr = '') or (DSAddr = '64.69.182.122')
         then
           begin
-            DSAddr := 'dir.ifel.space';
+            DSAddr := 'dir.legacyonline.net';
             fConfigHolder.WriteString(true, '', 'DSAddr', DSAddr);
           end;
 
@@ -188,7 +188,7 @@ implementation
       if (DefSite = '') or (system.pos('64.69.183.3', DefSite) <> 0)
         then
           begin
-            DefSite := 'http://ifel.space/five/';
+            DefSite := 'http://www.legacyonline.net/five/';
             fConfigHolder.WriteString(true, '', 'DefaultSite', DefSite);
           end;
 
@@ -930,7 +930,7 @@ implementation
       }
       //ShellExecute( 0, nil, 'http://stage.sega.com/community/profiles/legacyonline/lo_signup.jhtml', nil, nil, SW_SHOWDEFAULT);
       //s :='http://www.sega.com/community/profiles/legacyonline/lo_signup.jhtml';
-      s :='ifel.space';
+      s :='http://www.sega.com/community/profiles/legacyonline/lo_signup_login.jhtml';
       //s := '-k "'+s+'"';
       if fMasterURLHandler<>nil
         then

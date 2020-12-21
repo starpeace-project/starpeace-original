@@ -35,5 +35,7 @@ Jump.Hint=Display overlay map tools
 Jump.Text=JUMP TO PLANET
 Refresh.Hint=Display overlay map tools
 Refresh.Text=REFRESH PLANET LIST
+RulesTicker.Caption=See Rules
+RulesTicker.Hint=
 RightLine.Caption=
 RightLine.Hint=

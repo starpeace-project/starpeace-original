@@ -39,8 +39,8 @@ MaxStackSize=1048576
 ImageBase=4194304
 ExeDescription=
 [Directories]
-OutputDir=C:\Program Files\Oceanus Communications\Legacy Online\retail
-UnitOutputDir=S:\dcu
+OutputDir=..\..\Compiled\Client
+UnitOutputDir=..\..\Compiled\dcu
 PackageDLLOutputDir=
 PackageDCPOutputDir=
 SearchPath=..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client\;..\Utils\Misc;..\Voyager;..\Voyager\URLHandlers;..\voyager\Components;..\Utils\GameAPI;..\Utils\Graphics;..\Utils\Voice;..\DServer;$(DELPHI)\Source\Toolsapi;..\Utils\CodeLib;..\Utils\debug;..\Utils\WinUtils;..\Utils\DirectX;..\Class Storage;..\Kernel
@@ -54,10 +54,10 @@ HostApplication=
 [Version Info]
 IncludeVerInfo=1
 AutoIncBuild=1
-MajorVer=2
-MinorVer=1
-Release=1
-Build=136
+MajorVer=2020
+MinorVer=0
+Release=0
+Build=2
 Debug=0
 PreRelease=0
 Special=0
@@ -66,15 +66,15 @@ DLL=0
 Locale=1033
 CodePage=1252
 [Version Info Keys]
-CompanyName=Oceanus Communications
-FileDescription=Legacy Online
-FileVersion=2.1.1.136
+CompanyName=Starpeace
+FileDescription=Starpeace
+FileVersion=2020.0.0.2
 InternalName=
 LegalCopyright=
 LegalTrademarks=
 OriginalFilename=
 ProductName=
-ProductVersion=2.1.0.0
+ProductVersion=2020.0.0.1
 [Excluded Packages]
 $(DELPHI)\Bin\dclite50.bpl=Borland Integrated Translation Environment
 [HistoryLists\hlDebugSourcePath]
@@ -98,11 +98,15 @@ Item1=$(DELPHI)\Lib\Debug;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Cl
 Item2=$(DELPHI)\Lib\Debug
 Item3=$(DELPHI)\Lib\Debug;..\voyager\components;..\rdo\client;..\rdo\common;..\utils\network\;..\utils\Synchro;..\Kernel;..\Voyager\Components\WebBrowser;..\utils\misc;..\utils\debug;..\Utils\WinUtils;..\Utils\DirectX;..\Utils\DXMedia;..\Utils\DirectX;..\Utils\Voice\Utils
 [HistoryLists\hlUnitOutputDirectory]
-Count=2
-Item0=S:\dcu
-Item1=..\..\dcu
+Count=4
+Item0=..\..\Compiled\dcu
+Item1=..\Compiled\dcu
+Item2=S:\dcu
+Item3=..\..\dcu
 [HistoryLists\hlOutputDirectorry]
-Count=3
-Item0=C:\Program Files\Oceanus Communications\Legacy Online\Retail
-Item1=C:\Program Files\Oceanus\Starpeace
-Item2=S:\Release\Installer
+Count=5
+Item0=..\..\Compiled\Client
+Item1=..\Compiled\Client
+Item2=C:\Program Files\Oceanus Communications\Legacy Online\Retail
+Item3=C:\Program Files\Oceanus\Starpeace
+Item4=S:\Release\Installer
