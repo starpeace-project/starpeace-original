@@ -17,7 +17,6 @@ uses
 
 begin
   Application.Initialize;
-  Application.Title := 'Starpeace Directory Server';
   Application.CreateForm(TDirectoryWin, DirectoryWin);
   Application.Run;
 end.

@@ -33,13 +33,16 @@ MapFile=0
 OutputObjs=0
 ConsoleApp=1
 DebugInfo=0
+RemoteSymbols=0
 MinStackSize=16384
 MaxStackSize=1048576
 ImageBase=4194304
 ExeDescription=
 [Directories]
-OutputDir=..\..\release\servers
-UnitOutputDir=..\..\dcu
+OutputDir=..\..\Compiled\Server
+UnitOutputDir=..\..\Compiled\dcu
+PackageDLLOutputDir=
+PackageDCPOutputDir=
 SearchPath=..\Kernel;..\StdBlocks;..\Class Storage;..\Cache;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client\;..\Persistence;..\Utils\Misc;..\Surfaces;..\Mail;..\Tasks;..\logs;..\Inventions;..\utils\vcl
 Packages=vclx30;VCL30;vcldb30;vcldbx30;inetdb30;inet30;VclSmp30;Qrpt30;teeui30;teedb30;tee30;dss30;IBEVNT30
 Conditionals=USELogs
@@ -49,12 +52,12 @@ UsePackages=0
 RunParams=
 HostApplication=
 [Version Info]
-IncludeVerInfo=0
-AutoIncBuild=0
-MajorVer=1
+IncludeVerInfo=1
+AutoIncBuild=1
+MajorVer=2020
 MinorVer=0
 Release=0
-Build=0
+Build=2
 Debug=0
 PreRelease=0
 Special=0
@@ -63,9 +66,9 @@ DLL=0
 Locale=1033
 CodePage=1252
 [Version Info Keys]
-CompanyName=
-FileDescription=
-FileVersion=1.0.0.0
+CompanyName=Starpeace
+FileDescription=Directory Server
+FileVersion=2020.0.0.2
 InternalName=
 LegalCopyright=
 LegalTrademarks=
@@ -74,6 +77,19 @@ ProductName=
 ProductVersion=1.0.0.0
 Comments=
 [Excluded Packages]
-F:\Program Files\Borland\Delphi 3\BIN\DbX30.dpl=(untitled)
-F:\Program Files\Borland\Delphi 3\LIB\AxlDesgn.dpl=Merchise CodeLib - Designers
-F:\Program Files\Borland\Delphi 3\LIB\AxlGraph.dpl=Merchise CodeLib - Graphics
+$(DELPHI)\Bin\dclite50.bpl=Borland Integrated Translation Environment
+[HistoryLists\hlConditionals]
+Count=1
+Item0=USELogs
+[HistoryLists\hlUnitAliases]
+Count=1
+Item0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+[HistoryLists\hlSearchPath]
+Count=1
+Item0=..\Kernel;..\StdBlocks;..\Class Storage;..\Cache;..\RDO\Common;..\RDO\Server;..\Utils\Network;..\RDO\Client\;..\Persistence;..\Utils\Misc;..\Surfaces;..\Mail;..\Tasks;..\logs;..\Inventions;..\utils\vcl
+[HistoryLists\hlUnitOutputDirectory]
+Count=1
+Item0=..\..\Compiled\dcu
+[HistoryLists\hlOutputDirectorry]
+Count=1
+Item0=..\..\Compiled\Server
