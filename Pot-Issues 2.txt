@@ -50,3 +50,4 @@
 [x]49- Construction Sites Start/Stop in Inspect not working properly.
 [x]50- Show the transportation costs in the Supply/Products lists.
 [ ]51- Make Hq buy ads by default.
+New
